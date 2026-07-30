@@ -1,0 +1,501 @@
+vendor_id,name,category,historical_rating,reliability_score,avg_delay_days,defect_rate,historical_completion_rate
+VND-0001,"Rodriguez, Figueroa and Sanchez",Marketing & Print,4.22,0.687,6.59,0.0769,0.71
+VND-0002,Doyle Ltd,Software Licenses,3.95,0.578,0.5,0.0066,0.803
+VND-0003,"Mcclain, Miller and Henderson",IT Hardware,4.5,0.801,1.72,0.002,0.992
+VND-0004,Davis and Sons,Catering Services,4.79,0.916,0.14,0.0158,0.796
+VND-0005,"Guzman, Hoffman and Baldwin",Logistics & Shipping,4.13,0.652,1.81,0.0466,0.602
+VND-0006,"Gardner, Robinson and Lawrence",Office Supplies,4.51,0.806,0.2,0.0279,0.842
+VND-0007,Blake and Sons,Office Supplies,4.32,0.728,2.93,0.0203,0.879
+VND-0008,"Henderson, Ramirez and Lewis",Office Furniture,4.49,0.796,0.07,0.0585,0.793
+VND-0009,Garcia-James,Catering Services,3.83,0.533,9.73,0.1134,0.783
+VND-0010,Abbott-Munoz,Software Licenses,4.13,0.652,0.25,0.0738,0.654
+VND-0011,Blair PLC,Marketing & Print,3.9,0.561,2.1,0.004,0.818
+VND-0012,Dudley Group,Catering Services,4.07,0.629,2.82,0.0342,0.682
+VND-0013,Arnold Ltd,Security Services,4.43,0.773,0.32,0.0951,0.944
+VND-0014,"Mcclure, Ward and Lee",Software Licenses,4.92,0.97,0.48,0.0493,0.98
+VND-0015,Williams and Sons,HVAC & Maintenance,3.86,0.544,0.7,0.0053,0.614
+VND-0016,Galloway-Wyatt,Chemical Materials,4.24,0.694,0.68,0.0866,0.625
+VND-0017,James Group,IT Hardware,4.1,0.64,1.97,0.0153,0.781
+VND-0018,"Flowers, Martin and Kelly",IT Hardware,3.84,0.537,14.04,0.0904,0.57
+VND-0019,"Adams, Zuniga and Wong",Software Licenses,3.76,0.503,5.88,0.0847,0.755
+VND-0020,"Reid, Ferguson and Sanchez",Office Supplies,4.71,0.886,0.06,0.032,0.779
+VND-0021,Gray-Mayo,Office Supplies,4.83,0.932,0.47,0.0283,0.766
+VND-0022,"Watts, Robinson and Nguyen",Security Services,4.14,0.655,0.95,0.0785,0.723
+VND-0023,Perez Inc,HVAC & Maintenance,4.86,0.944,0.25,0.0101,0.928
+VND-0024,Morales-Jones,IT Hardware,4.7,0.88,0.69,0.0691,0.873
+VND-0025,"Walter, Edwards and Rios",Security Services,4.4,0.761,0.93,0.0025,0.777
+VND-0026,Wilkerson-Day,Office Supplies,3.79,0.516,3.43,0.0373,0.678
+VND-0027,Baker and Sons,Catering Services,4.88,0.954,0.09,0.0343,0.939
+VND-0028,"Hoffman, Baker and Richards",Marketing & Print,4.04,0.614,0.22,0.0321,0.556
+VND-0029,"Ross, Robinson and Bright",Catering Services,4.91,0.965,0.41,0.0525,0.968
+VND-0030,"Snyder, Campos and Callahan",Security Services,4.75,0.902,0.14,0.0784,0.885
+VND-0031,Burton Ltd,Chemical Materials,4.76,0.904,1.53,0.0279,0.778
+VND-0032,Carlson-Cruz,Office Supplies,4.03,0.614,1.51,0.0907,0.801
+VND-0033,"Ferrell, Rice and Maddox",Janitorial Services,3.76,0.503,2.48,0.05,0.578
+VND-0034,Frazier Inc,HVAC & Maintenance,3.9,0.56,1.27,0.1086,0.613
+VND-0035,"Dyer, Potter and Mack",Logistics & Shipping,4.4,0.759,2.04,0.0361,0.993
+VND-0036,Rodriguez-Graham,IT Hardware,4.95,0.981,0.04,0.0405,0.825
+VND-0037,Smith-Bowen,Office Furniture,4.11,0.642,0.09,0.0662,0.676
+VND-0038,"Baker, Mason and White",Catering Services,3.81,0.526,1.08,0.1071,0.584
+VND-0039,Harrell LLC,Chemical Materials,3.93,0.572,2.01,0.1126,0.585
+VND-0040,"Romero, Gonzalez and Brooks",Raw Metals,4.59,0.836,1.65,0.0221,0.932
+VND-0041,Ryan PLC,Logistics & Shipping,4.21,0.684,2.21,0.0667,0.688
+VND-0042,George Group,Office Furniture,3.86,0.545,5.74,0.0373,0.565
+VND-0043,Rodriguez LLC,Office Supplies,3.8,0.52,3.0,0.0802,0.506
+VND-0044,Allen-Allen,Raw Metals,4.39,0.756,0.44,0.0642,0.794
+VND-0045,"Arroyo, Miller and Tucker",Software Licenses,4.61,0.845,0.53,0.0865,0.784
+VND-0046,Spence PLC,Software Licenses,4.18,0.671,0.28,0.0983,0.807
+VND-0047,Anderson Group,Chemical Materials,4.07,0.629,2.8,0.0896,0.694
+VND-0048,"Martin, Rose and Obrien",Software Licenses,4.41,0.765,0.46,0.0092,0.974
+VND-0049,Hickman Ltd,Raw Metals,4.88,0.95,0.35,0.0285,0.837
+VND-0050,"Harris, Collins and Carney",Raw Metals,4.66,0.863,2.18,0.0807,0.945
+VND-0051,"Brooks, Lam and Hayes",HVAC & Maintenance,4.55,0.821,0.11,0.0152,0.975
+VND-0052,Walker LLC,Logistics & Shipping,4.51,0.803,0.01,0.0097,0.916
+VND-0053,Chapman and Sons,IT Hardware,3.76,0.503,0.61,0.0657,0.742
+VND-0054,"Robinson, Jones and Welch",Catering Services,4.56,0.826,0.31,0.0669,0.809
+VND-0055,Jones Inc,Janitorial Services,4.16,0.663,3.24,0.0695,0.797
+VND-0056,Jones-Young,Security Services,4.57,0.829,1.01,0.0088,0.842
+VND-0057,"Washington, Ryan and Cummings",Software Licenses,4.08,0.633,0.72,0.1064,0.638
+VND-0058,"Johnston, Sanchez and Kennedy",Chemical Materials,4.87,0.946,0.38,0.067,0.876
+VND-0059,Lee-Davis,Software Licenses,4.47,0.788,1.0,0.0189,0.931
+VND-0060,Gomez-Jenkins,Security Services,4.1,0.64,0.06,0.0702,0.562
+VND-0061,"Brown, Valdez and Lucas",Logistics & Shipping,4.93,0.97,0.64,0.0754,0.843
+VND-0062,Powell LLC,Marketing & Print,3.77,0.508,9.08,0.0511,0.838
+VND-0063,Wright and Sons,HVAC & Maintenance,4.95,0.982,0.24,0.024,0.846
+VND-0064,"West, Henderson and Ramirez",Raw Metals,4.81,0.926,0.2,0.0146,0.889
+VND-0065,Baxter Inc,HVAC & Maintenance,4.92,0.968,0.27,0.0471,0.774
+VND-0066,Morton-Chase,Office Supplies,4.52,0.808,6.21,0.0134,0.88
+VND-0067,Williams PLC,Catering Services,4.85,0.939,0.58,0.0592,0.926
+VND-0068,Novak and Sons,Software Licenses,4.2,0.68,0.78,0.0855,0.784
+VND-0069,Russell Group,IT Hardware,4.83,0.934,1.14,0.0436,0.875
+VND-0070,Hancock Inc,Marketing & Print,4.75,0.899,0.74,0.0618,0.949
+VND-0071,Gray Group,Office Supplies,4.86,0.945,0.16,0.0317,0.773
+VND-0072,House-Glover,Logistics & Shipping,4.47,0.789,0.05,0.0451,0.886
+VND-0073,Henderson-Bernard,Software Licenses,4.11,0.643,2.23,0.0033,0.513
+VND-0074,"Stanley, Tucker and Lee",Office Supplies,4.78,0.911,0.28,0.0111,0.881
+VND-0075,Novak PLC,Software Licenses,4.71,0.885,0.2,0.0556,0.771
+VND-0076,"Daniels, Adkins and Brown",Chemical Materials,3.81,0.526,2.52,0.0638,0.723
+VND-0077,"Woods, Calhoun and Schmidt",Logistics & Shipping,4.66,0.863,3.57,0.047,0.831
+VND-0078,Yu Inc,Janitorial Services,4.74,0.898,0.23,0.0387,0.77
+VND-0079,Jones Inc,Marketing & Print,3.78,0.513,11.21,0.0995,0.744
+VND-0080,"Hensley, Powell and David",Raw Metals,4.26,0.704,0.39,0.0162,0.813
+VND-0081,"Sanchez, Wheeler and Harvey",Office Furniture,4.44,0.775,1.98,0.0647,0.82
+VND-0082,Sandoval-Cunningham,Raw Metals,4.94,0.977,0.21,0.0453,0.903
+VND-0083,Donovan-Harris,Raw Metals,4.27,0.71,0.58,0.0367,0.939
+VND-0084,"Edwards, Baker and Anderson",Office Supplies,3.77,0.507,0.43,0.0055,0.514
+VND-0085,"Evans, Stewart and Walton",Marketing & Print,4.82,0.928,0.62,0.0407,0.774
+VND-0086,Smith PLC,Logistics & Shipping,4.36,0.746,1.14,0.0174,0.858
+VND-0087,"Ferrell, Jones and Lewis",Catering Services,4.25,0.699,2.01,0.0661,0.516
+VND-0088,Anderson-Bailey,Marketing & Print,4.22,0.687,2.15,0.0528,0.8
+VND-0089,Suarez LLC,Marketing & Print,4.57,0.829,0.21,0.0066,0.911
+VND-0090,Moore-Bass,Software Licenses,3.78,0.513,3.0,0.1118,0.701
+VND-0091,"Turner, Riggs and Roman",HVAC & Maintenance,4.24,0.694,2.21,0.0479,0.691
+VND-0092,"Smith, Montoya and Evans",Marketing & Print,4.93,0.971,0.1,0.0791,0.976
+VND-0093,"Garcia, Humphrey and Baker",Office Furniture,3.99,0.598,0.2,0.0113,0.506
+VND-0094,Newton and Sons,Security Services,3.87,0.547,3.64,0.0083,0.612
+VND-0095,Campbell-Clark,Catering Services,4.81,0.922,0.01,0.0702,0.82
+VND-0096,Harris-Walters,Office Supplies,3.9,0.559,3.68,0.0725,0.807
+VND-0097,Wagner-King,Office Furniture,4.67,0.868,1.51,0.0256,0.794
+VND-0098,Davis Group,Janitorial Services,4.69,0.875,1.44,0.0891,0.853
+VND-0099,Williams-Cook,Chemical Materials,4.22,0.686,3.29,0.0358,0.826
+VND-0100,Walsh LLC,Logistics & Shipping,4.82,0.929,0.28,0.0643,0.939
+VND-0101,Figueroa PLC,Marketing & Print,3.88,0.552,7.31,0.0585,0.789
+VND-0102,"Patterson, Smith and Jones",Catering Services,4.15,0.66,5.38,0.0417,0.504
+VND-0103,"Mckee, Gardner and Davenport",Security Services,4.88,0.953,0.03,0.0268,0.988
+VND-0104,"Tran, Jordan and Williams",Office Supplies,4.94,0.975,0.15,0.0518,0.862
+VND-0105,Nolan-Flynn,Marketing & Print,4.12,0.647,0.99,0.0728,0.763
+VND-0106,Nolan and Sons,Raw Metals,4.74,0.896,1.14,0.0081,0.874
+VND-0107,"Wright, Garcia and Deleon",IT Hardware,3.82,0.529,2.63,0.052,0.811
+VND-0108,Dickson-Brady,Office Supplies,4.19,0.675,0.28,0.0152,0.767
+VND-0109,Hancock and Sons,IT Hardware,4.52,0.809,0.14,0.008,0.925
+VND-0110,Johnson-Doyle,Raw Metals,3.84,0.536,5.6,0.0827,0.528
+VND-0111,Patton-Jenkins,Chemical Materials,3.86,0.542,13.82,0.0436,0.63
+VND-0112,"Shields, Cochran and Adams",Logistics & Shipping,4.77,0.906,1.93,0.0863,0.938
+VND-0113,"Rodriguez, Brennan and Garrison",Software Licenses,4.22,0.688,0.19,0.0816,0.695
+VND-0114,Gonzalez Group,Office Supplies,4.28,0.712,4.77,0.0115,0.873
+VND-0115,Torres-Pope,HVAC & Maintenance,3.76,0.506,2.19,0.0067,0.542
+VND-0116,Walker Ltd,Catering Services,3.9,0.559,3.24,0.086,0.704
+VND-0117,Ross LLC,Raw Metals,4.95,0.981,0.06,0.0233,0.967
+VND-0118,Rasmussen LLC,Office Supplies,4.03,0.612,8.98,0.0013,0.839
+VND-0119,May-Ross,Marketing & Print,3.8,0.522,7.43,0.0624,0.848
+VND-0120,"Rivera, Johnson and Wiley",Janitorial Services,3.84,0.537,2.62,0.1135,0.683
+VND-0121,White-Estes,Chemical Materials,4.54,0.815,1.54,0.0431,0.907
+VND-0122,Johnson-Carlson,Marketing & Print,4.48,0.792,3.37,0.0044,0.82
+VND-0123,Chandler-Edwards,Janitorial Services,4.94,0.975,0.38,0.0374,0.905
+VND-0124,"Joyce, Wilson and Lam",Office Furniture,4.1,0.639,0.53,0.0505,0.624
+VND-0125,Scott Ltd,Logistics & Shipping,4.48,0.792,0.12,0.0942,0.997
+VND-0126,Smith-Frost,Office Furniture,4.62,0.849,0.81,0.0285,0.953
+VND-0127,"Mcdaniel, Bentley and Mclaughlin",Office Supplies,4.61,0.842,0.2,0.0844,0.956
+VND-0128,Diaz Inc,Catering Services,4.94,0.975,0.23,0.0503,0.855
+VND-0129,"Mccall, Hanson and Alvarado",Security Services,4.92,0.966,0.47,0.0037,0.757
+VND-0130,Cortez LLC,Security Services,4.22,0.688,3.63,0.1036,0.553
+VND-0131,"Parker, Ortiz and Powell",Logistics & Shipping,4.49,0.797,0.68,0.0933,0.961
+VND-0132,Spencer-Lee,Catering Services,4.8,0.919,0.36,0.0359,0.818
+VND-0133,"Bentley, Byrd and Orr",HVAC & Maintenance,3.82,0.528,6.61,0.0957,0.85
+VND-0134,"Carroll, Sullivan and Bass",Chemical Materials,5.0,0.998,0.01,0.0616,0.986
+VND-0135,Mitchell-Jordan,HVAC & Maintenance,4.81,0.925,0.15,0.0388,0.782
+VND-0136,"Lawson, Morris and Ramos",Chemical Materials,4.94,0.977,0.15,0.0187,0.918
+VND-0137,"Lewis, Kennedy and Santana",Raw Metals,4.52,0.809,0.59,0.0108,0.918
+VND-0138,"Jackson, Miller and Robertson",Office Supplies,4.4,0.76,2.48,0.0516,0.963
+VND-0139,"Harvey, Davis and Crane",Office Furniture,4.44,0.776,1.29,0.0858,0.851
+VND-0140,Chambers and Sons,Security Services,3.92,0.567,0.09,0.0866,0.717
+VND-0141,Hernandez Inc,Janitorial Services,4.63,0.852,0.25,0.0125,0.754
+VND-0142,Riggs PLC,Software Licenses,4.19,0.675,2.03,0.0416,0.653
+VND-0143,Gibson Ltd,IT Hardware,4.88,0.952,0.14,0.0431,0.946
+VND-0144,"Lee, Horton and Snyder",Software Licenses,4.25,0.698,2.06,0.0898,0.832
+VND-0145,Hernandez Ltd,Office Furniture,3.93,0.574,7.8,0.0562,0.59
+VND-0146,Stafford Inc,Marketing & Print,4.32,0.73,7.41,0.0501,0.832
+VND-0147,Robinson-Brock,Office Furniture,4.54,0.817,0.35,0.0072,0.782
+VND-0148,"Holmes, Williams and Wright",Marketing & Print,3.91,0.564,0.5,0.0159,0.724
+VND-0149,Bryant Group,Chemical Materials,3.98,0.591,1.21,0.1011,0.666
+VND-0150,"Schmidt, Hansen and Stewart",HVAC & Maintenance,4.58,0.834,0.22,0.0179,0.76
+VND-0151,Salazar-Ball,Software Licenses,3.96,0.584,0.95,0.02,0.531
+VND-0152,"Simmons, Meadows and Griffin",Chemical Materials,3.9,0.56,1.9,0.0238,0.627
+VND-0153,Manning Group,Chemical Materials,4.38,0.752,2.04,0.0039,0.95
+VND-0154,Green-Wright,HVAC & Maintenance,4.53,0.814,0.11,0.0829,0.98
+VND-0155,"Ramirez, Strickland and Washington",Janitorial Services,3.83,0.531,1.07,0.0948,0.762
+VND-0156,Hill Inc,Security Services,3.98,0.592,0.67,0.0417,0.67
+VND-0157,"Mitchell, Nelson and Flores",Logistics & Shipping,4.52,0.809,0.62,0.0441,0.937
+VND-0158,"Miller, Hernandez and Reyes",Security Services,3.8,0.518,0.98,0.0846,0.813
+VND-0159,Mccarthy Inc,IT Hardware,4.39,0.756,1.3,0.0107,0.862
+VND-0160,Russell-Daniels,Marketing & Print,4.42,0.766,0.45,0.0266,0.844
+VND-0161,Brown-Wall,Catering Services,3.78,0.51,1.33,0.0252,0.615
+VND-0162,Stein-Silva,Software Licenses,3.9,0.56,6.82,0.0684,0.738
+VND-0163,"Smith, Gilmore and Johnston",Marketing & Print,4.74,0.895,0.51,0.0077,0.884
+VND-0164,Smith-Bell,Security Services,4.48,0.793,1.98,0.0417,0.782
+VND-0165,Castaneda-Ashley,Logistics & Shipping,4.1,0.642,1.13,0.0702,0.7
+VND-0166,Medina-Navarro,Marketing & Print,4.2,0.678,9.7,0.0641,0.583
+VND-0167,"Hurst, Freeman and Nelson",Raw Metals,3.88,0.551,0.52,0.0285,0.556
+VND-0168,Johnson-Rogers,Software Licenses,3.98,0.593,0.96,0.0195,0.814
+VND-0169,"Yates, Ramsey and Pittman",Logistics & Shipping,3.85,0.54,2.39,0.0479,0.844
+VND-0170,Hooper PLC,Chemical Materials,3.89,0.556,1.58,0.112,0.803
+VND-0171,Meadows PLC,Office Furniture,4.77,0.909,0.19,0.0149,0.917
+VND-0172,"Alvarado, Miller and Patterson",Janitorial Services,4.91,0.965,0.2,0.0473,0.82
+VND-0173,White-Green,IT Hardware,4.71,0.885,0.17,0.0289,0.856
+VND-0174,Lewis-Murphy,Catering Services,4.38,0.754,0.48,0.0114,0.903
+VND-0175,Ramirez-Bean,Catering Services,4.11,0.644,2.17,0.0167,0.668
+VND-0176,King-Miller,Logistics & Shipping,4.42,0.766,0.09,0.0332,0.784
+VND-0177,Curry Inc,Security Services,3.83,0.532,15.08,0.0379,0.783
+VND-0178,Walker-Jones,Office Furniture,4.07,0.627,2.98,0.0835,0.708
+VND-0179,"Williams, Johnson and Wright",Security Services,4.34,0.736,0.98,0.0353,0.982
+VND-0180,Howell and Sons,Software Licenses,4.79,0.915,1.99,0.0108,0.933
+VND-0181,Wells Inc,Marketing & Print,4.92,0.969,0.04,0.0055,0.935
+VND-0182,"Gould, Marshall and Scott",Logistics & Shipping,4.47,0.787,2.75,0.0136,0.949
+VND-0183,Jackson-Lawson,Marketing & Print,4.0,0.601,0.5,0.0184,0.785
+VND-0184,"Higgins, Strickland and Martin",Security Services,4.58,0.833,0.87,0.0335,0.969
+VND-0185,Rodriguez-Johnson,HVAC & Maintenance,4.24,0.696,3.61,0.0458,0.632
+VND-0186,Johnston-Odonnell,Office Supplies,4.33,0.731,0.67,0.0759,0.876
+VND-0187,Sanders-Espinoza,Office Furniture,4.04,0.616,6.18,0.0425,0.69
+VND-0188,Vargas Ltd,Raw Metals,4.88,0.953,0.32,0.0098,0.985
+VND-0189,Garcia LLC,Office Furniture,4.53,0.814,0.53,0.0132,0.949
+VND-0190,"Burke, Martinez and Riggs",Security Services,4.53,0.81,1.01,0.0851,0.947
+VND-0191,Reed Group,Security Services,3.94,0.576,1.11,0.0283,0.76
+VND-0192,"Wood, Hunter and Peterson",IT Hardware,3.79,0.517,2.85,0.0905,0.807
+VND-0193,Short-Garcia,HVAC & Maintenance,4.18,0.671,3.96,0.0118,0.796
+VND-0194,Reid-Poole,Raw Metals,3.91,0.564,1.55,0.0916,0.552
+VND-0195,"Hernandez, Thompson and Boyd",Janitorial Services,4.04,0.615,3.46,0.0798,0.724
+VND-0196,"Nelson, Morton and Medina",IT Hardware,4.62,0.847,0.84,0.0232,0.836
+VND-0197,Marshall-Petersen,Software Licenses,3.98,0.591,6.85,0.0658,0.64
+VND-0198,"Adams, Christian and Rivas",Raw Metals,4.33,0.731,5.54,0.0156,0.897
+VND-0199,Ramirez Group,Logistics & Shipping,4.38,0.753,1.63,0.0018,0.968
+VND-0200,Christensen PLC,Office Supplies,4.92,0.966,0.2,0.0576,0.981
+VND-0201,"Barnett, Rogers and Snyder",IT Hardware,4.63,0.854,0.17,0.0529,0.902
+VND-0202,White-Lewis,Office Supplies,4.28,0.712,2.69,0.0963,0.981
+VND-0203,Peterson-Beard,HVAC & Maintenance,4.31,0.725,0.23,0.1004,0.96
+VND-0204,"Beard, Peters and Black",Software Licenses,3.91,0.562,7.77,0.1,0.682
+VND-0205,Miller Ltd,Software Licenses,4.49,0.796,0.73,0.0053,0.834
+VND-0206,Freeman-Chang,Catering Services,4.75,0.901,0.0,0.0293,0.85
+VND-0207,"Alvarez, Joseph and West",Janitorial Services,4.42,0.769,4.09,0.0341,0.837
+VND-0208,Davis and Sons,Software Licenses,4.67,0.869,0.55,0.0203,0.863
+VND-0209,Holt-Torres,Security Services,3.93,0.57,0.58,0.057,0.647
+VND-0210,"Wood, Tran and Cooper",Office Furniture,4.89,0.957,0.13,0.0484,0.908
+VND-0211,"Pierce, Bell and Chavez",Office Furniture,3.77,0.507,3.76,0.0213,0.836
+VND-0212,King-Martinez,Marketing & Print,3.94,0.574,1.6,0.0097,0.849
+VND-0213,Stewart Ltd,Janitorial Services,4.38,0.751,1.58,0.0067,0.937
+VND-0214,"Tapia, Vaughn and Lee",Security Services,4.01,0.605,6.31,0.0229,0.567
+VND-0215,"Washington, Hardy and Bray",Office Furniture,3.8,0.518,2.15,0.067,0.523
+VND-0216,"Carlson, Hooper and Wall",Logistics & Shipping,4.72,0.888,0.47,0.0467,0.86
+VND-0217,Perez-White,Security Services,4.25,0.7,1.72,0.0161,0.795
+VND-0218,Erickson and Sons,HVAC & Maintenance,4.83,0.931,1.41,0.0319,0.818
+VND-0219,Williams-Brown,Chemical Materials,4.55,0.822,0.65,0.0024,0.789
+VND-0220,Terry-Martinez,Office Supplies,4.64,0.858,1.07,0.0025,0.805
+VND-0221,Garcia-Smith,Security Services,4.04,0.616,3.0,0.0022,0.536
+VND-0222,Harrison-Alexander,Catering Services,4.75,0.9,0.14,0.0574,0.81
+VND-0223,Sheppard LLC,Catering Services,3.87,0.55,0.88,0.0838,0.799
+VND-0224,Wilson-Jones,Office Supplies,4.79,0.915,0.3,0.058,0.801
+VND-0225,Jones-Soto,Catering Services,4.12,0.647,5.61,0.0014,0.53
+VND-0226,Hernandez PLC,Logistics & Shipping,4.01,0.604,0.07,0.0203,0.704
+VND-0227,Miller-Wright,Chemical Materials,4.28,0.711,4.52,0.0843,0.835
+VND-0228,"Duran, Obrien and Gibbs",Marketing & Print,4.07,0.63,1.24,0.0647,0.594
+VND-0229,Rowe Group,Marketing & Print,4.53,0.812,0.69,0.0525,0.859
+VND-0230,Kerr-Evans,Raw Metals,4.12,0.647,7.32,0.0826,0.549
+VND-0231,"Branch, Torres and Oliver",Janitorial Services,4.84,0.934,0.31,0.0763,0.95
+VND-0232,"Choi, Garcia and Farmer",Security Services,4.28,0.713,0.05,0.0277,0.885
+VND-0233,"Clark, Guerrero and Moore",Janitorial Services,4.54,0.817,0.38,0.0132,0.959
+VND-0234,Arnold and Sons,Software Licenses,4.98,0.992,0.04,0.0138,0.818
+VND-0235,Ortiz Ltd,Office Supplies,3.77,0.509,8.44,0.014,0.702
+VND-0236,"Harrison, Johnson and Roberts",Office Supplies,4.09,0.637,2.05,0.071,0.79
+VND-0237,Warner-Gibson,Software Licenses,4.01,0.603,0.03,0.0153,0.815
+VND-0238,"Hall, Baker and Moody",Raw Metals,4.84,0.937,0.4,0.0511,0.916
+VND-0239,"Guerrero, Peck and Coleman",IT Hardware,3.97,0.588,7.09,0.0473,0.634
+VND-0240,"Walker, Hernandez and Baker",HVAC & Maintenance,4.4,0.759,0.08,0.0165,0.935
+VND-0241,Jones and Sons,Security Services,3.85,0.541,2.97,0.0286,0.636
+VND-0242,Larson-Holloway,Office Supplies,4.11,0.644,1.09,0.078,0.604
+VND-0243,Gonzales-Harrison,HVAC & Maintenance,4.46,0.783,0.98,0.0646,0.984
+VND-0244,Lyons-Bender,Office Supplies,4.67,0.866,0.23,0.0028,0.816
+VND-0245,"Fernandez, Kim and George",IT Hardware,4.49,0.798,0.07,0.0477,0.899
+VND-0246,Navarro-Munoz,Software Licenses,4.17,0.667,3.43,0.0114,0.526
+VND-0247,Davis Ltd,Catering Services,4.66,0.864,0.65,0.0626,0.859
+VND-0248,"Matthews, Smith and Hubbard",Marketing & Print,4.06,0.623,4.51,0.0881,0.743
+VND-0249,Johnston-Hines,IT Hardware,4.09,0.636,2.27,0.0394,0.532
+VND-0250,Ruiz Ltd,Office Supplies,4.9,0.959,0.04,0.0792,0.862
+VND-0251,Moon-White,Software Licenses,3.98,0.593,2.23,0.0983,0.756
+VND-0252,"Graham, Olsen and Costa",IT Hardware,4.76,0.903,0.73,0.0607,0.962
+VND-0253,Bailey-Cook,Raw Metals,4.06,0.625,1.77,0.0243,0.846
+VND-0254,"Garcia, Martin and Jenkins",Software Licenses,4.93,0.972,0.01,0.058,0.981
+VND-0255,Roberts-Landry,Security Services,3.98,0.59,2.41,0.1032,0.512
+VND-0256,"Johnson, Miller and King",Office Supplies,4.62,0.849,0.37,0.0851,0.993
+VND-0257,Cordova Group,Logistics & Shipping,4.93,0.972,0.13,0.0709,0.961
+VND-0258,"Bryan, Smith and Booth",Marketing & Print,4.15,0.66,4.21,0.004,0.709
+VND-0259,Gutierrez-Lopez,Janitorial Services,4.04,0.615,0.35,0.0085,0.744
+VND-0260,Dean-Jimenez,Office Supplies,4.17,0.67,2.98,0.007,0.61
+VND-0261,Wolf-Harris,Security Services,4.42,0.77,2.52,0.0314,0.906
+VND-0262,"Anderson, Roberts and Gilmore",Office Furniture,4.86,0.943,0.38,0.0197,0.756
+VND-0263,Martinez-Dudley,Catering Services,4.84,0.935,0.01,0.0745,0.882
+VND-0264,"Lloyd, Mckinney and Collins",HVAC & Maintenance,4.92,0.97,0.34,0.0823,0.838
+VND-0265,Tran Inc,HVAC & Maintenance,4.71,0.884,0.42,0.0429,0.907
+VND-0266,Gay Inc,Janitorial Services,4.84,0.937,1.83,0.0653,0.854
+VND-0267,Valentine-Holland,Office Supplies,4.28,0.711,2.71,0.0246,0.778
+VND-0268,Jimenez Ltd,Janitorial Services,4.19,0.677,0.76,0.0314,0.582
+VND-0269,Hicks-Hill,Chemical Materials,3.8,0.521,0.06,0.1169,0.65
+VND-0270,Baird-Sanchez,Office Supplies,4.23,0.692,2.45,0.0228,0.832
+VND-0271,"Thomas, Lee and Greene",Software Licenses,4.73,0.893,0.07,0.037,0.97
+VND-0272,"Suarez, Shields and Hill",Software Licenses,4.93,0.972,0.12,0.0504,0.792
+VND-0273,Morgan-French,Marketing & Print,4.99,0.996,0.01,0.0758,0.912
+VND-0274,Hoover-Campbell,Chemical Materials,4.51,0.804,0.99,0.0221,0.794
+VND-0275,Monroe-Carpenter,Raw Metals,4.03,0.61,0.56,0.0867,0.623
+VND-0276,"Burns, Hernandez and Ryan",Chemical Materials,3.82,0.529,11.47,0.104,0.825
+VND-0277,Cook-Hines,Chemical Materials,4.99,0.997,0.0,0.0318,0.94
+VND-0278,Gibson-Morris,Janitorial Services,4.62,0.848,0.18,0.0752,0.806
+VND-0279,Pollard and Sons,Catering Services,4.03,0.612,2.09,0.0658,0.703
+VND-0280,"Reyes, Chase and Jenkins",IT Hardware,3.86,0.546,6.68,0.0309,0.545
+VND-0281,Garner-Thornton,Marketing & Print,4.86,0.944,1.21,0.0728,0.952
+VND-0282,Hughes-Alvarado,Marketing & Print,4.57,0.828,0.97,0.0082,0.852
+VND-0283,"Pollard, Simpson and Johnson",Marketing & Print,4.22,0.686,0.66,0.076,0.674
+VND-0284,"Sanford, Rivera and Garcia",Software Licenses,3.85,0.541,0.8,0.0798,0.527
+VND-0285,Garcia-Lozano,IT Hardware,4.81,0.926,0.36,0.0413,0.898
+VND-0286,Bowen Group,Chemical Materials,4.78,0.912,0.26,0.059,0.891
+VND-0287,"Booker, Jones and Harrington",Catering Services,4.08,0.634,5.41,0.0872,0.73
+VND-0288,Morgan-Schwartz,Raw Metals,4.81,0.925,1.06,0.0609,0.959
+VND-0289,"Miller, Murphy and Craig",Software Licenses,4.62,0.849,1.21,0.057,0.938
+VND-0290,"James, Stewart and Higgins",Office Supplies,3.95,0.579,6.27,0.0991,0.51
+VND-0291,Brennan-Johnson,Office Supplies,4.78,0.913,0.08,0.0291,0.936
+VND-0292,Young Ltd,Office Supplies,3.95,0.58,5.0,0.0945,0.678
+VND-0293,Bright-Francis,Security Services,3.76,0.503,1.18,0.0739,0.843
+VND-0294,Good-Hodges,Janitorial Services,4.54,0.816,0.39,0.0601,0.885
+VND-0295,"Brennan, Wallace and Benson",Office Furniture,4.72,0.89,0.09,0.0676,0.885
+VND-0296,Williams Inc,Chemical Materials,4.95,0.981,0.05,0.0515,0.983
+VND-0297,Howard-Jordan,Office Furniture,3.88,0.551,8.7,0.0797,0.524
+VND-0298,Schmidt PLC,Logistics & Shipping,4.13,0.65,3.01,0.0073,0.704
+VND-0299,"Sparks, Jackson and Miller",Janitorial Services,4.18,0.673,2.22,0.0049,0.805
+VND-0300,Harvey-Allen,Office Supplies,4.97,0.987,0.32,0.0608,0.783
+VND-0301,"Thomas, Murray and King",Software Licenses,4.7,0.879,0.02,0.002,0.831
+VND-0302,Estrada-Nolan,Janitorial Services,4.36,0.744,2.63,0.0686,0.861
+VND-0303,Santana-Byrd,Security Services,4.09,0.637,14.88,0.0465,0.658
+VND-0304,Jones LLC,Software Licenses,3.95,0.582,4.64,0.0787,0.577
+VND-0305,"Evans, Hayden and Vaughn",IT Hardware,3.85,0.541,3.66,0.0764,0.596
+VND-0306,Bruce-Gonzalez,Marketing & Print,4.94,0.975,0.03,0.0354,0.986
+VND-0307,Castaneda-Rodriguez,Security Services,4.27,0.71,2.07,0.041,0.819
+VND-0308,Armstrong-Andrews,IT Hardware,4.98,0.992,0.03,0.0721,0.807
+VND-0309,"Phillips, Spence and Barrett",Software Licenses,4.02,0.607,0.09,0.0726,0.629
+VND-0310,Smith-Grimes,Office Supplies,4.83,0.932,0.3,0.0827,0.796
+VND-0311,"Beltran, Lozano and Mcgee",Office Furniture,4.84,0.934,0.69,0.0657,0.961
+VND-0312,Parsons-Hall,Chemical Materials,4.7,0.881,0.82,0.0118,0.758
+VND-0313,Robinson-Lee,Janitorial Services,4.9,0.96,0.27,0.0662,0.87
+VND-0314,Byrd-Le,Janitorial Services,3.9,0.559,0.41,0.0791,0.651
+VND-0315,"Becker, Taylor and Davis",Office Supplies,4.0,0.6,1.89,0.0072,0.704
+VND-0316,"Lucas, Parker and Alexander",Chemical Materials,4.09,0.634,4.09,0.0339,0.659
+VND-0317,"Diaz, Anderson and Browning",IT Hardware,3.76,0.506,0.26,0.0469,0.668
+VND-0318,Burgess-Thompson,Office Furniture,4.5,0.8,0.48,0.0667,0.965
+VND-0319,Buchanan LLC,Chemical Materials,4.72,0.89,0.03,0.0427,0.776
+VND-0320,"Shaw, Nelson and Martin",IT Hardware,4.05,0.621,11.45,0.0157,0.675
+VND-0321,Coffey-Phillips,Chemical Materials,4.52,0.809,1.62,0.0533,0.752
+VND-0322,Brock-Mcdonald,Logistics & Shipping,4.16,0.663,1.72,0.0094,0.623
+VND-0323,Taylor and Sons,Janitorial Services,3.79,0.517,0.28,0.0471,0.546
+VND-0324,"Ramsey, Whitney and Coffey",Logistics & Shipping,4.46,0.784,1.77,0.0779,0.8
+VND-0325,"Diaz, Gibbs and Smith",Chemical Materials,3.96,0.584,0.32,0.0721,0.747
+VND-0326,"Martinez, Richardson and Curry",Catering Services,3.79,0.516,9.33,0.0062,0.689
+VND-0327,Richards-Carson,Catering Services,4.64,0.855,2.09,0.0654,0.95
+VND-0328,Rodriguez-Hall,Security Services,4.17,0.67,3.9,0.0085,0.813
+VND-0329,Harvey PLC,Marketing & Print,4.43,0.774,2.69,0.0444,0.911
+VND-0330,Herman-Walker,Catering Services,4.41,0.763,2.18,0.0081,0.765
+VND-0331,Reid Group,Janitorial Services,4.06,0.624,0.46,0.096,0.577
+VND-0332,"Turner, Ortiz and Taylor",Office Furniture,4.97,0.988,0.03,0.0147,0.947
+VND-0333,Torres Group,Office Supplies,4.57,0.829,0.82,0.052,0.93
+VND-0334,Davis PLC,Logistics & Shipping,4.04,0.614,15.15,0.1081,0.728
+VND-0335,Price LLC,Office Supplies,4.0,0.6,3.19,0.0081,0.511
+VND-0336,"Avery, Horton and Fernandez",IT Hardware,4.07,0.629,1.61,0.0952,0.755
+VND-0337,"Newton, Moore and Perry",HVAC & Maintenance,4.68,0.871,0.5,0.0312,0.843
+VND-0338,Bass PLC,Catering Services,4.98,0.994,0.0,0.0698,0.895
+VND-0339,Crosby-Ramirez,Security Services,4.3,0.719,2.54,0.0499,0.968
+VND-0340,"Wood, Ramos and Sampson",IT Hardware,4.88,0.95,0.19,0.0232,0.898
+VND-0341,Garcia-Jennings,Catering Services,4.89,0.956,0.07,0.052,0.908
+VND-0342,"Winters, Newman and Brown",Raw Metals,4.67,0.867,0.13,0.0649,0.977
+VND-0343,Lopez-Martinez,IT Hardware,3.97,0.59,0.78,0.1096,0.563
+VND-0344,Davis-Lewis,IT Hardware,4.82,0.927,0.35,0.0212,0.968
+VND-0345,"Harper, Smith and Buchanan",HVAC & Maintenance,4.31,0.723,1.4,0.0367,0.898
+VND-0346,Zhang PLC,Janitorial Services,3.95,0.582,1.45,0.11,0.59
+VND-0347,Jones PLC,Security Services,4.57,0.828,0.47,0.0725,0.783
+VND-0348,Willis and Sons,Security Services,4.96,0.985,0.06,0.0192,0.768
+VND-0349,Schroeder-Kramer,Office Furniture,3.96,0.585,2.13,0.0382,0.79
+VND-0350,"Smith, Garrison and Thomas",IT Hardware,4.29,0.715,0.57,0.0634,0.927
+VND-0351,Fernandez and Sons,Security Services,3.96,0.584,0.53,0.0042,0.758
+VND-0352,Guerrero Inc,Software Licenses,4.58,0.832,0.76,0.0789,0.951
+VND-0353,Smith and Sons,Office Furniture,4.48,0.793,2.94,0.0199,0.778
+VND-0354,"Morris, Thompson and Williams",Software Licenses,4.09,0.635,0.15,0.058,0.828
+VND-0355,"Fisher, Wilson and Brown",HVAC & Maintenance,3.8,0.52,0.44,0.0536,0.827
+VND-0356,Strickland-Palmer,Software Licenses,4.15,0.658,1.69,0.0045,0.552
+VND-0357,Hayes and Sons,Marketing & Print,4.98,0.993,0.16,0.0004,0.988
+VND-0358,"Williams, Logan and Camacho",Office Supplies,4.55,0.82,2.56,0.0429,0.879
+VND-0359,"Turner, Schneider and Johnson",Chemical Materials,4.36,0.744,1.97,0.014,0.757
+VND-0360,Boone-Simmons,Software Licenses,4.13,0.654,2.95,0.0217,0.736
+VND-0361,Henry Group,HVAC & Maintenance,4.96,0.985,0.01,0.0546,0.861
+VND-0362,Lam LLC,Office Supplies,4.84,0.934,0.09,0.0591,0.96
+VND-0363,"Hernandez, Martinez and Weber",HVAC & Maintenance,4.93,0.972,0.22,0.0409,0.904
+VND-0364,"Kelley, Nguyen and Vang",HVAC & Maintenance,4.84,0.934,0.39,0.0026,0.983
+VND-0365,"Phillips, Wagner and Jordan",IT Hardware,4.61,0.845,1.23,0.0199,0.915
+VND-0366,"Wilson, Pena and Rich",HVAC & Maintenance,4.24,0.697,2.23,0.0111,0.73
+VND-0367,"Le, Lewis and Hayes",Software Licenses,5.0,1.0,0.0,0.0782,0.852
+VND-0368,Gutierrez Group,Chemical Materials,4.84,0.935,0.69,0.0483,0.935
+VND-0369,Perry-Davis,Marketing & Print,4.85,0.939,0.22,0.0278,0.917
+VND-0370,Edwards-Scott,HVAC & Maintenance,4.76,0.904,0.97,0.07,0.859
+VND-0371,Mcdaniel Group,HVAC & Maintenance,4.77,0.909,0.08,0.0475,0.751
+VND-0372,Davis Inc,Security Services,4.16,0.662,1.08,0.0424,0.743
+VND-0373,Reynolds Ltd,Raw Metals,4.24,0.694,1.27,0.0248,0.631
+VND-0374,"Watson, Anderson and Brown",Logistics & Shipping,4.03,0.614,0.21,0.0669,0.734
+VND-0375,"Hoffman, Santiago and Jenkins",Office Supplies,4.52,0.81,0.83,0.0362,0.966
+VND-0376,"Pugh, Henderson and Moon",Marketing & Print,4.4,0.76,1.1,0.0025,0.835
+VND-0377,Schmitt PLC,Catering Services,4.23,0.69,1.1,0.0608,0.687
+VND-0378,Bell-Lane,Raw Metals,4.51,0.804,1.99,0.0778,0.93
+VND-0379,Moore Group,Office Supplies,4.94,0.978,0.0,0.016,0.752
+VND-0380,Boone LLC,Logistics & Shipping,4.56,0.824,2.82,0.0229,0.982
+VND-0381,"Richardson, Farmer and Andrews",Chemical Materials,3.83,0.53,8.96,0.0413,0.535
+VND-0382,Bruce-Villegas,Office Furniture,4.36,0.743,0.53,0.0286,0.827
+VND-0383,"Austin, Day and Johnson",Marketing & Print,4.75,0.902,0.53,0.0274,0.903
+VND-0384,"Gallegos, Adams and White",Marketing & Print,4.65,0.858,0.32,0.0378,0.78
+VND-0385,"Farmer, Dorsey and Bell",Logistics & Shipping,3.98,0.591,3.28,0.0205,0.684
+VND-0386,Kane PLC,Janitorial Services,4.64,0.855,0.12,0.052,0.814
+VND-0387,"Morales, Thomas and Schultz",Raw Metals,4.95,0.981,0.09,0.0657,0.888
+VND-0388,Davis PLC,Software Licenses,3.8,0.522,3.36,0.1125,0.711
+VND-0389,Bennett Group,IT Hardware,4.77,0.91,1.36,0.0199,0.803
+VND-0390,Moore-Collins,Janitorial Services,4.51,0.805,0.72,0.0803,0.975
+VND-0391,Frank-Bradley,HVAC & Maintenance,4.19,0.677,0.61,0.0826,0.596
+VND-0392,Ware and Sons,HVAC & Maintenance,4.78,0.911,0.34,0.0581,0.774
+VND-0393,Webster Inc,Software Licenses,4.53,0.812,0.79,0.0558,0.792
+VND-0394,"Miller, Ramos and Coleman",Software Licenses,4.67,0.868,1.83,0.0196,0.774
+VND-0395,"Ramos, Nelson and Fischer",Security Services,3.78,0.512,3.51,0.0723,0.691
+VND-0396,Reed Inc,Office Supplies,4.04,0.616,1.33,0.0658,0.674
+VND-0397,Gregory-Watkins,Security Services,4.98,0.994,0.01,0.056,0.851
+VND-0398,"Estrada, Williams and Foster",Logistics & Shipping,4.29,0.714,2.53,0.0712,0.998
+VND-0399,"Brown, Harris and Dougherty",Office Furniture,3.91,0.564,0.34,0.0832,0.702
+VND-0400,Duran LLC,Raw Metals,4.09,0.637,0.21,0.0093,0.813
+VND-0401,Wilson-Jimenez,Software Licenses,3.99,0.596,1.1,0.0255,0.624
+VND-0402,Thompson-James,Office Supplies,3.84,0.535,2.38,0.0079,0.78
+VND-0403,"Hall, Hansen and Barnett",Raw Metals,4.04,0.617,2.08,0.0974,0.728
+VND-0404,Jones-Hensley,Logistics & Shipping,4.42,0.766,0.64,0.0329,0.917
+VND-0405,Graham Group,Office Furniture,4.99,0.997,0.02,0.0448,0.933
+VND-0406,Atkins PLC,Janitorial Services,4.33,0.733,0.12,0.057,0.989
+VND-0407,Berry-Mckinney,Security Services,3.97,0.588,3.38,0.0227,0.688
+VND-0408,Roberts-Sullivan,Catering Services,3.87,0.548,1.89,0.0878,0.622
+VND-0409,Jackson-Meza,Logistics & Shipping,4.58,0.832,1.86,0.0866,0.809
+VND-0410,Collier-Gillespie,HVAC & Maintenance,4.25,0.7,0.35,0.1032,0.824
+VND-0411,Kim Inc,Marketing & Print,4.42,0.77,2.97,0.0513,0.906
+VND-0412,Graham Group,Security Services,3.86,0.545,4.49,0.0149,0.789
+VND-0413,"Miller, Harrell and Reese",IT Hardware,4.73,0.891,0.94,0.0032,0.826
+VND-0414,Cook and Sons,Marketing & Print,4.08,0.632,1.15,0.0096,0.828
+VND-0415,Dixon Inc,Security Services,4.44,0.777,0.57,0.0388,0.862
+VND-0416,"Hicks, Bullock and Bailey",Logistics & Shipping,4.5,0.8,1.01,0.0882,0.874
+VND-0417,"Mullen, Brewer and Hernandez",Marketing & Print,4.99,0.996,0.05,0.0167,0.983
+VND-0418,Thomas and Sons,Software Licenses,3.9,0.558,5.26,0.0439,0.807
+VND-0419,Morrison Ltd,Office Furniture,4.84,0.934,0.76,0.0674,0.826
+VND-0420,Thompson Ltd,Logistics & Shipping,3.85,0.54,1.66,0.0203,0.743
+VND-0421,Marshall-Elliott,Software Licenses,4.18,0.673,8.5,0.068,0.788
+VND-0422,"Cole, Glass and Cunningham",Software Licenses,3.92,0.566,6.01,0.1058,0.67
+VND-0423,"Downs, Morris and Maddox",Catering Services,4.51,0.803,1.99,0.0167,0.876
+VND-0424,Hernandez-Jones,Security Services,4.25,0.699,0.33,0.0382,0.524
+VND-0425,Welch-Hogan,Office Furniture,3.78,0.513,0.5,0.1146,0.692
+VND-0426,"Brown, Romero and Collins",Logistics & Shipping,4.96,0.983,0.07,0.0254,0.877
+VND-0427,Johnson-Wood,Logistics & Shipping,4.3,0.72,0.22,0.0656,0.804
+VND-0428,Jones-Lin,HVAC & Maintenance,4.52,0.81,1.4,0.0145,0.765
+VND-0429,Gilbert PLC,Office Supplies,4.73,0.89,0.47,0.0052,0.999
+VND-0430,Ford-Spencer,Catering Services,3.82,0.529,3.92,0.1158,0.584
+VND-0431,"Huang, Cole and Pacheco",Raw Metals,3.93,0.571,0.39,0.0347,0.535
+VND-0432,"Lopez, Jacobs and Mason",Office Supplies,4.62,0.846,0.07,0.047,0.999
+VND-0433,Hayes LLC,Marketing & Print,4.77,0.907,0.62,0.0268,0.906
+VND-0434,"Miller, Lucas and Williams",Marketing & Print,4.41,0.764,0.92,0.0129,0.972
+VND-0435,"Kim, Gonzales and Mills",Logistics & Shipping,4.31,0.725,0.42,0.0375,0.854
+VND-0436,Cox LLC,Security Services,4.78,0.914,0.8,0.0669,0.753
+VND-0437,Ortiz-Morgan,Janitorial Services,4.27,0.708,1.34,0.002,0.815
+VND-0438,"Williams, Mccoy and Cook",Logistics & Shipping,4.7,0.88,0.12,0.048,0.804
+VND-0439,Davis-Gregory,IT Hardware,3.77,0.506,0.95,0.1166,0.781
+VND-0440,King-York,Software Licenses,4.95,0.98,0.09,0.009,0.887
+VND-0441,"Marks, Cook and Aguilar",Marketing & Print,4.32,0.727,3.55,0.01,0.872
+VND-0442,Rangel LLC,Chemical Materials,3.94,0.575,1.17,0.0841,0.667
+VND-0443,"Hale, Myers and Larson",Logistics & Shipping,4.22,0.688,1.1,0.0482,0.775
+VND-0444,Collins Group,IT Hardware,4.87,0.946,1.17,0.0663,0.829
+VND-0445,"Conner, Li and Santiago",IT Hardware,4.61,0.844,0.63,0.0236,0.96
+VND-0446,"Osborn, Gaines and Davis",Raw Metals,3.8,0.519,7.81,0.0547,0.723
+VND-0447,"Henderson, Cox and Cox",Office Furniture,4.57,0.83,2.69,0.0596,0.903
+VND-0448,Bean LLC,Marketing & Print,3.83,0.533,2.39,0.0176,0.758
+VND-0449,Lee-Cooke,Logistics & Shipping,4.39,0.756,1.95,0.0041,0.771
+VND-0450,Jones Inc,Office Furniture,4.65,0.858,0.07,0.0065,0.753
+VND-0451,"Wise, Conley and Stephenson",Catering Services,4.95,0.978,0.2,0.0289,0.824
+VND-0452,Stanley PLC,Janitorial Services,4.19,0.675,3.39,0.0701,0.565
+VND-0453,Harper and Sons,Security Services,3.97,0.587,0.3,0.0746,0.768
+VND-0454,White Ltd,Catering Services,4.08,0.633,0.05,0.009,0.839
+VND-0455,"Lamb, Martin and Kim",Chemical Materials,4.12,0.648,3.62,0.0676,0.634
+VND-0456,Diaz-Ball,Security Services,4.01,0.603,0.36,0.0687,0.771
+VND-0457,Bishop-Goodwin,IT Hardware,4.55,0.822,0.94,0.004,0.992
+VND-0458,Young-Allen,Software Licenses,4.75,0.899,0.24,0.0863,0.9
+VND-0459,Mckee-Lee,Software Licenses,4.48,0.791,2.01,0.0785,0.914
+VND-0460,"Valentine, Joyce and Murray",Catering Services,3.91,0.564,1.26,0.1066,0.579
+VND-0461,Strickland-Shaw,Office Furniture,4.22,0.686,1.24,0.0462,0.715
+VND-0462,Burch-Montoya,Security Services,4.93,0.972,0.05,0.01,0.799
+VND-0463,"Taylor, Wright and Davidson",IT Hardware,4.86,0.943,0.41,0.0242,0.954
+VND-0464,Spencer-Garcia,Raw Metals,4.83,0.931,0.91,0.0786,0.813
+VND-0465,"Rosales, Mitchell and Hines",HVAC & Maintenance,4.69,0.878,0.53,0.0756,0.932
+VND-0466,Cole-Palmer,Security Services,4.72,0.888,0.84,0.0158,0.886
+VND-0467,Davis-Lozano,Office Furniture,4.98,0.992,0.15,0.0035,0.791
+VND-0468,Wilkerson-Arias,Chemical Materials,3.91,0.566,3.93,0.0938,0.575
+VND-0469,Brown-Shaw,Office Furniture,4.38,0.753,3.18,0.0731,0.886
+VND-0470,Hughes Inc,IT Hardware,4.49,0.795,1.02,0.0287,0.891
+VND-0471,Walker-Flores,Logistics & Shipping,4.61,0.844,2.25,0.0588,0.94
+VND-0472,Combs Ltd,Raw Metals,3.95,0.58,1.82,0.0011,0.586
+VND-0473,Moody-Taylor,IT Hardware,4.66,0.863,4.6,0.009,0.85
+VND-0474,Lowery-Kennedy,Raw Metals,4.75,0.9,0.16,0.0488,0.933
+VND-0475,Blake Group,Office Supplies,4.52,0.808,0.28,0.0339,0.946
+VND-0476,Gilbert-Bullock,Marketing & Print,4.44,0.777,0.01,0.0744,0.759
+VND-0477,Scott and Sons,Office Supplies,4.68,0.873,0.2,0.0864,0.842
+VND-0478,"Bentley, Lynch and Henderson",Marketing & Print,4.16,0.663,0.38,0.0327,0.807
+VND-0479,Young-Martinez,Software Licenses,5.0,0.998,0.01,0.036,0.931
+VND-0480,Barnes PLC,Raw Metals,4.86,0.943,0.36,0.0331,0.853
+VND-0481,Brown-Copeland,Security Services,4.62,0.848,0.0,0.0571,0.839
+VND-0482,Carlson-Smith,Chemical Materials,4.74,0.897,0.07,0.0519,0.87
+VND-0483,"Andrews, Higgins and Carter",HVAC & Maintenance,4.55,0.821,0.08,0.0547,0.89
+VND-0484,Mendez and Sons,Catering Services,4.45,0.78,1.42,0.066,0.951
+VND-0485,"Butler, Beck and Miller",Office Furniture,4.09,0.635,4.46,0.0544,0.527
+VND-0486,Jones-Fox,Office Supplies,3.82,0.529,1.34,0.0923,0.748
+VND-0487,"Hartman, Romero and Smith",Office Furniture,4.74,0.894,0.54,0.0389,0.787
+VND-0488,Williams-Hughes,Office Furniture,4.16,0.664,1.34,0.0095,0.577
+VND-0489,King-Smith,Chemical Materials,4.5,0.799,1.87,0.0959,0.983
+VND-0490,Cooper Ltd,IT Hardware,4.55,0.821,0.68,0.06,0.946
+VND-0491,"Fuller, Ingram and Moss",Office Furniture,3.9,0.559,1.63,0.0968,0.634
+VND-0492,Anderson-Bell,Catering Services,4.46,0.786,1.33,0.0179,0.841
+VND-0493,Li-Thompson,Raw Metals,4.17,0.667,0.06,0.0026,0.791
+VND-0494,"Marshall, Dominguez and Welch",Chemical Materials,4.09,0.637,1.86,0.0326,0.829
+VND-0495,Brown Group,Marketing & Print,4.07,0.63,1.46,0.0957,0.795
+VND-0496,Carter Inc,Catering Services,3.98,0.593,4.62,0.0516,0.669
+VND-0497,Blackwell LLC,Office Supplies,3.92,0.567,0.25,0.0835,0.674
+VND-0498,Robertson-Hays,Logistics & Shipping,4.3,0.718,2.58,0.0785,0.79
+VND-0499,"Kennedy, Johnson and Lucas",Office Furniture,4.51,0.805,0.2,0.0718,0.914
+VND-0500,Kelly-Norman,Catering Services,4.95,0.978,0.01,0.0047,0.821

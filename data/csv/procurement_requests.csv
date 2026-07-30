@@ -1,0 +1,151 @@
+request_id,title,category,quantity,max_budget,deadline_days,created_at
+REQ-001,BI Analytics Platform Licenses (Lot 001),Software Licenses,898,56032.61,21,2026-01-11 15:00:00
+REQ-002,Shared Pantry Essentials (Lot 002),Office Supplies,363,53160.87,21,2026-03-21 07:00:00
+REQ-003,Server Rack Infrastructure Upgrade (Lot 003),IT Hardware,413,181719.64,11,2026-03-27 08:00:00
+REQ-004,Bulk Equipment Shipping Services (Lot 004),Logistics & Shipping,661,53661.51,41,2026-05-12 12:00:00
+REQ-005,Steel Tubes & Sheets Supply (Lot 005),Raw Metals,123,58030.2,44,2026-03-09 05:00:00
+REQ-006,Inter-State Freight Shipping (Lot 006),Logistics & Shipping,116,153082.66,29,2026-06-03 13:00:00
+REQ-007,Executive Lunch Board Meetings (Lot 007),Catering Services,451,92699.27,14,2026-06-06 16:00:00
+REQ-008,Adhesives & Resins Bulk (Lot 008),Chemical Materials,265,156458.56,34,2026-01-13 22:00:00
+REQ-009,Server Rack Infrastructure Upgrade (Lot 009),IT Hardware,377,17746.4,28,2026-04-22 02:00:00
+REQ-010,Office Electrical Maintenance (Lot 010),HVAC & Maintenance,684,100076.38,26,2026-02-02 23:00:00
+REQ-011,Access Control Hardware & Service (Lot 011),Security Services,687,11554.65,32,2026-04-16 10:00:00
+REQ-012,Executive Lunch Board Meetings (Lot 012),Catering Services,572,17217.37,33,2026-02-03 06:00:00
+REQ-013,Annual Report High-Volume Print (Lot 013),Marketing & Print,698,181755.3,43,2026-02-15 19:00:00
+REQ-014,Supply Chain Warehouse Distribution (Lot 014),Logistics & Shipping,566,32152.85,25,2026-01-02 09:00:00
+REQ-015,Shared Pantry Essentials (Lot 015),Office Supplies,809,108822.03,27,2026-05-30 19:00:00
+REQ-016,Sanitization & Disinfection Contract (Lot 016),Janitorial Services,457,85163.64,39,2026-06-23 06:00:00
+REQ-017,Specialized Window Cleaning Lot (Lot 017),Janitorial Services,679,72731.95,39,2026-01-23 09:00:00
+REQ-018,Promotional Merchandise Lot (Lot 018),Marketing & Print,100,180467.5,26,2026-03-03 21:00:00
+REQ-019,Laser Printer Toners & Papers (Lot 019),Office Supplies,155,9255.56,22,2026-01-08 01:00:00
+REQ-020,Daily Office Janitorial Contract (Lot 020),Janitorial Services,471,134438.99,43,2026-04-18 20:00:00
+REQ-021,Shared Pantry Essentials (Lot 021),Office Supplies,511,192861.91,16,2026-04-14 07:00:00
+REQ-022,Billboard Campaign Printing (Lot 022),Marketing & Print,919,114232.8,21,2026-01-29 13:00:00
+REQ-023,Reception Lounge Renovation (Lot 023),Office Furniture,56,187680.38,14,2026-05-24 07:00:00
+REQ-024,Specialized Window Cleaning Lot (Lot 024),Janitorial Services,825,15190.29,40,2026-04-30 21:00:00
+REQ-025,Access Control Hardware & Service (Lot 025),Security Services,977,86664.7,39,2026-04-25 19:00:00
+REQ-026,Water Treatment Chemicals (Lot 026),Chemical Materials,923,55730.77,37,2026-02-11 23:00:00
+REQ-027,Carpet & Deep Clean SLA (Lot 027),Janitorial Services,774,147510.09,24,2026-03-06 20:00:00
+REQ-028,Event Crowd Management Services (Lot 028),Security Services,646,196352.93,35,2026-03-04 08:00:00
+REQ-029,OS Upgrade Enterprise Agreement (Lot 029),Software Licenses,245,55023.36,27,2026-03-12 10:00:00
+REQ-030,HQ Security Guard Deployment (Lot 030),Security Services,146,132564.05,31,2026-02-09 07:00:00
+REQ-031,Annual Corporate Gala Catering (Lot 031),Catering Services,728,43629.04,33,2026-02-25 02:00:00
+REQ-032,Polymers & Plastic Pellets (Lot 032),Chemical Materials,560,115239.4,10,2026-05-01 13:00:00
+REQ-033,Shared Pantry Essentials (Lot 033),Office Supplies,403,95466.83,8,2026-05-31 22:00:00
+REQ-034,Fire Safety Systems Audit (Lot 034),HVAC & Maintenance,493,194541.04,26,2026-01-03 11:00:00
+REQ-035,Water Treatment Chemicals (Lot 035),Chemical Materials,556,123662.82,21,2026-05-21 19:00:00
+REQ-036,Specialized Window Cleaning Lot (Lot 036),Janitorial Services,284,73153.74,8,2026-04-23 15:00:00
+REQ-037,Polymers & Plastic Pellets (Lot 037),Chemical Materials,689,27248.68,17,2026-06-24 12:00:00
+REQ-038,Specialized Window Cleaning Lot (Lot 038),Janitorial Services,642,34493.13,32,2026-05-18 00:00:00
+REQ-039,Chiller System Maintenance Service (Lot 039),HVAC & Maintenance,90,48936.8,15,2026-06-15 13:00:00
+REQ-040,Specialized Window Cleaning Lot (Lot 040),Janitorial Services,56,53938.5,27,2026-03-09 12:00:00
+REQ-041,Shared Pantry Essentials (Lot 041),Office Supplies,339,170870.13,24,2026-03-29 12:00:00
+REQ-042,Polymers & Plastic Pellets (Lot 042),Chemical Materials,859,114438.44,8,2026-01-22 15:00:00
+REQ-043,Daily Office Cafeteria Food SLA (Lot 043),Catering Services,979,107061.23,11,2026-04-01 07:00:00
+REQ-044,Billboard Campaign Printing (Lot 044),Marketing & Print,777,27379.93,19,2026-01-09 07:00:00
+REQ-045,Server Rack Infrastructure Upgrade (Lot 045),IT Hardware,249,172727.24,14,2026-02-03 15:00:00
+REQ-046,Elevator Periodic Service SLA (Lot 046),HVAC & Maintenance,481,145948.79,30,2026-06-30 08:00:00
+REQ-047,Ergonomic Seating Bulk Order (Lot 047),Office Furniture,801,18195.33,13,2026-02-12 09:00:00
+REQ-048,Chiller System Maintenance Service (Lot 048),HVAC & Maintenance,956,143027.84,31,2026-03-22 18:00:00
+REQ-049,Adhesives & Resins Bulk (Lot 049),Chemical Materials,82,110989.95,22,2026-06-02 22:00:00
+REQ-050,OS Upgrade Enterprise Agreement (Lot 050),Software Licenses,875,20936.44,14,2026-06-26 19:00:00
+REQ-051,Chiller System Maintenance Service (Lot 051),HVAC & Maintenance,360,94368.63,30,2026-05-18 13:00:00
+REQ-052,OS Upgrade Enterprise Agreement (Lot 052),Software Licenses,17,99515.78,13,2026-04-19 15:00:00
+REQ-053,Polymers & Plastic Pellets (Lot 053),Chemical Materials,655,37326.04,16,2026-04-29 22:00:00
+REQ-054,Adhesives & Resins Bulk (Lot 054),Chemical Materials,756,189411.14,24,2026-05-15 20:00:00
+REQ-055,Fire Safety Systems Audit (Lot 055),HVAC & Maintenance,481,170745.2,44,2026-04-23 23:00:00
+REQ-056,Bulk Equipment Shipping Services (Lot 056),Logistics & Shipping,877,135459.36,24,2026-03-05 02:00:00
+REQ-057,Specialized Window Cleaning Lot (Lot 057),Janitorial Services,773,95147.63,31,2026-04-30 18:00:00
+REQ-058,Steel Tubes & Sheets Supply (Lot 058),Raw Metals,511,85294.28,38,2026-03-26 05:00:00
+REQ-059,General Consumables Lot (Lot 059),Office Supplies,821,131939.83,24,2026-03-09 10:00:00
+REQ-060,Office Electrical Maintenance (Lot 060),HVAC & Maintenance,574,111359.21,19,2026-01-04 16:00:00
+REQ-061,Cybersecurity Suite Licenses (Lot 061),Software Licenses,742,17143.26,42,2026-04-16 15:00:00
+REQ-062,Shared Pantry Essentials (Lot 062),Office Supplies,666,104938.02,8,2026-05-07 14:00:00
+REQ-063,OS Upgrade Enterprise Agreement (Lot 063),Software Licenses,231,162248.71,22,2026-04-15 22:00:00
+REQ-064,Bulk Equipment Shipping Services (Lot 064),Logistics & Shipping,489,94551.78,29,2026-05-23 16:00:00
+REQ-065,Polymers & Plastic Pellets (Lot 065),Chemical Materials,365,15131.53,24,2026-06-30 14:00:00
+REQ-066,Bulk Equipment Shipping Services (Lot 066),Logistics & Shipping,241,158324.25,19,2026-02-01 23:00:00
+REQ-067,Steel Tubes & Sheets Supply (Lot 067),Raw Metals,765,44265.94,18,2026-05-19 22:00:00
+REQ-068,Laser Printer Toners & Papers (Lot 068),Office Supplies,761,55431.06,44,2026-05-05 08:00:00
+REQ-069,Access Control Hardware & Service (Lot 069),Security Services,107,37117.74,21,2026-02-20 09:00:00
+REQ-070,Aluminum Extrusion Profiles (Lot 070),Raw Metals,314,69391.94,41,2026-01-05 22:00:00
+REQ-071,Conference Room Furniture Setup (Lot 071),Office Furniture,51,152566.54,25,2026-01-15 17:00:00
+REQ-072,Annual Corporate Gala Catering (Lot 072),Catering Services,658,106280.24,7,2026-05-07 03:00:00
+REQ-073,Office Electrical Maintenance (Lot 073),HVAC & Maintenance,485,44951.85,28,2026-05-04 14:00:00
+REQ-074,Ergonomic Seating Bulk Order (Lot 074),Office Furniture,263,176176.87,11,2026-05-04 03:00:00
+REQ-075,Water Treatment Chemicals (Lot 075),Chemical Materials,80,176518.46,10,2026-05-29 20:00:00
+REQ-076,Adjustable Standing Desks (Lot 076),Office Furniture,835,174762.79,12,2026-05-26 09:00:00
+REQ-077,Stationery Bulk Annual Contract (Lot 077),Office Supplies,576,51565.26,45,2026-04-18 19:00:00
+REQ-078,Elevator Periodic Service SLA (Lot 078),HVAC & Maintenance,799,92991.67,35,2026-05-15 12:00:00
+REQ-079,Carpet & Deep Clean SLA (Lot 079),Janitorial Services,885,197072.98,26,2026-06-01 13:00:00
+REQ-080,Chiller System Maintenance Service (Lot 080),HVAC & Maintenance,629,155542.43,20,2026-01-27 06:00:00
+REQ-081,Inter-State Freight Shipping (Lot 081),Logistics & Shipping,165,10297.65,42,2026-03-04 05:00:00
+REQ-082,Cybersecurity Suite Licenses (Lot 082),Software Licenses,7,17714.9,45,2026-04-16 14:00:00
+REQ-083,Carpet & Deep Clean SLA (Lot 083),Janitorial Services,38,95466.62,25,2026-03-02 09:00:00
+REQ-084,Weekly Friday Happy Hour Snacks (Lot 084),Catering Services,77,182297.94,23,2026-06-26 07:00:00
+REQ-085,Event Brochure & Poster Print (Lot 085),Marketing & Print,440,110046.85,21,2026-01-31 17:00:00
+REQ-086,Event Brochure & Poster Print (Lot 086),Marketing & Print,935,102073.44,11,2026-03-11 04:00:00
+REQ-087,Server Rack Infrastructure Upgrade (Lot 087),IT Hardware,816,25567.37,43,2026-03-21 19:00:00
+REQ-088,Supply Chain Warehouse Distribution (Lot 088),Logistics & Shipping,132,133072.12,26,2026-05-01 22:00:00
+REQ-089,Weekly Friday Happy Hour Snacks (Lot 089),Catering Services,970,165310.12,41,2026-03-12 16:00:00
+REQ-090,Sanitization & Disinfection Contract (Lot 090),Janitorial Services,87,79181.9,34,2026-06-04 01:00:00
+REQ-091,Executive Lunch Board Meetings (Lot 091),Catering Services,623,156244.31,12,2026-03-07 00:00:00
+REQ-092,Stationery Bulk Annual Contract (Lot 092),Office Supplies,788,193072.95,43,2026-06-23 08:00:00
+REQ-093,Server Rack Infrastructure Upgrade (Lot 093),IT Hardware,486,44734.46,35,2026-05-14 20:00:00
+REQ-094,Courier & Last-Mile Delivery SLA (Lot 094),Logistics & Shipping,604,107049.28,38,2026-04-23 20:00:00
+REQ-095,BI Analytics Platform Licenses (Lot 095),Software Licenses,361,60991.9,27,2026-04-16 10:00:00
+REQ-096,Billboard Campaign Printing (Lot 096),Marketing & Print,883,159606.61,33,2026-02-12 10:00:00
+REQ-097,Weekly Friday Happy Hour Snacks (Lot 097),Catering Services,300,117630.71,42,2026-06-20 12:00:00
+REQ-098,Desktop Workstation Fleet (Lot 098),IT Hardware,95,128743.57,27,2026-03-23 08:00:00
+REQ-099,BI Analytics Platform Licenses (Lot 099),Software Licenses,890,160593.26,41,2026-05-13 00:00:00
+REQ-100,Sanitization & Disinfection Contract (Lot 100),Janitorial Services,60,82214.24,30,2026-02-19 16:00:00
+REQ-101,Fire Safety Systems Audit (Lot 101),HVAC & Maintenance,645,183442.56,20,2026-04-25 01:00:00
+REQ-102,Courier & Last-Mile Delivery SLA (Lot 102),Logistics & Shipping,954,108940.63,38,2026-03-16 14:00:00
+REQ-103,Cloud ERP Subscription Renewal (Lot 103),Software Licenses,650,35801.19,17,2026-06-06 07:00:00
+REQ-104,Inter-State Freight Shipping (Lot 104),Logistics & Shipping,570,140700.33,21,2026-04-16 02:00:00
+REQ-105,BI Analytics Platform Licenses (Lot 105),Software Licenses,974,159685.96,16,2026-02-01 20:00:00
+REQ-106,Carpet & Deep Clean SLA (Lot 106),Janitorial Services,526,66768.53,37,2026-03-12 13:00:00
+REQ-107,Specialized Window Cleaning Lot (Lot 107),Janitorial Services,472,172149.96,31,2026-05-23 04:00:00
+REQ-108,Laser Printer Toners & Papers (Lot 108),Office Supplies,889,181697.93,33,2026-01-19 08:00:00
+REQ-109,Industrial Copper Wire Coils (Lot 109),Raw Metals,845,58996.38,26,2026-01-02 09:00:00
+REQ-110,Fire Safety Systems Audit (Lot 110),HVAC & Maintenance,891,196786.69,41,2026-02-09 14:00:00
+REQ-111,Carpet & Deep Clean SLA (Lot 111),Janitorial Services,345,32438.75,31,2026-05-23 17:00:00
+REQ-112,Carpet & Deep Clean SLA (Lot 112),Janitorial Services,895,44393.06,22,2026-02-19 22:00:00
+REQ-113,Fire Safety Systems Audit (Lot 113),HVAC & Maintenance,244,40923.84,27,2026-04-17 01:00:00
+REQ-114,Weekly Friday Happy Hour Snacks (Lot 114),Catering Services,727,179327.99,16,2026-04-09 12:00:00
+REQ-115,Daily Office Janitorial Contract (Lot 115),Janitorial Services,134,132587.05,28,2026-05-10 18:00:00
+REQ-116,BI Analytics Platform Licenses (Lot 116),Software Licenses,107,34660.34,7,2026-05-16 14:00:00
+REQ-117,Annual Corporate Gala Catering (Lot 117),Catering Services,424,90863.07,11,2026-06-18 04:00:00
+REQ-118,Carpet & Deep Clean SLA (Lot 118),Janitorial Services,351,124983.11,32,2026-06-10 22:00:00
+REQ-119,Billboard Campaign Printing (Lot 119),Marketing & Print,877,21275.5,41,2026-03-27 21:00:00
+REQ-120,Polymers & Plastic Pellets (Lot 120),Chemical Materials,646,177071.19,9,2026-05-06 17:00:00
+REQ-121,Chiller System Maintenance Service (Lot 121),HVAC & Maintenance,245,161702.69,25,2026-06-12 21:00:00
+REQ-122,Stationery Bulk Annual Contract (Lot 122),Office Supplies,449,103515.32,13,2026-01-27 20:00:00
+REQ-123,Specialized Window Cleaning Lot (Lot 123),Janitorial Services,715,193589.69,9,2026-03-19 00:00:00
+REQ-124,Steel Tubes & Sheets Supply (Lot 124),Raw Metals,305,86463.39,34,2026-04-03 11:00:00
+REQ-125,Adjustable Standing Desks (Lot 125),Office Furniture,548,196901.51,18,2026-04-17 18:00:00
+REQ-126,Adjustable Standing Desks (Lot 126),Office Furniture,85,135244.4,22,2026-06-07 12:00:00
+REQ-127,Specialized Window Cleaning Lot (Lot 127),Janitorial Services,242,128760.9,23,2026-04-30 20:00:00
+REQ-128,Carpet & Deep Clean SLA (Lot 128),Janitorial Services,687,37361.2,25,2026-01-04 14:00:00
+REQ-129,Event Brochure & Poster Print (Lot 129),Marketing & Print,80,176975.91,44,2026-04-25 11:00:00
+REQ-130,Supply Chain Warehouse Distribution (Lot 130),Logistics & Shipping,711,88360.49,26,2026-03-07 14:00:00
+REQ-131,Shared Pantry Essentials (Lot 131),Office Supplies,878,36635.51,22,2026-05-05 03:00:00
+REQ-132,Polymers & Plastic Pellets (Lot 132),Chemical Materials,593,7458.47,25,2026-03-18 22:00:00
+REQ-133,Desktop Workstation Fleet (Lot 133),IT Hardware,286,114152.36,10,2026-01-04 18:00:00
+REQ-134,Fire Safety Systems Audit (Lot 134),HVAC & Maintenance,857,107842.93,45,2026-03-16 07:00:00
+REQ-135,Aluminum Extrusion Profiles (Lot 135),Raw Metals,656,145273.96,23,2026-02-19 19:00:00
+REQ-136,Event Brochure & Poster Print (Lot 136),Marketing & Print,648,178600.32,9,2026-01-26 20:00:00
+REQ-137,Supply Chain Warehouse Distribution (Lot 137),Logistics & Shipping,39,20484.28,15,2026-05-30 11:00:00
+REQ-138,OS Upgrade Enterprise Agreement (Lot 138),Software Licenses,339,147641.82,19,2026-04-18 05:00:00
+REQ-139,Conference Room Furniture Setup (Lot 139),Office Furniture,548,41545.33,17,2026-05-10 08:00:00
+REQ-140,Supply Chain Warehouse Distribution (Lot 140),Logistics & Shipping,995,172344.53,28,2026-03-18 23:00:00
+REQ-141,BI Analytics Platform Licenses (Lot 141),Software Licenses,991,164717.39,21,2026-01-21 04:00:00
+REQ-142,Annual Report High-Volume Print (Lot 142),Marketing & Print,995,110454.78,12,2026-05-24 11:00:00
+REQ-143,Industrial Cleaning Solvents (Lot 143),Chemical Materials,275,143497.35,36,2026-05-19 03:00:00
+REQ-144,Industrial Copper Wire Coils (Lot 144),Raw Metals,603,66298.27,30,2026-04-09 20:00:00
+REQ-145,Cybersecurity Suite Licenses (Lot 145),Software Licenses,487,96877.74,42,2026-01-08 19:00:00
+REQ-146,Aluminum Extrusion Profiles (Lot 146),Raw Metals,668,165219.2,36,2026-01-18 20:00:00
+REQ-147,Executive Lunch Board Meetings (Lot 147),Catering Services,669,94556.71,15,2026-04-16 03:00:00
+REQ-148,Enterprise Laptops Purchase (Lot 148),IT Hardware,316,74770.66,13,2026-05-08 03:00:00
+REQ-149,Laser Printer Toners & Papers (Lot 149),Office Supplies,402,101371.43,41,2026-04-28 11:00:00
+REQ-150,Adhesives & Resins Bulk (Lot 150),Chemical Materials,911,166508.6,13,2026-04-18 20:00:00
