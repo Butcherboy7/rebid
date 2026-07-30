@@ -64,7 +64,12 @@ This is the consolidated dataset (150 rows) representing completed procurement r
 ### Utility Score Formula
 The **AI Recommendation Score** (target variable `ai_recommendation_score` ranging from 0 to 100) is calculated using a multi-attribute utility function:
 
-$$\text{Utility} = 0.4 \times (1 - \frac{\text{Bid Price}}{\text{Max Budget}}) + 0.3 \times \text{Reliability} + 0.2 \times (1 - \frac{\text{Delay Days}}{15}) + 0.1 \times (1 - \text{Defect Rate})$$
+```text
+AI Recommendation Score = 100 * [ 0.4 * (1 - Bid Price / Max Budget) + 
+                                  0.3 * Reliability Score + 
+                                  0.2 * (1 - Avg Delay Days / 15) + 
+                                  0.1 * (1 - Defect Rate) ]
+```
 
 This ensures that the recommended vendor is selected based on a balanced trade-off between cost, reliability, delivery, and quality.
 
@@ -74,6 +79,8 @@ This ensures that the recommended vendor is selected based on a balanced trade-o
 
 A ledger consisting of **1,794 logged events** (request creation, bid submission) chained together using SHA-256 cryptographic hashes.
 
-$$\text{Block Hash} = \text{SHA-256}(\text{log\_id} \parallel \text{timestamp} \parallel \text{action} \parallel \text{payload} \parallel \text{previous\_hash})$$
+```text
+Block Hash = SHA-256( log_id + timestamp + action + payload + previous_hash )
+```
 
 If any bid price is altered or a record is removed in the database, the hash chain breaks, marking the audit trail invalid.
