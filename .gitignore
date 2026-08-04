@@ -1,7 +1,16 @@
+# Environment variables (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+
 # Python virtual environments
 .venv/
 venv/
 ENV/
+
+# Database files
+*.db
+rebid.db
 
 # Python cache and compiled files
 __pycache__/

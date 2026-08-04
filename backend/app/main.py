@@ -1,19 +1,32 @@
 import os
 import sys
-from datetime import datetime, timedelta
+import csv
+import random
+import datetime
+import uuid
 from typing import List, Optional
 from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from sqlalchemy.orm import Session
 
 # Add project root to sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 
+from backend.app.database import engine, Base, get_db
+from backend.app.models import User, Vendor, Auction, Bid, AuditLog, FraudAlert, PurchaseOrder
+from backend.app.schemas import (
+    LoginRequest, ResetPasswordRequest, TokenResponse, CreateAuctionRequest, SubmitBidRequest,
+    AwardContractRequest, RecommendationResponse
+)
+from backend.app.auth import hash_password, verify_password, create_access_token, get_current_user, require_role
+from backend.app.services import log_audit_event, analyze_bid_fraud, generate_purchase_order_pdf, format_inr
 from ml.predict import ai_engine
-from backend.app.services import audit_engine, fraud_engine, generate_invoice_pdf
 
-app = FastAPI(title="ReBid AI - Enterprise Reverse Procurement API", version="2.0.0")
+# Initialize Database Tables
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI(title="ReBid AI - Enterprise Reverse Procurement System API", version="4.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,213 +36,832 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Static directory for PDFs
+# Static PDF mount
 static_pdf_dir = os.path.join(os.path.dirname(__file__), "..", "static")
 os.makedirs(static_pdf_dir, exist_ok=True)
 app.mount("/static", StaticFiles(directory=static_pdf_dir), name="static")
 
-# In-Memory State for Instant Demo Responsiveness
-STATE = {
-    "users": [
-        {"id": "u1", "email": "buyer@rebid.ai", "role": "BUYER", "name": "Enterprise Buyer Corp"},
-        {"id": "u2", "email": "vendor@rebid.ai", "role": "VENDOR", "name": "HP Enterprise Solutions", "domain": "IT Hardware", "verified": True, "rating": 4.9, "reliability": 0.96, "delivery": 95.0},
-        {"id": "u3", "email": "vendor2@rebid.ai", "role": "VENDOR", "name": "Dell Global Logistics", "domain": "IT Hardware", "verified": True, "rating": 4.7, "reliability": 0.91, "delivery": 91.0},
-        {"id": "u4", "email": "admin@rebid.ai", "role": "ADMIN", "name": "Compliance Admin"}
-    ],
-    "pending_vendors": [
-        {"id": "v_pend_1", "company": "ABC Infra Pvt Ltd", "domain": "Construction & Infrastructure", "email": "contact@abcinfra.com", "submitted_at": "2026-08-04 08:30"},
-        {"id": "v_pend_2", "company": "Apex Freight Logistics", "domain": "Logistics & Freight", "email": "info@apexfreight.com", "submitted_at": "2026-08-04 09:15"}
-    ],
-    "verified_vendors": [
-        {"id": "VND-0001", "name": "HP Enterprise", "domain": "IT Hardware", "rating": 4.9, "reliability": 0.96, "delivery": 95.0, "reviews": [{"author": "Google", "text": "Excellent supplier, always on time."}, {"author": "Infosys", "text": "Top hardware tier."}]},
-        {"id": "VND-0002", "name": "Dell Technologies", "domain": "IT Hardware", "rating": 4.7, "reliability": 0.92, "delivery": 92.0, "reviews": [{"author": "Wipro", "text": "Competitive pricing and reliable."}]},
-        {"id": "VND-0003", "name": "Lenovo Enterprise", "domain": "IT Hardware", "rating": 4.6, "reliability": 0.88, "delivery": 89.0, "reviews": [{"author": "TCS", "text": "Good bulk delivery track record."}]},
-        {"id": "VND-0004", "name": "Global Cargo Freight", "domain": "Logistics & Freight", "rating": 4.8, "reliability": 0.94, "delivery": 94.0, "reviews": [{"author": "Amazon", "text": "Seamless shipping SLA."}]}
-    ],
-    "auctions": [
-        {
-            "id": "AUC-0001",
-            "title": "Enterprise Laptops & Server Infrastructure Fleet",
-            "domain": "IT Hardware",
-            "max_budget": 50000.0,
-            "status": "LIVE",
-            "weight_cost": 40,
-            "weight_reliability": 30,
-            "weight_delivery": 20,
-            "weight_reviews": 10,
-            "time_remaining_seconds": 300,
-            "created_at": "2026-08-04T09:00:00"
-        }
-    ],
-    "bids": [
-        {"id": "b1", "auction_id": "AUC-0001", "vendor_id": "VND-0003", "name": "Lenovo Enterprise", "price": 47500.0, "timestamp": "2026-08-04T09:02:10"},
-        {"id": "b2", "auction_id": "AUC-0001", "vendor_id": "VND-0002", "name": "Dell Technologies", "price": 47300.0, "timestamp": "2026-08-04T09:03:40"},
-        {"id": "b3", "auction_id": "AUC-0001", "vendor_id": "VND-0001", "name": "HP Enterprise", "price": 47200.0, "timestamp": "2026-08-04T09:04:15"}
-    ],
-    "fraud_alerts": []
-}
 
-# Models
-class CreateAuctionRequest(BaseModel):
-    title: str
-    domain: str
-    max_budget: float
-    duration_minutes: int = 5
-    weight_cost: int = 40
-    weight_reliability: int = 30
-    weight_delivery: int = 20
-    weight_reviews: int = 10
+# Helper: Seed initial 1 single bid for auction start
+def seed_initial_auction_bids(db: Session, auction_id: str, category: str, max_budget: float):
+    category_vendors = db.query(Vendor).filter(Vendor.category == category).all()
+    if not category_vendors:
+        category_vendors = db.query(Vendor).filter(Vendor.verified == True).limit(3).all()
 
-class SubmitBidRequest(BaseModel):
-    auction_id: str
-    vendor_id: str
-    vendor_name: str
-    price: float
+    if not category_vendors:
+        return
 
-class AwardAuctionRequest(BaseModel):
-    auction_id: str
-    vendor_id: str
-    vendor_name: str
-    amount: float
+    # Seed initial anchor bid from 1 vendor
+    vendor = category_vendors[0]
+    bid_price = round(max_budget * 0.96, 2)
+    bid_id = f"BID-00001-{uuid.uuid4().hex[:4]}"
+    db.add(Bid(
+        id=bid_id,
+        auction_id=auction_id,
+        vendor_id=vendor.id,
+        vendor_name=vendor.name,
+        price=bid_price,
+        timestamp=datetime.datetime.utcnow()
+    ))
+    db.commit()
 
-# Routes
 
-@app.get("/api/state")
-def get_full_state():
-    return {
-        "auctions": STATE["auctions"],
-        "bids": STATE["bids"],
-        "verified_vendors": STATE["verified_vendors"],
-        "pending_vendors": STATE["pending_vendors"],
-        "fraud_alerts": STATE["fraud_alerts"],
-        "audit_logs": audit_engine.get_logs()[:20]
-    }
+# Startup Event: Seed Demo Accounts, Vendors & Dataset
+@app.on_event("startup")
+def startup_seed_db():
+    from backend.app.database import SessionLocal
+    db = SessionLocal()
+    try:
+        # 1. Seed Enterprise Users (Buyer, Admin, and 10 Industry Vendors)
+        demo_accounts = [
+            {"id": "usr_buyer", "email": "buyer@rebid.ai", "name": "Enterprise Procurement Corp", "role": "BUYER"},
+            {"id": "usr_admin", "email": "admin@rebid.ai", "name": "Compliance Administrator", "role": "ADMIN"},
+            # 10 Industry Vendor Users
+            {"id": "usr_hp", "email": "vendor1@rebid.ai", "name": "HP Enterprise Solutions", "role": "VENDOR", "category": "IT Hardware", "rel": 0.96, "del": 95.0, "rating": 4.9},
+            {"id": "usr_dell", "email": "vendor2@rebid.ai", "name": "Dell Technologies", "role": "VENDOR", "category": "IT Hardware", "rel": 0.92, "del": 91.0, "rating": 4.7},
+            {"id": "usr_lenovo", "email": "lenovo@rebid.ai", "name": "Lenovo Business", "role": "VENDOR", "category": "IT Hardware", "rel": 0.89, "del": 88.0, "rating": 4.6},
+            {"id": "usr_acer", "email": "acer@rebid.ai", "name": "Acer Commercial", "role": "VENDOR", "category": "IT Hardware", "rel": 0.86, "del": 87.0, "rating": 4.4},
+            {"id": "usr_tata", "email": "tatasteel@rebid.ai", "name": "Tata Steel Ltd", "role": "VENDOR", "category": "Raw Materials & Metals", "rel": 0.95, "del": 94.0, "rating": 4.9},
+            {"id": "usr_jsw", "email": "jswsteel@rebid.ai", "name": "JSW Steel Infra", "role": "VENDOR", "category": "Raw Materials & Metals", "rel": 0.91, "del": 90.0, "rating": 4.7},
+            {"id": "usr_lt", "email": "ltconst@rebid.ai", "name": "L&T Construction", "role": "VENDOR", "category": "Construction & Infrastructure", "rel": 0.94, "del": 93.0, "rating": 4.8},
+            {"id": "usr_bluedart", "email": "bluedart@rebid.ai", "name": "Blue Dart Logistics", "role": "VENDOR", "category": "Logistics & Freight", "rel": 0.93, "del": 96.0, "rating": 4.8},
+            {"id": "usr_dhl", "email": "dhl@rebid.ai", "name": "DHL Supply Chain", "role": "VENDOR", "category": "Logistics & Freight", "rel": 0.90, "del": 92.0, "rating": 4.6},
+            {"id": "usr_amazon", "email": "amazon@rebid.ai", "name": "Amazon Business Services", "role": "VENDOR", "category": "Software & Cloud Services", "rel": 0.97, "del": 97.0, "rating": 4.9}
+        ]
 
-@app.post("/api/auctions")
-def create_auction(req: CreateAuctionRequest):
-    auc_id = f"AUC-{len(STATE['auctions'])+1:04d}"
-    auction = {
-        "id": auc_id,
-        "title": req.title,
-        "domain": req.domain,
-        "max_budget": req.max_budget,
-        "status": "LIVE",
-        "weight_cost": req.weight_cost,
-        "weight_reliability": req.weight_reliability,
-        "weight_delivery": req.weight_delivery,
-        "weight_reviews": req.weight_reviews,
-        "time_remaining_seconds": req.duration_minutes * 60,
-        "created_at": datetime.now().isoformat()
-    }
-    STATE["auctions"].insert(0, auction)
-    audit_engine.add_event("AUCTION_CREATED", "Buyer", {"auction_id": auc_id, "title": req.title, "budget": req.max_budget})
-    return {"status": "success", "auction": auction}
+        for acc in demo_accounts:
+            existing_user = db.query(User).filter(User.email == acc["email"]).first()
+            if not existing_user:
+                db.add(User(
+                    id=acc["id"],
+                    email=acc["email"],
+                    password_hash=hash_password("password123"),
+                    role=acc["role"],
+                    name=acc["name"]
+                ))
+                db.commit()
 
-@app.post("/api/bids")
-def submit_bid(req: SubmitBidRequest):
-    bid_id = f"BID-{len(STATE['bids'])+1:05d}"
-    now_str = datetime.now().isoformat()
-    bid = {
-        "id": bid_id,
-        "auction_id": req.auction_id,
-        "vendor_id": req.vendor_id,
-        "name": req.vendor_name,
-        "price": req.price,
-        "timestamp": now_str
-    }
-    STATE["bids"].append(bid)
+            # Seed vendor profile if vendor
+            if acc["role"] == "VENDOR":
+                v_id = f"VND-{acc['id'].upper().replace('USR_', '')}"
+                existing_vendor = db.query(Vendor).filter(Vendor.id == v_id).first()
+                if not existing_vendor:
+                    db.add(Vendor(
+                        id=v_id,
+                        user_id=acc["id"],
+                        name=acc["name"],
+                        company_name=acc["name"],
+                        category=acc.get("category", "IT Hardware"),
+                        verified=True,
+                        rating=acc.get("rating", 4.5),
+                        reliability_score=acc.get("rel", 0.90),
+                        delivery_score=acc.get("del", 90.0),
+                        contracts_completed=random.randint(60, 200),
+                        cancellation_rate=0.01,
+                        avg_delay_days=0.8,
+                        defect_rate=0.008
+                    ))
+                    db.commit()
+
+        # 2. Seed 500+ Vendor Dataset from data/csv/vendors.csv
+        current_vendor_count = db.query(Vendor).count()
+        csv_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "csv", "vendors.csv")
+        if current_vendor_count < 50 and os.path.exists(csv_path):
+            with open(csv_path, mode="r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    v_id = row.get("vendor_id", f"VND-{db.query(Vendor).count()+1:04d}")
+                    if not db.query(Vendor).filter(Vendor.id == v_id).first():
+                        db.add(Vendor(
+                            id=v_id,
+                            user_id=None,
+                            name=row.get("name", "Vendor"),
+                            company_name=row.get("name", "Vendor"),
+                            category=row.get("domain", "IT Hardware"),
+                            verified=bool(int(row.get("verified", 1))),
+                            rating=float(row.get("historical_rating", 4.5)),
+                            reliability_score=float(row.get("reliability_score", 0.85)),
+                            delivery_score=float(row.get("delivery_score", 85.0)),
+                            contracts_completed=int(row.get("completed_contracts", 50)),
+                            cancellation_rate=float(row.get("cancellation_rate", 0.02)),
+                            avg_delay_days=float(row.get("avg_delay_days", 1.0)),
+                            defect_rate=float(row.get("defect_rate", 0.01))
+                        ))
+            db.commit()
+
+        # 3. Seed Demo Live Auction AUC-0001
+        auc_existing = db.query(Auction).filter(Auction.id == "AUC-0001").first()
+        if not auc_existing:
+            ends = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+            demo_auc = Auction(
+                id="AUC-0001",
+                title="Enterprise Laptop Fleet & Server Infrastructure",
+                category="IT Hardware",
+                max_budget=5000000.0, # ₹50,00,000 INR
+                status="live",
+                weight_cost=40,
+                weight_reliability=30,
+                weight_delivery=20,
+                weight_reviews=10,
+                buyer_id="usr_buyer",
+                ends_at=ends
+            )
+            db.add(demo_auc)
+            db.commit()
+
+            seed_initial_auction_bids(db, "AUC-0001", "IT Hardware", 5000000.0)
+            log_audit_event(db, "AUCTION_CREATED", "Enterprise Procurement Corp", {"auction_id": "AUC-0001", "title": demo_auc.title})
+
+    except Exception as e:
+        print(f"[Startup Error] Database seeding exception: {e}")
+    finally:
+        db.close()
+
+
+# ----------------------------------------------------
+# AUTHENTICATION ENDPOINTS (Three Logins + Password Reset)
+# ----------------------------------------------------
+
+def _login_user(db: Session, req: LoginRequest, expected_role: str):
+    user = db.query(User).filter(User.email == req.email).first()
+    if not user or not verify_password(req.password, user.password_hash):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
     
-    # Audit log
-    audit_engine.add_event("BID_SUBMITTED", req.vendor_name, {"auction_id": req.auction_id, "price": req.price})
+    if user.role != expected_role:
+        raise HTTPException(status_code=403, detail=f"User role is {user.role}, not authorized for {expected_role} portal")
 
-    # Fraud analysis
-    auc_bids = [b for b in STATE["bids"] if b["auction_id"] == req.auction_id]
-    alerts = fraud_engine.analyze_bids(auc_bids)
-    if alerts:
-        for a in alerts:
-            a["id"] = f"FRD-{len(STATE['fraud_alerts'])+1:03d}"
-            a["auction_id"] = req.auction_id,
-            a["vendor_id"] = req.vendor_id,
-            a["timestamp"] = now_str
-            STATE["fraud_alerts"].insert(0, a)
-            audit_engine.add_event("FRAUD_ALERT_FLAGGED", "System", a)
+    vendor = db.query(Vendor).filter(Vendor.user_id == user.id).first()
+    token = create_access_token({
+        "user_id": user.id,
+        "email": user.email,
+        "role": user.role,
+        "name": user.name,
+        "vendor_id": vendor.id if vendor else None
+    })
 
-    return {"status": "success", "bid": bid, "alerts_detected": len(alerts)}
+    return TokenResponse(
+        access_token=token,
+        token_type="bearer",
+        user_id=user.id,
+        role=user.role,
+        name=user.name,
+        email=user.email,
+        vendor_id=vendor.id if vendor else None
+    )
 
-@app.get("/api/ai/recommendation/{auction_id}")
-def get_ai_recommendation(auction_id: str):
-    auc = next((a for a in STATE["auctions"] if a["id"] == auction_id), None)
-    if not auc:
-        raise HTTPException(status_code=404, detail="Auction not found")
+@app.post("/api/buyer/login", response_model=TokenResponse)
+def buyer_login(req: LoginRequest, db: Session = Depends(get_db)):
+    return _login_user(db, req, "BUYER")
 
-    auc_bids = [b for b in STATE["bids"] if b["auction_id"] == auction_id]
-    if not auc_bids:
-        return {"recommendations": [], "winner": None}
+@app.post("/api/vendor/login", response_model=TokenResponse)
+def vendor_login(req: LoginRequest, db: Session = Depends(get_db)):
+    return _login_user(db, req, "VENDOR")
 
-    # Enrich bids with vendor profile details
-    enriched_bids = []
-    for b in auc_bids:
-        v_profile = next((v for v in STATE["verified_vendors"] if v["name"] == b["name"] or v["id"] == b["vendor_id"]), None)
-        enriched_bids.append({
-            "vendor_id": b["vendor_id"],
-            "name": b["name"],
-            "price": b["price"],
-            "reliability_score": v_profile["reliability"] if v_profile else 0.90,
-            "delivery_score": v_profile["delivery"] if v_profile else 92.0,
-            "historical_rating": v_profile["rating"] if v_profile else 4.5,
-            "defect_rate": 0.01,
-            "avg_delay_days": 1.0,
-            "completed_contracts": 120
+@app.post("/api/admin/login", response_model=TokenResponse)
+def admin_login(req: LoginRequest, db: Session = Depends(get_db)):
+    return _login_user(db, req, "ADMIN")
+
+@app.post("/api/auth/reset-password")
+def reset_password(req: ResetPasswordRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == req.email).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="Account not found with provided email address")
+
+    user.password_hash = hash_password(req.new_password)
+    db.commit()
+
+    log_audit_event(db, "PASSWORD_RESET", user.name, {"email": user.email})
+    return {"status": "success", "message": f"Password for {req.email} reset successfully!"}
+
+
+# ----------------------------------------------------
+# REALISTIC GRADUAL BOT BIDDING SIMULATION ENGINE
+# ----------------------------------------------------
+
+def trigger_autonomous_bot_bids(db: Session, auction: Auction):
+    """Simulates realistic staggered vendor joins and profile-driven counter-bids."""
+    if auction.status != "live":
+        return
+
+    bids = db.query(Bid).filter(Bid.auction_id == auction.id).order_by(Bid.price.asc()).all()
+    lowest_bid_price = bids[0].price if bids else auction.max_budget
+    lowest_vendor_id = bids[0].vendor_id if bids else None
+
+    # Cap maximum total bids per auction at 20
+    if len(bids) >= 20:
+        return
+
+    # Strictly filter candidate vendors by auction category
+    category_vendors = db.query(Vendor).filter(Vendor.category == auction.category).all()
+    if not category_vendors:
+        category_vendors = db.query(Vendor).filter(Vendor.verified == True).limit(6).all()
+
+    if not category_vendors:
+        return
+
+    # Filter vendors not holding Rank 1
+    eligible_vendors = [v for v in category_vendors if v.id != lowest_vendor_id]
+    if not eligible_vendors:
+        eligible_vendors = category_vendors
+
+    bot_vendor = random.choice(eligible_vendors)
+
+    # Vendor Profile Floor Strategy:
+    if bot_vendor.rating >= 4.8:
+        min_floor = round(0.80 * auction.max_budget, 2)
+    else:
+        min_floor = round(0.50 * auction.max_budget, 2)
+
+    decrement = random.randint(15000, 45000) # INR Decrement
+    new_price = round(lowest_bid_price - decrement, 2)
+
+    if new_price < min_floor:
+        return
+
+    # Submit Bot Bid
+    bid_id = f"BID-{db.query(Bid).count() + 1:05d}-{uuid.uuid4().hex[:4]}"
+    bot_bid = Bid(
+        id=bid_id,
+        auction_id=auction.id,
+        vendor_id=bot_vendor.id,
+        vendor_name=bot_vendor.name,
+        price=new_price,
+        timestamp=datetime.datetime.utcnow()
+    )
+    db.add(bot_bid)
+    db.commit()
+
+    log_audit_event(db, "BID_SUBMITTED", f"{bot_vendor.name} [Bot]", {"auction_id": auction.id, "price": new_price})
+
+
+# ----------------------------------------------------
+# ENRICHED VENDOR PROFILE & REVIEWS ENDPOINT
+# ----------------------------------------------------
+
+@app.get("/api/vendors/{vendor_identifier}/profile")
+def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
+    """Retrieves LinkedIn + Amazon Seller style profile enriched with stat-consistent reviews and charts."""
+    vendor = db.query(Vendor).filter((Vendor.id == vendor_identifier) | (Vendor.name == vendor_identifier) | (Vendor.company_name == vendor_identifier)).first()
+    if not vendor:
+        raise HTTPException(status_code=404, detail=f"Vendor profile not found for '{vendor_identifier}'")
+
+    rel_pct = int(vendor.reliability_score * 100) if vendor.reliability_score else 90
+    del_pct = int(vendor.delivery_score) if vendor.delivery_score else 90
+    rating = round(vendor.rating, 1) if vendor.rating else 4.5
+    completed_contracts = vendor.contracts_completed or 50
+
+    if vendor.cancellation_rate > 0.05 or rel_pct < 80:
+        risk_level = "HIGH"
+    elif vendor.cancellation_rate > 0.02 or rel_pct < 88:
+        risk_level = "MEDIUM"
+    else:
+        risk_level = "LOW"
+
+    ai_score = round((0.40 * 92) + (0.30 * rel_pct) + (0.20 * del_pct) + (0.10 * (rating * 20)), 1)
+    years_on_platform = max(2, (hash(vendor.id) % 8) + 2)
+    total_procurement_val = completed_contracts * random.randint(3500000, 7500000) # INR Value
+
+    buyer_companies = [
+        ("Malla Reddy University", "Mark Stevenson", "VP Supply Chain"),
+        ("Tata Enterprises Corp", "Rajesh Sharma", "Head of Procurement"),
+        ("Apex Cloud Infrastructure", "Sarah Jenkins", "Senior Buyer"),
+        ("Metro Tech Solutions", "David Miller", "Infrastructure Lead"),
+        ("Orion Industrial Corp", "Elena Rostova", "Operations Director")
+    ]
+
+    reviews = []
+    days_ago = [4, 18, 35, 62, 90]
+
+    for idx, (b_comp, reviewer, title) in enumerate(buyer_companies):
+        r_date = (datetime.datetime.utcnow() - datetime.timedelta(days=days_ago[idx])).strftime("%B %d, %Y")
+        
+        if rel_pct >= 92 and rating >= 4.7:
+            stars = 5
+            text = f"Exceptional partner! Delivered all equipment with {del_pct}% SLA compliance. Zero defects reported across {format_inr(random.randint(4500000,9000000))} contract value."
+        elif rel_pct >= 85:
+            stars = 4
+            text = f"Very solid execution by {vendor.name}. Delivery was completed within {vendor.avg_delay_days:.1f} days margin. Professional communication throughout."
+        else:
+            stars = 3 if idx % 2 == 0 else 4
+            text = f"Acceptable delivery quality, though experienced minor scheduling delays ({vendor.avg_delay_days:.1f} days). Pricing remains competitive."
+
+        if vendor.cancellation_rate > 0.03 and idx == 0:
+            stars = 3
+            text = f"Competitive pricing, but had 1 cancellation incident on a previous order. Required closer monitoring."
+
+        reviews.append({
+            "id": f"REV-{vendor.id}-{idx+1}",
+            "buyer_company": b_comp,
+            "reviewer_name": reviewer,
+            "reviewer_title": title,
+            "stars": stars,
+            "review_text": text,
+            "date": r_date,
+            "verified": True
         })
 
-    weights = {
-        "cost": auc["weight_cost"],
-        "reliability": auc["weight_reliability"],
-        "delivery": auc["weight_delivery"],
-        "reviews": auc["weight_reviews"]
-    }
+    categories_list = [vendor.category, "IT Infrastructure", "Commercial Fleet", "SaaS Licensing"]
+    history = []
+    for i in range(5):
+        h_val = random.randint(2500000, 9500000)
+        h_date = (datetime.datetime.utcnow() - datetime.timedelta(days=(i+1)*28)).strftime("%b %Y")
+        history.append({
+            "id": f"PO-HIST-{vendor.id[:4]}-{i+1:03d}",
+            "buyer_name": buyer_companies[i % len(buyer_companies)][0],
+            "category": categories_list[i % len(categories_list)],
+            "contract_value": h_val,
+            "status": "COMPLETED",
+            "rating": round(min(5.0, rating + random.uniform(-0.2, 0.2)), 1),
+            "date": h_date
+        })
 
-    evaluations = ai_engine.evaluate_vendors(auc["max_budget"], enriched_bids, weights)
-    winner = evaluations[0] if evaluations else None
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+    monthly_contracts = [random.randint(4, 12) for _ in range(6)]
+    monthly_win_rates = [random.randint(65, 92) for _ in range(6)]
 
     return {
-        "auction_id": auction_id,
-        "recommendations": evaluations,
-        "winner": winner
+        "id": vendor.id,
+        "name": vendor.name,
+        "company_name": vendor.company_name,
+        "category": vendor.category,
+        "verified": vendor.verified,
+        "rating": rating,
+        "reliability_score": vendor.reliability_score,
+        "delivery_score": vendor.delivery_score,
+        "contracts_completed": completed_contracts,
+        "cancellation_rate": vendor.cancellation_rate,
+        "avg_delay_days": vendor.avg_delay_days,
+        "defect_rate": vendor.defect_rate,
+        "risk_level": risk_level,
+        "ai_score": ai_score,
+        "years_on_platform": years_on_platform,
+        "total_procurement_val": total_procurement_val,
+        "reliability_pct": rel_pct,
+        "delivery_pct": del_pct,
+        "reviews": reviews,
+        "history": history,
+        "chart_data": {
+            "months": months,
+            "monthly_contracts": monthly_contracts,
+            "monthly_win_rates": monthly_win_rates
+        },
+        "ai_breakdown": {
+            "price_score": 92,
+            "reliability_score": rel_pct,
+            "delivery_score": del_pct,
+            "history_score": int(rating * 20),
+            "overall_ai_score": ai_score
+        }
     }
 
-@app.post("/api/award")
-def award_contract(req: AwardAuctionRequest):
-    auc = next((a for a in STATE["auctions"] if a["id"] == req.auction_id), None)
-    if auc:
-        auc["status"] = "COMPLETED"
 
-    pdf_url = generate_invoice_pdf(req.auction_id, "Enterprise Buyer Corp", req.vendor_name, auc["title"] if auc else "Procurement Order", req.amount)
+# ----------------------------------------------------
+# AUCTION & BID ENDPOINTS (Polling Leaderboard & Live Feed)
+# ----------------------------------------------------
+
+@app.get("/api/auctions")
+def list_auctions(category: Optional[str] = None, status: Optional[str] = None, db: Session = Depends(get_db)):
+    query = db.query(Auction)
+    if category:
+        query = query.filter(Auction.category == category)
+    if status and status.lower() != "all":
+        query = query.filter(Auction.status == status.lower())
+
+    auctions = query.order_by(Auction.created_at.desc()).all()
     
-    audit_engine.add_event("CONTRACT_AWARDED", "Buyer", {"auction_id": req.auction_id, "winner": req.vendor_name, "amount": req.amount, "pdf": pdf_url})
+    res = []
+    for a in auctions:
+        bids = db.query(Bid).filter(Bid.auction_id == a.id).order_by(Bid.price.asc()).all()
+        lowest_bid = bids[0].price if bids else a.max_budget
+        res.append({
+            "id": a.id,
+            "title": a.title,
+            "category": a.category,
+            "max_budget": a.max_budget,
+            "status": a.status,
+            "lowest_bid": lowest_bid,
+            "bid_count": len(bids),
+            "ends_at": a.ends_at.isoformat() if a.ends_at else None,
+            "created_at": a.created_at.isoformat()
+        })
+    return res
+
+@app.post("/api/auctions")
+def create_auction(req: CreateAuctionRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["BUYER", "ADMIN"]))):
+    auc_id = f"AUC-{db.query(Auction).count() + 1:04d}"
+    
+    auction = Auction(
+        id=auc_id,
+        title=req.title,
+        category=req.category,
+        max_budget=req.max_budget,
+        status="pending_approval",
+        weight_cost=req.weight_cost,
+        weight_reliability=req.weight_reliability,
+        weight_delivery=req.weight_delivery,
+        weight_reviews=req.weight_reviews,
+        buyer_id=current_user.get("user_id"),
+        ends_at=None
+    )
+    db.add(auction)
+    db.commit()
+
+    log_audit_event(db, "AUCTION_SUBMITTED_FOR_APPROVAL", current_user.get("name", "Buyer"), {
+        "auction_id": auc_id,
+        "title": req.title,
+        "budget": req.max_budget
+    })
+
+    return {
+        "status": "pending_approval",
+        "auction_id": auc_id,
+        "message": "Procurement auction created and submitted to Admin for approval."
+    }
+
+@app.get("/api/auctions/{auction_id}")
+def get_auction_live(auction_id: str, db: Session = Depends(get_db)):
+    auction = db.query(Auction).filter(Auction.id == auction_id).first()
+    if not auction:
+        raise HTTPException(status_code=404, detail="Auction not found")
+
+    now = datetime.datetime.utcnow()
+    time_remaining = 0
+    if auction.ends_at and auction.ends_at > now:
+        time_remaining = int((auction.ends_at - now).total_seconds())
+    elif auction.status == "live" and auction.ends_at and auction.ends_at <= now:
+        auction.status = "completed"
+        db.commit()
+        log_audit_event(db, "AUCTION_COMPLETED", "System", {"auction_id": auction_id})
+
+    if auction.status == "live":
+        trigger_autonomous_bot_bids(db, auction)
+
+    bids = db.query(Bid).filter(Bid.auction_id == auction_id).order_by(Bid.price.asc(), Bid.timestamp.asc()).all()
+
+    fraud_alerts = db.query(FraudAlert).filter(FraudAlert.auction_id == auction_id).all()
+    fraud_map = {f.vendor_id: f.rule_triggered for f in fraud_alerts}
+
+    leaderboard = []
+    live_feed = []
+    for rank_idx, b in enumerate(bids, start=1):
+        fraud_warning = fraud_map.get(b.vendor_id)
+        leaderboard.append({
+            "rank": rank_idx,
+            "bid_id": b.id,
+            "vendor_id": b.vendor_id,
+            "vendor_name": b.vendor_name,
+            "price": b.price,
+            "timestamp": b.timestamp.isoformat(),
+            "fraud_warning": fraud_warning
+        })
+        live_feed.append({
+            "id": b.id,
+            "text": f"{b.vendor_name} placed a bid of {format_inr(b.price)}" if rank_idx > 1 else f"{b.vendor_name} joined and set Rank #1 at {format_inr(b.price)}",
+            "timestamp": b.timestamp.strftime("%H:%M:%S"),
+            "type": "bid"
+        })
+
+    live_feed.reverse()
+    lowest_bid = leaderboard[0]["price"] if leaderboard else auction.max_budget
+
+    return {
+        "id": auction.id,
+        "title": auction.title,
+        "category": auction.category,
+        "max_budget": auction.max_budget,
+        "status": auction.status,
+        "time_remaining_seconds": time_remaining,
+        "weight_cost": auction.weight_cost,
+        "weight_reliability": auction.weight_reliability,
+        "weight_delivery": auction.weight_delivery,
+        "weight_reviews": auction.weight_reviews,
+        "leaderboard": leaderboard,
+        "lowest_bid": lowest_bid,
+        "total_bids": len(leaderboard),
+        "live_feed": live_feed[:10]
+    }
+
+@app.post("/api/bids")
+def submit_bid(req: SubmitBidRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["VENDOR", "ADMIN"]))):
+    auction = db.query(Auction).filter(Auction.id == req.auction_id).first()
+    if not auction:
+        raise HTTPException(status_code=404, detail="Auction not found")
+
+    if auction.status != "live":
+        raise HTTPException(status_code=400, detail=f"Auction is currently {auction.status} and not accepting bids.")
+
+    vendor = db.query(Vendor).filter(Vendor.user_id == current_user.get("user_id")).first()
+    vendor_id = vendor.id if vendor else current_user.get("vendor_id", "VND-0001")
+    vendor_name = current_user.get("name", "Vendor")
+
+    bid_id = f"BID-{db.query(Bid).count() + 1:05d}-{uuid.uuid4().hex[:4]}"
+    new_bid = Bid(
+        id=bid_id,
+        auction_id=req.auction_id,
+        vendor_id=vendor_id,
+        vendor_name=vendor_name,
+        price=req.price,
+        timestamp=datetime.datetime.utcnow()
+    )
+    db.add(new_bid)
+    db.commit()
+
+    log_audit_event(db, "BID_SUBMITTED", vendor_name, {"auction_id": req.auction_id, "price": req.price})
+    fraud_alerts = analyze_bid_fraud(db, auction, vendor_id, vendor_name, req.price)
 
     return {
         "status": "success",
-        "message": f"Contract awarded to {req.vendor_name}!",
-        "pdf_url": pdf_url
+        "bid_id": bid_id,
+        "price": req.price,
+        "fraud_alerts_triggered": len(fraud_alerts)
     }
 
+
+# ----------------------------------------------------
+# RECOMMENDATION & ENTERPRISE CONTRACT AWARD WORKFLOW
+# ----------------------------------------------------
+
+@app.post("/api/recommend/{auction_id}")
+def get_ai_recommendation(auction_id: str, db: Session = Depends(get_db)):
+    auction = db.query(Auction).filter(Auction.id == auction_id).first()
+    if not auction:
+        raise HTTPException(status_code=404, detail="Auction not found")
+
+    bids = db.query(Bid).filter(Bid.auction_id == auction_id).order_by(Bid.price.asc()).all()
+    if not bids:
+        return {
+            "auction_id": auction_id,
+            "recommended_vendor": None,
+            "confidence_percentage": 0.0,
+            "ranking_list": [],
+            "decision_report": None
+        }
+
+    vendor_lowest_bids = {}
+    for b in bids:
+        if b.vendor_id not in vendor_lowest_bids:
+            vendor_lowest_bids[b.vendor_id] = b
+
+    enriched_bids = []
+    for v_id, b in vendor_lowest_bids.items():
+        v_profile = db.query(Vendor).filter(Vendor.id == v_id).first()
+        enriched_bids.append({
+            "vendor_id": v_id,
+            "name": b.vendor_name,
+            "price": b.price,
+            "reliability_score": v_profile.reliability_score if v_profile else 0.90,
+            "delivery_score": v_profile.delivery_score if v_profile else 90.0,
+            "rating": v_profile.rating if v_profile else 4.5,
+            "defect_rate": v_profile.defect_rate if v_profile else 0.01,
+            "avg_delay_days": v_profile.avg_delay_days if v_profile else 1.0,
+            "contracts_completed": v_profile.contracts_completed if v_profile else 50
+        })
+
+    weights = {
+        "cost": auction.weight_cost,
+        "reliability": auction.weight_reliability,
+        "delivery": auction.weight_delivery,
+        "reviews": auction.weight_reviews
+    }
+
+    report = ai_engine.evaluate_vendors(auction.max_budget, enriched_bids, weights)
+    report["auction_id"] = auction_id
+
+    log_audit_event(db, "AI_RECOMMENDATION_GENERATED", "System AI Engine", {
+        "auction_id": auction_id,
+        "recommended_vendor": report.get("recommended_vendor"),
+        "confidence": report.get("confidence_percentage")
+    })
+
+    return report
+
+@app.post("/api/award")
+def award_contract(req: AwardContractRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["BUYER", "ADMIN"]))):
+    auc = db.query(Auction).filter(Auction.id == req.auction_id).first()
+    if not auc:
+        raise HTTPException(status_code=404, detail="Auction not found")
+
+    # 1. PERMANENT CONCLUDED STATE: Set auction status to awarded
+    auc.status = "awarded"
+    db.commit()
+
+    buyer_name = current_user.get("name", "Malla Reddy University")
+    po_id = f"PO-2026-{db.query(PurchaseOrder).count() + 1001:06d}"
+
+    # Calculate subtotal, unit price, quantity, and GST (18%)
+    quantity = 100
+    unit_price = round(req.amount / quantity, 2) if req.amount > quantity else req.amount
+    grand_total = req.amount
+
+    # Generate Enterprise SAP/GeM Style Purchase Order PDF
+    pdf_url = generate_purchase_order_pdf(
+        po_id=po_id,
+        buyer_name=buyer_name,
+        vendor_name=req.vendor_name,
+        item_title=auc.title,
+        unit_price=unit_price,
+        quantity=quantity,
+        category=auc.category,
+        auction_id=auc.id
+    )
+
+    po = PurchaseOrder(
+        id=po_id,
+        auction_id=req.auction_id,
+        buyer_name=buyer_name,
+        vendor_name=req.vendor_name,
+        amount=grand_total,
+        pdf_url=pdf_url
+    )
+    db.add(po)
+    db.commit()
+
+    # Log Immutable Audit Event
+    log_audit_event(db, "CONTRACT_AWARDED", buyer_name, {
+        "auction_id": req.auction_id,
+        "vendor": req.vendor_name,
+        "amount": grand_total,
+        "po_id": po_id
+    })
+
+    return {
+        "status": "success",
+        "message": f"Contract successfully awarded to {req.vendor_name}! Official Purchase Order {po_id} issued.",
+        "po_id": po_id,
+        "pdf_url": pdf_url,
+        "awarded_vendor": req.vendor_name,
+        "amount": grand_total
+    }
+
+@app.get("/api/buyer/awarded_contracts")
+def list_buyer_awarded_contracts(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["BUYER", "ADMIN"]))):
+    pos = db.query(PurchaseOrder).order_by(PurchaseOrder.created_at.desc()).all()
+    res = []
+    for p in pos:
+        auc = db.query(Auction).filter(Auction.id == p.auction_id).first()
+        res.append({
+            "po_id": p.id,
+            "auction_id": p.auction_id,
+            "title": auc.title if auc else "Procurement Contract",
+            "category": auc.category if auc else "IT Equipment",
+            "buyer_name": p.buyer_name,
+            "vendor_name": p.vendor_name,
+            "amount": p.amount,
+            "pdf_url": p.pdf_url,
+            "created_at": p.created_at.isoformat()
+        })
+    return res
+
+@app.get("/api/vendor/awarded_contracts")
+def list_vendor_awarded_contracts(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["VENDOR", "ADMIN"]))):
+    vendor_name = current_user.get("name")
+    pos = db.query(PurchaseOrder).order_by(PurchaseOrder.created_at.desc()).all()
+    
+    # Filter for logged in vendor or return all demo awards
+    matching_pos = [p for p in pos if p.vendor_name == vendor_name or vendor_name in ["HP Enterprise Solutions", "Compliance Administrator"]]
+    if not matching_pos:
+        matching_pos = pos
+
+    res = []
+    for p in matching_pos:
+        auc = db.query(Auction).filter(Auction.id == p.auction_id).first()
+        res.append({
+            "po_id": p.id,
+            "auction_id": p.auction_id,
+            "title": auc.title if auc else "Procurement Contract",
+            "category": auc.category if auc else "IT Equipment",
+            "buyer_name": p.buyer_name,
+            "vendor_name": p.vendor_name,
+            "amount": p.amount,
+            "pdf_url": p.pdf_url,
+            "delivery_deadline": (p.created_at + datetime.timedelta(days=14)).strftime("%B %d, %Y"),
+            "created_at": p.created_at.isoformat()
+        })
+    return res
+
+
+# ----------------------------------------------------
+# ADMIN PORTAL ENDPOINTS (Approval Workflow + Dataset)
+# ----------------------------------------------------
+
+@app.get("/api/admin/pending_auctions")
+def list_pending_auctions(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    auctions = db.query(Auction).filter(Auction.status == "pending_approval").order_by(Auction.created_at.desc()).all()
+    return [{
+        "id": a.id,
+        "title": a.title,
+        "category": a.category,
+        "max_budget": a.max_budget,
+        "buyer_id": a.buyer_id,
+        "created_at": a.created_at.isoformat()
+    } for a in auctions]
+
+@app.post("/api/admin/approve_auction/{auction_id}")
+def approve_auction(auction_id: str, approve: bool = True, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    auction = db.query(Auction).filter(Auction.id == auction_id).first()
+    if not auction:
+        raise HTTPException(status_code=404, detail="Auction not found")
+
+    if approve:
+        auction.status = "live"
+        auction.ends_at = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
+        db.commit()
+
+        seed_initial_auction_bids(db, auction.id, auction.category, auction.max_budget)
+        log_audit_event(db, "AUCTION_APPROVED_BY_ADMIN", current_user.get("name", "Admin"), {"auction_id": auction_id, "title": auction.title})
+        return {"status": "success", "message": f"Auction {auction_id} approved and launched LIVE!"}
+    else:
+        auction.status = "rejected"
+        db.commit()
+        log_audit_event(db, "AUCTION_REJECTED_BY_ADMIN", current_user.get("name", "Admin"), {"auction_id": auction_id})
+        return {"status": "success", "message": f"Auction {auction_id} rejected by Admin."}
+
+@app.get("/api/admin/users")
+def list_users(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    users = db.query(User).all()
+    return [{
+        "id": u.id,
+        "email": u.email,
+        "name": u.name,
+        "role": u.role,
+        "created_at": u.created_at.isoformat()
+    } for u in users]
+
+@app.get("/api/admin/vendors")
+def list_all_vendors(
+    page: int = 1,
+    limit: int = 25,
+    search: Optional[str] = None,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(require_role(["ADMIN", "BUYER"]))
+):
+    query = db.query(Vendor)
+    if search:
+        query = query.filter(Vendor.name.ilike(f"%{search}%") | Vendor.category.ilike(f"%{search}%"))
+
+    total_count = query.count()
+    offset = (page - 1) * limit
+    vendors = query.offset(offset).limit(limit).all()
+    total_pages = (total_count + limit - 1) // limit if limit > 0 else 1
+
+    return {
+        "page": page,
+        "limit": limit,
+        "total_count": total_count,
+        "total_pages": total_pages,
+        "vendors": [{
+            "id": v.id,
+            "name": v.name,
+            "category": v.category,
+            "verified": v.verified,
+            "rating": v.rating if v.rating is not None else 4.5,
+            "reliability_score": v.reliability_score if v.reliability_score is not None else 0.90,
+            "delivery_score": v.delivery_score if v.delivery_score is not None else 90.0,
+            "contracts_completed": v.contracts_completed
+        } for v in vendors]
+    }
+
+@app.get("/api/admin/pending_vendors")
+def list_pending_vendors(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    return db.query(Vendor).filter(Vendor.verified == False).all()
+
 @app.post("/api/admin/verify_vendor/{vendor_id}")
-def verify_vendor(vendor_id: str, approve: bool = True):
-    v = next((item for item in STATE["pending_vendors"] if item["id"] == vendor_id), None)
-    if v:
-        STATE["pending_vendors"].remove(v)
-        if approve:
-            new_v = {
-                "id": f"VND-{len(STATE['verified_vendors'])+1:04d}",
-                "name": v["company"],
-                "domain": v["domain"],
-                "rating": 4.8,
-                "reliability": 0.92,
-                "delivery": 93.0,
-                "reviews": [{"author": "System", "text": "Newly verified vendor."}]
-            }
-            STATE["verified_vendors"].append(new_v)
-            audit_engine.add_event("VENDOR_VERIFIED", "Admin", {"vendor": v["company"]})
-            return {"status": "success", "message": f"Vendor {v['company']} approved!"}
-    return {"status": "success", "message": "Vendor rejected"}
+def verify_vendor(vendor_id: str, approve: bool = True, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    vendor = db.query(Vendor).filter(Vendor.id == vendor_id).first()
+    if not vendor:
+        raise HTTPException(status_code=404, detail="Vendor not found")
+
+    if approve:
+        vendor.verified = True
+        db.commit()
+        log_audit_event(db, "VENDOR_VERIFIED", current_user.get("name", "Admin"), {"vendor_id": vendor_id, "name": vendor.name})
+        return {"status": "success", "message": f"Vendor {vendor.name} verified successfully"}
+    else:
+        db.delete(vendor)
+        db.commit()
+        return {"status": "success", "message": "Vendor application rejected"}
+
+@app.get("/api/admin/audit_logs")
+def list_audit_logs(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    logs = db.query(AuditLog).order_by(AuditLog.timestamp.desc()).limit(100).all()
+    return [{
+        "id": l.id,
+        "action": l.action,
+        "actor": l.actor,
+        "details": l.details,
+        "timestamp": l.timestamp.isoformat()
+    } for l in logs]
+
+@app.get("/api/admin/fraud_alerts")
+def list_fraud_alerts(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
+    alerts = db.query(FraudAlert).order_by(FraudAlert.timestamp.desc()).limit(50).all()
+    return [{
+        "id": a.id,
+        "auction_id": a.auction_id,
+        "vendor_id": a.vendor_id,
+        "vendor_name": a.vendor_name,
+        "risk_level": a.risk_level,
+        "rule_triggered": a.rule_triggered,
+        "details": a.details,
+        "timestamp": a.timestamp.isoformat()
+    } for a in alerts]
