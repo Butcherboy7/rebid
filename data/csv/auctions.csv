@@ -1,0 +1,1501 @@
+auction_id,domain,title,max_budget,weight_cost,weight_reliability,weight_delivery,weight_reviews,duration_minutes,created_at
+AUC-0001,Raw Materials & Metals,Procurement Request #0001 - Raw Materials & Metals,104014.99,25,28,13,34,10,2026-06-14 00:00:00
+AUC-0002,Manufacturing & Heavy Machinery,Procurement Request #0002 - Manufacturing & Heavy Machinery,168452.07,45,12,28,15,5,2026-04-23 00:00:00
+AUC-0003,Healthcare & Medical Supplies,Procurement Request #0003 - Healthcare & Medical Supplies,121061.64,28,17,19,36,15,2026-03-23 00:00:00
+AUC-0004,Manufacturing & Heavy Machinery,Procurement Request #0004 - Manufacturing & Heavy Machinery,183948.19,40,32,20,10,15,2026-04-27 00:00:00
+AUC-0005,Logistics & Freight,Procurement Request #0005 - Logistics & Freight,44017.68,34,12,16,38,10,2026-05-31 00:00:00
+AUC-0006,IT Hardware,Procurement Request #0006 - IT Hardware,264339.3,29,13,15,43,30,2026-05-01 00:00:00
+AUC-0007,Logistics & Freight,Procurement Request #0007 - Logistics & Freight,43130.16,46,13,27,14,15,2026-02-24 00:00:00
+AUC-0008,Raw Materials & Metals,Procurement Request #0008 - Raw Materials & Metals,402174.69,39,24,18,19,5,2026-01-25 00:00:00
+AUC-0009,Software & Cloud Services,Procurement Request #0009 - Software & Cloud Services,124518.92,34,36,29,10,5,2026-02-26 00:00:00
+AUC-0010,Manufacturing & Heavy Machinery,Procurement Request #0010 - Manufacturing & Heavy Machinery,274605.84,40,14,12,34,10,2026-04-03 00:00:00
+AUC-0011,Raw Materials & Metals,Procurement Request #0011 - Raw Materials & Metals,441238.75,52,11,19,18,15,2026-02-15 00:00:00
+AUC-0012,IT Hardware,Procurement Request #0012 - IT Hardware,328929.91,40,37,24,10,10,2026-01-26 00:00:00
+AUC-0013,Raw Materials & Metals,Procurement Request #0013 - Raw Materials & Metals,271149.32,26,35,14,25,5,2026-01-05 00:00:00
+AUC-0014,IT Hardware,Procurement Request #0014 - IT Hardware,168923.54,34,14,16,36,30,2026-04-07 00:00:00
+AUC-0015,Healthcare & Medical Supplies,Procurement Request #0015 - Healthcare & Medical Supplies,173170.94,55,40,30,10,5,2026-05-31 00:00:00
+AUC-0016,Construction & Infrastructure,Procurement Request #0016 - Construction & Infrastructure,338048.61,36,39,12,13,5,2026-01-18 00:00:00
+AUC-0017,Software & Cloud Services,Procurement Request #0017 - Software & Cloud Services,497128.29,43,35,14,10,5,2026-03-27 00:00:00
+AUC-0018,IT Hardware,Procurement Request #0018 - IT Hardware,334301.2,22,40,24,14,5,2026-02-14 00:00:00
+AUC-0019,Construction & Infrastructure,Procurement Request #0019 - Construction & Infrastructure,283313.87,42,36,22,10,30,2026-01-09 00:00:00
+AUC-0020,Raw Materials & Metals,Procurement Request #0020 - Raw Materials & Metals,368018.75,47,15,21,17,10,2026-02-18 00:00:00
+AUC-0021,Logistics & Freight,Procurement Request #0021 - Logistics & Freight,237950.75,37,24,14,25,5,2026-06-08 00:00:00
+AUC-0022,Construction & Infrastructure,Procurement Request #0022 - Construction & Infrastructure,39469.75,54,17,30,10,15,2026-05-09 00:00:00
+AUC-0023,Raw Materials & Metals,Procurement Request #0023 - Raw Materials & Metals,285525.44,55,25,11,9,5,2026-03-14 00:00:00
+AUC-0024,Raw Materials & Metals,Procurement Request #0024 - Raw Materials & Metals,479236.39,28,23,16,33,10,2026-06-12 00:00:00
+AUC-0025,Manufacturing & Heavy Machinery,Procurement Request #0025 - Manufacturing & Heavy Machinery,95898.44,49,35,10,10,30,2026-04-03 00:00:00
+AUC-0026,Raw Materials & Metals,Procurement Request #0026 - Raw Materials & Metals,348102.4,49,35,25,10,15,2026-05-26 00:00:00
+AUC-0027,Construction & Infrastructure,Procurement Request #0027 - Construction & Infrastructure,108457.51,40,22,18,20,10,2026-01-08 00:00:00
+AUC-0028,Logistics & Freight,Procurement Request #0028 - Logistics & Freight,272555.57,58,17,10,15,15,2026-01-16 00:00:00
+AUC-0029,Manufacturing & Heavy Machinery,Procurement Request #0029 - Manufacturing & Heavy Machinery,57371.46,45,26,21,10,10,2026-02-11 00:00:00
+AUC-0030,IT Hardware,Procurement Request #0030 - IT Hardware,230681.76,35,31,17,17,15,2026-05-18 00:00:00
+AUC-0031,Manufacturing & Heavy Machinery,Procurement Request #0031 - Manufacturing & Heavy Machinery,380520.03,23,34,17,26,30,2026-04-02 00:00:00
+AUC-0032,Manufacturing & Heavy Machinery,Procurement Request #0032 - Manufacturing & Heavy Machinery,180310.05,31,15,17,37,15,2026-06-29 00:00:00
+AUC-0033,Logistics & Freight,Procurement Request #0033 - Logistics & Freight,335806.74,57,10,21,12,10,2026-05-26 00:00:00
+AUC-0034,Software & Cloud Services,Procurement Request #0034 - Software & Cloud Services,399770.48,46,27,19,10,10,2026-05-07 00:00:00
+AUC-0035,IT Hardware,Procurement Request #0035 - IT Hardware,464317.13,25,11,17,47,10,2026-01-07 00:00:00
+AUC-0036,Construction & Infrastructure,Procurement Request #0036 - Construction & Infrastructure,124974.62,50,10,20,20,10,2026-02-04 00:00:00
+AUC-0037,Logistics & Freight,Procurement Request #0037 - Logistics & Freight,205664.8,31,39,20,10,5,2026-01-07 00:00:00
+AUC-0038,Software & Cloud Services,Procurement Request #0038 - Software & Cloud Services,84683.85,52,32,14,10,5,2026-05-16 00:00:00
+AUC-0039,Manufacturing & Heavy Machinery,Procurement Request #0039 - Manufacturing & Heavy Machinery,496316.92,43,40,12,5,15,2026-06-20 00:00:00
+AUC-0040,Raw Materials & Metals,Procurement Request #0040 - Raw Materials & Metals,464230.47,57,13,20,10,15,2026-03-25 00:00:00
+AUC-0041,Software & Cloud Services,Procurement Request #0041 - Software & Cloud Services,274578.99,30,33,23,14,30,2026-06-17 00:00:00
+AUC-0042,Logistics & Freight,Procurement Request #0042 - Logistics & Freight,422596.31,31,32,27,10,15,2026-02-28 00:00:00
+AUC-0043,Healthcare & Medical Supplies,Procurement Request #0043 - Healthcare & Medical Supplies,265269.41,52,36,15,10,30,2026-03-21 00:00:00
+AUC-0044,Healthcare & Medical Supplies,Procurement Request #0044 - Healthcare & Medical Supplies,315556.99,38,14,15,33,5,2026-06-30 00:00:00
+AUC-0045,Construction & Infrastructure,Procurement Request #0045 - Construction & Infrastructure,53670.97,40,37,28,10,5,2026-02-17 00:00:00
+AUC-0046,Construction & Infrastructure,Procurement Request #0046 - Construction & Infrastructure,380082.51,35,39,29,10,10,2026-06-14 00:00:00
+AUC-0047,Construction & Infrastructure,Procurement Request #0047 - Construction & Infrastructure,72579.61,26,39,25,10,10,2026-03-27 00:00:00
+AUC-0048,Healthcare & Medical Supplies,Procurement Request #0048 - Healthcare & Medical Supplies,414773.14,24,17,21,38,15,2026-02-13 00:00:00
+AUC-0049,Healthcare & Medical Supplies,Procurement Request #0049 - Healthcare & Medical Supplies,393193.76,25,36,30,9,15,2026-04-26 00:00:00
+AUC-0050,IT Hardware,Procurement Request #0050 - IT Hardware,357284.9,36,16,17,31,5,2026-04-01 00:00:00
+AUC-0051,Logistics & Freight,Procurement Request #0051 - Logistics & Freight,27718.59,26,33,10,31,5,2026-04-10 00:00:00
+AUC-0052,Raw Materials & Metals,Procurement Request #0052 - Raw Materials & Metals,158532.89,46,15,23,16,30,2026-04-08 00:00:00
+AUC-0053,Logistics & Freight,Procurement Request #0053 - Logistics & Freight,138925.16,54,22,13,11,30,2026-05-29 00:00:00
+AUC-0054,Healthcare & Medical Supplies,Procurement Request #0054 - Healthcare & Medical Supplies,186466.84,34,15,24,27,5,2026-01-10 00:00:00
+AUC-0055,Logistics & Freight,Procurement Request #0055 - Logistics & Freight,52944.95,21,20,18,41,5,2026-01-20 00:00:00
+AUC-0056,Logistics & Freight,Procurement Request #0056 - Logistics & Freight,469109.33,30,38,22,10,10,2026-01-21 00:00:00
+AUC-0057,Construction & Infrastructure,Procurement Request #0057 - Construction & Infrastructure,281363.1,25,20,29,26,30,2026-01-09 00:00:00
+AUC-0058,Raw Materials & Metals,Procurement Request #0058 - Raw Materials & Metals,159706.91,30,29,23,18,10,2026-01-15 00:00:00
+AUC-0059,IT Hardware,Procurement Request #0059 - IT Hardware,204520.94,41,16,16,27,30,2026-06-29 00:00:00
+AUC-0060,Construction & Infrastructure,Procurement Request #0060 - Construction & Infrastructure,229129.24,54,18,19,9,15,2026-03-03 00:00:00
+AUC-0061,IT Hardware,Procurement Request #0061 - IT Hardware,304291.22,23,22,28,27,30,2026-02-10 00:00:00
+AUC-0062,IT Hardware,Procurement Request #0062 - IT Hardware,262682.92,43,10,23,24,5,2026-03-18 00:00:00
+AUC-0063,Manufacturing & Heavy Machinery,Procurement Request #0063 - Manufacturing & Heavy Machinery,460502.07,55,29,25,10,10,2026-01-26 00:00:00
+AUC-0064,IT Hardware,Procurement Request #0064 - IT Hardware,253512.11,33,15,30,22,15,2026-01-22 00:00:00
+AUC-0065,Raw Materials & Metals,Procurement Request #0065 - Raw Materials & Metals,496157.43,27,19,22,32,30,2026-05-07 00:00:00
+AUC-0066,Healthcare & Medical Supplies,Procurement Request #0066 - Healthcare & Medical Supplies,427198.23,36,12,30,22,30,2026-02-18 00:00:00
+AUC-0067,Logistics & Freight,Procurement Request #0067 - Logistics & Freight,112170.15,44,21,15,20,30,2026-01-13 00:00:00
+AUC-0068,Logistics & Freight,Procurement Request #0068 - Logistics & Freight,465991.66,48,24,18,10,10,2026-03-11 00:00:00
+AUC-0069,Construction & Infrastructure,Procurement Request #0069 - Construction & Infrastructure,67019.53,23,14,13,50,5,2026-06-22 00:00:00
+AUC-0070,Logistics & Freight,Procurement Request #0070 - Logistics & Freight,410550.36,49,23,28,10,10,2026-05-23 00:00:00
+AUC-0071,IT Hardware,Procurement Request #0071 - IT Hardware,196505.41,39,36,26,10,30,2026-05-19 00:00:00
+AUC-0072,Healthcare & Medical Supplies,Procurement Request #0072 - Healthcare & Medical Supplies,440207.42,50,28,17,5,30,2026-03-19 00:00:00
+AUC-0073,IT Hardware,Procurement Request #0073 - IT Hardware,435347.78,45,38,11,6,10,2026-02-01 00:00:00
+AUC-0074,Manufacturing & Heavy Machinery,Procurement Request #0074 - Manufacturing & Heavy Machinery,404903.45,48,15,15,22,10,2026-02-20 00:00:00
+AUC-0075,Software & Cloud Services,Procurement Request #0075 - Software & Cloud Services,397114.91,22,23,12,43,30,2026-02-22 00:00:00
+AUC-0076,Manufacturing & Heavy Machinery,Procurement Request #0076 - Manufacturing & Heavy Machinery,159292.78,55,14,29,10,15,2026-03-24 00:00:00
+AUC-0077,Healthcare & Medical Supplies,Procurement Request #0077 - Healthcare & Medical Supplies,49650.45,24,12,22,42,30,2026-05-23 00:00:00
+AUC-0078,Logistics & Freight,Procurement Request #0078 - Logistics & Freight,207460.29,37,26,24,13,5,2026-06-30 00:00:00
+AUC-0079,Construction & Infrastructure,Procurement Request #0079 - Construction & Infrastructure,95027.01,52,26,23,10,5,2026-04-18 00:00:00
+AUC-0080,Software & Cloud Services,Procurement Request #0080 - Software & Cloud Services,350526.03,29,28,28,15,5,2026-01-29 00:00:00
+AUC-0081,Construction & Infrastructure,Procurement Request #0081 - Construction & Infrastructure,179588.87,26,35,19,20,15,2026-04-17 00:00:00
+AUC-0082,Logistics & Freight,Procurement Request #0082 - Logistics & Freight,488049.0,39,30,25,10,30,2026-01-11 00:00:00
+AUC-0083,Software & Cloud Services,Procurement Request #0083 - Software & Cloud Services,324076.32,37,22,14,27,30,2026-01-11 00:00:00
+AUC-0084,Raw Materials & Metals,Procurement Request #0084 - Raw Materials & Metals,413015.48,41,32,17,10,5,2026-05-03 00:00:00
+AUC-0085,Logistics & Freight,Procurement Request #0085 - Logistics & Freight,74937.09,43,10,20,27,15,2026-03-22 00:00:00
+AUC-0086,Logistics & Freight,Procurement Request #0086 - Logistics & Freight,432387.1,46,37,13,10,10,2026-02-05 00:00:00
+AUC-0087,Logistics & Freight,Procurement Request #0087 - Logistics & Freight,462151.02,43,34,20,10,15,2026-04-18 00:00:00
+AUC-0088,Construction & Infrastructure,Procurement Request #0088 - Construction & Infrastructure,248660.34,25,16,24,35,10,2026-04-16 00:00:00
+AUC-0089,Healthcare & Medical Supplies,Procurement Request #0089 - Healthcare & Medical Supplies,307063.94,46,34,26,10,15,2026-01-16 00:00:00
+AUC-0090,Construction & Infrastructure,Procurement Request #0090 - Construction & Infrastructure,384756.8,30,12,19,39,30,2026-02-05 00:00:00
+AUC-0091,Manufacturing & Heavy Machinery,Procurement Request #0091 - Manufacturing & Heavy Machinery,95670.93,48,38,28,10,5,2026-02-15 00:00:00
+AUC-0092,Software & Cloud Services,Procurement Request #0092 - Software & Cloud Services,256257.38,32,36,11,21,10,2026-01-10 00:00:00
+AUC-0093,Raw Materials & Metals,Procurement Request #0093 - Raw Materials & Metals,205344.88,23,39,21,17,10,2026-03-13 00:00:00
+AUC-0094,Logistics & Freight,Procurement Request #0094 - Logistics & Freight,81723.26,44,26,22,10,5,2026-06-25 00:00:00
+AUC-0095,IT Hardware,Procurement Request #0095 - IT Hardware,190091.87,35,21,25,19,30,2026-02-16 00:00:00
+AUC-0096,Manufacturing & Heavy Machinery,Procurement Request #0096 - Manufacturing & Heavy Machinery,43404.43,45,28,27,10,15,2026-03-31 00:00:00
+AUC-0097,Software & Cloud Services,Procurement Request #0097 - Software & Cloud Services,22647.83,36,33,12,19,15,2026-01-09 00:00:00
+AUC-0098,Raw Materials & Metals,Procurement Request #0098 - Raw Materials & Metals,76231.48,23,15,28,34,10,2026-02-27 00:00:00
+AUC-0099,Healthcare & Medical Supplies,Procurement Request #0099 - Healthcare & Medical Supplies,481926.4,34,31,16,19,15,2026-06-17 00:00:00
+AUC-0100,Raw Materials & Metals,Procurement Request #0100 - Raw Materials & Metals,279269.47,52,10,10,28,30,2026-02-04 00:00:00
+AUC-0101,Healthcare & Medical Supplies,Procurement Request #0101 - Healthcare & Medical Supplies,483252.86,31,29,10,30,10,2026-03-07 00:00:00
+AUC-0102,Construction & Infrastructure,Procurement Request #0102 - Construction & Infrastructure,221923.96,34,32,30,10,15,2026-04-20 00:00:00
+AUC-0103,Raw Materials & Metals,Procurement Request #0103 - Raw Materials & Metals,162789.91,42,24,18,16,10,2026-05-01 00:00:00
+AUC-0104,Logistics & Freight,Procurement Request #0104 - Logistics & Freight,258009.51,48,36,29,10,30,2026-05-31 00:00:00
+AUC-0105,IT Hardware,Procurement Request #0105 - IT Hardware,225360.73,20,26,21,33,15,2026-03-19 00:00:00
+AUC-0106,Healthcare & Medical Supplies,Procurement Request #0106 - Healthcare & Medical Supplies,61775.7,26,25,12,37,15,2026-03-13 00:00:00
+AUC-0107,Healthcare & Medical Supplies,Procurement Request #0107 - Healthcare & Medical Supplies,324004.89,40,37,18,5,15,2026-06-18 00:00:00
+AUC-0108,Healthcare & Medical Supplies,Procurement Request #0108 - Healthcare & Medical Supplies,115858.71,39,16,14,31,10,2026-01-16 00:00:00
+AUC-0109,Manufacturing & Heavy Machinery,Procurement Request #0109 - Manufacturing & Heavy Machinery,313598.1,53,22,20,10,10,2026-01-08 00:00:00
+AUC-0110,Healthcare & Medical Supplies,Procurement Request #0110 - Healthcare & Medical Supplies,328598.54,51,19,18,12,30,2026-04-15 00:00:00
+AUC-0111,Raw Materials & Metals,Procurement Request #0111 - Raw Materials & Metals,84492.18,22,28,28,22,10,2026-03-30 00:00:00
+AUC-0112,Healthcare & Medical Supplies,Procurement Request #0112 - Healthcare & Medical Supplies,40061.32,34,31,27,8,30,2026-06-22 00:00:00
+AUC-0113,Logistics & Freight,Procurement Request #0113 - Logistics & Freight,392573.18,52,19,15,14,10,2026-03-18 00:00:00
+AUC-0114,IT Hardware,Procurement Request #0114 - IT Hardware,235302.21,50,14,18,18,10,2026-06-25 00:00:00
+AUC-0115,Logistics & Freight,Procurement Request #0115 - Logistics & Freight,38500.26,25,17,21,37,10,2026-03-21 00:00:00
+AUC-0116,Raw Materials & Metals,Procurement Request #0116 - Raw Materials & Metals,497484.5,41,21,18,20,15,2026-04-30 00:00:00
+AUC-0117,Manufacturing & Heavy Machinery,Procurement Request #0117 - Manufacturing & Heavy Machinery,38312.47,27,25,11,37,5,2026-05-02 00:00:00
+AUC-0118,Software & Cloud Services,Procurement Request #0118 - Software & Cloud Services,350567.26,52,13,22,13,15,2026-04-17 00:00:00
+AUC-0119,IT Hardware,Procurement Request #0119 - IT Hardware,492002.67,29,14,16,41,15,2026-04-16 00:00:00
+AUC-0120,Construction & Infrastructure,Procurement Request #0120 - Construction & Infrastructure,127198.25,49,14,20,17,10,2026-01-22 00:00:00
+AUC-0121,Raw Materials & Metals,Procurement Request #0121 - Raw Materials & Metals,79702.19,41,30,15,14,15,2026-06-13 00:00:00
+AUC-0122,IT Hardware,Procurement Request #0122 - IT Hardware,69478.62,20,24,18,38,10,2026-02-14 00:00:00
+AUC-0123,Construction & Infrastructure,Procurement Request #0123 - Construction & Infrastructure,158604.82,30,25,12,33,10,2026-06-08 00:00:00
+AUC-0124,Raw Materials & Metals,Procurement Request #0124 - Raw Materials & Metals,59512.45,55,23,22,10,30,2026-05-04 00:00:00
+AUC-0125,Raw Materials & Metals,Procurement Request #0125 - Raw Materials & Metals,349159.06,20,11,27,42,10,2026-04-07 00:00:00
+AUC-0126,IT Hardware,Procurement Request #0126 - IT Hardware,40522.98,35,34,26,10,10,2026-01-06 00:00:00
+AUC-0127,Healthcare & Medical Supplies,Procurement Request #0127 - Healthcare & Medical Supplies,259616.84,20,30,17,33,10,2026-06-28 00:00:00
+AUC-0128,Logistics & Freight,Procurement Request #0128 - Logistics & Freight,498381.46,39,14,13,34,30,2026-05-10 00:00:00
+AUC-0129,Construction & Infrastructure,Procurement Request #0129 - Construction & Infrastructure,408845.43,39,15,12,34,5,2026-03-19 00:00:00
+AUC-0130,Logistics & Freight,Procurement Request #0130 - Logistics & Freight,311457.52,44,33,26,10,15,2026-04-23 00:00:00
+AUC-0131,Healthcare & Medical Supplies,Procurement Request #0131 - Healthcare & Medical Supplies,160064.27,28,20,25,27,15,2026-02-19 00:00:00
+AUC-0132,Software & Cloud Services,Procurement Request #0132 - Software & Cloud Services,315708.96,45,10,17,28,10,2026-02-04 00:00:00
+AUC-0133,Software & Cloud Services,Procurement Request #0133 - Software & Cloud Services,268250.32,21,28,26,25,10,2026-02-02 00:00:00
+AUC-0134,Logistics & Freight,Procurement Request #0134 - Logistics & Freight,218780.86,22,22,30,26,15,2026-05-18 00:00:00
+AUC-0135,Construction & Infrastructure,Procurement Request #0135 - Construction & Infrastructure,74048.08,23,29,11,37,5,2026-06-18 00:00:00
+AUC-0136,Manufacturing & Heavy Machinery,Procurement Request #0136 - Manufacturing & Heavy Machinery,444436.07,21,11,13,55,30,2026-04-25 00:00:00
+AUC-0137,Raw Materials & Metals,Procurement Request #0137 - Raw Materials & Metals,230394.48,27,27,18,28,30,2026-06-30 00:00:00
+AUC-0138,Software & Cloud Services,Procurement Request #0138 - Software & Cloud Services,105365.03,33,32,30,5,5,2026-03-20 00:00:00
+AUC-0139,Raw Materials & Metals,Procurement Request #0139 - Raw Materials & Metals,190202.08,26,31,26,17,15,2026-06-10 00:00:00
+AUC-0140,Construction & Infrastructure,Procurement Request #0140 - Construction & Infrastructure,212923.58,28,23,13,36,5,2026-03-15 00:00:00
+AUC-0141,IT Hardware,Procurement Request #0141 - IT Hardware,415493.57,26,25,16,33,10,2026-03-10 00:00:00
+AUC-0142,Manufacturing & Heavy Machinery,Procurement Request #0142 - Manufacturing & Heavy Machinery,369471.05,53,16,21,10,30,2026-03-18 00:00:00
+AUC-0143,Software & Cloud Services,Procurement Request #0143 - Software & Cloud Services,386959.4,22,27,25,26,10,2026-06-27 00:00:00
+AUC-0144,Raw Materials & Metals,Procurement Request #0144 - Raw Materials & Metals,15405.32,41,17,10,32,5,2026-06-22 00:00:00
+AUC-0145,IT Hardware,Procurement Request #0145 - IT Hardware,213915.46,27,36,28,9,30,2026-02-09 00:00:00
+AUC-0146,IT Hardware,Procurement Request #0146 - IT Hardware,245858.63,52,12,13,23,15,2026-06-15 00:00:00
+AUC-0147,Software & Cloud Services,Procurement Request #0147 - Software & Cloud Services,19404.22,49,19,18,14,30,2026-01-14 00:00:00
+AUC-0148,IT Hardware,Procurement Request #0148 - IT Hardware,137308.47,31,37,11,21,15,2026-04-04 00:00:00
+AUC-0149,Manufacturing & Heavy Machinery,Procurement Request #0149 - Manufacturing & Heavy Machinery,382542.01,40,23,13,24,5,2026-01-13 00:00:00
+AUC-0150,IT Hardware,Procurement Request #0150 - IT Hardware,77183.76,28,31,30,11,10,2026-03-27 00:00:00
+AUC-0151,Logistics & Freight,Procurement Request #0151 - Logistics & Freight,272301.96,43,40,29,10,15,2026-01-25 00:00:00
+AUC-0152,Logistics & Freight,Procurement Request #0152 - Logistics & Freight,115448.92,41,15,13,31,30,2026-04-14 00:00:00
+AUC-0153,Raw Materials & Metals,Procurement Request #0153 - Raw Materials & Metals,15939.18,37,36,22,5,30,2026-04-19 00:00:00
+AUC-0154,Healthcare & Medical Supplies,Procurement Request #0154 - Healthcare & Medical Supplies,128188.71,30,13,14,43,5,2026-02-11 00:00:00
+AUC-0155,IT Hardware,Procurement Request #0155 - IT Hardware,488178.14,41,39,28,10,30,2026-05-27 00:00:00
+AUC-0156,Healthcare & Medical Supplies,Procurement Request #0156 - Healthcare & Medical Supplies,402753.18,48,15,29,8,30,2026-04-03 00:00:00
+AUC-0157,Construction & Infrastructure,Procurement Request #0157 - Construction & Infrastructure,480192.56,21,37,14,28,30,2026-05-06 00:00:00
+AUC-0158,IT Hardware,Procurement Request #0158 - IT Hardware,249048.48,46,24,11,19,5,2026-03-09 00:00:00
+AUC-0159,Healthcare & Medical Supplies,Procurement Request #0159 - Healthcare & Medical Supplies,63770.74,40,10,26,24,10,2026-06-22 00:00:00
+AUC-0160,Manufacturing & Heavy Machinery,Procurement Request #0160 - Manufacturing & Heavy Machinery,278500.15,41,26,26,7,5,2026-04-22 00:00:00
+AUC-0161,Healthcare & Medical Supplies,Procurement Request #0161 - Healthcare & Medical Supplies,232644.89,35,25,21,19,30,2026-02-09 00:00:00
+AUC-0162,Manufacturing & Heavy Machinery,Procurement Request #0162 - Manufacturing & Heavy Machinery,423734.97,50,38,29,10,5,2026-01-04 00:00:00
+AUC-0163,Healthcare & Medical Supplies,Procurement Request #0163 - Healthcare & Medical Supplies,58060.46,30,26,25,19,30,2026-02-13 00:00:00
+AUC-0164,IT Hardware,Procurement Request #0164 - IT Hardware,249238.16,51,20,17,12,15,2026-03-14 00:00:00
+AUC-0165,IT Hardware,Procurement Request #0165 - IT Hardware,83523.85,47,17,27,10,30,2026-04-15 00:00:00
+AUC-0166,Manufacturing & Heavy Machinery,Procurement Request #0166 - Manufacturing & Heavy Machinery,169091.2,35,12,24,29,30,2026-05-28 00:00:00
+AUC-0167,Raw Materials & Metals,Procurement Request #0167 - Raw Materials & Metals,371304.97,25,37,25,13,30,2026-03-23 00:00:00
+AUC-0168,IT Hardware,Procurement Request #0168 - IT Hardware,243248.88,46,33,30,10,5,2026-01-28 00:00:00
+AUC-0169,Raw Materials & Metals,Procurement Request #0169 - Raw Materials & Metals,194185.26,46,11,27,16,5,2026-01-25 00:00:00
+AUC-0170,Manufacturing & Heavy Machinery,Procurement Request #0170 - Manufacturing & Heavy Machinery,203293.38,53,40,29,10,15,2026-05-12 00:00:00
+AUC-0171,Construction & Infrastructure,Procurement Request #0171 - Construction & Infrastructure,235128.92,33,30,24,13,15,2026-04-05 00:00:00
+AUC-0172,Manufacturing & Heavy Machinery,Procurement Request #0172 - Manufacturing & Heavy Machinery,394658.11,23,36,17,24,30,2026-03-27 00:00:00
+AUC-0173,Construction & Infrastructure,Procurement Request #0173 - Construction & Infrastructure,447121.5,54,29,25,10,15,2026-04-27 00:00:00
+AUC-0174,IT Hardware,Procurement Request #0174 - IT Hardware,478114.0,26,34,17,23,5,2026-03-30 00:00:00
+AUC-0175,Logistics & Freight,Procurement Request #0175 - Logistics & Freight,395582.66,55,40,19,10,15,2026-06-30 00:00:00
+AUC-0176,IT Hardware,Procurement Request #0176 - IT Hardware,164549.38,22,38,15,25,30,2026-02-06 00:00:00
+AUC-0177,Manufacturing & Heavy Machinery,Procurement Request #0177 - Manufacturing & Heavy Machinery,347186.01,46,13,18,23,10,2026-02-19 00:00:00
+AUC-0178,IT Hardware,Procurement Request #0178 - IT Hardware,224425.53,45,16,24,15,10,2026-03-29 00:00:00
+AUC-0179,IT Hardware,Procurement Request #0179 - IT Hardware,134788.6,46,11,30,13,5,2026-04-27 00:00:00
+AUC-0180,Raw Materials & Metals,Procurement Request #0180 - Raw Materials & Metals,422027.07,52,40,26,10,10,2026-05-09 00:00:00
+AUC-0181,IT Hardware,Procurement Request #0181 - IT Hardware,28828.91,48,33,11,10,30,2026-05-31 00:00:00
+AUC-0182,Raw Materials & Metals,Procurement Request #0182 - Raw Materials & Metals,451863.38,47,34,15,10,10,2026-02-03 00:00:00
+AUC-0183,IT Hardware,Procurement Request #0183 - IT Hardware,236123.96,39,31,29,10,15,2026-05-11 00:00:00
+AUC-0184,Raw Materials & Metals,Procurement Request #0184 - Raw Materials & Metals,322228.72,46,29,17,8,15,2026-04-13 00:00:00
+AUC-0185,Logistics & Freight,Procurement Request #0185 - Logistics & Freight,333083.42,38,24,14,24,10,2026-04-17 00:00:00
+AUC-0186,Construction & Infrastructure,Procurement Request #0186 - Construction & Infrastructure,448607.69,47,19,27,10,15,2026-05-23 00:00:00
+AUC-0187,Healthcare & Medical Supplies,Procurement Request #0187 - Healthcare & Medical Supplies,321968.14,33,16,16,35,15,2026-06-26 00:00:00
+AUC-0188,Logistics & Freight,Procurement Request #0188 - Logistics & Freight,310827.46,28,32,30,10,10,2026-05-10 00:00:00
+AUC-0189,Construction & Infrastructure,Procurement Request #0189 - Construction & Infrastructure,42659.5,60,20,13,7,15,2026-05-25 00:00:00
+AUC-0190,Raw Materials & Metals,Procurement Request #0190 - Raw Materials & Metals,264019.93,52,28,23,10,15,2026-04-20 00:00:00
+AUC-0191,Manufacturing & Heavy Machinery,Procurement Request #0191 - Manufacturing & Heavy Machinery,83582.81,20,26,13,41,5,2026-04-09 00:00:00
+AUC-0192,Software & Cloud Services,Procurement Request #0192 - Software & Cloud Services,371342.55,23,31,11,35,10,2026-03-11 00:00:00
+AUC-0193,Manufacturing & Heavy Machinery,Procurement Request #0193 - Manufacturing & Heavy Machinery,260988.74,30,19,18,33,10,2026-01-17 00:00:00
+AUC-0194,Healthcare & Medical Supplies,Procurement Request #0194 - Healthcare & Medical Supplies,343311.61,38,16,27,19,5,2026-04-03 00:00:00
+AUC-0195,Manufacturing & Heavy Machinery,Procurement Request #0195 - Manufacturing & Heavy Machinery,30419.72,48,13,29,10,10,2026-06-16 00:00:00
+AUC-0196,Construction & Infrastructure,Procurement Request #0196 - Construction & Infrastructure,51548.09,44,17,26,13,15,2026-06-28 00:00:00
+AUC-0197,Healthcare & Medical Supplies,Procurement Request #0197 - Healthcare & Medical Supplies,360998.46,23,39,22,16,30,2026-04-18 00:00:00
+AUC-0198,Manufacturing & Heavy Machinery,Procurement Request #0198 - Manufacturing & Heavy Machinery,45321.32,35,40,27,10,5,2026-01-05 00:00:00
+AUC-0199,Healthcare & Medical Supplies,Procurement Request #0199 - Healthcare & Medical Supplies,44915.8,36,16,29,19,30,2026-02-28 00:00:00
+AUC-0200,Healthcare & Medical Supplies,Procurement Request #0200 - Healthcare & Medical Supplies,15933.15,38,34,28,10,10,2026-02-20 00:00:00
+AUC-0201,Logistics & Freight,Procurement Request #0201 - Logistics & Freight,478685.69,48,15,12,25,10,2026-02-15 00:00:00
+AUC-0202,Healthcare & Medical Supplies,Procurement Request #0202 - Healthcare & Medical Supplies,371379.1,52,13,22,13,5,2026-04-21 00:00:00
+AUC-0203,Logistics & Freight,Procurement Request #0203 - Logistics & Freight,183093.19,55,18,14,13,10,2026-05-31 00:00:00
+AUC-0204,Manufacturing & Heavy Machinery,Procurement Request #0204 - Manufacturing & Heavy Machinery,155302.43,36,10,20,34,30,2026-02-10 00:00:00
+AUC-0205,IT Hardware,Procurement Request #0205 - IT Hardware,181354.58,29,39,20,12,5,2026-06-11 00:00:00
+AUC-0206,Construction & Infrastructure,Procurement Request #0206 - Construction & Infrastructure,389580.23,39,25,28,8,15,2026-01-20 00:00:00
+AUC-0207,Manufacturing & Heavy Machinery,Procurement Request #0207 - Manufacturing & Heavy Machinery,334071.6,40,26,17,17,10,2026-05-15 00:00:00
+AUC-0208,IT Hardware,Procurement Request #0208 - IT Hardware,100745.83,52,15,23,10,30,2026-01-25 00:00:00
+AUC-0209,Logistics & Freight,Procurement Request #0209 - Logistics & Freight,95313.57,34,38,16,12,15,2026-03-27 00:00:00
+AUC-0210,Logistics & Freight,Procurement Request #0210 - Logistics & Freight,58213.87,38,16,29,17,30,2026-05-25 00:00:00
+AUC-0211,Manufacturing & Heavy Machinery,Procurement Request #0211 - Manufacturing & Heavy Machinery,333548.33,20,13,21,46,30,2026-03-04 00:00:00
+AUC-0212,Healthcare & Medical Supplies,Procurement Request #0212 - Healthcare & Medical Supplies,384542.6,54,39,29,10,10,2026-01-12 00:00:00
+AUC-0213,Healthcare & Medical Supplies,Procurement Request #0213 - Healthcare & Medical Supplies,139872.75,40,22,13,25,30,2026-03-08 00:00:00
+AUC-0214,Construction & Infrastructure,Procurement Request #0214 - Construction & Infrastructure,20263.03,38,10,26,26,15,2026-05-13 00:00:00
+AUC-0215,Manufacturing & Heavy Machinery,Procurement Request #0215 - Manufacturing & Heavy Machinery,50264.12,47,24,25,10,5,2026-03-18 00:00:00
+AUC-0216,Healthcare & Medical Supplies,Procurement Request #0216 - Healthcare & Medical Supplies,484251.42,32,20,26,22,5,2026-01-26 00:00:00
+AUC-0217,Software & Cloud Services,Procurement Request #0217 - Software & Cloud Services,154767.94,54,27,10,9,5,2026-02-24 00:00:00
+AUC-0218,Healthcare & Medical Supplies,Procurement Request #0218 - Healthcare & Medical Supplies,386919.34,55,34,16,10,30,2026-01-28 00:00:00
+AUC-0219,Software & Cloud Services,Procurement Request #0219 - Software & Cloud Services,316085.15,49,36,23,10,5,2026-06-26 00:00:00
+AUC-0220,Software & Cloud Services,Procurement Request #0220 - Software & Cloud Services,197150.42,21,24,20,35,5,2026-01-24 00:00:00
+AUC-0221,IT Hardware,Procurement Request #0221 - IT Hardware,110786.76,23,15,18,44,5,2026-05-29 00:00:00
+AUC-0222,Manufacturing & Heavy Machinery,Procurement Request #0222 - Manufacturing & Heavy Machinery,69479.34,34,39,18,9,30,2026-04-11 00:00:00
+AUC-0223,Raw Materials & Metals,Procurement Request #0223 - Raw Materials & Metals,311356.35,55,22,23,10,15,2026-01-06 00:00:00
+AUC-0224,Raw Materials & Metals,Procurement Request #0224 - Raw Materials & Metals,389570.55,27,27,10,36,5,2026-05-31 00:00:00
+AUC-0225,IT Hardware,Procurement Request #0225 - IT Hardware,325513.08,24,21,26,29,5,2026-03-17 00:00:00
+AUC-0226,Manufacturing & Heavy Machinery,Procurement Request #0226 - Manufacturing & Heavy Machinery,269848.05,39,29,12,20,15,2026-04-24 00:00:00
+AUC-0227,Raw Materials & Metals,Procurement Request #0227 - Raw Materials & Metals,30556.1,45,36,10,9,30,2026-02-11 00:00:00
+AUC-0228,Construction & Infrastructure,Procurement Request #0228 - Construction & Infrastructure,484559.5,34,14,22,30,15,2026-06-13 00:00:00
+AUC-0229,Software & Cloud Services,Procurement Request #0229 - Software & Cloud Services,401369.95,34,31,30,10,15,2026-01-04 00:00:00
+AUC-0230,Construction & Infrastructure,Procurement Request #0230 - Construction & Infrastructure,153482.8,55,14,13,18,5,2026-01-03 00:00:00
+AUC-0231,Construction & Infrastructure,Procurement Request #0231 - Construction & Infrastructure,490185.46,53,22,27,10,5,2026-03-21 00:00:00
+AUC-0232,Software & Cloud Services,Procurement Request #0232 - Software & Cloud Services,304921.98,42,16,23,19,10,2026-02-12 00:00:00
+AUC-0233,Software & Cloud Services,Procurement Request #0233 - Software & Cloud Services,295387.1,34,29,18,19,10,2026-01-31 00:00:00
+AUC-0234,Software & Cloud Services,Procurement Request #0234 - Software & Cloud Services,376555.86,51,37,11,10,30,2026-06-16 00:00:00
+AUC-0235,Construction & Infrastructure,Procurement Request #0235 - Construction & Infrastructure,407767.2,24,19,12,45,15,2026-01-27 00:00:00
+AUC-0236,Software & Cloud Services,Procurement Request #0236 - Software & Cloud Services,331674.52,52,25,20,10,15,2026-02-03 00:00:00
+AUC-0237,Healthcare & Medical Supplies,Procurement Request #0237 - Healthcare & Medical Supplies,72766.92,35,13,19,33,5,2026-02-20 00:00:00
+AUC-0238,Logistics & Freight,Procurement Request #0238 - Logistics & Freight,175751.08,51,24,20,5,15,2026-06-28 00:00:00
+AUC-0239,Construction & Infrastructure,Procurement Request #0239 - Construction & Infrastructure,464760.98,29,28,28,15,15,2026-03-23 00:00:00
+AUC-0240,Raw Materials & Metals,Procurement Request #0240 - Raw Materials & Metals,120061.65,30,10,20,40,10,2026-02-27 00:00:00
+AUC-0241,Healthcare & Medical Supplies,Procurement Request #0241 - Healthcare & Medical Supplies,192361.84,47,18,21,14,10,2026-06-24 00:00:00
+AUC-0242,Healthcare & Medical Supplies,Procurement Request #0242 - Healthcare & Medical Supplies,221717.67,36,38,25,10,30,2026-04-26 00:00:00
+AUC-0243,Logistics & Freight,Procurement Request #0243 - Logistics & Freight,225308.44,39,25,27,9,5,2026-02-15 00:00:00
+AUC-0244,Healthcare & Medical Supplies,Procurement Request #0244 - Healthcare & Medical Supplies,310340.4,58,12,18,12,10,2026-05-19 00:00:00
+AUC-0245,Software & Cloud Services,Procurement Request #0245 - Software & Cloud Services,472107.16,31,33,30,10,5,2026-01-21 00:00:00
+AUC-0246,IT Hardware,Procurement Request #0246 - IT Hardware,127939.43,52,30,10,8,30,2026-06-02 00:00:00
+AUC-0247,Software & Cloud Services,Procurement Request #0247 - Software & Cloud Services,69535.67,22,27,18,33,30,2026-06-18 00:00:00
+AUC-0248,Manufacturing & Heavy Machinery,Procurement Request #0248 - Manufacturing & Heavy Machinery,106760.54,29,21,22,28,10,2026-06-01 00:00:00
+AUC-0249,Healthcare & Medical Supplies,Procurement Request #0249 - Healthcare & Medical Supplies,444593.2,38,14,24,24,5,2026-04-13 00:00:00
+AUC-0250,Logistics & Freight,Procurement Request #0250 - Logistics & Freight,326447.3,52,10,17,21,10,2026-05-13 00:00:00
+AUC-0251,Software & Cloud Services,Procurement Request #0251 - Software & Cloud Services,150094.33,48,15,15,22,10,2026-05-05 00:00:00
+AUC-0252,Logistics & Freight,Procurement Request #0252 - Logistics & Freight,409814.0,22,17,25,36,10,2026-01-18 00:00:00
+AUC-0253,Logistics & Freight,Procurement Request #0253 - Logistics & Freight,432071.3,43,17,11,29,10,2026-05-14 00:00:00
+AUC-0254,Manufacturing & Heavy Machinery,Procurement Request #0254 - Manufacturing & Heavy Machinery,424792.03,43,22,25,10,30,2026-01-13 00:00:00
+AUC-0255,IT Hardware,Procurement Request #0255 - IT Hardware,460274.0,40,13,26,21,15,2026-03-10 00:00:00
+AUC-0256,Construction & Infrastructure,Procurement Request #0256 - Construction & Infrastructure,133598.1,49,28,15,10,30,2026-06-18 00:00:00
+AUC-0257,Raw Materials & Metals,Procurement Request #0257 - Raw Materials & Metals,379970.55,38,28,30,10,5,2026-05-14 00:00:00
+AUC-0258,Logistics & Freight,Procurement Request #0258 - Logistics & Freight,235664.35,39,39,17,10,30,2026-04-02 00:00:00
+AUC-0259,Manufacturing & Heavy Machinery,Procurement Request #0259 - Manufacturing & Heavy Machinery,422579.29,42,25,25,8,5,2026-05-10 00:00:00
+AUC-0260,Software & Cloud Services,Procurement Request #0260 - Software & Cloud Services,366960.43,48,15,17,20,5,2026-05-13 00:00:00
+AUC-0261,Healthcare & Medical Supplies,Procurement Request #0261 - Healthcare & Medical Supplies,390459.25,37,16,14,33,10,2026-02-11 00:00:00
+AUC-0262,Logistics & Freight,Procurement Request #0262 - Logistics & Freight,331519.3,53,32,13,10,10,2026-04-18 00:00:00
+AUC-0263,Manufacturing & Heavy Machinery,Procurement Request #0263 - Manufacturing & Heavy Machinery,96940.1,41,33,13,13,30,2026-06-23 00:00:00
+AUC-0264,Raw Materials & Metals,Procurement Request #0264 - Raw Materials & Metals,277063.19,50,16,28,6,10,2026-06-16 00:00:00
+AUC-0265,Manufacturing & Heavy Machinery,Procurement Request #0265 - Manufacturing & Heavy Machinery,492488.17,46,10,17,27,5,2026-02-03 00:00:00
+AUC-0266,Construction & Infrastructure,Procurement Request #0266 - Construction & Infrastructure,469320.15,57,15,14,14,5,2026-05-28 00:00:00
+AUC-0267,Software & Cloud Services,Procurement Request #0267 - Software & Cloud Services,31155.13,23,15,18,44,10,2026-05-14 00:00:00
+AUC-0268,Raw Materials & Metals,Procurement Request #0268 - Raw Materials & Metals,90759.26,53,28,30,10,5,2026-06-20 00:00:00
+AUC-0269,Manufacturing & Heavy Machinery,Procurement Request #0269 - Manufacturing & Heavy Machinery,74547.1,38,40,12,10,10,2026-04-26 00:00:00
+AUC-0270,Construction & Infrastructure,Procurement Request #0270 - Construction & Infrastructure,365730.16,45,37,25,10,10,2026-02-27 00:00:00
+AUC-0271,Manufacturing & Heavy Machinery,Procurement Request #0271 - Manufacturing & Heavy Machinery,410714.81,46,29,14,11,10,2026-06-10 00:00:00
+AUC-0272,Healthcare & Medical Supplies,Procurement Request #0272 - Healthcare & Medical Supplies,114620.57,52,18,15,15,15,2026-04-28 00:00:00
+AUC-0273,Construction & Infrastructure,Procurement Request #0273 - Construction & Infrastructure,257867.82,57,12,17,14,30,2026-04-10 00:00:00
+AUC-0274,Software & Cloud Services,Procurement Request #0274 - Software & Cloud Services,421944.48,26,10,16,48,30,2026-02-09 00:00:00
+AUC-0275,Construction & Infrastructure,Procurement Request #0275 - Construction & Infrastructure,369072.76,26,15,25,34,5,2026-05-18 00:00:00
+AUC-0276,Construction & Infrastructure,Procurement Request #0276 - Construction & Infrastructure,275696.23,27,12,25,36,10,2026-06-05 00:00:00
+AUC-0277,Construction & Infrastructure,Procurement Request #0277 - Construction & Infrastructure,299270.37,20,38,30,12,30,2026-05-15 00:00:00
+AUC-0278,Raw Materials & Metals,Procurement Request #0278 - Raw Materials & Metals,259096.67,43,37,11,9,30,2026-03-01 00:00:00
+AUC-0279,Manufacturing & Heavy Machinery,Procurement Request #0279 - Manufacturing & Heavy Machinery,155798.74,45,35,22,10,15,2026-06-01 00:00:00
+AUC-0280,Manufacturing & Heavy Machinery,Procurement Request #0280 - Manufacturing & Heavy Machinery,286860.78,56,13,23,8,10,2026-03-08 00:00:00
+AUC-0281,Raw Materials & Metals,Procurement Request #0281 - Raw Materials & Metals,347553.8,34,39,12,15,15,2026-06-04 00:00:00
+AUC-0282,Construction & Infrastructure,Procurement Request #0282 - Construction & Infrastructure,437928.23,46,18,16,20,5,2026-01-03 00:00:00
+AUC-0283,Construction & Infrastructure,Procurement Request #0283 - Construction & Infrastructure,321782.76,53,13,26,8,5,2026-04-08 00:00:00
+AUC-0284,Healthcare & Medical Supplies,Procurement Request #0284 - Healthcare & Medical Supplies,382949.55,33,32,20,15,30,2026-04-04 00:00:00
+AUC-0285,IT Hardware,Procurement Request #0285 - IT Hardware,88435.1,29,23,30,18,15,2026-03-09 00:00:00
+AUC-0286,Manufacturing & Heavy Machinery,Procurement Request #0286 - Manufacturing & Heavy Machinery,236163.16,49,23,28,10,15,2026-06-07 00:00:00
+AUC-0287,Logistics & Freight,Procurement Request #0287 - Logistics & Freight,14572.49,45,34,16,5,30,2026-05-23 00:00:00
+AUC-0288,Manufacturing & Heavy Machinery,Procurement Request #0288 - Manufacturing & Heavy Machinery,130872.64,55,25,15,5,15,2026-05-25 00:00:00
+AUC-0289,Construction & Infrastructure,Procurement Request #0289 - Construction & Infrastructure,365966.24,50,18,19,13,15,2026-04-13 00:00:00
+AUC-0290,Healthcare & Medical Supplies,Procurement Request #0290 - Healthcare & Medical Supplies,495986.88,28,37,13,22,10,2026-04-26 00:00:00
+AUC-0291,Manufacturing & Heavy Machinery,Procurement Request #0291 - Manufacturing & Heavy Machinery,58597.27,30,13,16,41,30,2026-03-29 00:00:00
+AUC-0292,Manufacturing & Heavy Machinery,Procurement Request #0292 - Manufacturing & Heavy Machinery,206732.21,55,29,11,5,10,2026-04-11 00:00:00
+AUC-0293,Healthcare & Medical Supplies,Procurement Request #0293 - Healthcare & Medical Supplies,402034.77,20,35,12,33,10,2026-05-02 00:00:00
+AUC-0294,Construction & Infrastructure,Procurement Request #0294 - Construction & Infrastructure,109977.46,47,12,12,29,15,2026-02-27 00:00:00
+AUC-0295,Logistics & Freight,Procurement Request #0295 - Logistics & Freight,281991.63,25,29,11,35,30,2026-04-14 00:00:00
+AUC-0296,Construction & Infrastructure,Procurement Request #0296 - Construction & Infrastructure,369204.94,48,19,29,10,5,2026-02-15 00:00:00
+AUC-0297,Healthcare & Medical Supplies,Procurement Request #0297 - Healthcare & Medical Supplies,311832.87,51,24,10,15,10,2026-06-19 00:00:00
+AUC-0298,Manufacturing & Heavy Machinery,Procurement Request #0298 - Manufacturing & Heavy Machinery,102132.12,53,19,16,12,5,2026-06-04 00:00:00
+AUC-0299,Construction & Infrastructure,Procurement Request #0299 - Construction & Infrastructure,184138.44,48,32,17,10,10,2026-06-23 00:00:00
+AUC-0300,IT Hardware,Procurement Request #0300 - IT Hardware,394057.97,43,17,30,10,5,2026-02-11 00:00:00
+AUC-0301,IT Hardware,Procurement Request #0301 - IT Hardware,281570.99,37,34,22,7,15,2026-06-22 00:00:00
+AUC-0302,Raw Materials & Metals,Procurement Request #0302 - Raw Materials & Metals,12562.51,45,28,16,11,5,2026-01-19 00:00:00
+AUC-0303,IT Hardware,Procurement Request #0303 - IT Hardware,382885.47,50,19,27,10,15,2026-03-31 00:00:00
+AUC-0304,Manufacturing & Heavy Machinery,Procurement Request #0304 - Manufacturing & Heavy Machinery,27302.56,37,17,29,17,10,2026-04-28 00:00:00
+AUC-0305,Raw Materials & Metals,Procurement Request #0305 - Raw Materials & Metals,375409.55,56,10,18,16,10,2026-04-16 00:00:00
+AUC-0306,Construction & Infrastructure,Procurement Request #0306 - Construction & Infrastructure,109215.47,26,27,12,35,15,2026-03-30 00:00:00
+AUC-0307,IT Hardware,Procurement Request #0307 - IT Hardware,479456.01,47,40,18,10,15,2026-06-28 00:00:00
+AUC-0308,Raw Materials & Metals,Procurement Request #0308 - Raw Materials & Metals,190290.97,39,28,25,10,10,2026-03-29 00:00:00
+AUC-0309,Manufacturing & Heavy Machinery,Procurement Request #0309 - Manufacturing & Heavy Machinery,170196.49,44,31,24,10,5,2026-05-05 00:00:00
+AUC-0310,IT Hardware,Procurement Request #0310 - IT Hardware,82955.14,36,12,22,30,10,2026-06-24 00:00:00
+AUC-0311,Healthcare & Medical Supplies,Procurement Request #0311 - Healthcare & Medical Supplies,159746.07,34,35,20,11,30,2026-04-02 00:00:00
+AUC-0312,Construction & Infrastructure,Procurement Request #0312 - Construction & Infrastructure,439558.87,54,10,18,18,10,2026-03-16 00:00:00
+AUC-0313,IT Hardware,Procurement Request #0313 - IT Hardware,498203.83,40,31,20,10,5,2026-05-23 00:00:00
+AUC-0314,Software & Cloud Services,Procurement Request #0314 - Software & Cloud Services,190471.67,50,20,21,9,10,2026-05-28 00:00:00
+AUC-0315,Logistics & Freight,Procurement Request #0315 - Logistics & Freight,229819.21,31,40,16,13,30,2026-02-22 00:00:00
+AUC-0316,Software & Cloud Services,Procurement Request #0316 - Software & Cloud Services,363814.76,35,37,18,10,10,2026-03-01 00:00:00
+AUC-0317,Software & Cloud Services,Procurement Request #0317 - Software & Cloud Services,444235.93,30,36,29,10,15,2026-02-10 00:00:00
+AUC-0318,Manufacturing & Heavy Machinery,Procurement Request #0318 - Manufacturing & Heavy Machinery,300591.72,26,13,12,49,30,2026-06-08 00:00:00
+AUC-0319,IT Hardware,Procurement Request #0319 - IT Hardware,201847.59,49,40,11,10,30,2026-04-07 00:00:00
+AUC-0320,Construction & Infrastructure,Procurement Request #0320 - Construction & Infrastructure,212184.7,40,25,28,7,15,2026-05-07 00:00:00
+AUC-0321,Software & Cloud Services,Procurement Request #0321 - Software & Cloud Services,350852.89,52,18,22,8,10,2026-05-29 00:00:00
+AUC-0322,Software & Cloud Services,Procurement Request #0322 - Software & Cloud Services,11576.95,23,26,23,28,30,2026-05-20 00:00:00
+AUC-0323,IT Hardware,Procurement Request #0323 - IT Hardware,313598.78,52,21,22,5,10,2026-04-29 00:00:00
+AUC-0324,IT Hardware,Procurement Request #0324 - IT Hardware,184191.58,48,24,20,10,5,2026-01-05 00:00:00
+AUC-0325,Healthcare & Medical Supplies,Procurement Request #0325 - Healthcare & Medical Supplies,399156.69,33,22,28,17,5,2026-03-26 00:00:00
+AUC-0326,Logistics & Freight,Procurement Request #0326 - Logistics & Freight,55565.41,54,37,18,10,10,2026-05-22 00:00:00
+AUC-0327,Logistics & Freight,Procurement Request #0327 - Logistics & Freight,298219.11,35,18,25,22,15,2026-04-05 00:00:00
+AUC-0328,Software & Cloud Services,Procurement Request #0328 - Software & Cloud Services,245676.72,51,23,16,10,30,2026-06-30 00:00:00
+AUC-0329,Manufacturing & Heavy Machinery,Procurement Request #0329 - Manufacturing & Heavy Machinery,324739.51,43,21,22,14,15,2026-04-27 00:00:00
+AUC-0330,Software & Cloud Services,Procurement Request #0330 - Software & Cloud Services,41778.26,51,14,28,10,10,2026-01-27 00:00:00
+AUC-0331,Healthcare & Medical Supplies,Procurement Request #0331 - Healthcare & Medical Supplies,294192.06,37,35,17,11,30,2026-04-09 00:00:00
+AUC-0332,Software & Cloud Services,Procurement Request #0332 - Software & Cloud Services,285127.45,29,35,14,22,30,2026-01-04 00:00:00
+AUC-0333,Software & Cloud Services,Procurement Request #0333 - Software & Cloud Services,284723.45,46,25,14,15,15,2026-05-06 00:00:00
+AUC-0334,Logistics & Freight,Procurement Request #0334 - Logistics & Freight,305708.96,36,27,28,9,5,2026-04-13 00:00:00
+AUC-0335,IT Hardware,Procurement Request #0335 - IT Hardware,341469.29,30,11,16,43,15,2026-05-03 00:00:00
+AUC-0336,Manufacturing & Heavy Machinery,Procurement Request #0336 - Manufacturing & Heavy Machinery,404444.61,55,13,24,10,15,2026-03-09 00:00:00
+AUC-0337,Logistics & Freight,Procurement Request #0337 - Logistics & Freight,142212.15,38,27,27,10,15,2026-03-31 00:00:00
+AUC-0338,IT Hardware,Procurement Request #0338 - IT Hardware,414274.21,46,13,21,20,10,2026-05-29 00:00:00
+AUC-0339,Construction & Infrastructure,Procurement Request #0339 - Construction & Infrastructure,254145.28,54,15,19,12,15,2026-03-26 00:00:00
+AUC-0340,Healthcare & Medical Supplies,Procurement Request #0340 - Healthcare & Medical Supplies,47758.56,47,25,24,10,5,2026-04-09 00:00:00
+AUC-0341,Construction & Infrastructure,Procurement Request #0341 - Construction & Infrastructure,38689.96,38,24,30,8,10,2026-02-13 00:00:00
+AUC-0342,Healthcare & Medical Supplies,Procurement Request #0342 - Healthcare & Medical Supplies,173776.78,41,23,30,6,30,2026-01-20 00:00:00
+AUC-0343,IT Hardware,Procurement Request #0343 - IT Hardware,394599.52,30,20,17,33,15,2026-03-24 00:00:00
+AUC-0344,Healthcare & Medical Supplies,Procurement Request #0344 - Healthcare & Medical Supplies,356763.66,38,32,18,12,30,2026-03-12 00:00:00
+AUC-0345,Raw Materials & Metals,Procurement Request #0345 - Raw Materials & Metals,396421.33,38,33,28,10,30,2026-04-17 00:00:00
+AUC-0346,Software & Cloud Services,Procurement Request #0346 - Software & Cloud Services,263461.84,31,37,10,22,10,2026-03-03 00:00:00
+AUC-0347,Healthcare & Medical Supplies,Procurement Request #0347 - Healthcare & Medical Supplies,225697.51,36,40,12,12,10,2026-02-13 00:00:00
+AUC-0348,Raw Materials & Metals,Procurement Request #0348 - Raw Materials & Metals,82251.74,26,13,12,49,30,2026-05-22 00:00:00
+AUC-0349,IT Hardware,Procurement Request #0349 - IT Hardware,170814.45,21,34,22,23,5,2026-01-28 00:00:00
+AUC-0350,Logistics & Freight,Procurement Request #0350 - Logistics & Freight,222669.49,59,14,12,15,30,2026-03-22 00:00:00
+AUC-0351,Software & Cloud Services,Procurement Request #0351 - Software & Cloud Services,53414.21,35,33,19,13,30,2026-06-11 00:00:00
+AUC-0352,Software & Cloud Services,Procurement Request #0352 - Software & Cloud Services,118099.86,28,26,15,31,5,2026-01-10 00:00:00
+AUC-0353,Healthcare & Medical Supplies,Procurement Request #0353 - Healthcare & Medical Supplies,303130.39,37,37,20,10,30,2026-05-01 00:00:00
+AUC-0354,Manufacturing & Heavy Machinery,Procurement Request #0354 - Manufacturing & Heavy Machinery,370474.93,49,39,18,10,30,2026-02-05 00:00:00
+AUC-0355,Healthcare & Medical Supplies,Procurement Request #0355 - Healthcare & Medical Supplies,499190.28,49,15,28,10,30,2026-06-12 00:00:00
+AUC-0356,Healthcare & Medical Supplies,Procurement Request #0356 - Healthcare & Medical Supplies,467225.53,55,38,28,10,30,2026-05-16 00:00:00
+AUC-0357,Healthcare & Medical Supplies,Procurement Request #0357 - Healthcare & Medical Supplies,324856.95,55,27,19,10,15,2026-05-05 00:00:00
+AUC-0358,Construction & Infrastructure,Procurement Request #0358 - Construction & Infrastructure,216411.55,34,35,12,19,30,2026-03-21 00:00:00
+AUC-0359,Logistics & Freight,Procurement Request #0359 - Logistics & Freight,321726.91,46,18,14,22,15,2026-01-04 00:00:00
+AUC-0360,IT Hardware,Procurement Request #0360 - IT Hardware,394969.29,48,36,14,10,15,2026-03-16 00:00:00
+AUC-0361,Raw Materials & Metals,Procurement Request #0361 - Raw Materials & Metals,67984.73,54,10,25,11,30,2026-03-19 00:00:00
+AUC-0362,IT Hardware,Procurement Request #0362 - IT Hardware,210853.4,42,35,19,10,10,2026-01-03 00:00:00
+AUC-0363,Construction & Infrastructure,Procurement Request #0363 - Construction & Infrastructure,421503.12,43,16,23,18,30,2026-04-13 00:00:00
+AUC-0364,Software & Cloud Services,Procurement Request #0364 - Software & Cloud Services,198078.15,30,32,30,8,30,2026-04-08 00:00:00
+AUC-0365,Software & Cloud Services,Procurement Request #0365 - Software & Cloud Services,290217.41,36,12,23,29,10,2026-05-14 00:00:00
+AUC-0366,Manufacturing & Heavy Machinery,Procurement Request #0366 - Manufacturing & Heavy Machinery,298006.99,54,35,18,10,15,2026-06-17 00:00:00
+AUC-0367,Healthcare & Medical Supplies,Procurement Request #0367 - Healthcare & Medical Supplies,100393.36,49,35,18,10,30,2026-02-19 00:00:00
+AUC-0368,Manufacturing & Heavy Machinery,Procurement Request #0368 - Manufacturing & Heavy Machinery,187495.37,24,15,14,47,15,2026-01-30 00:00:00
+AUC-0369,Healthcare & Medical Supplies,Procurement Request #0369 - Healthcare & Medical Supplies,173910.53,44,29,24,10,15,2026-06-30 00:00:00
+AUC-0370,Construction & Infrastructure,Procurement Request #0370 - Construction & Infrastructure,22836.39,51,16,20,13,5,2026-02-09 00:00:00
+AUC-0371,IT Hardware,Procurement Request #0371 - IT Hardware,21853.96,54,10,15,21,5,2026-03-15 00:00:00
+AUC-0372,Logistics & Freight,Procurement Request #0372 - Logistics & Freight,417531.55,28,32,24,16,5,2026-03-02 00:00:00
+AUC-0373,IT Hardware,Procurement Request #0373 - IT Hardware,143804.7,29,10,25,36,10,2026-03-30 00:00:00
+AUC-0374,Raw Materials & Metals,Procurement Request #0374 - Raw Materials & Metals,263858.6,34,35,25,10,15,2026-04-30 00:00:00
+AUC-0375,Healthcare & Medical Supplies,Procurement Request #0375 - Healthcare & Medical Supplies,156375.53,22,20,12,46,10,2026-01-16 00:00:00
+AUC-0376,Logistics & Freight,Procurement Request #0376 - Logistics & Freight,470932.83,45,12,27,16,30,2026-02-17 00:00:00
+AUC-0377,Software & Cloud Services,Procurement Request #0377 - Software & Cloud Services,137055.41,36,36,22,6,5,2026-02-02 00:00:00
+AUC-0378,Manufacturing & Heavy Machinery,Procurement Request #0378 - Manufacturing & Heavy Machinery,220531.84,35,22,24,19,10,2026-01-10 00:00:00
+AUC-0379,Software & Cloud Services,Procurement Request #0379 - Software & Cloud Services,437637.82,49,33,13,5,10,2026-05-03 00:00:00
+AUC-0380,Raw Materials & Metals,Procurement Request #0380 - Raw Materials & Metals,422547.45,34,39,20,10,10,2026-06-12 00:00:00
+AUC-0381,Healthcare & Medical Supplies,Procurement Request #0381 - Healthcare & Medical Supplies,101189.69,22,33,27,18,5,2026-03-07 00:00:00
+AUC-0382,Raw Materials & Metals,Procurement Request #0382 - Raw Materials & Metals,403295.22,60,19,16,5,15,2026-01-15 00:00:00
+AUC-0383,Manufacturing & Heavy Machinery,Procurement Request #0383 - Manufacturing & Heavy Machinery,234511.57,33,13,17,37,30,2026-03-26 00:00:00
+AUC-0384,IT Hardware,Procurement Request #0384 - IT Hardware,246654.75,30,35,18,17,5,2026-04-13 00:00:00
+AUC-0385,Manufacturing & Heavy Machinery,Procurement Request #0385 - Manufacturing & Heavy Machinery,75405.19,35,10,11,44,30,2026-06-27 00:00:00
+AUC-0386,Construction & Infrastructure,Procurement Request #0386 - Construction & Infrastructure,49494.74,29,21,12,38,10,2026-02-11 00:00:00
+AUC-0387,Raw Materials & Metals,Procurement Request #0387 - Raw Materials & Metals,366690.26,25,31,29,15,15,2026-06-11 00:00:00
+AUC-0388,IT Hardware,Procurement Request #0388 - IT Hardware,253265.96,23,21,30,26,10,2026-06-30 00:00:00
+AUC-0389,Construction & Infrastructure,Procurement Request #0389 - Construction & Infrastructure,224056.84,26,14,25,35,10,2026-03-24 00:00:00
+AUC-0390,Construction & Infrastructure,Procurement Request #0390 - Construction & Infrastructure,367459.03,37,35,24,10,10,2026-01-07 00:00:00
+AUC-0391,Healthcare & Medical Supplies,Procurement Request #0391 - Healthcare & Medical Supplies,385101.32,44,21,14,21,15,2026-01-12 00:00:00
+AUC-0392,Raw Materials & Metals,Procurement Request #0392 - Raw Materials & Metals,87865.0,48,27,19,6,30,2026-02-19 00:00:00
+AUC-0393,Construction & Infrastructure,Procurement Request #0393 - Construction & Infrastructure,309010.32,31,27,21,21,15,2026-05-01 00:00:00
+AUC-0394,Logistics & Freight,Procurement Request #0394 - Logistics & Freight,76323.5,53,39,27,10,10,2026-01-19 00:00:00
+AUC-0395,Construction & Infrastructure,Procurement Request #0395 - Construction & Infrastructure,378173.79,29,24,19,28,15,2026-05-20 00:00:00
+AUC-0396,Logistics & Freight,Procurement Request #0396 - Logistics & Freight,331908.03,49,10,30,11,30,2026-02-18 00:00:00
+AUC-0397,IT Hardware,Procurement Request #0397 - IT Hardware,478741.16,54,37,21,10,10,2026-03-25 00:00:00
+AUC-0398,Healthcare & Medical Supplies,Procurement Request #0398 - Healthcare & Medical Supplies,43789.43,24,31,27,18,30,2026-02-19 00:00:00
+AUC-0399,Construction & Infrastructure,Procurement Request #0399 - Construction & Infrastructure,37956.81,46,34,27,10,10,2026-06-07 00:00:00
+AUC-0400,Logistics & Freight,Procurement Request #0400 - Logistics & Freight,148271.67,40,23,30,7,15,2026-01-30 00:00:00
+AUC-0401,IT Hardware,Procurement Request #0401 - IT Hardware,138235.79,48,31,12,10,5,2026-02-04 00:00:00
+AUC-0402,Software & Cloud Services,Procurement Request #0402 - Software & Cloud Services,131019.61,22,16,13,49,30,2026-02-20 00:00:00
+AUC-0403,IT Hardware,Procurement Request #0403 - IT Hardware,454064.74,22,28,30,20,30,2026-06-19 00:00:00
+AUC-0404,Raw Materials & Metals,Procurement Request #0404 - Raw Materials & Metals,132277.64,48,29,28,10,15,2026-01-14 00:00:00
+AUC-0405,Logistics & Freight,Procurement Request #0405 - Logistics & Freight,143255.37,34,29,12,25,5,2026-02-24 00:00:00
+AUC-0406,Healthcare & Medical Supplies,Procurement Request #0406 - Healthcare & Medical Supplies,382105.15,46,39,12,10,30,2026-06-14 00:00:00
+AUC-0407,IT Hardware,Procurement Request #0407 - IT Hardware,230372.52,43,27,23,7,15,2026-01-16 00:00:00
+AUC-0408,Manufacturing & Heavy Machinery,Procurement Request #0408 - Manufacturing & Heavy Machinery,390588.17,54,18,26,10,5,2026-01-20 00:00:00
+AUC-0409,Manufacturing & Heavy Machinery,Procurement Request #0409 - Manufacturing & Heavy Machinery,42029.42,39,12,16,33,5,2026-01-27 00:00:00
+AUC-0410,Healthcare & Medical Supplies,Procurement Request #0410 - Healthcare & Medical Supplies,248909.88,34,27,22,17,10,2026-02-20 00:00:00
+AUC-0411,Construction & Infrastructure,Procurement Request #0411 - Construction & Infrastructure,26470.66,35,28,30,7,10,2026-05-24 00:00:00
+AUC-0412,Healthcare & Medical Supplies,Procurement Request #0412 - Healthcare & Medical Supplies,40700.07,55,23,13,9,15,2026-06-23 00:00:00
+AUC-0413,Raw Materials & Metals,Procurement Request #0413 - Raw Materials & Metals,454154.35,42,38,13,10,10,2026-02-17 00:00:00
+AUC-0414,Construction & Infrastructure,Procurement Request #0414 - Construction & Infrastructure,78230.23,45,26,20,9,10,2026-05-18 00:00:00
+AUC-0415,Construction & Infrastructure,Procurement Request #0415 - Construction & Infrastructure,270886.13,43,39,21,10,15,2026-05-22 00:00:00
+AUC-0416,Logistics & Freight,Procurement Request #0416 - Logistics & Freight,211436.85,38,23,30,10,30,2026-03-25 00:00:00
+AUC-0417,Construction & Infrastructure,Procurement Request #0417 - Construction & Infrastructure,180198.23,35,28,27,10,10,2026-04-08 00:00:00
+AUC-0418,Manufacturing & Heavy Machinery,Procurement Request #0418 - Manufacturing & Heavy Machinery,450918.34,50,39,18,10,15,2026-04-27 00:00:00
+AUC-0419,Raw Materials & Metals,Procurement Request #0419 - Raw Materials & Metals,20693.46,45,10,11,34,15,2026-06-03 00:00:00
+AUC-0420,IT Hardware,Procurement Request #0420 - IT Hardware,335256.95,53,14,19,14,5,2026-03-19 00:00:00
+AUC-0421,Software & Cloud Services,Procurement Request #0421 - Software & Cloud Services,482063.27,33,37,20,10,5,2026-06-27 00:00:00
+AUC-0422,Manufacturing & Heavy Machinery,Procurement Request #0422 - Manufacturing & Heavy Machinery,284482.41,32,39,27,10,10,2026-01-26 00:00:00
+AUC-0423,IT Hardware,Procurement Request #0423 - IT Hardware,469043.01,49,21,14,16,10,2026-03-10 00:00:00
+AUC-0424,Logistics & Freight,Procurement Request #0424 - Logistics & Freight,35606.36,57,17,17,9,15,2026-03-19 00:00:00
+AUC-0425,IT Hardware,Procurement Request #0425 - IT Hardware,215208.73,51,22,28,10,10,2026-01-21 00:00:00
+AUC-0426,Healthcare & Medical Supplies,Procurement Request #0426 - Healthcare & Medical Supplies,137477.32,35,35,25,10,10,2026-05-06 00:00:00
+AUC-0427,Manufacturing & Heavy Machinery,Procurement Request #0427 - Manufacturing & Heavy Machinery,368102.27,51,36,13,10,15,2026-01-11 00:00:00
+AUC-0428,Healthcare & Medical Supplies,Procurement Request #0428 - Healthcare & Medical Supplies,490835.57,56,22,12,10,5,2026-03-28 00:00:00
+AUC-0429,Logistics & Freight,Procurement Request #0429 - Logistics & Freight,135699.73,47,23,13,17,10,2026-06-18 00:00:00
+AUC-0430,Manufacturing & Heavy Machinery,Procurement Request #0430 - Manufacturing & Heavy Machinery,330545.55,53,39,10,10,30,2026-01-15 00:00:00
+AUC-0431,Logistics & Freight,Procurement Request #0431 - Logistics & Freight,107067.84,53,11,20,16,10,2026-03-26 00:00:00
+AUC-0432,Construction & Infrastructure,Procurement Request #0432 - Construction & Infrastructure,287011.82,34,14,11,41,30,2026-04-26 00:00:00
+AUC-0433,Manufacturing & Heavy Machinery,Procurement Request #0433 - Manufacturing & Heavy Machinery,237326.92,53,28,26,10,5,2026-02-27 00:00:00
+AUC-0434,Raw Materials & Metals,Procurement Request #0434 - Raw Materials & Metals,486282.61,38,35,22,5,10,2026-02-04 00:00:00
+AUC-0435,Logistics & Freight,Procurement Request #0435 - Logistics & Freight,308178.36,25,25,28,22,5,2026-05-22 00:00:00
+AUC-0436,Raw Materials & Metals,Procurement Request #0436 - Raw Materials & Metals,181258.12,36,12,22,30,30,2026-06-29 00:00:00
+AUC-0437,Software & Cloud Services,Procurement Request #0437 - Software & Cloud Services,65906.93,28,25,27,20,10,2026-05-06 00:00:00
+AUC-0438,Raw Materials & Metals,Procurement Request #0438 - Raw Materials & Metals,84110.95,51,16,27,10,10,2026-03-05 00:00:00
+AUC-0439,IT Hardware,Procurement Request #0439 - IT Hardware,120405.3,37,34,23,6,15,2026-06-26 00:00:00
+AUC-0440,Construction & Infrastructure,Procurement Request #0440 - Construction & Infrastructure,132973.66,25,13,23,39,30,2026-04-05 00:00:00
+AUC-0441,Logistics & Freight,Procurement Request #0441 - Logistics & Freight,426801.87,32,20,21,27,5,2026-03-21 00:00:00
+AUC-0442,Software & Cloud Services,Procurement Request #0442 - Software & Cloud Services,284999.17,42,29,24,5,10,2026-04-24 00:00:00
+AUC-0443,IT Hardware,Procurement Request #0443 - IT Hardware,266461.55,34,16,21,29,10,2026-01-23 00:00:00
+AUC-0444,IT Hardware,Procurement Request #0444 - IT Hardware,66236.75,23,17,29,31,10,2026-03-16 00:00:00
+AUC-0445,IT Hardware,Procurement Request #0445 - IT Hardware,431468.45,41,32,13,14,15,2026-04-27 00:00:00
+AUC-0446,Raw Materials & Metals,Procurement Request #0446 - Raw Materials & Metals,364179.01,21,20,16,43,10,2026-02-23 00:00:00
+AUC-0447,Construction & Infrastructure,Procurement Request #0447 - Construction & Infrastructure,43157.5,48,34,18,10,30,2026-06-10 00:00:00
+AUC-0448,Healthcare & Medical Supplies,Procurement Request #0448 - Healthcare & Medical Supplies,356839.2,29,32,10,29,30,2026-05-31 00:00:00
+AUC-0449,Healthcare & Medical Supplies,Procurement Request #0449 - Healthcare & Medical Supplies,276333.73,53,11,18,18,10,2026-01-17 00:00:00
+AUC-0450,Logistics & Freight,Procurement Request #0450 - Logistics & Freight,50045.42,27,35,29,10,15,2026-01-15 00:00:00
+AUC-0451,Raw Materials & Metals,Procurement Request #0451 - Raw Materials & Metals,234567.31,20,12,22,46,15,2026-06-20 00:00:00
+AUC-0452,Manufacturing & Heavy Machinery,Procurement Request #0452 - Manufacturing & Heavy Machinery,247501.18,43,37,13,7,5,2026-03-17 00:00:00
+AUC-0453,Manufacturing & Heavy Machinery,Procurement Request #0453 - Manufacturing & Heavy Machinery,91229.52,44,17,22,17,5,2026-03-23 00:00:00
+AUC-0454,Raw Materials & Metals,Procurement Request #0454 - Raw Materials & Metals,473392.09,53,27,12,10,10,2026-02-21 00:00:00
+AUC-0455,Construction & Infrastructure,Procurement Request #0455 - Construction & Infrastructure,426487.93,49,27,10,14,5,2026-03-06 00:00:00
+AUC-0456,Construction & Infrastructure,Procurement Request #0456 - Construction & Infrastructure,337820.95,39,20,25,16,30,2026-02-11 00:00:00
+AUC-0457,IT Hardware,Procurement Request #0457 - IT Hardware,236524.82,42,31,21,6,15,2026-06-11 00:00:00
+AUC-0458,Logistics & Freight,Procurement Request #0458 - Logistics & Freight,211765.12,35,26,18,21,5,2026-06-11 00:00:00
+AUC-0459,Logistics & Freight,Procurement Request #0459 - Logistics & Freight,328977.0,44,38,10,8,15,2026-02-28 00:00:00
+AUC-0460,Software & Cloud Services,Procurement Request #0460 - Software & Cloud Services,277261.62,36,38,22,10,10,2026-01-24 00:00:00
+AUC-0461,Healthcare & Medical Supplies,Procurement Request #0461 - Healthcare & Medical Supplies,40513.82,39,26,29,10,10,2026-04-18 00:00:00
+AUC-0462,Software & Cloud Services,Procurement Request #0462 - Software & Cloud Services,261126.3,56,14,23,7,15,2026-06-05 00:00:00
+AUC-0463,Logistics & Freight,Procurement Request #0463 - Logistics & Freight,405137.77,48,27,14,11,10,2026-06-18 00:00:00
+AUC-0464,Software & Cloud Services,Procurement Request #0464 - Software & Cloud Services,235027.54,52,27,16,10,10,2026-03-22 00:00:00
+AUC-0465,Healthcare & Medical Supplies,Procurement Request #0465 - Healthcare & Medical Supplies,35458.72,48,39,14,10,30,2026-02-08 00:00:00
+AUC-0466,Healthcare & Medical Supplies,Procurement Request #0466 - Healthcare & Medical Supplies,395276.32,51,39,15,10,15,2026-01-19 00:00:00
+AUC-0467,Construction & Infrastructure,Procurement Request #0467 - Construction & Infrastructure,108668.25,49,40,13,10,10,2026-03-24 00:00:00
+AUC-0468,Manufacturing & Heavy Machinery,Procurement Request #0468 - Manufacturing & Heavy Machinery,136724.21,29,33,10,28,15,2026-04-17 00:00:00
+AUC-0469,Raw Materials & Metals,Procurement Request #0469 - Raw Materials & Metals,90706.11,39,24,30,7,15,2026-02-09 00:00:00
+AUC-0470,Manufacturing & Heavy Machinery,Procurement Request #0470 - Manufacturing & Heavy Machinery,171805.38,32,13,14,41,10,2026-01-08 00:00:00
+AUC-0471,Manufacturing & Heavy Machinery,Procurement Request #0471 - Manufacturing & Heavy Machinery,380808.24,54,29,18,10,10,2026-06-03 00:00:00
+AUC-0472,Software & Cloud Services,Procurement Request #0472 - Software & Cloud Services,264499.07,34,31,10,25,15,2026-01-22 00:00:00
+AUC-0473,Healthcare & Medical Supplies,Procurement Request #0473 - Healthcare & Medical Supplies,110391.82,50,14,26,10,30,2026-06-17 00:00:00
+AUC-0474,Logistics & Freight,Procurement Request #0474 - Logistics & Freight,440136.74,31,37,22,10,30,2026-05-03 00:00:00
+AUC-0475,Software & Cloud Services,Procurement Request #0475 - Software & Cloud Services,440995.11,30,16,17,37,5,2026-04-16 00:00:00
+AUC-0476,Manufacturing & Heavy Machinery,Procurement Request #0476 - Manufacturing & Heavy Machinery,436583.43,20,39,18,23,30,2026-02-27 00:00:00
+AUC-0477,Healthcare & Medical Supplies,Procurement Request #0477 - Healthcare & Medical Supplies,127010.14,32,34,16,18,5,2026-02-16 00:00:00
+AUC-0478,Raw Materials & Metals,Procurement Request #0478 - Raw Materials & Metals,231107.28,54,25,20,10,30,2026-03-06 00:00:00
+AUC-0479,Raw Materials & Metals,Procurement Request #0479 - Raw Materials & Metals,492644.93,45,34,11,10,30,2026-03-23 00:00:00
+AUC-0480,Raw Materials & Metals,Procurement Request #0480 - Raw Materials & Metals,388286.11,54,40,28,10,5,2026-05-15 00:00:00
+AUC-0481,IT Hardware,Procurement Request #0481 - IT Hardware,23312.04,48,24,11,17,10,2026-05-14 00:00:00
+AUC-0482,Construction & Infrastructure,Procurement Request #0482 - Construction & Infrastructure,41950.25,45,33,11,11,30,2026-05-14 00:00:00
+AUC-0483,Manufacturing & Heavy Machinery,Procurement Request #0483 - Manufacturing & Heavy Machinery,237326.37,55,40,11,10,10,2026-03-17 00:00:00
+AUC-0484,Raw Materials & Metals,Procurement Request #0484 - Raw Materials & Metals,455517.9,40,38,19,10,15,2026-04-30 00:00:00
+AUC-0485,Software & Cloud Services,Procurement Request #0485 - Software & Cloud Services,273963.88,47,19,29,5,5,2026-06-27 00:00:00
+AUC-0486,Construction & Infrastructure,Procurement Request #0486 - Construction & Infrastructure,253928.13,29,24,30,17,30,2026-01-25 00:00:00
+AUC-0487,Healthcare & Medical Supplies,Procurement Request #0487 - Healthcare & Medical Supplies,61682.11,52,13,15,20,10,2026-04-12 00:00:00
+AUC-0488,Raw Materials & Metals,Procurement Request #0488 - Raw Materials & Metals,331822.25,40,24,10,26,10,2026-04-28 00:00:00
+AUC-0489,Construction & Infrastructure,Procurement Request #0489 - Construction & Infrastructure,412830.55,32,38,24,6,5,2026-03-07 00:00:00
+AUC-0490,Logistics & Freight,Procurement Request #0490 - Logistics & Freight,196405.8,30,32,13,25,5,2026-01-31 00:00:00
+AUC-0491,Healthcare & Medical Supplies,Procurement Request #0491 - Healthcare & Medical Supplies,390049.81,43,30,21,10,5,2026-05-16 00:00:00
+AUC-0492,Healthcare & Medical Supplies,Procurement Request #0492 - Healthcare & Medical Supplies,482593.56,39,33,26,10,10,2026-04-08 00:00:00
+AUC-0493,Construction & Infrastructure,Procurement Request #0493 - Construction & Infrastructure,109845.56,44,11,15,30,15,2026-05-26 00:00:00
+AUC-0494,Manufacturing & Heavy Machinery,Procurement Request #0494 - Manufacturing & Heavy Machinery,266431.52,29,15,14,42,10,2026-01-15 00:00:00
+AUC-0495,Raw Materials & Metals,Procurement Request #0495 - Raw Materials & Metals,150697.6,39,19,24,18,15,2026-06-11 00:00:00
+AUC-0496,Software & Cloud Services,Procurement Request #0496 - Software & Cloud Services,398498.67,27,38,14,21,10,2026-01-02 00:00:00
+AUC-0497,Construction & Infrastructure,Procurement Request #0497 - Construction & Infrastructure,293020.75,36,10,24,30,30,2026-05-09 00:00:00
+AUC-0498,Construction & Infrastructure,Procurement Request #0498 - Construction & Infrastructure,320945.38,20,29,25,26,10,2026-02-26 00:00:00
+AUC-0499,Construction & Infrastructure,Procurement Request #0499 - Construction & Infrastructure,400977.94,45,24,23,10,30,2026-01-22 00:00:00
+AUC-0500,Construction & Infrastructure,Procurement Request #0500 - Construction & Infrastructure,204025.53,58,10,17,15,15,2026-06-09 00:00:00
+AUC-0501,Healthcare & Medical Supplies,Procurement Request #0501 - Healthcare & Medical Supplies,458394.13,50,36,16,10,5,2026-02-18 00:00:00
+AUC-0502,Software & Cloud Services,Procurement Request #0502 - Software & Cloud Services,271184.14,23,30,21,26,5,2026-02-08 00:00:00
+AUC-0503,Manufacturing & Heavy Machinery,Procurement Request #0503 - Manufacturing & Heavy Machinery,87397.86,22,31,28,19,15,2026-03-27 00:00:00
+AUC-0504,IT Hardware,Procurement Request #0504 - IT Hardware,350990.57,23,13,23,41,10,2026-02-12 00:00:00
+AUC-0505,Healthcare & Medical Supplies,Procurement Request #0505 - Healthcare & Medical Supplies,398698.06,33,29,29,10,10,2026-04-28 00:00:00
+AUC-0506,Healthcare & Medical Supplies,Procurement Request #0506 - Healthcare & Medical Supplies,165213.22,57,21,11,11,5,2026-03-19 00:00:00
+AUC-0507,Logistics & Freight,Procurement Request #0507 - Logistics & Freight,430017.84,38,38,22,10,5,2026-04-21 00:00:00
+AUC-0508,Manufacturing & Heavy Machinery,Procurement Request #0508 - Manufacturing & Heavy Machinery,454010.19,55,12,19,14,30,2026-02-05 00:00:00
+AUC-0509,IT Hardware,Procurement Request #0509 - IT Hardware,145683.2,37,20,26,17,30,2026-05-16 00:00:00
+AUC-0510,Software & Cloud Services,Procurement Request #0510 - Software & Cloud Services,491925.52,33,29,11,27,5,2026-05-28 00:00:00
+AUC-0511,Healthcare & Medical Supplies,Procurement Request #0511 - Healthcare & Medical Supplies,78948.65,55,26,12,10,30,2026-06-27 00:00:00
+AUC-0512,Construction & Infrastructure,Procurement Request #0512 - Construction & Infrastructure,108987.68,38,23,29,10,15,2026-03-09 00:00:00
+AUC-0513,Construction & Infrastructure,Procurement Request #0513 - Construction & Infrastructure,100270.17,51,29,21,10,10,2026-06-08 00:00:00
+AUC-0514,Construction & Infrastructure,Procurement Request #0514 - Construction & Infrastructure,448054.96,46,26,30,10,30,2026-05-08 00:00:00
+AUC-0515,Manufacturing & Heavy Machinery,Procurement Request #0515 - Manufacturing & Heavy Machinery,330603.35,26,38,29,10,10,2026-03-17 00:00:00
+AUC-0516,Software & Cloud Services,Procurement Request #0516 - Software & Cloud Services,84531.1,20,13,10,57,30,2026-06-11 00:00:00
+AUC-0517,Manufacturing & Heavy Machinery,Procurement Request #0517 - Manufacturing & Heavy Machinery,225758.48,27,33,16,24,30,2026-04-17 00:00:00
+AUC-0518,IT Hardware,Procurement Request #0518 - IT Hardware,311496.03,41,21,27,11,10,2026-01-04 00:00:00
+AUC-0519,Healthcare & Medical Supplies,Procurement Request #0519 - Healthcare & Medical Supplies,50897.4,32,32,19,17,15,2026-01-19 00:00:00
+AUC-0520,Logistics & Freight,Procurement Request #0520 - Logistics & Freight,442384.02,39,26,27,8,15,2026-01-03 00:00:00
+AUC-0521,IT Hardware,Procurement Request #0521 - IT Hardware,403765.73,41,20,22,17,5,2026-02-15 00:00:00
+AUC-0522,Software & Cloud Services,Procurement Request #0522 - Software & Cloud Services,257551.32,36,36,20,10,30,2026-05-03 00:00:00
+AUC-0523,Manufacturing & Heavy Machinery,Procurement Request #0523 - Manufacturing & Heavy Machinery,483892.04,22,30,14,34,30,2026-02-10 00:00:00
+AUC-0524,Healthcare & Medical Supplies,Procurement Request #0524 - Healthcare & Medical Supplies,214702.88,44,38,27,10,15,2026-04-30 00:00:00
+AUC-0525,Manufacturing & Heavy Machinery,Procurement Request #0525 - Manufacturing & Heavy Machinery,492214.06,41,39,11,10,15,2026-05-26 00:00:00
+AUC-0526,Healthcare & Medical Supplies,Procurement Request #0526 - Healthcare & Medical Supplies,337280.8,40,27,27,6,5,2026-02-24 00:00:00
+AUC-0527,Construction & Infrastructure,Procurement Request #0527 - Construction & Infrastructure,320988.92,36,35,21,10,5,2026-02-09 00:00:00
+AUC-0528,Logistics & Freight,Procurement Request #0528 - Logistics & Freight,91317.9,21,20,22,37,10,2026-05-28 00:00:00
+AUC-0529,Construction & Infrastructure,Procurement Request #0529 - Construction & Infrastructure,442144.6,44,15,29,12,5,2026-03-21 00:00:00
+AUC-0530,Healthcare & Medical Supplies,Procurement Request #0530 - Healthcare & Medical Supplies,219469.95,40,32,11,17,15,2026-04-17 00:00:00
+AUC-0531,IT Hardware,Procurement Request #0531 - IT Hardware,89494.37,46,38,17,10,15,2026-04-27 00:00:00
+AUC-0532,Manufacturing & Heavy Machinery,Procurement Request #0532 - Manufacturing & Heavy Machinery,16177.68,39,16,26,19,15,2026-02-15 00:00:00
+AUC-0533,IT Hardware,Procurement Request #0533 - IT Hardware,284280.28,43,35,11,11,10,2026-01-25 00:00:00
+AUC-0534,Raw Materials & Metals,Procurement Request #0534 - Raw Materials & Metals,268425.81,52,10,25,13,10,2026-02-19 00:00:00
+AUC-0535,Logistics & Freight,Procurement Request #0535 - Logistics & Freight,362483.27,45,33,26,10,15,2026-03-26 00:00:00
+AUC-0536,Software & Cloud Services,Procurement Request #0536 - Software & Cloud Services,446226.45,26,36,26,12,10,2026-02-23 00:00:00
+AUC-0537,Healthcare & Medical Supplies,Procurement Request #0537 - Healthcare & Medical Supplies,48909.23,22,24,22,32,5,2026-01-03 00:00:00
+AUC-0538,Logistics & Freight,Procurement Request #0538 - Logistics & Freight,368433.28,22,31,29,18,5,2026-03-28 00:00:00
+AUC-0539,Raw Materials & Metals,Procurement Request #0539 - Raw Materials & Metals,101831.85,22,13,26,39,15,2026-01-07 00:00:00
+AUC-0540,Construction & Infrastructure,Procurement Request #0540 - Construction & Infrastructure,430506.76,39,30,16,15,15,2026-02-22 00:00:00
+AUC-0541,Software & Cloud Services,Procurement Request #0541 - Software & Cloud Services,411341.12,38,18,27,17,15,2026-04-24 00:00:00
+AUC-0542,Healthcare & Medical Supplies,Procurement Request #0542 - Healthcare & Medical Supplies,274988.94,27,18,14,41,10,2026-03-13 00:00:00
+AUC-0543,IT Hardware,Procurement Request #0543 - IT Hardware,358018.97,20,40,29,11,5,2026-02-23 00:00:00
+AUC-0544,Construction & Infrastructure,Procurement Request #0544 - Construction & Infrastructure,164031.56,42,27,20,11,15,2026-02-07 00:00:00
+AUC-0545,Healthcare & Medical Supplies,Procurement Request #0545 - Healthcare & Medical Supplies,240872.27,38,28,17,17,10,2026-01-20 00:00:00
+AUC-0546,Logistics & Freight,Procurement Request #0546 - Logistics & Freight,412602.08,54,38,20,10,30,2026-01-14 00:00:00
+AUC-0547,Software & Cloud Services,Procurement Request #0547 - Software & Cloud Services,235039.95,21,25,11,43,5,2026-04-10 00:00:00
+AUC-0548,IT Hardware,Procurement Request #0548 - IT Hardware,185321.15,25,23,22,30,10,2026-06-03 00:00:00
+AUC-0549,Construction & Infrastructure,Procurement Request #0549 - Construction & Infrastructure,252164.1,55,36,24,10,15,2026-03-22 00:00:00
+AUC-0550,Logistics & Freight,Procurement Request #0550 - Logistics & Freight,415842.13,32,32,27,9,5,2026-05-01 00:00:00
+AUC-0551,Construction & Infrastructure,Procurement Request #0551 - Construction & Infrastructure,174251.94,28,12,24,36,5,2026-04-28 00:00:00
+AUC-0552,Logistics & Freight,Procurement Request #0552 - Logistics & Freight,95143.18,49,25,17,9,10,2026-02-07 00:00:00
+AUC-0553,Manufacturing & Heavy Machinery,Procurement Request #0553 - Manufacturing & Heavy Machinery,358886.87,54,18,21,10,30,2026-02-17 00:00:00
+AUC-0554,Healthcare & Medical Supplies,Procurement Request #0554 - Healthcare & Medical Supplies,414729.32,36,35,20,10,30,2026-05-06 00:00:00
+AUC-0555,IT Hardware,Procurement Request #0555 - IT Hardware,59312.36,24,25,13,38,15,2026-05-04 00:00:00
+AUC-0556,Raw Materials & Metals,Procurement Request #0556 - Raw Materials & Metals,127538.32,30,19,21,30,10,2026-05-12 00:00:00
+AUC-0557,IT Hardware,Procurement Request #0557 - IT Hardware,79566.27,45,36,13,6,15,2026-05-24 00:00:00
+AUC-0558,Healthcare & Medical Supplies,Procurement Request #0558 - Healthcare & Medical Supplies,180491.29,24,35,19,22,30,2026-04-14 00:00:00
+AUC-0559,Construction & Infrastructure,Procurement Request #0559 - Construction & Infrastructure,230671.98,46,17,29,8,10,2026-05-22 00:00:00
+AUC-0560,Software & Cloud Services,Procurement Request #0560 - Software & Cloud Services,376924.91,50,22,12,16,15,2026-02-24 00:00:00
+AUC-0561,Manufacturing & Heavy Machinery,Procurement Request #0561 - Manufacturing & Heavy Machinery,329062.32,52,23,23,10,15,2026-05-21 00:00:00
+AUC-0562,Healthcare & Medical Supplies,Procurement Request #0562 - Healthcare & Medical Supplies,314255.0,35,15,12,38,30,2026-01-31 00:00:00
+AUC-0563,Construction & Infrastructure,Procurement Request #0563 - Construction & Infrastructure,182663.72,53,24,20,10,5,2026-04-25 00:00:00
+AUC-0564,Software & Cloud Services,Procurement Request #0564 - Software & Cloud Services,422309.3,34,40,22,10,5,2026-06-04 00:00:00
+AUC-0565,IT Hardware,Procurement Request #0565 - IT Hardware,240930.71,53,34,22,10,15,2026-05-08 00:00:00
+AUC-0566,Healthcare & Medical Supplies,Procurement Request #0566 - Healthcare & Medical Supplies,489761.42,23,12,16,49,10,2026-05-30 00:00:00
+AUC-0567,Manufacturing & Heavy Machinery,Procurement Request #0567 - Manufacturing & Heavy Machinery,320729.65,55,35,10,10,10,2026-06-20 00:00:00
+AUC-0568,Software & Cloud Services,Procurement Request #0568 - Software & Cloud Services,71869.72,48,27,19,6,30,2026-06-08 00:00:00
+AUC-0569,Construction & Infrastructure,Procurement Request #0569 - Construction & Infrastructure,341327.01,48,16,16,20,15,2026-03-19 00:00:00
+AUC-0570,Construction & Infrastructure,Procurement Request #0570 - Construction & Infrastructure,169300.97,34,39,23,10,15,2026-01-24 00:00:00
+AUC-0571,Construction & Infrastructure,Procurement Request #0571 - Construction & Infrastructure,346300.33,20,29,26,25,30,2026-02-03 00:00:00
+AUC-0572,Manufacturing & Heavy Machinery,Procurement Request #0572 - Manufacturing & Heavy Machinery,44124.16,38,11,21,30,5,2026-01-02 00:00:00
+AUC-0573,Healthcare & Medical Supplies,Procurement Request #0573 - Healthcare & Medical Supplies,95691.9,50,36,21,10,5,2026-03-15 00:00:00
+AUC-0574,Manufacturing & Heavy Machinery,Procurement Request #0574 - Manufacturing & Heavy Machinery,429311.26,21,17,23,39,30,2026-06-11 00:00:00
+AUC-0575,Logistics & Freight,Procurement Request #0575 - Logistics & Freight,121317.98,44,22,22,12,30,2026-05-21 00:00:00
+AUC-0576,Software & Cloud Services,Procurement Request #0576 - Software & Cloud Services,420150.15,31,25,14,30,10,2026-05-24 00:00:00
+AUC-0577,Raw Materials & Metals,Procurement Request #0577 - Raw Materials & Metals,146845.28,38,36,23,10,10,2026-03-16 00:00:00
+AUC-0578,Manufacturing & Heavy Machinery,Procurement Request #0578 - Manufacturing & Heavy Machinery,325012.14,28,14,10,48,5,2026-06-16 00:00:00
+AUC-0579,IT Hardware,Procurement Request #0579 - IT Hardware,350133.78,29,33,25,13,30,2026-02-05 00:00:00
+AUC-0580,IT Hardware,Procurement Request #0580 - IT Hardware,261200.83,28,30,23,19,30,2026-06-29 00:00:00
+AUC-0581,Construction & Infrastructure,Procurement Request #0581 - Construction & Infrastructure,159602.23,47,29,15,9,30,2026-05-12 00:00:00
+AUC-0582,Raw Materials & Metals,Procurement Request #0582 - Raw Materials & Metals,114195.74,50,36,24,10,30,2026-04-02 00:00:00
+AUC-0583,Software & Cloud Services,Procurement Request #0583 - Software & Cloud Services,26262.78,31,23,29,17,5,2026-05-29 00:00:00
+AUC-0584,Raw Materials & Metals,Procurement Request #0584 - Raw Materials & Metals,158933.74,35,32,26,7,15,2026-04-17 00:00:00
+AUC-0585,Construction & Infrastructure,Procurement Request #0585 - Construction & Infrastructure,330049.77,56,21,11,12,5,2026-05-27 00:00:00
+AUC-0586,Raw Materials & Metals,Procurement Request #0586 - Raw Materials & Metals,469769.36,43,13,28,16,30,2026-06-27 00:00:00
+AUC-0587,IT Hardware,Procurement Request #0587 - IT Hardware,436890.2,29,33,26,12,15,2026-05-01 00:00:00
+AUC-0588,Construction & Infrastructure,Procurement Request #0588 - Construction & Infrastructure,385371.74,25,26,29,20,5,2026-03-05 00:00:00
+AUC-0589,Raw Materials & Metals,Procurement Request #0589 - Raw Materials & Metals,396339.2,55,33,12,10,15,2026-06-07 00:00:00
+AUC-0590,IT Hardware,Procurement Request #0590 - IT Hardware,335842.6,41,27,10,22,30,2026-04-28 00:00:00
+AUC-0591,Construction & Infrastructure,Procurement Request #0591 - Construction & Infrastructure,137540.56,45,28,20,10,30,2026-04-02 00:00:00
+AUC-0592,Manufacturing & Heavy Machinery,Procurement Request #0592 - Manufacturing & Heavy Machinery,454525.57,38,19,15,28,5,2026-06-28 00:00:00
+AUC-0593,Construction & Infrastructure,Procurement Request #0593 - Construction & Infrastructure,338658.83,34,33,28,10,15,2026-01-17 00:00:00
+AUC-0594,Healthcare & Medical Supplies,Procurement Request #0594 - Healthcare & Medical Supplies,284615.91,50,28,15,7,5,2026-06-19 00:00:00
+AUC-0595,Logistics & Freight,Procurement Request #0595 - Logistics & Freight,64384.84,59,10,19,12,30,2026-01-23 00:00:00
+AUC-0596,Software & Cloud Services,Procurement Request #0596 - Software & Cloud Services,229057.22,52,12,18,18,15,2026-02-04 00:00:00
+AUC-0597,Construction & Infrastructure,Procurement Request #0597 - Construction & Infrastructure,235575.55,37,18,18,27,5,2026-01-30 00:00:00
+AUC-0598,Construction & Infrastructure,Procurement Request #0598 - Construction & Infrastructure,433636.17,26,39,28,10,10,2026-06-19 00:00:00
+AUC-0599,Raw Materials & Metals,Procurement Request #0599 - Raw Materials & Metals,277857.63,43,35,15,7,15,2026-06-30 00:00:00
+AUC-0600,Software & Cloud Services,Procurement Request #0600 - Software & Cloud Services,196396.27,51,15,26,8,5,2026-03-30 00:00:00
+AUC-0601,IT Hardware,Procurement Request #0601 - IT Hardware,488632.16,29,29,14,28,30,2026-04-17 00:00:00
+AUC-0602,Manufacturing & Heavy Machinery,Procurement Request #0602 - Manufacturing & Heavy Machinery,64253.09,44,17,24,15,10,2026-02-24 00:00:00
+AUC-0603,Construction & Infrastructure,Procurement Request #0603 - Construction & Infrastructure,217048.73,42,11,30,17,15,2026-01-31 00:00:00
+AUC-0604,IT Hardware,Procurement Request #0604 - IT Hardware,30592.09,30,24,22,24,30,2026-03-20 00:00:00
+AUC-0605,Raw Materials & Metals,Procurement Request #0605 - Raw Materials & Metals,372553.02,54,17,22,7,30,2026-05-03 00:00:00
+AUC-0606,Logistics & Freight,Procurement Request #0606 - Logistics & Freight,459857.51,29,26,23,22,5,2026-03-16 00:00:00
+AUC-0607,Manufacturing & Heavy Machinery,Procurement Request #0607 - Manufacturing & Heavy Machinery,147218.29,48,22,20,10,5,2026-01-26 00:00:00
+AUC-0608,Construction & Infrastructure,Procurement Request #0608 - Construction & Infrastructure,430587.42,55,21,23,10,15,2026-03-28 00:00:00
+AUC-0609,Logistics & Freight,Procurement Request #0609 - Logistics & Freight,153186.93,37,35,13,15,15,2026-06-18 00:00:00
+AUC-0610,Construction & Infrastructure,Procurement Request #0610 - Construction & Infrastructure,456277.38,45,24,17,14,10,2026-05-15 00:00:00
+AUC-0611,Logistics & Freight,Procurement Request #0611 - Logistics & Freight,379441.33,31,20,27,22,5,2026-06-23 00:00:00
+AUC-0612,IT Hardware,Procurement Request #0612 - IT Hardware,404404.32,24,10,23,43,5,2026-05-16 00:00:00
+AUC-0613,IT Hardware,Procurement Request #0613 - IT Hardware,18823.21,48,21,17,14,15,2026-03-07 00:00:00
+AUC-0614,Software & Cloud Services,Procurement Request #0614 - Software & Cloud Services,481777.07,22,10,29,39,5,2026-01-16 00:00:00
+AUC-0615,Construction & Infrastructure,Procurement Request #0615 - Construction & Infrastructure,366068.79,28,40,29,10,5,2026-02-01 00:00:00
+AUC-0616,IT Hardware,Procurement Request #0616 - IT Hardware,159328.04,58,14,22,6,10,2026-01-30 00:00:00
+AUC-0617,Healthcare & Medical Supplies,Procurement Request #0617 - Healthcare & Medical Supplies,416403.39,31,18,19,32,30,2026-06-20 00:00:00
+AUC-0618,IT Hardware,Procurement Request #0618 - IT Hardware,147945.39,55,24,18,10,30,2026-06-28 00:00:00
+AUC-0619,Healthcare & Medical Supplies,Procurement Request #0619 - Healthcare & Medical Supplies,437649.38,40,18,15,27,5,2026-03-13 00:00:00
+AUC-0620,Manufacturing & Heavy Machinery,Procurement Request #0620 - Manufacturing & Heavy Machinery,65164.39,23,22,22,33,15,2026-01-17 00:00:00
+AUC-0621,Logistics & Freight,Procurement Request #0621 - Logistics & Freight,354806.13,36,15,24,25,5,2026-05-07 00:00:00
+AUC-0622,Software & Cloud Services,Procurement Request #0622 - Software & Cloud Services,274942.25,54,22,15,10,30,2026-01-29 00:00:00
+AUC-0623,Software & Cloud Services,Procurement Request #0623 - Software & Cloud Services,57301.89,49,34,23,10,10,2026-06-08 00:00:00
+AUC-0624,Healthcare & Medical Supplies,Procurement Request #0624 - Healthcare & Medical Supplies,128527.98,26,39,24,11,15,2026-01-28 00:00:00
+AUC-0625,IT Hardware,Procurement Request #0625 - IT Hardware,16077.98,24,12,28,36,15,2026-04-26 00:00:00
+AUC-0626,IT Hardware,Procurement Request #0626 - IT Hardware,239696.3,51,14,30,5,5,2026-01-11 00:00:00
+AUC-0627,Healthcare & Medical Supplies,Procurement Request #0627 - Healthcare & Medical Supplies,157619.98,44,18,14,24,15,2026-04-12 00:00:00
+AUC-0628,Construction & Infrastructure,Procurement Request #0628 - Construction & Infrastructure,303195.17,20,26,25,29,30,2026-04-23 00:00:00
+AUC-0629,Raw Materials & Metals,Procurement Request #0629 - Raw Materials & Metals,155646.53,24,27,17,32,5,2026-04-10 00:00:00
+AUC-0630,Healthcare & Medical Supplies,Procurement Request #0630 - Healthcare & Medical Supplies,156960.36,50,13,28,9,15,2026-03-28 00:00:00
+AUC-0631,Healthcare & Medical Supplies,Procurement Request #0631 - Healthcare & Medical Supplies,374164.67,39,22,11,28,5,2026-04-05 00:00:00
+AUC-0632,Construction & Infrastructure,Procurement Request #0632 - Construction & Infrastructure,33589.99,41,12,24,23,15,2026-06-16 00:00:00
+AUC-0633,Software & Cloud Services,Procurement Request #0633 - Software & Cloud Services,452418.55,31,27,11,31,30,2026-06-20 00:00:00
+AUC-0634,Software & Cloud Services,Procurement Request #0634 - Software & Cloud Services,427609.3,39,32,22,7,5,2026-06-12 00:00:00
+AUC-0635,Healthcare & Medical Supplies,Procurement Request #0635 - Healthcare & Medical Supplies,337224.29,42,25,12,21,30,2026-02-19 00:00:00
+AUC-0636,Software & Cloud Services,Procurement Request #0636 - Software & Cloud Services,300678.57,22,16,10,52,10,2026-05-07 00:00:00
+AUC-0637,Raw Materials & Metals,Procurement Request #0637 - Raw Materials & Metals,447228.22,24,35,27,14,15,2026-05-09 00:00:00
+AUC-0638,Construction & Infrastructure,Procurement Request #0638 - Construction & Infrastructure,100811.79,43,40,10,10,5,2026-03-29 00:00:00
+AUC-0639,IT Hardware,Procurement Request #0639 - IT Hardware,48694.89,41,35,11,13,30,2026-02-01 00:00:00
+AUC-0640,Software & Cloud Services,Procurement Request #0640 - Software & Cloud Services,127359.98,48,24,27,10,10,2026-05-30 00:00:00
+AUC-0641,Software & Cloud Services,Procurement Request #0641 - Software & Cloud Services,399343.36,24,11,14,51,30,2026-06-18 00:00:00
+AUC-0642,IT Hardware,Procurement Request #0642 - IT Hardware,26988.43,45,39,29,10,5,2026-03-05 00:00:00
+AUC-0643,Healthcare & Medical Supplies,Procurement Request #0643 - Healthcare & Medical Supplies,295575.35,28,10,15,47,5,2026-03-21 00:00:00
+AUC-0644,Manufacturing & Heavy Machinery,Procurement Request #0644 - Manufacturing & Heavy Machinery,497764.38,26,24,29,21,10,2026-06-02 00:00:00
+AUC-0645,IT Hardware,Procurement Request #0645 - IT Hardware,429291.09,26,13,25,36,10,2026-01-18 00:00:00
+AUC-0646,Manufacturing & Heavy Machinery,Procurement Request #0646 - Manufacturing & Heavy Machinery,265508.39,32,23,20,25,30,2026-03-26 00:00:00
+AUC-0647,IT Hardware,Procurement Request #0647 - IT Hardware,41184.05,51,27,14,10,15,2026-02-25 00:00:00
+AUC-0648,Manufacturing & Heavy Machinery,Procurement Request #0648 - Manufacturing & Heavy Machinery,417373.02,22,28,15,35,15,2026-01-18 00:00:00
+AUC-0649,IT Hardware,Procurement Request #0649 - IT Hardware,303499.47,37,14,23,26,10,2026-06-29 00:00:00
+AUC-0650,Logistics & Freight,Procurement Request #0650 - Logistics & Freight,66317.17,55,15,24,6,10,2026-05-30 00:00:00
+AUC-0651,IT Hardware,Procurement Request #0651 - IT Hardware,55990.07,28,13,30,29,30,2026-02-11 00:00:00
+AUC-0652,IT Hardware,Procurement Request #0652 - IT Hardware,455717.14,51,12,10,27,5,2026-02-16 00:00:00
+AUC-0653,IT Hardware,Procurement Request #0653 - IT Hardware,337908.13,52,38,19,10,30,2026-06-28 00:00:00
+AUC-0654,Manufacturing & Heavy Machinery,Procurement Request #0654 - Manufacturing & Heavy Machinery,416350.53,45,32,14,10,10,2026-02-07 00:00:00
+AUC-0655,Healthcare & Medical Supplies,Procurement Request #0655 - Healthcare & Medical Supplies,440699.66,37,26,24,13,30,2026-03-04 00:00:00
+AUC-0656,Software & Cloud Services,Procurement Request #0656 - Software & Cloud Services,290168.45,54,32,11,10,10,2026-05-09 00:00:00
+AUC-0657,Construction & Infrastructure,Procurement Request #0657 - Construction & Infrastructure,263548.71,25,30,19,26,15,2026-04-19 00:00:00
+AUC-0658,IT Hardware,Procurement Request #0658 - IT Hardware,220909.43,55,17,16,12,5,2026-05-17 00:00:00
+AUC-0659,IT Hardware,Procurement Request #0659 - IT Hardware,165303.83,54,21,27,10,10,2026-04-30 00:00:00
+AUC-0660,Manufacturing & Heavy Machinery,Procurement Request #0660 - Manufacturing & Heavy Machinery,222952.02,55,31,16,10,15,2026-01-15 00:00:00
+AUC-0661,Software & Cloud Services,Procurement Request #0661 - Software & Cloud Services,389201.03,27,35,14,24,30,2026-05-09 00:00:00
+AUC-0662,Software & Cloud Services,Procurement Request #0662 - Software & Cloud Services,304942.48,30,31,11,28,5,2026-06-16 00:00:00
+AUC-0663,Logistics & Freight,Procurement Request #0663 - Logistics & Freight,447336.41,38,16,23,23,15,2026-03-28 00:00:00
+AUC-0664,Construction & Infrastructure,Procurement Request #0664 - Construction & Infrastructure,227256.21,49,11,13,27,5,2026-05-19 00:00:00
+AUC-0665,Software & Cloud Services,Procurement Request #0665 - Software & Cloud Services,307473.89,30,35,10,25,30,2026-05-13 00:00:00
+AUC-0666,IT Hardware,Procurement Request #0666 - IT Hardware,319340.7,24,38,17,21,30,2026-06-02 00:00:00
+AUC-0667,Construction & Infrastructure,Procurement Request #0667 - Construction & Infrastructure,299931.61,40,23,16,21,15,2026-03-01 00:00:00
+AUC-0668,Manufacturing & Heavy Machinery,Procurement Request #0668 - Manufacturing & Heavy Machinery,354290.55,27,20,17,36,5,2026-03-03 00:00:00
+AUC-0669,Healthcare & Medical Supplies,Procurement Request #0669 - Healthcare & Medical Supplies,126342.4,41,37,16,10,30,2026-02-27 00:00:00
+AUC-0670,IT Hardware,Procurement Request #0670 - IT Hardware,261058.25,45,28,25,10,5,2026-04-23 00:00:00
+AUC-0671,Software & Cloud Services,Procurement Request #0671 - Software & Cloud Services,61070.15,28,39,29,10,30,2026-02-16 00:00:00
+AUC-0672,Raw Materials & Metals,Procurement Request #0672 - Raw Materials & Metals,198410.55,43,14,24,19,10,2026-06-12 00:00:00
+AUC-0673,Logistics & Freight,Procurement Request #0673 - Logistics & Freight,248956.86,37,16,20,27,10,2026-01-10 00:00:00
+AUC-0674,Healthcare & Medical Supplies,Procurement Request #0674 - Healthcare & Medical Supplies,329589.89,56,11,18,15,10,2026-01-30 00:00:00
+AUC-0675,Manufacturing & Heavy Machinery,Procurement Request #0675 - Manufacturing & Heavy Machinery,475760.22,44,24,23,10,10,2026-03-30 00:00:00
+AUC-0676,Software & Cloud Services,Procurement Request #0676 - Software & Cloud Services,304319.02,38,29,15,18,10,2026-05-29 00:00:00
+AUC-0677,Construction & Infrastructure,Procurement Request #0677 - Construction & Infrastructure,374361.02,34,12,23,31,30,2026-02-26 00:00:00
+AUC-0678,Construction & Infrastructure,Procurement Request #0678 - Construction & Infrastructure,258070.37,45,36,24,10,15,2026-01-05 00:00:00
+AUC-0679,Healthcare & Medical Supplies,Procurement Request #0679 - Healthcare & Medical Supplies,320710.98,42,33,17,10,10,2026-03-26 00:00:00
+AUC-0680,Raw Materials & Metals,Procurement Request #0680 - Raw Materials & Metals,44756.79,52,17,28,10,10,2026-05-28 00:00:00
+AUC-0681,IT Hardware,Procurement Request #0681 - IT Hardware,134651.87,46,11,11,32,30,2026-05-11 00:00:00
+AUC-0682,IT Hardware,Procurement Request #0682 - IT Hardware,187308.02,47,26,22,5,30,2026-06-29 00:00:00
+AUC-0683,Manufacturing & Heavy Machinery,Procurement Request #0683 - Manufacturing & Heavy Machinery,241521.74,26,24,25,25,10,2026-01-23 00:00:00
+AUC-0684,Construction & Infrastructure,Procurement Request #0684 - Construction & Infrastructure,32367.89,20,32,23,25,10,2026-02-04 00:00:00
+AUC-0685,Logistics & Freight,Procurement Request #0685 - Logistics & Freight,78611.81,38,17,30,15,5,2026-01-06 00:00:00
+AUC-0686,Raw Materials & Metals,Procurement Request #0686 - Raw Materials & Metals,145639.01,39,15,24,22,5,2026-04-28 00:00:00
+AUC-0687,Raw Materials & Metals,Procurement Request #0687 - Raw Materials & Metals,486051.02,28,37,22,13,10,2026-04-06 00:00:00
+AUC-0688,Healthcare & Medical Supplies,Procurement Request #0688 - Healthcare & Medical Supplies,172360.03,44,32,30,10,5,2026-06-11 00:00:00
+AUC-0689,IT Hardware,Procurement Request #0689 - IT Hardware,246200.12,39,38,20,10,5,2026-03-18 00:00:00
+AUC-0690,Raw Materials & Metals,Procurement Request #0690 - Raw Materials & Metals,106087.88,32,32,29,10,10,2026-06-26 00:00:00
+AUC-0691,IT Hardware,Procurement Request #0691 - IT Hardware,309282.23,54,38,20,10,5,2026-05-13 00:00:00
+AUC-0692,Healthcare & Medical Supplies,Procurement Request #0692 - Healthcare & Medical Supplies,147534.78,43,38,11,8,5,2026-04-10 00:00:00
+AUC-0693,Logistics & Freight,Procurement Request #0693 - Logistics & Freight,111426.36,49,29,11,11,15,2026-04-05 00:00:00
+AUC-0694,Software & Cloud Services,Procurement Request #0694 - Software & Cloud Services,263120.59,50,32,12,10,10,2026-02-06 00:00:00
+AUC-0695,Logistics & Freight,Procurement Request #0695 - Logistics & Freight,12697.84,35,27,13,25,30,2026-05-30 00:00:00
+AUC-0696,Manufacturing & Heavy Machinery,Procurement Request #0696 - Manufacturing & Heavy Machinery,13755.38,33,34,17,16,15,2026-04-02 00:00:00
+AUC-0697,Logistics & Freight,Procurement Request #0697 - Logistics & Freight,117343.72,47,31,23,10,15,2026-01-15 00:00:00
+AUC-0698,IT Hardware,Procurement Request #0698 - IT Hardware,27993.47,43,21,24,12,30,2026-05-10 00:00:00
+AUC-0699,Construction & Infrastructure,Procurement Request #0699 - Construction & Infrastructure,62932.62,27,25,27,21,15,2026-04-27 00:00:00
+AUC-0700,Construction & Infrastructure,Procurement Request #0700 - Construction & Infrastructure,176041.72,43,35,12,10,10,2026-04-29 00:00:00
+AUC-0701,IT Hardware,Procurement Request #0701 - IT Hardware,403266.98,25,22,15,38,15,2026-01-21 00:00:00
+AUC-0702,IT Hardware,Procurement Request #0702 - IT Hardware,290303.84,30,18,13,39,10,2026-05-09 00:00:00
+AUC-0703,Software & Cloud Services,Procurement Request #0703 - Software & Cloud Services,261207.19,33,26,30,11,5,2026-03-18 00:00:00
+AUC-0704,Raw Materials & Metals,Procurement Request #0704 - Raw Materials & Metals,153809.52,49,39,14,10,30,2026-03-31 00:00:00
+AUC-0705,Raw Materials & Metals,Procurement Request #0705 - Raw Materials & Metals,466559.32,43,33,30,10,5,2026-03-17 00:00:00
+AUC-0706,Software & Cloud Services,Procurement Request #0706 - Software & Cloud Services,204537.37,24,10,17,49,15,2026-04-17 00:00:00
+AUC-0707,Construction & Infrastructure,Procurement Request #0707 - Construction & Infrastructure,52675.46,36,30,30,10,15,2026-05-06 00:00:00
+AUC-0708,Construction & Infrastructure,Procurement Request #0708 - Construction & Infrastructure,312362.59,48,36,27,10,30,2026-04-29 00:00:00
+AUC-0709,Logistics & Freight,Procurement Request #0709 - Logistics & Freight,65780.81,56,14,19,11,10,2026-03-09 00:00:00
+AUC-0710,Software & Cloud Services,Procurement Request #0710 - Software & Cloud Services,179159.34,50,21,19,10,5,2026-02-08 00:00:00
+AUC-0711,Logistics & Freight,Procurement Request #0711 - Logistics & Freight,258631.85,38,24,15,23,10,2026-05-19 00:00:00
+AUC-0712,Logistics & Freight,Procurement Request #0712 - Logistics & Freight,438369.04,31,15,14,40,10,2026-03-03 00:00:00
+AUC-0713,IT Hardware,Procurement Request #0713 - IT Hardware,251837.82,22,20,28,30,10,2026-04-24 00:00:00
+AUC-0714,Logistics & Freight,Procurement Request #0714 - Logistics & Freight,354106.8,43,15,16,26,5,2026-06-21 00:00:00
+AUC-0715,Logistics & Freight,Procurement Request #0715 - Logistics & Freight,496480.25,42,14,21,23,30,2026-05-20 00:00:00
+AUC-0716,Software & Cloud Services,Procurement Request #0716 - Software & Cloud Services,74429.67,54,19,13,14,5,2026-04-15 00:00:00
+AUC-0717,Raw Materials & Metals,Procurement Request #0717 - Raw Materials & Metals,144618.45,29,40,24,7,15,2026-02-10 00:00:00
+AUC-0718,IT Hardware,Procurement Request #0718 - IT Hardware,203342.28,49,26,20,10,15,2026-05-03 00:00:00
+AUC-0719,Logistics & Freight,Procurement Request #0719 - Logistics & Freight,216695.81,51,31,14,10,30,2026-03-29 00:00:00
+AUC-0720,Healthcare & Medical Supplies,Procurement Request #0720 - Healthcare & Medical Supplies,211400.33,27,33,25,15,5,2026-02-06 00:00:00
+AUC-0721,Healthcare & Medical Supplies,Procurement Request #0721 - Healthcare & Medical Supplies,454729.39,55,13,19,13,5,2026-04-14 00:00:00
+AUC-0722,Construction & Infrastructure,Procurement Request #0722 - Construction & Infrastructure,359876.0,34,24,21,21,5,2026-03-26 00:00:00
+AUC-0723,IT Hardware,Procurement Request #0723 - IT Hardware,307873.55,53,30,16,10,10,2026-03-14 00:00:00
+AUC-0724,Software & Cloud Services,Procurement Request #0724 - Software & Cloud Services,161592.63,21,12,27,40,30,2026-06-24 00:00:00
+AUC-0725,Healthcare & Medical Supplies,Procurement Request #0725 - Healthcare & Medical Supplies,413657.29,25,26,22,27,10,2026-05-07 00:00:00
+AUC-0726,Logistics & Freight,Procurement Request #0726 - Logistics & Freight,477979.65,53,29,26,10,5,2026-06-21 00:00:00
+AUC-0727,Logistics & Freight,Procurement Request #0727 - Logistics & Freight,412387.16,45,14,23,18,15,2026-04-10 00:00:00
+AUC-0728,Logistics & Freight,Procurement Request #0728 - Logistics & Freight,10766.9,20,19,21,40,15,2026-03-21 00:00:00
+AUC-0729,Raw Materials & Metals,Procurement Request #0729 - Raw Materials & Metals,321836.67,55,12,16,17,30,2026-04-18 00:00:00
+AUC-0730,Manufacturing & Heavy Machinery,Procurement Request #0730 - Manufacturing & Heavy Machinery,35056.34,48,19,15,18,30,2026-04-18 00:00:00
+AUC-0731,Software & Cloud Services,Procurement Request #0731 - Software & Cloud Services,136227.54,52,29,12,10,10,2026-02-24 00:00:00
+AUC-0732,Logistics & Freight,Procurement Request #0732 - Logistics & Freight,39167.1,45,37,26,10,15,2026-01-18 00:00:00
+AUC-0733,Construction & Infrastructure,Procurement Request #0733 - Construction & Infrastructure,305859.77,44,12,10,34,30,2026-06-14 00:00:00
+AUC-0734,Logistics & Freight,Procurement Request #0734 - Logistics & Freight,346429.06,46,15,27,12,30,2026-05-27 00:00:00
+AUC-0735,Manufacturing & Heavy Machinery,Procurement Request #0735 - Manufacturing & Heavy Machinery,66098.94,28,16,15,41,30,2026-03-17 00:00:00
+AUC-0736,Construction & Infrastructure,Procurement Request #0736 - Construction & Infrastructure,198081.05,51,11,19,19,15,2026-05-08 00:00:00
+AUC-0737,Construction & Infrastructure,Procurement Request #0737 - Construction & Infrastructure,233555.89,49,17,10,24,5,2026-02-10 00:00:00
+AUC-0738,Logistics & Freight,Procurement Request #0738 - Logistics & Freight,190835.98,34,40,30,10,30,2026-02-02 00:00:00
+AUC-0739,Healthcare & Medical Supplies,Procurement Request #0739 - Healthcare & Medical Supplies,69302.25,38,23,15,24,30,2026-06-27 00:00:00
+AUC-0740,Healthcare & Medical Supplies,Procurement Request #0740 - Healthcare & Medical Supplies,215284.42,35,10,13,42,15,2026-05-08 00:00:00
+AUC-0741,IT Hardware,Procurement Request #0741 - IT Hardware,378077.24,53,33,21,10,30,2026-05-26 00:00:00
+AUC-0742,Raw Materials & Metals,Procurement Request #0742 - Raw Materials & Metals,44793.76,36,30,25,9,5,2026-04-07 00:00:00
+AUC-0743,Construction & Infrastructure,Procurement Request #0743 - Construction & Infrastructure,49288.21,56,10,18,16,10,2026-05-30 00:00:00
+AUC-0744,IT Hardware,Procurement Request #0744 - IT Hardware,183837.93,29,20,24,27,10,2026-04-03 00:00:00
+AUC-0745,Software & Cloud Services,Procurement Request #0745 - Software & Cloud Services,471445.6,23,18,21,38,30,2026-06-13 00:00:00
+AUC-0746,Logistics & Freight,Procurement Request #0746 - Logistics & Freight,337600.6,23,19,19,39,5,2026-05-13 00:00:00
+AUC-0747,Software & Cloud Services,Procurement Request #0747 - Software & Cloud Services,342548.28,60,15,13,12,10,2026-05-21 00:00:00
+AUC-0748,Logistics & Freight,Procurement Request #0748 - Logistics & Freight,187340.8,40,36,19,5,15,2026-06-26 00:00:00
+AUC-0749,Healthcare & Medical Supplies,Procurement Request #0749 - Healthcare & Medical Supplies,300893.79,43,13,27,17,15,2026-02-07 00:00:00
+AUC-0750,IT Hardware,Procurement Request #0750 - IT Hardware,14964.28,28,26,19,27,15,2026-05-06 00:00:00
+AUC-0751,Raw Materials & Metals,Procurement Request #0751 - Raw Materials & Metals,321687.06,41,39,15,5,5,2026-02-26 00:00:00
+AUC-0752,Software & Cloud Services,Procurement Request #0752 - Software & Cloud Services,457510.6,52,17,16,15,5,2026-04-18 00:00:00
+AUC-0753,Raw Materials & Metals,Procurement Request #0753 - Raw Materials & Metals,310161.0,24,13,14,49,5,2026-05-04 00:00:00
+AUC-0754,Logistics & Freight,Procurement Request #0754 - Logistics & Freight,438112.31,39,32,21,8,10,2026-04-25 00:00:00
+AUC-0755,Construction & Infrastructure,Procurement Request #0755 - Construction & Infrastructure,364746.8,48,34,20,10,10,2026-03-20 00:00:00
+AUC-0756,IT Hardware,Procurement Request #0756 - IT Hardware,69073.62,27,17,14,42,10,2026-06-27 00:00:00
+AUC-0757,Software & Cloud Services,Procurement Request #0757 - Software & Cloud Services,452202.12,39,14,16,31,10,2026-01-22 00:00:00
+AUC-0758,Raw Materials & Metals,Procurement Request #0758 - Raw Materials & Metals,42557.48,27,12,10,51,30,2026-04-22 00:00:00
+AUC-0759,IT Hardware,Procurement Request #0759 - IT Hardware,271644.06,32,13,11,44,5,2026-05-02 00:00:00
+AUC-0760,IT Hardware,Procurement Request #0760 - IT Hardware,79647.19,36,11,12,41,15,2026-06-21 00:00:00
+AUC-0761,IT Hardware,Procurement Request #0761 - IT Hardware,15736.24,26,35,13,26,10,2026-06-01 00:00:00
+AUC-0762,Software & Cloud Services,Procurement Request #0762 - Software & Cloud Services,216796.79,31,31,21,17,5,2026-01-25 00:00:00
+AUC-0763,Software & Cloud Services,Procurement Request #0763 - Software & Cloud Services,154569.95,32,40,28,10,15,2026-04-02 00:00:00
+AUC-0764,Software & Cloud Services,Procurement Request #0764 - Software & Cloud Services,248140.24,47,34,29,10,10,2026-05-11 00:00:00
+AUC-0765,Construction & Infrastructure,Procurement Request #0765 - Construction & Infrastructure,292827.94,24,13,28,35,5,2026-05-17 00:00:00
+AUC-0766,Software & Cloud Services,Procurement Request #0766 - Software & Cloud Services,31432.15,32,40,19,9,10,2026-05-19 00:00:00
+AUC-0767,IT Hardware,Procurement Request #0767 - IT Hardware,70271.61,26,39,16,19,30,2026-04-05 00:00:00
+AUC-0768,Healthcare & Medical Supplies,Procurement Request #0768 - Healthcare & Medical Supplies,283734.77,52,15,24,10,5,2026-02-17 00:00:00
+AUC-0769,Manufacturing & Heavy Machinery,Procurement Request #0769 - Manufacturing & Heavy Machinery,178152.0,42,22,23,13,10,2026-05-13 00:00:00
+AUC-0770,Software & Cloud Services,Procurement Request #0770 - Software & Cloud Services,367295.01,46,13,20,21,5,2026-05-01 00:00:00
+AUC-0771,IT Hardware,Procurement Request #0771 - IT Hardware,329622.91,53,14,25,8,15,2026-03-16 00:00:00
+AUC-0772,Construction & Infrastructure,Procurement Request #0772 - Construction & Infrastructure,424346.14,22,12,20,46,30,2026-01-31 00:00:00
+AUC-0773,Raw Materials & Metals,Procurement Request #0773 - Raw Materials & Metals,349321.49,38,24,29,9,15,2026-06-26 00:00:00
+AUC-0774,Manufacturing & Heavy Machinery,Procurement Request #0774 - Manufacturing & Heavy Machinery,220666.23,48,17,27,8,30,2026-03-17 00:00:00
+AUC-0775,Manufacturing & Heavy Machinery,Procurement Request #0775 - Manufacturing & Heavy Machinery,339753.64,47,16,12,25,30,2026-06-24 00:00:00
+AUC-0776,Logistics & Freight,Procurement Request #0776 - Logistics & Freight,144936.78,31,10,25,34,5,2026-04-13 00:00:00
+AUC-0777,Raw Materials & Metals,Procurement Request #0777 - Raw Materials & Metals,160093.61,48,31,12,10,5,2026-02-07 00:00:00
+AUC-0778,Raw Materials & Metals,Procurement Request #0778 - Raw Materials & Metals,396602.73,40,32,28,10,5,2026-02-14 00:00:00
+AUC-0779,IT Hardware,Procurement Request #0779 - IT Hardware,228745.56,43,16,20,21,10,2026-06-03 00:00:00
+AUC-0780,Manufacturing & Heavy Machinery,Procurement Request #0780 - Manufacturing & Heavy Machinery,401206.37,45,13,17,25,30,2026-05-09 00:00:00
+AUC-0781,Logistics & Freight,Procurement Request #0781 - Logistics & Freight,412986.96,52,28,18,10,30,2026-04-03 00:00:00
+AUC-0782,Raw Materials & Metals,Procurement Request #0782 - Raw Materials & Metals,430205.55,53,40,22,10,30,2026-05-12 00:00:00
+AUC-0783,Logistics & Freight,Procurement Request #0783 - Logistics & Freight,459151.27,29,34,24,13,5,2026-02-02 00:00:00
+AUC-0784,Logistics & Freight,Procurement Request #0784 - Logistics & Freight,221182.76,51,25,17,7,10,2026-01-09 00:00:00
+AUC-0785,IT Hardware,Procurement Request #0785 - IT Hardware,166244.74,23,36,12,29,30,2026-06-24 00:00:00
+AUC-0786,IT Hardware,Procurement Request #0786 - IT Hardware,295277.39,31,22,29,18,15,2026-02-10 00:00:00
+AUC-0787,Logistics & Freight,Procurement Request #0787 - Logistics & Freight,191874.49,54,29,13,10,5,2026-06-20 00:00:00
+AUC-0788,Manufacturing & Heavy Machinery,Procurement Request #0788 - Manufacturing & Heavy Machinery,304526.34,48,34,25,10,30,2026-02-22 00:00:00
+AUC-0789,Logistics & Freight,Procurement Request #0789 - Logistics & Freight,355737.07,46,25,26,10,15,2026-05-20 00:00:00
+AUC-0790,Logistics & Freight,Procurement Request #0790 - Logistics & Freight,347318.46,54,27,10,9,5,2026-04-22 00:00:00
+AUC-0791,IT Hardware,Procurement Request #0791 - IT Hardware,193530.91,44,24,20,12,30,2026-04-25 00:00:00
+AUC-0792,Raw Materials & Metals,Procurement Request #0792 - Raw Materials & Metals,91761.5,22,11,15,52,15,2026-02-13 00:00:00
+AUC-0793,Raw Materials & Metals,Procurement Request #0793 - Raw Materials & Metals,220959.38,47,14,19,20,30,2026-05-06 00:00:00
+AUC-0794,Manufacturing & Heavy Machinery,Procurement Request #0794 - Manufacturing & Heavy Machinery,79871.13,27,28,25,20,30,2026-05-03 00:00:00
+AUC-0795,Construction & Infrastructure,Procurement Request #0795 - Construction & Infrastructure,446147.55,30,26,11,33,30,2026-03-10 00:00:00
+AUC-0796,Raw Materials & Metals,Procurement Request #0796 - Raw Materials & Metals,179479.96,52,22,29,10,15,2026-03-15 00:00:00
+AUC-0797,Logistics & Freight,Procurement Request #0797 - Logistics & Freight,85685.28,23,10,28,39,5,2026-02-03 00:00:00
+AUC-0798,Manufacturing & Heavy Machinery,Procurement Request #0798 - Manufacturing & Heavy Machinery,22469.4,43,21,28,8,5,2026-06-11 00:00:00
+AUC-0799,Logistics & Freight,Procurement Request #0799 - Logistics & Freight,326452.97,44,13,23,20,15,2026-04-03 00:00:00
+AUC-0800,Raw Materials & Metals,Procurement Request #0800 - Raw Materials & Metals,322082.14,42,11,17,30,10,2026-03-03 00:00:00
+AUC-0801,Healthcare & Medical Supplies,Procurement Request #0801 - Healthcare & Medical Supplies,176896.04,39,28,12,21,5,2026-03-21 00:00:00
+AUC-0802,IT Hardware,Procurement Request #0802 - IT Hardware,45138.83,41,15,10,34,15,2026-01-11 00:00:00
+AUC-0803,Raw Materials & Metals,Procurement Request #0803 - Raw Materials & Metals,210718.16,42,28,26,10,30,2026-03-11 00:00:00
+AUC-0804,IT Hardware,Procurement Request #0804 - IT Hardware,162496.57,50,28,10,12,15,2026-04-08 00:00:00
+AUC-0805,Construction & Infrastructure,Procurement Request #0805 - Construction & Infrastructure,341789.11,44,20,28,8,5,2026-05-07 00:00:00
+AUC-0806,IT Hardware,Procurement Request #0806 - IT Hardware,306831.83,33,20,25,22,15,2026-02-13 00:00:00
+AUC-0807,Construction & Infrastructure,Procurement Request #0807 - Construction & Infrastructure,188650.93,39,21,23,17,10,2026-05-09 00:00:00
+AUC-0808,Healthcare & Medical Supplies,Procurement Request #0808 - Healthcare & Medical Supplies,116767.35,24,36,27,13,10,2026-03-16 00:00:00
+AUC-0809,Logistics & Freight,Procurement Request #0809 - Logistics & Freight,494137.62,23,19,28,30,30,2026-02-28 00:00:00
+AUC-0810,Construction & Infrastructure,Procurement Request #0810 - Construction & Infrastructure,232460.79,25,32,28,15,5,2026-06-02 00:00:00
+AUC-0811,Logistics & Freight,Procurement Request #0811 - Logistics & Freight,347254.38,37,12,28,23,30,2026-04-21 00:00:00
+AUC-0812,Software & Cloud Services,Procurement Request #0812 - Software & Cloud Services,78870.95,42,35,12,11,15,2026-05-11 00:00:00
+AUC-0813,Manufacturing & Heavy Machinery,Procurement Request #0813 - Manufacturing & Heavy Machinery,247938.95,39,23,27,11,15,2026-02-22 00:00:00
+AUC-0814,Raw Materials & Metals,Procurement Request #0814 - Raw Materials & Metals,23492.99,45,18,29,8,30,2026-06-22 00:00:00
+AUC-0815,Manufacturing & Heavy Machinery,Procurement Request #0815 - Manufacturing & Heavy Machinery,257673.01,55,15,10,20,10,2026-05-29 00:00:00
+AUC-0816,Raw Materials & Metals,Procurement Request #0816 - Raw Materials & Metals,482368.53,33,31,24,12,15,2026-06-14 00:00:00
+AUC-0817,Construction & Infrastructure,Procurement Request #0817 - Construction & Infrastructure,198261.29,54,37,23,10,5,2026-05-15 00:00:00
+AUC-0818,Software & Cloud Services,Procurement Request #0818 - Software & Cloud Services,29108.05,43,24,14,19,10,2026-02-09 00:00:00
+AUC-0819,Healthcare & Medical Supplies,Procurement Request #0819 - Healthcare & Medical Supplies,25168.34,34,37,23,10,30,2026-03-24 00:00:00
+AUC-0820,Manufacturing & Heavy Machinery,Procurement Request #0820 - Manufacturing & Heavy Machinery,200113.51,24,30,16,30,30,2026-03-11 00:00:00
+AUC-0821,Manufacturing & Heavy Machinery,Procurement Request #0821 - Manufacturing & Heavy Machinery,88412.22,38,30,15,17,15,2026-06-26 00:00:00
+AUC-0822,Construction & Infrastructure,Procurement Request #0822 - Construction & Infrastructure,21442.53,35,22,17,26,5,2026-02-09 00:00:00
+AUC-0823,Software & Cloud Services,Procurement Request #0823 - Software & Cloud Services,380544.67,21,17,19,43,30,2026-05-06 00:00:00
+AUC-0824,Construction & Infrastructure,Procurement Request #0824 - Construction & Infrastructure,234676.27,42,23,30,10,5,2026-02-22 00:00:00
+AUC-0825,Software & Cloud Services,Procurement Request #0825 - Software & Cloud Services,151729.94,37,14,10,39,15,2026-03-14 00:00:00
+AUC-0826,Healthcare & Medical Supplies,Procurement Request #0826 - Healthcare & Medical Supplies,451040.76,50,15,30,10,5,2026-05-06 00:00:00
+AUC-0827,Manufacturing & Heavy Machinery,Procurement Request #0827 - Manufacturing & Heavy Machinery,66908.09,21,11,12,56,15,2026-06-05 00:00:00
+AUC-0828,Logistics & Freight,Procurement Request #0828 - Logistics & Freight,478400.23,24,38,23,15,15,2026-06-22 00:00:00
+AUC-0829,Healthcare & Medical Supplies,Procurement Request #0829 - Healthcare & Medical Supplies,163843.69,25,22,14,39,10,2026-01-30 00:00:00
+AUC-0830,Construction & Infrastructure,Procurement Request #0830 - Construction & Infrastructure,445317.8,47,39,13,10,15,2026-05-09 00:00:00
+AUC-0831,IT Hardware,Procurement Request #0831 - IT Hardware,305442.01,35,29,13,23,15,2026-03-27 00:00:00
+AUC-0832,Manufacturing & Heavy Machinery,Procurement Request #0832 - Manufacturing & Heavy Machinery,415086.61,52,33,22,10,10,2026-04-20 00:00:00
+AUC-0833,Software & Cloud Services,Procurement Request #0833 - Software & Cloud Services,492166.45,29,13,15,43,10,2026-03-13 00:00:00
+AUC-0834,Raw Materials & Metals,Procurement Request #0834 - Raw Materials & Metals,151318.66,46,18,28,8,5,2026-05-07 00:00:00
+AUC-0835,Construction & Infrastructure,Procurement Request #0835 - Construction & Infrastructure,480956.39,43,32,13,12,15,2026-05-21 00:00:00
+AUC-0836,Raw Materials & Metals,Procurement Request #0836 - Raw Materials & Metals,200846.13,45,31,17,10,15,2026-02-08 00:00:00
+AUC-0837,Logistics & Freight,Procurement Request #0837 - Logistics & Freight,198900.83,45,32,21,10,15,2026-01-07 00:00:00
+AUC-0838,Healthcare & Medical Supplies,Procurement Request #0838 - Healthcare & Medical Supplies,176789.68,58,11,11,20,10,2026-03-07 00:00:00
+AUC-0839,Construction & Infrastructure,Procurement Request #0839 - Construction & Infrastructure,275289.73,44,19,30,7,15,2026-06-26 00:00:00
+AUC-0840,IT Hardware,Procurement Request #0840 - IT Hardware,85531.07,49,37,17,10,30,2026-04-11 00:00:00
+AUC-0841,IT Hardware,Procurement Request #0841 - IT Hardware,281318.63,40,39,18,10,15,2026-01-25 00:00:00
+AUC-0842,Manufacturing & Heavy Machinery,Procurement Request #0842 - Manufacturing & Heavy Machinery,275435.36,35,19,16,30,10,2026-04-24 00:00:00
+AUC-0843,Healthcare & Medical Supplies,Procurement Request #0843 - Healthcare & Medical Supplies,383331.89,35,38,30,10,30,2026-01-10 00:00:00
+AUC-0844,Logistics & Freight,Procurement Request #0844 - Logistics & Freight,418488.48,25,36,25,14,30,2026-04-17 00:00:00
+AUC-0845,Manufacturing & Heavy Machinery,Procurement Request #0845 - Manufacturing & Heavy Machinery,225816.26,36,32,23,10,5,2026-02-12 00:00:00
+AUC-0846,Healthcare & Medical Supplies,Procurement Request #0846 - Healthcare & Medical Supplies,158143.29,36,26,12,26,15,2026-04-19 00:00:00
+AUC-0847,Construction & Infrastructure,Procurement Request #0847 - Construction & Infrastructure,137074.1,50,33,20,10,30,2026-06-28 00:00:00
+AUC-0848,IT Hardware,Procurement Request #0848 - IT Hardware,105365.68,23,30,30,17,10,2026-06-12 00:00:00
+AUC-0849,Raw Materials & Metals,Procurement Request #0849 - Raw Materials & Metals,38247.32,28,10,22,40,10,2026-06-11 00:00:00
+AUC-0850,Logistics & Freight,Procurement Request #0850 - Logistics & Freight,177799.51,40,28,12,20,5,2026-02-11 00:00:00
+AUC-0851,Software & Cloud Services,Procurement Request #0851 - Software & Cloud Services,142421.37,48,32,30,10,10,2026-06-03 00:00:00
+AUC-0852,Healthcare & Medical Supplies,Procurement Request #0852 - Healthcare & Medical Supplies,483544.52,41,35,20,10,30,2026-05-04 00:00:00
+AUC-0853,Manufacturing & Heavy Machinery,Procurement Request #0853 - Manufacturing & Heavy Machinery,283277.32,28,18,15,39,15,2026-03-15 00:00:00
+AUC-0854,Software & Cloud Services,Procurement Request #0854 - Software & Cloud Services,180165.75,25,23,21,31,10,2026-04-12 00:00:00
+AUC-0855,Raw Materials & Metals,Procurement Request #0855 - Raw Materials & Metals,294429.12,56,17,10,17,5,2026-05-24 00:00:00
+AUC-0856,Healthcare & Medical Supplies,Procurement Request #0856 - Healthcare & Medical Supplies,78206.38,54,30,17,10,5,2026-04-30 00:00:00
+AUC-0857,Software & Cloud Services,Procurement Request #0857 - Software & Cloud Services,227581.44,36,32,15,17,5,2026-04-14 00:00:00
+AUC-0858,Construction & Infrastructure,Procurement Request #0858 - Construction & Infrastructure,316854.82,47,29,18,6,10,2026-01-24 00:00:00
+AUC-0859,Logistics & Freight,Procurement Request #0859 - Logistics & Freight,249559.94,25,40,28,10,5,2026-01-05 00:00:00
+AUC-0860,Healthcare & Medical Supplies,Procurement Request #0860 - Healthcare & Medical Supplies,206871.61,48,23,24,10,30,2026-02-01 00:00:00
+AUC-0861,Software & Cloud Services,Procurement Request #0861 - Software & Cloud Services,496985.71,33,16,18,33,15,2026-05-08 00:00:00
+AUC-0862,Raw Materials & Metals,Procurement Request #0862 - Raw Materials & Metals,441354.23,28,23,16,33,10,2026-03-15 00:00:00
+AUC-0863,Healthcare & Medical Supplies,Procurement Request #0863 - Healthcare & Medical Supplies,315468.92,32,23,15,30,30,2026-02-08 00:00:00
+AUC-0864,IT Hardware,Procurement Request #0864 - IT Hardware,288994.91,38,18,17,27,30,2026-03-06 00:00:00
+AUC-0865,Logistics & Freight,Procurement Request #0865 - Logistics & Freight,314123.64,52,31,30,10,30,2026-01-23 00:00:00
+AUC-0866,IT Hardware,Procurement Request #0866 - IT Hardware,108642.93,50,14,20,16,30,2026-06-26 00:00:00
+AUC-0867,Software & Cloud Services,Procurement Request #0867 - Software & Cloud Services,203617.49,39,32,23,10,15,2026-01-20 00:00:00
+AUC-0868,IT Hardware,Procurement Request #0868 - IT Hardware,29335.17,55,11,11,23,15,2026-03-03 00:00:00
+AUC-0869,Raw Materials & Metals,Procurement Request #0869 - Raw Materials & Metals,243017.56,37,29,29,10,5,2026-01-03 00:00:00
+AUC-0870,Logistics & Freight,Procurement Request #0870 - Logistics & Freight,276082.05,47,29,22,10,15,2026-04-13 00:00:00
+AUC-0871,Healthcare & Medical Supplies,Procurement Request #0871 - Healthcare & Medical Supplies,121597.37,43,14,27,16,5,2026-05-30 00:00:00
+AUC-0872,Software & Cloud Services,Procurement Request #0872 - Software & Cloud Services,482374.14,36,15,26,23,30,2026-03-29 00:00:00
+AUC-0873,Raw Materials & Metals,Procurement Request #0873 - Raw Materials & Metals,455632.76,28,12,20,40,30,2026-02-07 00:00:00
+AUC-0874,Logistics & Freight,Procurement Request #0874 - Logistics & Freight,363850.19,27,20,11,42,10,2026-05-09 00:00:00
+AUC-0875,Manufacturing & Heavy Machinery,Procurement Request #0875 - Manufacturing & Heavy Machinery,271359.45,37,33,21,9,30,2026-03-15 00:00:00
+AUC-0876,Logistics & Freight,Procurement Request #0876 - Logistics & Freight,436284.89,54,36,18,10,15,2026-04-23 00:00:00
+AUC-0877,Software & Cloud Services,Procurement Request #0877 - Software & Cloud Services,74019.65,35,33,25,10,10,2026-05-24 00:00:00
+AUC-0878,Manufacturing & Heavy Machinery,Procurement Request #0878 - Manufacturing & Heavy Machinery,397349.8,55,35,24,10,5,2026-02-19 00:00:00
+AUC-0879,Software & Cloud Services,Procurement Request #0879 - Software & Cloud Services,71162.2,23,17,15,45,5,2026-05-02 00:00:00
+AUC-0880,Logistics & Freight,Procurement Request #0880 - Logistics & Freight,399163.22,30,32,24,14,30,2026-01-31 00:00:00
+AUC-0881,Raw Materials & Metals,Procurement Request #0881 - Raw Materials & Metals,145126.11,22,24,21,33,30,2026-04-29 00:00:00
+AUC-0882,Raw Materials & Metals,Procurement Request #0882 - Raw Materials & Metals,439774.38,27,37,14,22,5,2026-04-01 00:00:00
+AUC-0883,IT Hardware,Procurement Request #0883 - IT Hardware,472580.63,33,37,19,11,10,2026-02-14 00:00:00
+AUC-0884,Healthcare & Medical Supplies,Procurement Request #0884 - Healthcare & Medical Supplies,82910.03,47,36,18,10,10,2026-05-31 00:00:00
+AUC-0885,IT Hardware,Procurement Request #0885 - IT Hardware,236711.05,48,34,28,10,10,2026-04-18 00:00:00
+AUC-0886,IT Hardware,Procurement Request #0886 - IT Hardware,490683.82,35,34,25,6,5,2026-03-27 00:00:00
+AUC-0887,IT Hardware,Procurement Request #0887 - IT Hardware,246869.64,38,31,13,18,30,2026-04-07 00:00:00
+AUC-0888,Construction & Infrastructure,Procurement Request #0888 - Construction & Infrastructure,433138.29,26,36,20,18,10,2026-01-09 00:00:00
+AUC-0889,IT Hardware,Procurement Request #0889 - IT Hardware,298478.45,44,36,25,10,30,2026-06-11 00:00:00
+AUC-0890,Logistics & Freight,Procurement Request #0890 - Logistics & Freight,193911.65,53,31,10,10,15,2026-01-13 00:00:00
+AUC-0891,Healthcare & Medical Supplies,Procurement Request #0891 - Healthcare & Medical Supplies,150033.94,54,40,24,10,15,2026-05-27 00:00:00
+AUC-0892,Software & Cloud Services,Procurement Request #0892 - Software & Cloud Services,109579.31,33,37,11,19,15,2026-03-25 00:00:00
+AUC-0893,Manufacturing & Heavy Machinery,Procurement Request #0893 - Manufacturing & Heavy Machinery,383281.11,23,33,12,32,30,2026-01-25 00:00:00
+AUC-0894,Raw Materials & Metals,Procurement Request #0894 - Raw Materials & Metals,199404.85,36,15,17,32,30,2026-01-24 00:00:00
+AUC-0895,IT Hardware,Procurement Request #0895 - IT Hardware,260524.98,33,15,22,30,30,2026-03-15 00:00:00
+AUC-0896,Healthcare & Medical Supplies,Procurement Request #0896 - Healthcare & Medical Supplies,251239.49,29,13,19,39,30,2026-04-22 00:00:00
+AUC-0897,Healthcare & Medical Supplies,Procurement Request #0897 - Healthcare & Medical Supplies,292866.72,34,38,29,10,10,2026-04-03 00:00:00
+AUC-0898,Healthcare & Medical Supplies,Procurement Request #0898 - Healthcare & Medical Supplies,434132.8,26,36,21,17,10,2026-05-07 00:00:00
+AUC-0899,Raw Materials & Metals,Procurement Request #0899 - Raw Materials & Metals,490562.28,44,25,18,13,30,2026-01-25 00:00:00
+AUC-0900,Manufacturing & Heavy Machinery,Procurement Request #0900 - Manufacturing & Heavy Machinery,209716.26,42,35,21,10,10,2026-04-23 00:00:00
+AUC-0901,Healthcare & Medical Supplies,Procurement Request #0901 - Healthcare & Medical Supplies,415484.27,47,12,11,30,15,2026-04-30 00:00:00
+AUC-0902,Healthcare & Medical Supplies,Procurement Request #0902 - Healthcare & Medical Supplies,384618.62,34,30,14,22,30,2026-05-16 00:00:00
+AUC-0903,Healthcare & Medical Supplies,Procurement Request #0903 - Healthcare & Medical Supplies,291029.19,53,12,19,16,30,2026-04-23 00:00:00
+AUC-0904,IT Hardware,Procurement Request #0904 - IT Hardware,478463.1,50,19,14,17,10,2026-06-26 00:00:00
+AUC-0905,Logistics & Freight,Procurement Request #0905 - Logistics & Freight,108232.51,35,26,23,16,15,2026-05-27 00:00:00
+AUC-0906,IT Hardware,Procurement Request #0906 - IT Hardware,63539.46,55,12,11,22,5,2026-05-12 00:00:00
+AUC-0907,Raw Materials & Metals,Procurement Request #0907 - Raw Materials & Metals,428441.36,46,13,24,17,15,2026-04-02 00:00:00
+AUC-0908,Logistics & Freight,Procurement Request #0908 - Logistics & Freight,225183.41,57,12,26,5,5,2026-01-31 00:00:00
+AUC-0909,Healthcare & Medical Supplies,Procurement Request #0909 - Healthcare & Medical Supplies,425014.74,49,15,15,21,30,2026-01-13 00:00:00
+AUC-0910,IT Hardware,Procurement Request #0910 - IT Hardware,447614.2,41,38,19,10,15,2026-06-01 00:00:00
+AUC-0911,Healthcare & Medical Supplies,Procurement Request #0911 - Healthcare & Medical Supplies,40604.22,44,34,24,10,15,2026-03-30 00:00:00
+AUC-0912,Manufacturing & Heavy Machinery,Procurement Request #0912 - Manufacturing & Heavy Machinery,442897.73,31,16,15,38,5,2026-06-05 00:00:00
+AUC-0913,Logistics & Freight,Procurement Request #0913 - Logistics & Freight,229676.34,26,23,27,24,5,2026-01-03 00:00:00
+AUC-0914,Raw Materials & Metals,Procurement Request #0914 - Raw Materials & Metals,260111.92,27,10,15,48,30,2026-04-29 00:00:00
+AUC-0915,Healthcare & Medical Supplies,Procurement Request #0915 - Healthcare & Medical Supplies,317030.33,40,37,29,10,30,2026-03-20 00:00:00
+AUC-0916,Construction & Infrastructure,Procurement Request #0916 - Construction & Infrastructure,463927.48,54,21,22,10,15,2026-01-24 00:00:00
+AUC-0917,Software & Cloud Services,Procurement Request #0917 - Software & Cloud Services,19366.89,28,10,16,46,5,2026-01-06 00:00:00
+AUC-0918,Healthcare & Medical Supplies,Procurement Request #0918 - Healthcare & Medical Supplies,243653.3,32,37,10,21,10,2026-05-05 00:00:00
+AUC-0919,Healthcare & Medical Supplies,Procurement Request #0919 - Healthcare & Medical Supplies,346983.8,29,30,17,24,30,2026-06-11 00:00:00
+AUC-0920,Manufacturing & Heavy Machinery,Procurement Request #0920 - Manufacturing & Heavy Machinery,364126.41,54,16,12,18,15,2026-04-30 00:00:00
+AUC-0921,Software & Cloud Services,Procurement Request #0921 - Software & Cloud Services,349340.89,50,23,10,17,5,2026-02-13 00:00:00
+AUC-0922,Software & Cloud Services,Procurement Request #0922 - Software & Cloud Services,75873.21,43,40,25,10,30,2026-01-07 00:00:00
+AUC-0923,Manufacturing & Heavy Machinery,Procurement Request #0923 - Manufacturing & Heavy Machinery,156703.84,48,28,17,7,10,2026-03-18 00:00:00
+AUC-0924,Construction & Infrastructure,Procurement Request #0924 - Construction & Infrastructure,185770.61,45,11,20,24,5,2026-01-28 00:00:00
+AUC-0925,Healthcare & Medical Supplies,Procurement Request #0925 - Healthcare & Medical Supplies,404174.23,47,23,25,5,15,2026-01-11 00:00:00
+AUC-0926,Raw Materials & Metals,Procurement Request #0926 - Raw Materials & Metals,146592.34,40,25,26,10,30,2026-03-02 00:00:00
+AUC-0927,Healthcare & Medical Supplies,Procurement Request #0927 - Healthcare & Medical Supplies,113245.43,23,26,10,41,30,2026-05-29 00:00:00
+AUC-0928,Logistics & Freight,Procurement Request #0928 - Logistics & Freight,479149.53,55,12,18,15,30,2026-05-03 00:00:00
+AUC-0929,IT Hardware,Procurement Request #0929 - IT Hardware,14343.01,46,29,30,10,15,2026-04-26 00:00:00
+AUC-0930,Healthcare & Medical Supplies,Procurement Request #0930 - Healthcare & Medical Supplies,498932.22,47,10,15,28,15,2026-02-20 00:00:00
+AUC-0931,Raw Materials & Metals,Procurement Request #0931 - Raw Materials & Metals,341642.44,42,24,17,17,10,2026-06-01 00:00:00
+AUC-0932,Healthcare & Medical Supplies,Procurement Request #0932 - Healthcare & Medical Supplies,415949.96,36,39,29,10,30,2026-02-04 00:00:00
+AUC-0933,Logistics & Freight,Procurement Request #0933 - Logistics & Freight,154363.5,39,40,23,10,15,2026-05-02 00:00:00
+AUC-0934,Manufacturing & Heavy Machinery,Procurement Request #0934 - Manufacturing & Heavy Machinery,17014.49,30,29,16,25,15,2026-06-27 00:00:00
+AUC-0935,Healthcare & Medical Supplies,Procurement Request #0935 - Healthcare & Medical Supplies,371556.06,25,31,25,19,10,2026-02-15 00:00:00
+AUC-0936,Software & Cloud Services,Procurement Request #0936 - Software & Cloud Services,418730.85,30,29,25,16,5,2026-04-18 00:00:00
+AUC-0937,Raw Materials & Metals,Procurement Request #0937 - Raw Materials & Metals,372833.3,39,17,16,28,5,2026-01-06 00:00:00
+AUC-0938,Logistics & Freight,Procurement Request #0938 - Logistics & Freight,79996.64,36,21,15,28,10,2026-05-10 00:00:00
+AUC-0939,IT Hardware,Procurement Request #0939 - IT Hardware,379179.68,24,20,23,33,5,2026-06-09 00:00:00
+AUC-0940,Software & Cloud Services,Procurement Request #0940 - Software & Cloud Services,386772.16,27,27,17,29,30,2026-03-09 00:00:00
+AUC-0941,Logistics & Freight,Procurement Request #0941 - Logistics & Freight,332684.85,42,34,11,13,15,2026-02-09 00:00:00
+AUC-0942,Manufacturing & Heavy Machinery,Procurement Request #0942 - Manufacturing & Heavy Machinery,385396.81,52,29,13,6,5,2026-04-24 00:00:00
+AUC-0943,Manufacturing & Heavy Machinery,Procurement Request #0943 - Manufacturing & Heavy Machinery,424501.51,44,40,13,10,5,2026-06-07 00:00:00
+AUC-0944,Construction & Infrastructure,Procurement Request #0944 - Construction & Infrastructure,310666.02,26,36,27,11,5,2026-05-11 00:00:00
+AUC-0945,IT Hardware,Procurement Request #0945 - IT Hardware,53416.31,30,30,13,27,10,2026-04-04 00:00:00
+AUC-0946,Software & Cloud Services,Procurement Request #0946 - Software & Cloud Services,248937.63,38,32,24,6,30,2026-01-27 00:00:00
+AUC-0947,Software & Cloud Services,Procurement Request #0947 - Software & Cloud Services,48048.17,43,20,14,23,5,2026-02-22 00:00:00
+AUC-0948,Raw Materials & Metals,Procurement Request #0948 - Raw Materials & Metals,209696.09,46,34,10,10,10,2026-05-03 00:00:00
+AUC-0949,Logistics & Freight,Procurement Request #0949 - Logistics & Freight,209482.18,38,26,15,21,5,2026-03-11 00:00:00
+AUC-0950,Logistics & Freight,Procurement Request #0950 - Logistics & Freight,42344.82,41,21,30,10,10,2026-02-09 00:00:00
+AUC-0951,Manufacturing & Heavy Machinery,Procurement Request #0951 - Manufacturing & Heavy Machinery,180922.06,53,23,17,7,10,2026-04-21 00:00:00
+AUC-0952,Raw Materials & Metals,Procurement Request #0952 - Raw Materials & Metals,64389.07,41,38,24,10,15,2026-01-09 00:00:00
+AUC-0953,Raw Materials & Metals,Procurement Request #0953 - Raw Materials & Metals,406035.25,29,34,10,27,5,2026-01-23 00:00:00
+AUC-0954,Logistics & Freight,Procurement Request #0954 - Logistics & Freight,474367.13,40,22,15,23,30,2026-01-17 00:00:00
+AUC-0955,Raw Materials & Metals,Procurement Request #0955 - Raw Materials & Metals,45435.07,22,31,30,17,10,2026-05-29 00:00:00
+AUC-0956,IT Hardware,Procurement Request #0956 - IT Hardware,478006.45,55,32,26,10,15,2026-04-19 00:00:00
+AUC-0957,Raw Materials & Metals,Procurement Request #0957 - Raw Materials & Metals,266062.53,50,37,19,10,15,2026-03-31 00:00:00
+AUC-0958,IT Hardware,Procurement Request #0958 - IT Hardware,156787.18,32,38,26,10,10,2026-06-30 00:00:00
+AUC-0959,Raw Materials & Metals,Procurement Request #0959 - Raw Materials & Metals,47662.42,48,30,16,6,30,2026-06-29 00:00:00
+AUC-0960,Logistics & Freight,Procurement Request #0960 - Logistics & Freight,255305.89,45,34,16,5,15,2026-01-23 00:00:00
+AUC-0961,IT Hardware,Procurement Request #0961 - IT Hardware,399312.62,49,20,22,10,10,2026-05-15 00:00:00
+AUC-0962,Construction & Infrastructure,Procurement Request #0962 - Construction & Infrastructure,356472.37,38,16,12,34,15,2026-05-15 00:00:00
+AUC-0963,Logistics & Freight,Procurement Request #0963 - Logistics & Freight,34610.75,60,15,10,15,5,2026-05-20 00:00:00
+AUC-0964,Construction & Infrastructure,Procurement Request #0964 - Construction & Infrastructure,45721.9,36,17,19,28,30,2026-05-11 00:00:00
+AUC-0965,IT Hardware,Procurement Request #0965 - IT Hardware,207407.91,23,36,21,20,15,2026-06-11 00:00:00
+AUC-0966,Construction & Infrastructure,Procurement Request #0966 - Construction & Infrastructure,154692.34,42,13,11,34,5,2026-04-26 00:00:00
+AUC-0967,Logistics & Freight,Procurement Request #0967 - Logistics & Freight,123868.32,51,33,10,10,30,2026-03-29 00:00:00
+AUC-0968,Software & Cloud Services,Procurement Request #0968 - Software & Cloud Services,147692.2,52,28,30,10,10,2026-04-01 00:00:00
+AUC-0969,Logistics & Freight,Procurement Request #0969 - Logistics & Freight,403706.54,33,31,28,10,10,2026-04-08 00:00:00
+AUC-0970,Construction & Infrastructure,Procurement Request #0970 - Construction & Infrastructure,465321.75,35,13,20,32,10,2026-04-04 00:00:00
+AUC-0971,Raw Materials & Metals,Procurement Request #0971 - Raw Materials & Metals,208500.32,26,14,23,37,30,2026-01-22 00:00:00
+AUC-0972,IT Hardware,Procurement Request #0972 - IT Hardware,453994.39,23,23,14,40,30,2026-02-25 00:00:00
+AUC-0973,Raw Materials & Metals,Procurement Request #0973 - Raw Materials & Metals,167532.89,24,21,26,29,30,2026-06-01 00:00:00
+AUC-0974,Construction & Infrastructure,Procurement Request #0974 - Construction & Infrastructure,243454.12,48,34,22,10,15,2026-05-31 00:00:00
+AUC-0975,Raw Materials & Metals,Procurement Request #0975 - Raw Materials & Metals,120754.21,55,23,24,10,30,2026-04-18 00:00:00
+AUC-0976,Manufacturing & Heavy Machinery,Procurement Request #0976 - Manufacturing & Heavy Machinery,323833.26,30,14,26,30,10,2026-05-06 00:00:00
+AUC-0977,Healthcare & Medical Supplies,Procurement Request #0977 - Healthcare & Medical Supplies,489700.75,49,14,26,11,5,2026-06-28 00:00:00
+AUC-0978,Software & Cloud Services,Procurement Request #0978 - Software & Cloud Services,305711.62,49,25,11,15,10,2026-05-25 00:00:00
+AUC-0979,Logistics & Freight,Procurement Request #0979 - Logistics & Freight,185328.9,27,29,23,21,5,2026-02-01 00:00:00
+AUC-0980,Logistics & Freight,Procurement Request #0980 - Logistics & Freight,327430.55,56,19,11,14,10,2026-02-01 00:00:00
+AUC-0981,Logistics & Freight,Procurement Request #0981 - Logistics & Freight,70231.13,39,21,19,21,15,2026-05-06 00:00:00
+AUC-0982,IT Hardware,Procurement Request #0982 - IT Hardware,445442.95,29,14,28,29,30,2026-01-14 00:00:00
+AUC-0983,Logistics & Freight,Procurement Request #0983 - Logistics & Freight,256511.14,38,16,15,31,30,2026-01-02 00:00:00
+AUC-0984,IT Hardware,Procurement Request #0984 - IT Hardware,230181.37,55,21,12,12,5,2026-04-18 00:00:00
+AUC-0985,Raw Materials & Metals,Procurement Request #0985 - Raw Materials & Metals,297073.75,51,19,28,10,30,2026-03-29 00:00:00
+AUC-0986,Manufacturing & Heavy Machinery,Procurement Request #0986 - Manufacturing & Heavy Machinery,316144.09,39,25,29,10,10,2026-02-06 00:00:00
+AUC-0987,Construction & Infrastructure,Procurement Request #0987 - Construction & Infrastructure,45170.15,55,24,24,10,30,2026-02-09 00:00:00
+AUC-0988,Manufacturing & Heavy Machinery,Procurement Request #0988 - Manufacturing & Heavy Machinery,344482.44,40,12,29,19,30,2026-04-11 00:00:00
+AUC-0989,Software & Cloud Services,Procurement Request #0989 - Software & Cloud Services,128546.52,45,20,27,8,5,2026-06-22 00:00:00
+AUC-0990,Raw Materials & Metals,Procurement Request #0990 - Raw Materials & Metals,359836.79,37,30,12,21,10,2026-01-08 00:00:00
+AUC-0991,Construction & Infrastructure,Procurement Request #0991 - Construction & Infrastructure,413042.05,55,35,19,10,5,2026-06-15 00:00:00
+AUC-0992,Construction & Infrastructure,Procurement Request #0992 - Construction & Infrastructure,403939.67,25,16,29,30,5,2026-05-27 00:00:00
+AUC-0993,Construction & Infrastructure,Procurement Request #0993 - Construction & Infrastructure,280725.47,32,34,25,9,5,2026-02-01 00:00:00
+AUC-0994,Healthcare & Medical Supplies,Procurement Request #0994 - Healthcare & Medical Supplies,264883.25,54,15,10,21,15,2026-02-23 00:00:00
+AUC-0995,Software & Cloud Services,Procurement Request #0995 - Software & Cloud Services,80009.22,57,24,12,7,15,2026-04-14 00:00:00
+AUC-0996,Construction & Infrastructure,Procurement Request #0996 - Construction & Infrastructure,389919.61,22,25,10,43,15,2026-04-23 00:00:00
+AUC-0997,Software & Cloud Services,Procurement Request #0997 - Software & Cloud Services,142990.6,46,10,26,18,15,2026-04-09 00:00:00
+AUC-0998,Logistics & Freight,Procurement Request #0998 - Logistics & Freight,253380.76,25,13,13,49,10,2026-03-16 00:00:00
+AUC-0999,Software & Cloud Services,Procurement Request #0999 - Software & Cloud Services,149294.31,31,18,12,39,10,2026-03-21 00:00:00
+AUC-1000,Raw Materials & Metals,Procurement Request #1000 - Raw Materials & Metals,75575.9,30,11,29,30,15,2026-02-17 00:00:00
+AUC-1001,IT Hardware,Procurement Request #1001 - IT Hardware,318483.27,23,19,22,36,5,2026-03-24 00:00:00
+AUC-1002,Software & Cloud Services,Procurement Request #1002 - Software & Cloud Services,36622.7,41,38,20,10,15,2026-04-08 00:00:00
+AUC-1003,Manufacturing & Heavy Machinery,Procurement Request #1003 - Manufacturing & Heavy Machinery,376836.16,27,11,16,46,10,2026-06-03 00:00:00
+AUC-1004,Construction & Infrastructure,Procurement Request #1004 - Construction & Infrastructure,165617.53,35,25,26,14,30,2026-01-31 00:00:00
+AUC-1005,Logistics & Freight,Procurement Request #1005 - Logistics & Freight,10066.0,23,20,24,33,30,2026-01-18 00:00:00
+AUC-1006,Raw Materials & Metals,Procurement Request #1006 - Raw Materials & Metals,260453.28,21,23,30,26,10,2026-01-06 00:00:00
+AUC-1007,Logistics & Freight,Procurement Request #1007 - Logistics & Freight,32957.44,50,40,28,10,5,2026-03-06 00:00:00
+AUC-1008,Manufacturing & Heavy Machinery,Procurement Request #1008 - Manufacturing & Heavy Machinery,145323.08,50,30,14,10,15,2026-05-27 00:00:00
+AUC-1009,Raw Materials & Metals,Procurement Request #1009 - Raw Materials & Metals,356418.48,48,12,30,10,10,2026-02-07 00:00:00
+AUC-1010,Logistics & Freight,Procurement Request #1010 - Logistics & Freight,40717.91,54,15,17,14,30,2026-05-24 00:00:00
+AUC-1011,Raw Materials & Metals,Procurement Request #1011 - Raw Materials & Metals,421275.86,22,10,24,44,15,2026-06-18 00:00:00
+AUC-1012,Software & Cloud Services,Procurement Request #1012 - Software & Cloud Services,11871.76,20,11,25,44,15,2026-06-04 00:00:00
+AUC-1013,Logistics & Freight,Procurement Request #1013 - Logistics & Freight,130943.7,44,21,30,5,10,2026-05-31 00:00:00
+AUC-1014,Manufacturing & Heavy Machinery,Procurement Request #1014 - Manufacturing & Heavy Machinery,373042.99,52,19,11,18,10,2026-05-18 00:00:00
+AUC-1015,Construction & Infrastructure,Procurement Request #1015 - Construction & Infrastructure,164972.37,24,19,12,45,30,2026-06-29 00:00:00
+AUC-1016,IT Hardware,Procurement Request #1016 - IT Hardware,59927.27,28,33,27,12,15,2026-04-22 00:00:00
+AUC-1017,Software & Cloud Services,Procurement Request #1017 - Software & Cloud Services,186514.62,54,26,20,10,15,2026-06-13 00:00:00
+AUC-1018,Logistics & Freight,Procurement Request #1018 - Logistics & Freight,142492.71,48,18,17,17,15,2026-03-30 00:00:00
+AUC-1019,Software & Cloud Services,Procurement Request #1019 - Software & Cloud Services,422928.83,44,40,29,10,15,2026-01-06 00:00:00
+AUC-1020,Healthcare & Medical Supplies,Procurement Request #1020 - Healthcare & Medical Supplies,163540.48,28,30,10,32,30,2026-01-03 00:00:00
+AUC-1021,IT Hardware,Procurement Request #1021 - IT Hardware,396576.91,31,23,27,19,30,2026-04-12 00:00:00
+AUC-1022,Construction & Infrastructure,Procurement Request #1022 - Construction & Infrastructure,447017.35,25,35,30,10,5,2026-05-19 00:00:00
+AUC-1023,IT Hardware,Procurement Request #1023 - IT Hardware,222570.54,48,31,13,8,15,2026-04-08 00:00:00
+AUC-1024,Manufacturing & Heavy Machinery,Procurement Request #1024 - Manufacturing & Heavy Machinery,455872.14,53,21,22,10,10,2026-06-29 00:00:00
+AUC-1025,IT Hardware,Procurement Request #1025 - IT Hardware,194885.85,27,24,21,28,10,2026-04-25 00:00:00
+AUC-1026,IT Hardware,Procurement Request #1026 - IT Hardware,482398.42,34,33,10,23,15,2026-06-25 00:00:00
+AUC-1027,Healthcare & Medical Supplies,Procurement Request #1027 - Healthcare & Medical Supplies,53751.87,42,16,12,30,15,2026-02-27 00:00:00
+AUC-1028,Software & Cloud Services,Procurement Request #1028 - Software & Cloud Services,346639.44,46,40,21,10,5,2026-03-14 00:00:00
+AUC-1029,Raw Materials & Metals,Procurement Request #1029 - Raw Materials & Metals,251968.88,58,16,10,16,10,2026-06-14 00:00:00
+AUC-1030,Raw Materials & Metals,Procurement Request #1030 - Raw Materials & Metals,199947.91,27,37,18,18,30,2026-02-14 00:00:00
+AUC-1031,Construction & Infrastructure,Procurement Request #1031 - Construction & Infrastructure,320028.82,32,31,28,9,10,2026-01-18 00:00:00
+AUC-1032,Construction & Infrastructure,Procurement Request #1032 - Construction & Infrastructure,354889.97,28,33,12,27,10,2026-03-09 00:00:00
+AUC-1033,Construction & Infrastructure,Procurement Request #1033 - Construction & Infrastructure,12138.0,29,38,26,10,15,2026-02-20 00:00:00
+AUC-1034,Manufacturing & Heavy Machinery,Procurement Request #1034 - Manufacturing & Heavy Machinery,91807.01,21,32,27,20,15,2026-06-25 00:00:00
+AUC-1035,Construction & Infrastructure,Procurement Request #1035 - Construction & Infrastructure,359392.56,49,10,23,18,5,2026-03-25 00:00:00
+AUC-1036,Raw Materials & Metals,Procurement Request #1036 - Raw Materials & Metals,336528.85,46,18,13,23,30,2026-05-08 00:00:00
+AUC-1037,Logistics & Freight,Procurement Request #1037 - Logistics & Freight,483363.28,48,34,11,10,10,2026-01-14 00:00:00
+AUC-1038,Logistics & Freight,Procurement Request #1038 - Logistics & Freight,382908.52,41,27,24,10,15,2026-01-03 00:00:00
+AUC-1039,Raw Materials & Metals,Procurement Request #1039 - Raw Materials & Metals,475878.63,32,20,12,36,5,2026-02-28 00:00:00
+AUC-1040,Healthcare & Medical Supplies,Procurement Request #1040 - Healthcare & Medical Supplies,354244.85,42,40,12,10,10,2026-02-21 00:00:00
+AUC-1041,Software & Cloud Services,Procurement Request #1041 - Software & Cloud Services,156045.58,41,19,12,28,5,2026-01-09 00:00:00
+AUC-1042,Raw Materials & Metals,Procurement Request #1042 - Raw Materials & Metals,61628.81,47,35,10,8,15,2026-03-07 00:00:00
+AUC-1043,Software & Cloud Services,Procurement Request #1043 - Software & Cloud Services,393093.69,26,25,17,32,15,2026-01-15 00:00:00
+AUC-1044,Manufacturing & Heavy Machinery,Procurement Request #1044 - Manufacturing & Heavy Machinery,325633.12,41,26,17,16,5,2026-06-04 00:00:00
+AUC-1045,Construction & Infrastructure,Procurement Request #1045 - Construction & Infrastructure,33611.15,48,34,13,5,30,2026-05-30 00:00:00
+AUC-1046,IT Hardware,Procurement Request #1046 - IT Hardware,186424.73,25,11,11,53,30,2026-03-23 00:00:00
+AUC-1047,Manufacturing & Heavy Machinery,Procurement Request #1047 - Manufacturing & Heavy Machinery,478831.91,24,35,14,27,5,2026-04-25 00:00:00
+AUC-1048,IT Hardware,Procurement Request #1048 - IT Hardware,255196.56,34,29,30,10,30,2026-01-18 00:00:00
+AUC-1049,IT Hardware,Procurement Request #1049 - IT Hardware,222037.28,23,27,11,39,15,2026-04-09 00:00:00
+AUC-1050,Raw Materials & Metals,Procurement Request #1050 - Raw Materials & Metals,234272.81,26,29,23,22,10,2026-06-04 00:00:00
+AUC-1051,Manufacturing & Heavy Machinery,Procurement Request #1051 - Manufacturing & Heavy Machinery,112352.53,59,10,24,7,30,2026-04-30 00:00:00
+AUC-1052,Manufacturing & Heavy Machinery,Procurement Request #1052 - Manufacturing & Heavy Machinery,190666.51,42,38,29,10,5,2026-03-29 00:00:00
+AUC-1053,Healthcare & Medical Supplies,Procurement Request #1053 - Healthcare & Medical Supplies,191208.5,21,24,26,29,15,2026-06-01 00:00:00
+AUC-1054,Software & Cloud Services,Procurement Request #1054 - Software & Cloud Services,35653.96,26,13,10,51,5,2026-06-02 00:00:00
+AUC-1055,Manufacturing & Heavy Machinery,Procurement Request #1055 - Manufacturing & Heavy Machinery,386108.14,27,38,28,10,10,2026-06-14 00:00:00
+AUC-1056,Construction & Infrastructure,Procurement Request #1056 - Construction & Infrastructure,214087.17,36,21,23,20,30,2026-06-09 00:00:00
+AUC-1057,Raw Materials & Metals,Procurement Request #1057 - Raw Materials & Metals,412868.14,31,17,14,38,5,2026-01-17 00:00:00
+AUC-1058,Software & Cloud Services,Procurement Request #1058 - Software & Cloud Services,426670.52,39,28,23,10,15,2026-03-22 00:00:00
+AUC-1059,Construction & Infrastructure,Procurement Request #1059 - Construction & Infrastructure,113877.09,49,34,14,10,10,2026-05-02 00:00:00
+AUC-1060,Logistics & Freight,Procurement Request #1060 - Logistics & Freight,332103.21,53,20,19,10,15,2026-01-04 00:00:00
+AUC-1061,Construction & Infrastructure,Procurement Request #1061 - Construction & Infrastructure,241418.08,52,31,14,10,5,2026-03-03 00:00:00
+AUC-1062,Construction & Infrastructure,Procurement Request #1062 - Construction & Infrastructure,441276.8,50,37,11,10,30,2026-03-31 00:00:00
+AUC-1063,Software & Cloud Services,Procurement Request #1063 - Software & Cloud Services,115712.93,32,30,16,22,5,2026-03-30 00:00:00
+AUC-1064,Software & Cloud Services,Procurement Request #1064 - Software & Cloud Services,342128.47,45,32,24,10,15,2026-05-30 00:00:00
+AUC-1065,Construction & Infrastructure,Procurement Request #1065 - Construction & Infrastructure,307798.54,41,29,19,11,30,2026-03-27 00:00:00
+AUC-1066,Software & Cloud Services,Procurement Request #1066 - Software & Cloud Services,154697.72,26,24,11,39,30,2026-02-27 00:00:00
+AUC-1067,IT Hardware,Procurement Request #1067 - IT Hardware,76934.44,60,17,17,6,30,2026-06-10 00:00:00
+AUC-1068,Software & Cloud Services,Procurement Request #1068 - Software & Cloud Services,329303.48,35,25,20,20,30,2026-02-23 00:00:00
+AUC-1069,Raw Materials & Metals,Procurement Request #1069 - Raw Materials & Metals,371912.75,31,36,10,23,15,2026-01-04 00:00:00
+AUC-1070,IT Hardware,Procurement Request #1070 - IT Hardware,164657.4,42,10,27,21,5,2026-02-07 00:00:00
+AUC-1071,Logistics & Freight,Procurement Request #1071 - Logistics & Freight,325967.98,48,16,30,6,15,2026-01-13 00:00:00
+AUC-1072,IT Hardware,Procurement Request #1072 - IT Hardware,203614.14,32,16,19,33,10,2026-02-27 00:00:00
+AUC-1073,Logistics & Freight,Procurement Request #1073 - Logistics & Freight,359471.37,31,20,27,22,10,2026-02-16 00:00:00
+AUC-1074,Software & Cloud Services,Procurement Request #1074 - Software & Cloud Services,107615.48,21,15,18,46,5,2026-01-07 00:00:00
+AUC-1075,Manufacturing & Heavy Machinery,Procurement Request #1075 - Manufacturing & Heavy Machinery,446205.35,28,22,30,20,5,2026-03-29 00:00:00
+AUC-1076,Software & Cloud Services,Procurement Request #1076 - Software & Cloud Services,150830.7,39,24,17,20,15,2026-04-07 00:00:00
+AUC-1077,Healthcare & Medical Supplies,Procurement Request #1077 - Healthcare & Medical Supplies,190215.13,25,40,26,10,30,2026-01-18 00:00:00
+AUC-1078,IT Hardware,Procurement Request #1078 - IT Hardware,38465.06,29,38,14,19,10,2026-02-20 00:00:00
+AUC-1079,Construction & Infrastructure,Procurement Request #1079 - Construction & Infrastructure,64640.98,39,32,21,10,15,2026-06-04 00:00:00
+AUC-1080,Raw Materials & Metals,Procurement Request #1080 - Raw Materials & Metals,262772.33,60,17,11,12,10,2026-05-19 00:00:00
+AUC-1081,Logistics & Freight,Procurement Request #1081 - Logistics & Freight,141120.41,29,20,17,34,5,2026-06-12 00:00:00
+AUC-1082,Manufacturing & Heavy Machinery,Procurement Request #1082 - Manufacturing & Heavy Machinery,419385.31,37,37,14,12,30,2026-02-24 00:00:00
+AUC-1083,Healthcare & Medical Supplies,Procurement Request #1083 - Healthcare & Medical Supplies,17199.76,25,35,25,15,5,2026-02-13 00:00:00
+AUC-1084,Construction & Infrastructure,Procurement Request #1084 - Construction & Infrastructure,195756.08,39,34,30,10,15,2026-05-09 00:00:00
+AUC-1085,Construction & Infrastructure,Procurement Request #1085 - Construction & Infrastructure,175299.32,49,15,20,16,15,2026-05-16 00:00:00
+AUC-1086,Healthcare & Medical Supplies,Procurement Request #1086 - Healthcare & Medical Supplies,19470.54,45,32,25,10,30,2026-03-11 00:00:00
+AUC-1087,Construction & Infrastructure,Procurement Request #1087 - Construction & Infrastructure,70940.52,40,30,28,10,5,2026-02-24 00:00:00
+AUC-1088,Software & Cloud Services,Procurement Request #1088 - Software & Cloud Services,212684.91,32,24,17,27,30,2026-02-26 00:00:00
+AUC-1089,Logistics & Freight,Procurement Request #1089 - Logistics & Freight,251503.65,42,38,22,10,10,2026-04-07 00:00:00
+AUC-1090,Logistics & Freight,Procurement Request #1090 - Logistics & Freight,208101.98,55,12,14,19,5,2026-03-18 00:00:00
+AUC-1091,Raw Materials & Metals,Procurement Request #1091 - Raw Materials & Metals,270159.46,53,21,17,9,5,2026-05-01 00:00:00
+AUC-1092,Construction & Infrastructure,Procurement Request #1092 - Construction & Infrastructure,301614.52,54,20,23,10,30,2026-05-01 00:00:00
+AUC-1093,Raw Materials & Metals,Procurement Request #1093 - Raw Materials & Metals,14862.67,46,21,25,8,15,2026-03-12 00:00:00
+AUC-1094,Raw Materials & Metals,Procurement Request #1094 - Raw Materials & Metals,237406.63,21,15,24,40,10,2026-03-10 00:00:00
+AUC-1095,Healthcare & Medical Supplies,Procurement Request #1095 - Healthcare & Medical Supplies,482114.63,24,21,12,43,15,2026-05-10 00:00:00
+AUC-1096,Construction & Infrastructure,Procurement Request #1096 - Construction & Infrastructure,264325.82,49,30,12,10,15,2026-03-01 00:00:00
+AUC-1097,IT Hardware,Procurement Request #1097 - IT Hardware,341995.71,27,12,21,40,5,2026-05-21 00:00:00
+AUC-1098,Software & Cloud Services,Procurement Request #1098 - Software & Cloud Services,162813.29,41,16,20,23,15,2026-03-20 00:00:00
+AUC-1099,Healthcare & Medical Supplies,Procurement Request #1099 - Healthcare & Medical Supplies,389255.78,37,16,29,18,10,2026-05-21 00:00:00
+AUC-1100,Logistics & Freight,Procurement Request #1100 - Logistics & Freight,388731.53,20,34,19,27,15,2026-03-31 00:00:00
+AUC-1101,Manufacturing & Heavy Machinery,Procurement Request #1101 - Manufacturing & Heavy Machinery,265435.06,40,40,22,10,5,2026-05-02 00:00:00
+AUC-1102,Healthcare & Medical Supplies,Procurement Request #1102 - Healthcare & Medical Supplies,488246.77,47,34,14,10,30,2026-03-01 00:00:00
+AUC-1103,Software & Cloud Services,Procurement Request #1103 - Software & Cloud Services,71519.61,33,25,17,25,30,2026-04-30 00:00:00
+AUC-1104,Logistics & Freight,Procurement Request #1104 - Logistics & Freight,18304.36,25,20,16,39,30,2026-06-29 00:00:00
+AUC-1105,Raw Materials & Metals,Procurement Request #1105 - Raw Materials & Metals,387377.52,33,24,24,19,5,2026-04-07 00:00:00
+AUC-1106,Software & Cloud Services,Procurement Request #1106 - Software & Cloud Services,405506.21,51,37,14,10,15,2026-01-04 00:00:00
+AUC-1107,Raw Materials & Metals,Procurement Request #1107 - Raw Materials & Metals,68901.54,42,20,17,21,30,2026-04-20 00:00:00
+AUC-1108,Healthcare & Medical Supplies,Procurement Request #1108 - Healthcare & Medical Supplies,140135.59,40,34,27,10,15,2026-03-26 00:00:00
+AUC-1109,Construction & Infrastructure,Procurement Request #1109 - Construction & Infrastructure,18600.66,21,28,11,40,10,2026-02-10 00:00:00
+AUC-1110,Logistics & Freight,Procurement Request #1110 - Logistics & Freight,153721.22,51,30,29,10,30,2026-04-09 00:00:00
+AUC-1111,Software & Cloud Services,Procurement Request #1111 - Software & Cloud Services,388839.52,45,12,27,16,30,2026-02-19 00:00:00
+AUC-1112,Raw Materials & Metals,Procurement Request #1112 - Raw Materials & Metals,263800.66,26,20,28,26,30,2026-06-14 00:00:00
+AUC-1113,Logistics & Freight,Procurement Request #1113 - Logistics & Freight,180566.84,25,15,13,47,10,2026-01-10 00:00:00
+AUC-1114,Manufacturing & Heavy Machinery,Procurement Request #1114 - Manufacturing & Heavy Machinery,192152.25,58,25,10,7,10,2026-02-21 00:00:00
+AUC-1115,IT Hardware,Procurement Request #1115 - IT Hardware,10663.28,44,19,16,21,10,2026-03-17 00:00:00
+AUC-1116,Healthcare & Medical Supplies,Procurement Request #1116 - Healthcare & Medical Supplies,156902.26,53,12,24,11,5,2026-04-06 00:00:00
+AUC-1117,Construction & Infrastructure,Procurement Request #1117 - Construction & Infrastructure,326764.78,20,15,20,45,30,2026-04-12 00:00:00
+AUC-1118,Software & Cloud Services,Procurement Request #1118 - Software & Cloud Services,487355.28,27,14,27,32,30,2026-05-04 00:00:00
+AUC-1119,Healthcare & Medical Supplies,Procurement Request #1119 - Healthcare & Medical Supplies,425059.81,24,22,16,38,10,2026-02-23 00:00:00
+AUC-1120,Logistics & Freight,Procurement Request #1120 - Logistics & Freight,21561.53,42,36,25,10,10,2026-06-05 00:00:00
+AUC-1121,Construction & Infrastructure,Procurement Request #1121 - Construction & Infrastructure,450294.7,39,28,16,17,30,2026-03-13 00:00:00
+AUC-1122,Software & Cloud Services,Procurement Request #1122 - Software & Cloud Services,393767.22,20,14,24,42,5,2026-04-14 00:00:00
+AUC-1123,Construction & Infrastructure,Procurement Request #1123 - Construction & Infrastructure,392384.3,35,26,20,19,30,2026-04-29 00:00:00
+AUC-1124,Raw Materials & Metals,Procurement Request #1124 - Raw Materials & Metals,234417.92,56,11,12,21,15,2026-06-16 00:00:00
+AUC-1125,Raw Materials & Metals,Procurement Request #1125 - Raw Materials & Metals,205022.59,42,32,19,7,30,2026-06-07 00:00:00
+AUC-1126,Manufacturing & Heavy Machinery,Procurement Request #1126 - Manufacturing & Heavy Machinery,158428.71,31,23,17,29,10,2026-06-09 00:00:00
+AUC-1127,Healthcare & Medical Supplies,Procurement Request #1127 - Healthcare & Medical Supplies,42190.48,47,24,22,7,10,2026-06-29 00:00:00
+AUC-1128,Construction & Infrastructure,Procurement Request #1128 - Construction & Infrastructure,121835.33,26,22,11,41,10,2026-02-11 00:00:00
+AUC-1129,Logistics & Freight,Procurement Request #1129 - Logistics & Freight,130835.78,55,27,19,10,5,2026-06-29 00:00:00
+AUC-1130,Healthcare & Medical Supplies,Procurement Request #1130 - Healthcare & Medical Supplies,247197.76,28,39,25,10,30,2026-05-23 00:00:00
+AUC-1131,IT Hardware,Procurement Request #1131 - IT Hardware,376247.76,43,12,13,32,15,2026-04-16 00:00:00
+AUC-1132,Raw Materials & Metals,Procurement Request #1132 - Raw Materials & Metals,242166.82,30,18,16,36,5,2026-04-30 00:00:00
+AUC-1133,IT Hardware,Procurement Request #1133 - IT Hardware,38343.78,24,30,24,22,30,2026-03-30 00:00:00
+AUC-1134,Healthcare & Medical Supplies,Procurement Request #1134 - Healthcare & Medical Supplies,479317.0,40,37,16,10,30,2026-01-11 00:00:00
+AUC-1135,IT Hardware,Procurement Request #1135 - IT Hardware,471934.92,36,13,14,37,15,2026-06-22 00:00:00
+AUC-1136,Healthcare & Medical Supplies,Procurement Request #1136 - Healthcare & Medical Supplies,394742.88,44,25,24,10,5,2026-01-23 00:00:00
+AUC-1137,Construction & Infrastructure,Procurement Request #1137 - Construction & Infrastructure,495750.67,35,32,24,9,10,2026-05-02 00:00:00
+AUC-1138,Manufacturing & Heavy Machinery,Procurement Request #1138 - Manufacturing & Heavy Machinery,276796.34,37,36,15,12,10,2026-01-06 00:00:00
+AUC-1139,Construction & Infrastructure,Procurement Request #1139 - Construction & Infrastructure,481756.49,26,15,19,40,5,2026-05-18 00:00:00
+AUC-1140,Healthcare & Medical Supplies,Procurement Request #1140 - Healthcare & Medical Supplies,47046.47,45,15,12,28,5,2026-06-24 00:00:00
+AUC-1141,Logistics & Freight,Procurement Request #1141 - Logistics & Freight,189183.57,29,24,21,26,10,2026-02-26 00:00:00
+AUC-1142,Healthcare & Medical Supplies,Procurement Request #1142 - Healthcare & Medical Supplies,120436.82,22,38,27,13,10,2026-04-25 00:00:00
+AUC-1143,Healthcare & Medical Supplies,Procurement Request #1143 - Healthcare & Medical Supplies,105958.21,23,36,30,11,5,2026-04-11 00:00:00
+AUC-1144,Healthcare & Medical Supplies,Procurement Request #1144 - Healthcare & Medical Supplies,78993.44,39,24,11,26,5,2026-01-14 00:00:00
+AUC-1145,Manufacturing & Heavy Machinery,Procurement Request #1145 - Manufacturing & Heavy Machinery,314982.68,44,34,16,6,10,2026-04-07 00:00:00
+AUC-1146,Software & Cloud Services,Procurement Request #1146 - Software & Cloud Services,392847.71,32,12,10,46,30,2026-01-09 00:00:00
+AUC-1147,IT Hardware,Procurement Request #1147 - IT Hardware,293366.22,41,36,16,7,5,2026-02-27 00:00:00
+AUC-1148,IT Hardware,Procurement Request #1148 - IT Hardware,82011.73,30,33,15,22,5,2026-04-18 00:00:00
+AUC-1149,Construction & Infrastructure,Procurement Request #1149 - Construction & Infrastructure,407450.65,26,36,20,18,15,2026-05-25 00:00:00
+AUC-1150,Healthcare & Medical Supplies,Procurement Request #1150 - Healthcare & Medical Supplies,321617.81,32,29,16,23,30,2026-04-21 00:00:00
+AUC-1151,IT Hardware,Procurement Request #1151 - IT Hardware,200201.2,34,16,13,37,15,2026-03-25 00:00:00
+AUC-1152,Software & Cloud Services,Procurement Request #1152 - Software & Cloud Services,340323.84,20,22,30,28,15,2026-01-05 00:00:00
+AUC-1153,Raw Materials & Metals,Procurement Request #1153 - Raw Materials & Metals,137353.44,33,24,17,26,5,2026-06-19 00:00:00
+AUC-1154,Manufacturing & Heavy Machinery,Procurement Request #1154 - Manufacturing & Heavy Machinery,179144.18,32,30,29,10,15,2026-01-13 00:00:00
+AUC-1155,IT Hardware,Procurement Request #1155 - IT Hardware,459568.06,33,23,19,25,30,2026-01-28 00:00:00
+AUC-1156,Healthcare & Medical Supplies,Procurement Request #1156 - Healthcare & Medical Supplies,152347.21,49,35,28,10,10,2026-03-07 00:00:00
+AUC-1157,IT Hardware,Procurement Request #1157 - IT Hardware,240294.25,53,20,30,10,30,2026-06-24 00:00:00
+AUC-1158,Manufacturing & Heavy Machinery,Procurement Request #1158 - Manufacturing & Heavy Machinery,446169.16,28,20,15,37,15,2026-06-21 00:00:00
+AUC-1159,Raw Materials & Metals,Procurement Request #1159 - Raw Materials & Metals,356783.46,24,20,10,46,30,2026-04-09 00:00:00
+AUC-1160,Construction & Infrastructure,Procurement Request #1160 - Construction & Infrastructure,40479.58,55,33,17,10,5,2026-03-02 00:00:00
+AUC-1161,IT Hardware,Procurement Request #1161 - IT Hardware,82178.49,54,34,13,10,15,2026-03-03 00:00:00
+AUC-1162,Healthcare & Medical Supplies,Procurement Request #1162 - Healthcare & Medical Supplies,13842.38,42,34,17,10,5,2026-01-17 00:00:00
+AUC-1163,Software & Cloud Services,Procurement Request #1163 - Software & Cloud Services,319151.68,43,25,19,13,10,2026-02-09 00:00:00
+AUC-1164,Raw Materials & Metals,Procurement Request #1164 - Raw Materials & Metals,229359.98,33,30,11,26,10,2026-06-04 00:00:00
+AUC-1165,Raw Materials & Metals,Procurement Request #1165 - Raw Materials & Metals,75794.68,41,14,18,27,15,2026-06-15 00:00:00
+AUC-1166,Manufacturing & Heavy Machinery,Procurement Request #1166 - Manufacturing & Heavy Machinery,479387.72,22,26,23,29,15,2026-01-08 00:00:00
+AUC-1167,Software & Cloud Services,Procurement Request #1167 - Software & Cloud Services,269533.26,41,20,17,22,10,2026-05-20 00:00:00
+AUC-1168,IT Hardware,Procurement Request #1168 - IT Hardware,128527.71,35,35,17,13,30,2026-05-15 00:00:00
+AUC-1169,Logistics & Freight,Procurement Request #1169 - Logistics & Freight,255295.75,31,24,30,15,5,2026-01-18 00:00:00
+AUC-1170,Manufacturing & Heavy Machinery,Procurement Request #1170 - Manufacturing & Heavy Machinery,343013.96,51,12,16,21,5,2026-06-13 00:00:00
+AUC-1171,Software & Cloud Services,Procurement Request #1171 - Software & Cloud Services,47357.22,33,14,12,41,10,2026-06-02 00:00:00
+AUC-1172,Construction & Infrastructure,Procurement Request #1172 - Construction & Infrastructure,144604.87,33,17,26,24,5,2026-04-21 00:00:00
+AUC-1173,Healthcare & Medical Supplies,Procurement Request #1173 - Healthcare & Medical Supplies,405413.09,49,19,15,17,10,2026-03-05 00:00:00
+AUC-1174,Raw Materials & Metals,Procurement Request #1174 - Raw Materials & Metals,235235.79,31,29,17,23,15,2026-03-16 00:00:00
+AUC-1175,Construction & Infrastructure,Procurement Request #1175 - Construction & Infrastructure,277822.8,43,40,30,10,10,2026-03-12 00:00:00
+AUC-1176,Manufacturing & Heavy Machinery,Procurement Request #1176 - Manufacturing & Heavy Machinery,222079.84,50,12,21,17,30,2026-04-08 00:00:00
+AUC-1177,Software & Cloud Services,Procurement Request #1177 - Software & Cloud Services,31510.97,45,24,23,10,30,2026-02-10 00:00:00
+AUC-1178,Manufacturing & Heavy Machinery,Procurement Request #1178 - Manufacturing & Heavy Machinery,91217.39,50,10,22,18,30,2026-01-23 00:00:00
+AUC-1179,Manufacturing & Heavy Machinery,Procurement Request #1179 - Manufacturing & Heavy Machinery,228315.4,39,29,27,5,10,2026-05-23 00:00:00
+AUC-1180,Healthcare & Medical Supplies,Procurement Request #1180 - Healthcare & Medical Supplies,112500.88,31,18,22,29,30,2026-03-21 00:00:00
+AUC-1181,Raw Materials & Metals,Procurement Request #1181 - Raw Materials & Metals,34489.72,38,22,27,13,30,2026-01-20 00:00:00
+AUC-1182,Logistics & Freight,Procurement Request #1182 - Logistics & Freight,423388.34,28,32,25,15,10,2026-02-10 00:00:00
+AUC-1183,Software & Cloud Services,Procurement Request #1183 - Software & Cloud Services,490784.34,20,10,26,44,15,2026-05-07 00:00:00
+AUC-1184,Raw Materials & Metals,Procurement Request #1184 - Raw Materials & Metals,398640.01,41,40,22,10,15,2026-04-10 00:00:00
+AUC-1185,Raw Materials & Metals,Procurement Request #1185 - Raw Materials & Metals,428354.61,34,30,28,10,5,2026-04-16 00:00:00
+AUC-1186,IT Hardware,Procurement Request #1186 - IT Hardware,128568.79,27,22,28,23,10,2026-02-20 00:00:00
+AUC-1187,Manufacturing & Heavy Machinery,Procurement Request #1187 - Manufacturing & Heavy Machinery,480707.22,42,40,18,10,15,2026-05-12 00:00:00
+AUC-1188,Healthcare & Medical Supplies,Procurement Request #1188 - Healthcare & Medical Supplies,106493.6,46,30,21,10,5,2026-06-17 00:00:00
+AUC-1189,Raw Materials & Metals,Procurement Request #1189 - Raw Materials & Metals,476200.61,42,33,17,10,10,2026-05-04 00:00:00
+AUC-1190,IT Hardware,Procurement Request #1190 - IT Hardware,497461.45,43,30,10,17,10,2026-03-09 00:00:00
+AUC-1191,Construction & Infrastructure,Procurement Request #1191 - Construction & Infrastructure,358744.17,44,40,14,10,15,2026-03-06 00:00:00
+AUC-1192,Construction & Infrastructure,Procurement Request #1192 - Construction & Infrastructure,490760.43,52,40,15,10,5,2026-01-31 00:00:00
+AUC-1193,Manufacturing & Heavy Machinery,Procurement Request #1193 - Manufacturing & Heavy Machinery,289074.49,25,30,22,23,30,2026-06-01 00:00:00
+AUC-1194,IT Hardware,Procurement Request #1194 - IT Hardware,137175.47,48,39,16,10,30,2026-02-13 00:00:00
+AUC-1195,Manufacturing & Heavy Machinery,Procurement Request #1195 - Manufacturing & Heavy Machinery,224127.98,47,18,19,16,30,2026-06-01 00:00:00
+AUC-1196,Logistics & Freight,Procurement Request #1196 - Logistics & Freight,300844.86,46,34,12,8,5,2026-06-13 00:00:00
+AUC-1197,Construction & Infrastructure,Procurement Request #1197 - Construction & Infrastructure,45809.97,42,36,14,8,15,2026-02-24 00:00:00
+AUC-1198,Healthcare & Medical Supplies,Procurement Request #1198 - Healthcare & Medical Supplies,314948.2,40,32,19,10,5,2026-02-14 00:00:00
+AUC-1199,Manufacturing & Heavy Machinery,Procurement Request #1199 - Manufacturing & Heavy Machinery,490777.14,51,10,13,26,5,2026-06-29 00:00:00
+AUC-1200,Raw Materials & Metals,Procurement Request #1200 - Raw Materials & Metals,103152.75,48,23,30,10,15,2026-04-22 00:00:00
+AUC-1201,Software & Cloud Services,Procurement Request #1201 - Software & Cloud Services,398371.61,31,21,15,33,10,2026-02-21 00:00:00
+AUC-1202,Raw Materials & Metals,Procurement Request #1202 - Raw Materials & Metals,454870.41,31,26,13,30,30,2026-05-27 00:00:00
+AUC-1203,Manufacturing & Heavy Machinery,Procurement Request #1203 - Manufacturing & Heavy Machinery,472413.78,33,15,16,36,5,2026-02-17 00:00:00
+AUC-1204,Manufacturing & Heavy Machinery,Procurement Request #1204 - Manufacturing & Heavy Machinery,480466.45,32,18,23,27,30,2026-06-11 00:00:00
+AUC-1205,Construction & Infrastructure,Procurement Request #1205 - Construction & Infrastructure,265515.22,26,37,30,7,10,2026-01-22 00:00:00
+AUC-1206,Logistics & Freight,Procurement Request #1206 - Logistics & Freight,488880.87,25,22,13,40,15,2026-01-18 00:00:00
+AUC-1207,Logistics & Freight,Procurement Request #1207 - Logistics & Freight,381082.0,21,28,17,34,30,2026-05-06 00:00:00
+AUC-1208,Healthcare & Medical Supplies,Procurement Request #1208 - Healthcare & Medical Supplies,89219.0,26,10,11,53,15,2026-01-03 00:00:00
+AUC-1209,Healthcare & Medical Supplies,Procurement Request #1209 - Healthcare & Medical Supplies,243681.05,52,35,11,10,5,2026-02-25 00:00:00
+AUC-1210,Construction & Infrastructure,Procurement Request #1210 - Construction & Infrastructure,361982.28,20,22,29,29,15,2026-05-06 00:00:00
+AUC-1211,Raw Materials & Metals,Procurement Request #1211 - Raw Materials & Metals,131196.75,41,29,23,7,15,2026-04-06 00:00:00
+AUC-1212,Healthcare & Medical Supplies,Procurement Request #1212 - Healthcare & Medical Supplies,323901.44,41,20,17,22,15,2026-06-21 00:00:00
+AUC-1213,Raw Materials & Metals,Procurement Request #1213 - Raw Materials & Metals,336634.23,44,29,11,16,15,2026-03-27 00:00:00
+AUC-1214,Manufacturing & Heavy Machinery,Procurement Request #1214 - Manufacturing & Heavy Machinery,89722.87,26,10,24,40,30,2026-02-06 00:00:00
+AUC-1215,IT Hardware,Procurement Request #1215 - IT Hardware,286891.8,53,13,26,10,15,2026-06-30 00:00:00
+AUC-1216,Manufacturing & Heavy Machinery,Procurement Request #1216 - Manufacturing & Heavy Machinery,388097.19,35,21,24,20,30,2026-05-13 00:00:00
+AUC-1217,Raw Materials & Metals,Procurement Request #1217 - Raw Materials & Metals,254458.88,32,10,30,28,15,2026-01-06 00:00:00
+AUC-1218,Healthcare & Medical Supplies,Procurement Request #1218 - Healthcare & Medical Supplies,15930.53,43,37,11,9,15,2026-06-24 00:00:00
+AUC-1219,Raw Materials & Metals,Procurement Request #1219 - Raw Materials & Metals,14428.85,34,29,25,12,30,2026-06-07 00:00:00
+AUC-1220,Manufacturing & Heavy Machinery,Procurement Request #1220 - Manufacturing & Heavy Machinery,184944.38,25,21,23,31,30,2026-06-19 00:00:00
+AUC-1221,Manufacturing & Heavy Machinery,Procurement Request #1221 - Manufacturing & Heavy Machinery,463835.09,26,33,22,19,15,2026-06-06 00:00:00
+AUC-1222,Software & Cloud Services,Procurement Request #1222 - Software & Cloud Services,122051.62,29,37,26,8,5,2026-02-03 00:00:00
+AUC-1223,Raw Materials & Metals,Procurement Request #1223 - Raw Materials & Metals,320838.21,25,19,27,29,30,2026-02-14 00:00:00
+AUC-1224,Raw Materials & Metals,Procurement Request #1224 - Raw Materials & Metals,118817.18,27,25,27,21,10,2026-03-05 00:00:00
+AUC-1225,Software & Cloud Services,Procurement Request #1225 - Software & Cloud Services,167618.29,30,34,12,24,5,2026-04-23 00:00:00
+AUC-1226,Healthcare & Medical Supplies,Procurement Request #1226 - Healthcare & Medical Supplies,425540.62,21,15,20,44,30,2026-03-14 00:00:00
+AUC-1227,Software & Cloud Services,Procurement Request #1227 - Software & Cloud Services,367142.11,36,31,25,8,5,2026-06-21 00:00:00
+AUC-1228,Software & Cloud Services,Procurement Request #1228 - Software & Cloud Services,56745.65,49,30,25,10,5,2026-06-28 00:00:00
+AUC-1229,Logistics & Freight,Procurement Request #1229 - Logistics & Freight,220063.99,29,39,28,10,5,2026-06-15 00:00:00
+AUC-1230,Logistics & Freight,Procurement Request #1230 - Logistics & Freight,24293.18,39,39,22,10,30,2026-03-02 00:00:00
+AUC-1231,Software & Cloud Services,Procurement Request #1231 - Software & Cloud Services,245636.17,36,13,19,32,5,2026-01-30 00:00:00
+AUC-1232,IT Hardware,Procurement Request #1232 - IT Hardware,334592.67,36,33,28,10,10,2026-01-31 00:00:00
+AUC-1233,Construction & Infrastructure,Procurement Request #1233 - Construction & Infrastructure,68066.29,43,14,20,23,30,2026-05-29 00:00:00
+AUC-1234,Healthcare & Medical Supplies,Procurement Request #1234 - Healthcare & Medical Supplies,151553.62,20,19,11,50,10,2026-04-11 00:00:00
+AUC-1235,Raw Materials & Metals,Procurement Request #1235 - Raw Materials & Metals,204939.95,40,34,21,5,10,2026-05-15 00:00:00
+AUC-1236,Healthcare & Medical Supplies,Procurement Request #1236 - Healthcare & Medical Supplies,460570.2,53,28,17,10,5,2026-04-13 00:00:00
+AUC-1237,IT Hardware,Procurement Request #1237 - IT Hardware,496694.96,49,37,24,10,15,2026-02-08 00:00:00
+AUC-1238,Manufacturing & Heavy Machinery,Procurement Request #1238 - Manufacturing & Heavy Machinery,32006.54,38,36,17,9,30,2026-06-25 00:00:00
+AUC-1239,Raw Materials & Metals,Procurement Request #1239 - Raw Materials & Metals,382893.88,29,29,19,23,10,2026-06-21 00:00:00
+AUC-1240,Manufacturing & Heavy Machinery,Procurement Request #1240 - Manufacturing & Heavy Machinery,192144.79,22,29,20,29,15,2026-05-10 00:00:00
+AUC-1241,Healthcare & Medical Supplies,Procurement Request #1241 - Healthcare & Medical Supplies,202304.51,27,18,28,27,30,2026-06-12 00:00:00
+AUC-1242,Manufacturing & Heavy Machinery,Procurement Request #1242 - Manufacturing & Heavy Machinery,379589.84,33,25,19,23,30,2026-01-17 00:00:00
+AUC-1243,Manufacturing & Heavy Machinery,Procurement Request #1243 - Manufacturing & Heavy Machinery,460028.95,41,14,16,29,10,2026-06-30 00:00:00
+AUC-1244,Healthcare & Medical Supplies,Procurement Request #1244 - Healthcare & Medical Supplies,475955.01,23,39,15,23,30,2026-04-12 00:00:00
+AUC-1245,Logistics & Freight,Procurement Request #1245 - Logistics & Freight,292790.07,30,10,27,33,30,2026-03-29 00:00:00
+AUC-1246,Raw Materials & Metals,Procurement Request #1246 - Raw Materials & Metals,184989.37,50,21,22,7,30,2026-01-20 00:00:00
+AUC-1247,Construction & Infrastructure,Procurement Request #1247 - Construction & Infrastructure,395899.05,38,19,16,27,30,2026-01-26 00:00:00
+AUC-1248,Software & Cloud Services,Procurement Request #1248 - Software & Cloud Services,132990.68,35,34,28,10,5,2026-03-20 00:00:00
+AUC-1249,Raw Materials & Metals,Procurement Request #1249 - Raw Materials & Metals,286396.27,30,28,14,28,30,2026-06-29 00:00:00
+AUC-1250,Raw Materials & Metals,Procurement Request #1250 - Raw Materials & Metals,185703.45,38,38,14,10,10,2026-02-26 00:00:00
+AUC-1251,Manufacturing & Heavy Machinery,Procurement Request #1251 - Manufacturing & Heavy Machinery,331749.23,32,33,30,5,5,2026-04-04 00:00:00
+AUC-1252,Healthcare & Medical Supplies,Procurement Request #1252 - Healthcare & Medical Supplies,127795.47,56,13,14,17,30,2026-04-21 00:00:00
+AUC-1253,Healthcare & Medical Supplies,Procurement Request #1253 - Healthcare & Medical Supplies,103880.54,30,39,11,20,5,2026-04-03 00:00:00
+AUC-1254,Raw Materials & Metals,Procurement Request #1254 - Raw Materials & Metals,459937.15,31,40,11,18,5,2026-05-13 00:00:00
+AUC-1255,Healthcare & Medical Supplies,Procurement Request #1255 - Healthcare & Medical Supplies,59883.8,41,28,23,8,10,2026-06-11 00:00:00
+AUC-1256,Healthcare & Medical Supplies,Procurement Request #1256 - Healthcare & Medical Supplies,257919.37,45,17,11,27,5,2026-03-04 00:00:00
+AUC-1257,Raw Materials & Metals,Procurement Request #1257 - Raw Materials & Metals,118217.86,46,19,29,10,10,2026-06-18 00:00:00
+AUC-1258,Healthcare & Medical Supplies,Procurement Request #1258 - Healthcare & Medical Supplies,29075.68,44,34,12,10,30,2026-06-17 00:00:00
+AUC-1259,Raw Materials & Metals,Procurement Request #1259 - Raw Materials & Metals,27649.22,32,30,30,10,30,2026-04-06 00:00:00
+AUC-1260,IT Hardware,Procurement Request #1260 - IT Hardware,95858.67,27,13,12,48,5,2026-05-07 00:00:00
+AUC-1261,Healthcare & Medical Supplies,Procurement Request #1261 - Healthcare & Medical Supplies,434717.47,52,17,10,21,30,2026-03-13 00:00:00
+AUC-1262,Healthcare & Medical Supplies,Procurement Request #1262 - Healthcare & Medical Supplies,148414.58,26,35,28,11,10,2026-04-10 00:00:00
+AUC-1263,Raw Materials & Metals,Procurement Request #1263 - Raw Materials & Metals,475724.99,47,19,28,6,10,2026-01-27 00:00:00
+AUC-1264,Logistics & Freight,Procurement Request #1264 - Logistics & Freight,294994.92,24,32,27,17,10,2026-04-15 00:00:00
+AUC-1265,Manufacturing & Heavy Machinery,Procurement Request #1265 - Manufacturing & Heavy Machinery,223940.95,21,22,27,30,30,2026-01-18 00:00:00
+AUC-1266,Construction & Infrastructure,Procurement Request #1266 - Construction & Infrastructure,294243.53,52,27,30,10,5,2026-02-24 00:00:00
+AUC-1267,Healthcare & Medical Supplies,Procurement Request #1267 - Healthcare & Medical Supplies,263182.21,27,15,29,29,10,2026-01-03 00:00:00
+AUC-1268,Construction & Infrastructure,Procurement Request #1268 - Construction & Infrastructure,381800.36,43,35,20,10,5,2026-01-12 00:00:00
+AUC-1269,Software & Cloud Services,Procurement Request #1269 - Software & Cloud Services,148423.07,51,16,30,10,10,2026-01-24 00:00:00
+AUC-1270,Construction & Infrastructure,Procurement Request #1270 - Construction & Infrastructure,182994.69,36,37,11,16,5,2026-02-02 00:00:00
+AUC-1271,Construction & Infrastructure,Procurement Request #1271 - Construction & Infrastructure,448106.21,39,21,27,13,10,2026-04-20 00:00:00
+AUC-1272,Healthcare & Medical Supplies,Procurement Request #1272 - Healthcare & Medical Supplies,473763.69,20,17,19,44,5,2026-05-14 00:00:00
+AUC-1273,Manufacturing & Heavy Machinery,Procurement Request #1273 - Manufacturing & Heavy Machinery,447353.53,33,31,27,10,30,2026-02-06 00:00:00
+AUC-1274,Construction & Infrastructure,Procurement Request #1274 - Construction & Infrastructure,215529.52,46,32,20,10,15,2026-06-06 00:00:00
+AUC-1275,Construction & Infrastructure,Procurement Request #1275 - Construction & Infrastructure,392379.1,52,16,13,19,5,2026-03-03 00:00:00
+AUC-1276,IT Hardware,Procurement Request #1276 - IT Hardware,243404.51,32,14,19,35,10,2026-02-05 00:00:00
+AUC-1277,Construction & Infrastructure,Procurement Request #1277 - Construction & Infrastructure,253794.53,50,16,28,10,15,2026-03-14 00:00:00
+AUC-1278,Software & Cloud Services,Procurement Request #1278 - Software & Cloud Services,110293.25,59,23,12,6,15,2026-03-09 00:00:00
+AUC-1279,Raw Materials & Metals,Procurement Request #1279 - Raw Materials & Metals,299653.85,30,22,24,24,5,2026-03-08 00:00:00
+AUC-1280,Healthcare & Medical Supplies,Procurement Request #1280 - Healthcare & Medical Supplies,101206.59,42,40,14,10,10,2026-01-20 00:00:00
+AUC-1281,Healthcare & Medical Supplies,Procurement Request #1281 - Healthcare & Medical Supplies,172466.7,32,30,30,10,10,2026-04-07 00:00:00
+AUC-1282,Construction & Infrastructure,Procurement Request #1282 - Construction & Infrastructure,428964.8,47,29,15,10,30,2026-02-10 00:00:00
+AUC-1283,Logistics & Freight,Procurement Request #1283 - Logistics & Freight,111467.15,47,22,10,21,10,2026-01-21 00:00:00
+AUC-1284,Logistics & Freight,Procurement Request #1284 - Logistics & Freight,44867.56,27,27,13,33,30,2026-01-18 00:00:00
+AUC-1285,Logistics & Freight,Procurement Request #1285 - Logistics & Freight,43813.72,60,12,21,7,15,2026-03-12 00:00:00
+AUC-1286,Software & Cloud Services,Procurement Request #1286 - Software & Cloud Services,470984.42,34,18,10,38,5,2026-04-08 00:00:00
+AUC-1287,Software & Cloud Services,Procurement Request #1287 - Software & Cloud Services,258391.01,39,40,13,10,5,2026-02-15 00:00:00
+AUC-1288,Construction & Infrastructure,Procurement Request #1288 - Construction & Infrastructure,210611.92,39,28,25,8,5,2026-05-17 00:00:00
+AUC-1289,Logistics & Freight,Procurement Request #1289 - Logistics & Freight,407330.5,51,37,19,10,15,2026-06-06 00:00:00
+AUC-1290,IT Hardware,Procurement Request #1290 - IT Hardware,419554.7,23,15,20,42,30,2026-02-17 00:00:00
+AUC-1291,Logistics & Freight,Procurement Request #1291 - Logistics & Freight,172773.61,49,27,29,10,30,2026-05-04 00:00:00
+AUC-1292,Construction & Infrastructure,Procurement Request #1292 - Construction & Infrastructure,349872.85,28,18,10,44,10,2026-06-19 00:00:00
+AUC-1293,Software & Cloud Services,Procurement Request #1293 - Software & Cloud Services,387850.18,29,22,28,21,15,2026-01-15 00:00:00
+AUC-1294,Healthcare & Medical Supplies,Procurement Request #1294 - Healthcare & Medical Supplies,330778.84,55,21,17,10,30,2026-04-29 00:00:00
+AUC-1295,Software & Cloud Services,Procurement Request #1295 - Software & Cloud Services,84281.59,48,21,24,7,15,2026-03-13 00:00:00
+AUC-1296,Raw Materials & Metals,Procurement Request #1296 - Raw Materials & Metals,439182.71,48,40,17,10,15,2026-06-13 00:00:00
+AUC-1297,Manufacturing & Heavy Machinery,Procurement Request #1297 - Manufacturing & Heavy Machinery,274156.33,25,40,19,16,30,2026-03-23 00:00:00
+AUC-1298,Manufacturing & Heavy Machinery,Procurement Request #1298 - Manufacturing & Heavy Machinery,148411.49,25,30,12,33,5,2026-03-04 00:00:00
+AUC-1299,IT Hardware,Procurement Request #1299 - IT Hardware,218361.81,30,28,11,31,5,2026-03-16 00:00:00
+AUC-1300,Construction & Infrastructure,Procurement Request #1300 - Construction & Infrastructure,28409.83,46,35,10,10,30,2026-06-24 00:00:00
+AUC-1301,Construction & Infrastructure,Procurement Request #1301 - Construction & Infrastructure,72654.73,28,25,25,22,5,2026-04-15 00:00:00
+AUC-1302,IT Hardware,Procurement Request #1302 - IT Hardware,385117.91,59,16,10,15,30,2026-06-30 00:00:00
+AUC-1303,Construction & Infrastructure,Procurement Request #1303 - Construction & Infrastructure,10005.7,42,17,26,15,5,2026-06-06 00:00:00
+AUC-1304,Raw Materials & Metals,Procurement Request #1304 - Raw Materials & Metals,214117.26,30,31,26,13,10,2026-02-15 00:00:00
+AUC-1305,IT Hardware,Procurement Request #1305 - IT Hardware,266029.99,43,36,14,7,15,2026-01-15 00:00:00
+AUC-1306,Raw Materials & Metals,Procurement Request #1306 - Raw Materials & Metals,36770.87,51,22,15,12,15,2026-01-30 00:00:00
+AUC-1307,Logistics & Freight,Procurement Request #1307 - Logistics & Freight,486808.3,30,36,27,10,5,2026-03-17 00:00:00
+AUC-1308,Logistics & Freight,Procurement Request #1308 - Logistics & Freight,120801.41,50,19,18,13,10,2026-01-02 00:00:00
+AUC-1309,Healthcare & Medical Supplies,Procurement Request #1309 - Healthcare & Medical Supplies,159057.37,55,28,22,10,10,2026-03-21 00:00:00
+AUC-1310,Healthcare & Medical Supplies,Procurement Request #1310 - Healthcare & Medical Supplies,158931.83,47,36,11,10,30,2026-06-09 00:00:00
+AUC-1311,Manufacturing & Heavy Machinery,Procurement Request #1311 - Manufacturing & Heavy Machinery,122904.16,51,11,21,17,5,2026-06-08 00:00:00
+AUC-1312,Raw Materials & Metals,Procurement Request #1312 - Raw Materials & Metals,10722.17,41,19,21,19,5,2026-01-03 00:00:00
+AUC-1313,Logistics & Freight,Procurement Request #1313 - Logistics & Freight,367378.95,31,22,21,26,5,2026-01-27 00:00:00
+AUC-1314,Raw Materials & Metals,Procurement Request #1314 - Raw Materials & Metals,483754.29,51,16,12,21,10,2026-04-17 00:00:00
+AUC-1315,IT Hardware,Procurement Request #1315 - IT Hardware,119903.81,51,10,14,25,15,2026-02-28 00:00:00
+AUC-1316,Raw Materials & Metals,Procurement Request #1316 - Raw Materials & Metals,334893.12,45,21,19,15,15,2026-04-21 00:00:00
+AUC-1317,Software & Cloud Services,Procurement Request #1317 - Software & Cloud Services,373529.2,49,35,18,10,5,2026-04-24 00:00:00
+AUC-1318,Healthcare & Medical Supplies,Procurement Request #1318 - Healthcare & Medical Supplies,425728.44,48,15,14,23,15,2026-04-23 00:00:00
+AUC-1319,IT Hardware,Procurement Request #1319 - IT Hardware,217088.31,37,38,16,10,5,2026-02-19 00:00:00
+AUC-1320,Logistics & Freight,Procurement Request #1320 - Logistics & Freight,158436.14,22,14,22,42,30,2026-03-27 00:00:00
+AUC-1321,IT Hardware,Procurement Request #1321 - IT Hardware,169394.62,30,31,16,23,30,2026-06-21 00:00:00
+AUC-1322,Logistics & Freight,Procurement Request #1322 - Logistics & Freight,359184.45,27,23,25,25,30,2026-06-25 00:00:00
+AUC-1323,Healthcare & Medical Supplies,Procurement Request #1323 - Healthcare & Medical Supplies,410221.94,28,20,22,30,30,2026-02-04 00:00:00
+AUC-1324,IT Hardware,Procurement Request #1324 - IT Hardware,98990.84,26,35,10,29,10,2026-02-10 00:00:00
+AUC-1325,Logistics & Freight,Procurement Request #1325 - Logistics & Freight,191761.09,52,10,17,21,5,2026-06-24 00:00:00
+AUC-1326,Manufacturing & Heavy Machinery,Procurement Request #1326 - Manufacturing & Heavy Machinery,451950.7,41,23,29,7,5,2026-04-23 00:00:00
+AUC-1327,Raw Materials & Metals,Procurement Request #1327 - Raw Materials & Metals,405279.82,38,19,25,18,5,2026-04-21 00:00:00
+AUC-1328,Software & Cloud Services,Procurement Request #1328 - Software & Cloud Services,492580.62,54,14,26,10,10,2026-03-06 00:00:00
+AUC-1329,Logistics & Freight,Procurement Request #1329 - Logistics & Freight,379581.65,27,37,18,18,10,2026-06-21 00:00:00
+AUC-1330,Manufacturing & Heavy Machinery,Procurement Request #1330 - Manufacturing & Heavy Machinery,202665.65,47,16,25,12,5,2026-06-30 00:00:00
+AUC-1331,Healthcare & Medical Supplies,Procurement Request #1331 - Healthcare & Medical Supplies,299412.54,47,29,15,10,10,2026-06-02 00:00:00
+AUC-1332,Healthcare & Medical Supplies,Procurement Request #1332 - Healthcare & Medical Supplies,333896.98,60,14,17,9,5,2026-02-04 00:00:00
+AUC-1333,Raw Materials & Metals,Procurement Request #1333 - Raw Materials & Metals,48443.35,22,18,16,44,10,2026-04-21 00:00:00
+AUC-1334,IT Hardware,Procurement Request #1334 - IT Hardware,276803.51,59,16,12,13,5,2026-04-09 00:00:00
+AUC-1335,Raw Materials & Metals,Procurement Request #1335 - Raw Materials & Metals,357567.21,48,19,30,10,10,2026-02-27 00:00:00
+AUC-1336,Logistics & Freight,Procurement Request #1336 - Logistics & Freight,91987.44,47,25,11,17,30,2026-06-15 00:00:00
+AUC-1337,IT Hardware,Procurement Request #1337 - IT Hardware,392509.54,39,13,18,30,15,2026-03-14 00:00:00
+AUC-1338,Logistics & Freight,Procurement Request #1338 - Logistics & Freight,296048.66,46,17,20,17,5,2026-02-17 00:00:00
+AUC-1339,IT Hardware,Procurement Request #1339 - IT Hardware,476588.67,20,11,20,49,10,2026-03-16 00:00:00
+AUC-1340,Raw Materials & Metals,Procurement Request #1340 - Raw Materials & Metals,30786.93,32,39,29,10,5,2026-04-22 00:00:00
+AUC-1341,Software & Cloud Services,Procurement Request #1341 - Software & Cloud Services,140009.81,31,40,25,10,15,2026-03-28 00:00:00
+AUC-1342,Logistics & Freight,Procurement Request #1342 - Logistics & Freight,304761.4,27,13,10,50,10,2026-03-27 00:00:00
+AUC-1343,Logistics & Freight,Procurement Request #1343 - Logistics & Freight,155314.36,38,33,28,10,15,2026-03-03 00:00:00
+AUC-1344,Healthcare & Medical Supplies,Procurement Request #1344 - Healthcare & Medical Supplies,360067.84,37,16,28,19,30,2026-01-24 00:00:00
+AUC-1345,IT Hardware,Procurement Request #1345 - IT Hardware,381912.59,28,30,29,13,5,2026-01-12 00:00:00
+AUC-1346,Construction & Infrastructure,Procurement Request #1346 - Construction & Infrastructure,60232.82,32,16,24,28,5,2026-01-21 00:00:00
+AUC-1347,Construction & Infrastructure,Procurement Request #1347 - Construction & Infrastructure,261788.69,54,20,19,10,30,2026-02-22 00:00:00
+AUC-1348,Construction & Infrastructure,Procurement Request #1348 - Construction & Infrastructure,259356.37,29,11,14,46,10,2026-04-19 00:00:00
+AUC-1349,Construction & Infrastructure,Procurement Request #1349 - Construction & Infrastructure,190947.58,31,38,27,10,15,2026-04-05 00:00:00
+AUC-1350,Raw Materials & Metals,Procurement Request #1350 - Raw Materials & Metals,467133.18,55,32,13,10,30,2026-01-19 00:00:00
+AUC-1351,Raw Materials & Metals,Procurement Request #1351 - Raw Materials & Metals,415478.1,41,26,26,10,5,2026-02-13 00:00:00
+AUC-1352,Construction & Infrastructure,Procurement Request #1352 - Construction & Infrastructure,351632.6,37,32,14,17,15,2026-01-13 00:00:00
+AUC-1353,Construction & Infrastructure,Procurement Request #1353 - Construction & Infrastructure,360020.05,23,35,16,26,30,2026-05-08 00:00:00
+AUC-1354,Healthcare & Medical Supplies,Procurement Request #1354 - Healthcare & Medical Supplies,236240.91,49,37,26,10,5,2026-02-13 00:00:00
+AUC-1355,Raw Materials & Metals,Procurement Request #1355 - Raw Materials & Metals,461287.32,47,22,27,10,30,2026-04-14 00:00:00
+AUC-1356,Construction & Infrastructure,Procurement Request #1356 - Construction & Infrastructure,350351.76,37,16,15,32,5,2026-02-11 00:00:00
+AUC-1357,Construction & Infrastructure,Procurement Request #1357 - Construction & Infrastructure,367200.72,33,28,10,29,30,2026-05-10 00:00:00
+AUC-1358,Healthcare & Medical Supplies,Procurement Request #1358 - Healthcare & Medical Supplies,432228.54,53,18,19,10,10,2026-03-18 00:00:00
+AUC-1359,Healthcare & Medical Supplies,Procurement Request #1359 - Healthcare & Medical Supplies,144295.08,37,27,13,23,10,2026-02-28 00:00:00
+AUC-1360,IT Hardware,Procurement Request #1360 - IT Hardware,405464.74,54,17,19,10,5,2026-06-14 00:00:00
+AUC-1361,Software & Cloud Services,Procurement Request #1361 - Software & Cloud Services,105667.9,37,39,14,10,15,2026-01-15 00:00:00
+AUC-1362,Healthcare & Medical Supplies,Procurement Request #1362 - Healthcare & Medical Supplies,179217.56,35,36,16,13,5,2026-01-02 00:00:00
+AUC-1363,Healthcare & Medical Supplies,Procurement Request #1363 - Healthcare & Medical Supplies,174449.12,37,30,29,10,15,2026-03-26 00:00:00
+AUC-1364,IT Hardware,Procurement Request #1364 - IT Hardware,489477.48,55,18,14,13,30,2026-06-07 00:00:00
+AUC-1365,Logistics & Freight,Procurement Request #1365 - Logistics & Freight,429703.24,40,11,30,19,5,2026-04-03 00:00:00
+AUC-1366,Software & Cloud Services,Procurement Request #1366 - Software & Cloud Services,353573.23,37,15,18,30,5,2026-05-19 00:00:00
+AUC-1367,Healthcare & Medical Supplies,Procurement Request #1367 - Healthcare & Medical Supplies,366257.81,57,13,22,8,15,2026-06-11 00:00:00
+AUC-1368,Healthcare & Medical Supplies,Procurement Request #1368 - Healthcare & Medical Supplies,285415.67,53,27,16,10,30,2026-02-27 00:00:00
+AUC-1369,Logistics & Freight,Procurement Request #1369 - Logistics & Freight,474074.43,37,16,28,19,30,2026-02-10 00:00:00
+AUC-1370,Raw Materials & Metals,Procurement Request #1370 - Raw Materials & Metals,253166.79,34,33,23,10,15,2026-02-08 00:00:00
+AUC-1371,Raw Materials & Metals,Procurement Request #1371 - Raw Materials & Metals,196453.68,25,25,15,35,30,2026-02-18 00:00:00
+AUC-1372,Manufacturing & Heavy Machinery,Procurement Request #1372 - Manufacturing & Heavy Machinery,89887.32,31,16,28,25,30,2026-02-17 00:00:00
+AUC-1373,Healthcare & Medical Supplies,Procurement Request #1373 - Healthcare & Medical Supplies,395240.77,38,10,19,33,10,2026-02-16 00:00:00
+AUC-1374,Manufacturing & Heavy Machinery,Procurement Request #1374 - Manufacturing & Heavy Machinery,369877.53,40,31,29,10,10,2026-01-19 00:00:00
+AUC-1375,Software & Cloud Services,Procurement Request #1375 - Software & Cloud Services,198333.97,24,23,17,36,30,2026-06-16 00:00:00
+AUC-1376,Raw Materials & Metals,Procurement Request #1376 - Raw Materials & Metals,22344.77,26,33,26,15,10,2026-01-05 00:00:00
+AUC-1377,Construction & Infrastructure,Procurement Request #1377 - Construction & Infrastructure,421108.69,26,22,22,30,5,2026-01-30 00:00:00
+AUC-1378,Manufacturing & Heavy Machinery,Procurement Request #1378 - Manufacturing & Heavy Machinery,15594.81,20,34,30,16,5,2026-02-04 00:00:00
+AUC-1379,Software & Cloud Services,Procurement Request #1379 - Software & Cloud Services,354812.89,25,18,14,43,5,2026-01-04 00:00:00
+AUC-1380,Manufacturing & Heavy Machinery,Procurement Request #1380 - Manufacturing & Heavy Machinery,485425.98,26,27,20,27,5,2026-02-22 00:00:00
+AUC-1381,Software & Cloud Services,Procurement Request #1381 - Software & Cloud Services,224454.05,45,34,28,10,30,2026-02-12 00:00:00
+AUC-1382,Logistics & Freight,Procurement Request #1382 - Logistics & Freight,125136.97,41,25,14,20,10,2026-01-16 00:00:00
+AUC-1383,Construction & Infrastructure,Procurement Request #1383 - Construction & Infrastructure,355386.79,37,30,27,6,5,2026-01-07 00:00:00
+AUC-1384,Manufacturing & Heavy Machinery,Procurement Request #1384 - Manufacturing & Heavy Machinery,410392.79,22,13,27,38,15,2026-01-28 00:00:00
+AUC-1385,Construction & Infrastructure,Procurement Request #1385 - Construction & Infrastructure,277750.85,46,14,10,30,10,2026-01-08 00:00:00
+AUC-1386,Software & Cloud Services,Procurement Request #1386 - Software & Cloud Services,483847.28,47,22,14,17,15,2026-06-18 00:00:00
+AUC-1387,Logistics & Freight,Procurement Request #1387 - Logistics & Freight,35317.67,34,39,22,5,5,2026-05-07 00:00:00
+AUC-1388,Software & Cloud Services,Procurement Request #1388 - Software & Cloud Services,257349.84,27,17,13,43,15,2026-04-03 00:00:00
+AUC-1389,IT Hardware,Procurement Request #1389 - IT Hardware,362042.43,59,20,13,8,15,2026-01-23 00:00:00
+AUC-1390,IT Hardware,Procurement Request #1390 - IT Hardware,432693.83,58,14,15,13,30,2026-05-17 00:00:00
+AUC-1391,Logistics & Freight,Procurement Request #1391 - Logistics & Freight,97835.25,53,15,23,10,10,2026-06-21 00:00:00
+AUC-1392,Healthcare & Medical Supplies,Procurement Request #1392 - Healthcare & Medical Supplies,402001.71,39,29,19,13,15,2026-01-28 00:00:00
+AUC-1393,Logistics & Freight,Procurement Request #1393 - Logistics & Freight,280826.47,46,31,21,10,15,2026-01-21 00:00:00
+AUC-1394,Manufacturing & Heavy Machinery,Procurement Request #1394 - Manufacturing & Heavy Machinery,204311.3,20,37,14,29,10,2026-03-24 00:00:00
+AUC-1395,Software & Cloud Services,Procurement Request #1395 - Software & Cloud Services,74540.36,44,24,25,7,5,2026-01-30 00:00:00
+AUC-1396,Construction & Infrastructure,Procurement Request #1396 - Construction & Infrastructure,433994.92,42,40,18,10,10,2026-01-25 00:00:00
+AUC-1397,Logistics & Freight,Procurement Request #1397 - Logistics & Freight,87063.87,28,15,22,35,15,2026-03-24 00:00:00
+AUC-1398,Raw Materials & Metals,Procurement Request #1398 - Raw Materials & Metals,161796.05,47,25,23,5,15,2026-02-06 00:00:00
+AUC-1399,Manufacturing & Heavy Machinery,Procurement Request #1399 - Manufacturing & Heavy Machinery,152122.31,35,22,23,20,30,2026-05-19 00:00:00
+AUC-1400,Construction & Infrastructure,Procurement Request #1400 - Construction & Infrastructure,436992.88,46,27,27,10,10,2026-04-10 00:00:00
+AUC-1401,IT Hardware,Procurement Request #1401 - IT Hardware,339624.47,52,32,23,10,10,2026-06-30 00:00:00
+AUC-1402,IT Hardware,Procurement Request #1402 - IT Hardware,400373.88,35,21,10,34,10,2026-01-06 00:00:00
+AUC-1403,Logistics & Freight,Procurement Request #1403 - Logistics & Freight,132729.27,55,25,14,6,5,2026-01-17 00:00:00
+AUC-1404,Logistics & Freight,Procurement Request #1404 - Logistics & Freight,316188.31,43,37,14,6,15,2026-04-29 00:00:00
+AUC-1405,Software & Cloud Services,Procurement Request #1405 - Software & Cloud Services,290155.53,50,39,23,10,10,2026-02-24 00:00:00
+AUC-1406,Manufacturing & Heavy Machinery,Procurement Request #1406 - Manufacturing & Heavy Machinery,418086.88,34,11,14,41,5,2026-06-29 00:00:00
+AUC-1407,Healthcare & Medical Supplies,Procurement Request #1407 - Healthcare & Medical Supplies,453982.66,29,22,10,39,30,2026-04-07 00:00:00
+AUC-1408,IT Hardware,Procurement Request #1408 - IT Hardware,15956.82,26,31,28,15,5,2026-05-04 00:00:00
+AUC-1409,Manufacturing & Heavy Machinery,Procurement Request #1409 - Manufacturing & Heavy Machinery,340269.76,53,37,15,10,5,2026-02-08 00:00:00
+AUC-1410,Logistics & Freight,Procurement Request #1410 - Logistics & Freight,35399.54,29,12,17,42,5,2026-01-05 00:00:00
+AUC-1411,Construction & Infrastructure,Procurement Request #1411 - Construction & Infrastructure,278940.75,46,14,15,25,30,2026-02-06 00:00:00
+AUC-1412,Healthcare & Medical Supplies,Procurement Request #1412 - Healthcare & Medical Supplies,150940.04,48,32,19,10,30,2026-04-17 00:00:00
+AUC-1413,Healthcare & Medical Supplies,Procurement Request #1413 - Healthcare & Medical Supplies,160320.53,41,24,30,5,5,2026-03-16 00:00:00
+AUC-1414,IT Hardware,Procurement Request #1414 - IT Hardware,182949.67,29,11,30,30,5,2026-06-05 00:00:00
+AUC-1415,Manufacturing & Heavy Machinery,Procurement Request #1415 - Manufacturing & Heavy Machinery,314433.3,31,26,15,28,5,2026-04-13 00:00:00
+AUC-1416,Manufacturing & Heavy Machinery,Procurement Request #1416 - Manufacturing & Heavy Machinery,173684.48,42,31,24,10,15,2026-05-28 00:00:00
+AUC-1417,Construction & Infrastructure,Procurement Request #1417 - Construction & Infrastructure,369022.53,39,32,17,12,30,2026-02-11 00:00:00
+AUC-1418,Logistics & Freight,Procurement Request #1418 - Logistics & Freight,208218.42,25,26,22,27,10,2026-02-25 00:00:00
+AUC-1419,Raw Materials & Metals,Procurement Request #1419 - Raw Materials & Metals,43493.07,59,11,17,13,30,2026-02-18 00:00:00
+AUC-1420,Manufacturing & Heavy Machinery,Procurement Request #1420 - Manufacturing & Heavy Machinery,394042.32,50,29,12,10,30,2026-05-04 00:00:00
+AUC-1421,Logistics & Freight,Procurement Request #1421 - Logistics & Freight,150021.58,40,36,22,10,10,2026-01-15 00:00:00
+AUC-1422,Manufacturing & Heavy Machinery,Procurement Request #1422 - Manufacturing & Heavy Machinery,222055.77,38,30,23,10,10,2026-03-12 00:00:00
+AUC-1423,IT Hardware,Procurement Request #1423 - IT Hardware,345867.5,26,12,21,41,15,2026-01-09 00:00:00
+AUC-1424,Software & Cloud Services,Procurement Request #1424 - Software & Cloud Services,172903.52,38,15,27,20,5,2026-01-18 00:00:00
+AUC-1425,Software & Cloud Services,Procurement Request #1425 - Software & Cloud Services,37726.97,58,10,19,13,10,2026-05-23 00:00:00
+AUC-1426,Software & Cloud Services,Procurement Request #1426 - Software & Cloud Services,193221.31,55,39,11,10,10,2026-03-11 00:00:00
+AUC-1427,IT Hardware,Procurement Request #1427 - IT Hardware,472779.81,56,28,11,5,30,2026-01-13 00:00:00
+AUC-1428,IT Hardware,Procurement Request #1428 - IT Hardware,324449.85,40,12,19,29,5,2026-04-03 00:00:00
+AUC-1429,Manufacturing & Heavy Machinery,Procurement Request #1429 - Manufacturing & Heavy Machinery,339024.78,33,40,22,10,10,2026-03-23 00:00:00
+AUC-1430,Manufacturing & Heavy Machinery,Procurement Request #1430 - Manufacturing & Heavy Machinery,319818.26,40,33,21,10,10,2026-06-30 00:00:00
+AUC-1431,Healthcare & Medical Supplies,Procurement Request #1431 - Healthcare & Medical Supplies,107506.15,26,20,23,31,5,2026-05-10 00:00:00
+AUC-1432,Manufacturing & Heavy Machinery,Procurement Request #1432 - Manufacturing & Heavy Machinery,214983.59,29,10,28,33,30,2026-05-04 00:00:00
+AUC-1433,Construction & Infrastructure,Procurement Request #1433 - Construction & Infrastructure,377960.5,22,19,15,44,10,2026-06-25 00:00:00
+AUC-1434,Raw Materials & Metals,Procurement Request #1434 - Raw Materials & Metals,59672.72,25,38,30,7,5,2026-03-02 00:00:00
+AUC-1435,Software & Cloud Services,Procurement Request #1435 - Software & Cloud Services,146147.86,29,34,15,22,15,2026-04-26 00:00:00
+AUC-1436,Manufacturing & Heavy Machinery,Procurement Request #1436 - Manufacturing & Heavy Machinery,145396.36,28,20,19,33,15,2026-06-10 00:00:00
+AUC-1437,Manufacturing & Heavy Machinery,Procurement Request #1437 - Manufacturing & Heavy Machinery,221689.27,47,11,22,20,10,2026-02-24 00:00:00
+AUC-1438,Construction & Infrastructure,Procurement Request #1438 - Construction & Infrastructure,490380.68,58,12,14,16,30,2026-01-26 00:00:00
+AUC-1439,Manufacturing & Heavy Machinery,Procurement Request #1439 - Manufacturing & Heavy Machinery,43076.25,20,14,19,47,5,2026-05-09 00:00:00
+AUC-1440,IT Hardware,Procurement Request #1440 - IT Hardware,264163.49,49,20,15,16,15,2026-02-12 00:00:00
+AUC-1441,IT Hardware,Procurement Request #1441 - IT Hardware,97888.69,37,28,21,14,15,2026-01-24 00:00:00
+AUC-1442,IT Hardware,Procurement Request #1442 - IT Hardware,485631.51,31,32,24,13,15,2026-05-03 00:00:00
+AUC-1443,Logistics & Freight,Procurement Request #1443 - Logistics & Freight,65518.72,48,30,14,8,5,2026-05-27 00:00:00
+AUC-1444,Raw Materials & Metals,Procurement Request #1444 - Raw Materials & Metals,207764.49,22,21,19,38,30,2026-04-16 00:00:00
+AUC-1445,Manufacturing & Heavy Machinery,Procurement Request #1445 - Manufacturing & Heavy Machinery,371563.64,54,39,14,10,30,2026-04-05 00:00:00
+AUC-1446,Construction & Infrastructure,Procurement Request #1446 - Construction & Infrastructure,355231.67,54,40,20,10,15,2026-01-23 00:00:00
+AUC-1447,Healthcare & Medical Supplies,Procurement Request #1447 - Healthcare & Medical Supplies,217137.03,41,26,24,10,15,2026-06-25 00:00:00
+AUC-1448,IT Hardware,Procurement Request #1448 - IT Hardware,179796.84,54,30,11,10,10,2026-06-30 00:00:00
+AUC-1449,Manufacturing & Heavy Machinery,Procurement Request #1449 - Manufacturing & Heavy Machinery,204830.07,55,10,14,21,5,2026-03-17 00:00:00
+AUC-1450,Raw Materials & Metals,Procurement Request #1450 - Raw Materials & Metals,139495.37,30,28,22,20,5,2026-02-28 00:00:00
+AUC-1451,Raw Materials & Metals,Procurement Request #1451 - Raw Materials & Metals,110613.14,49,31,12,8,15,2026-05-01 00:00:00
+AUC-1452,Raw Materials & Metals,Procurement Request #1452 - Raw Materials & Metals,246689.45,49,38,24,10,5,2026-01-23 00:00:00
+AUC-1453,Software & Cloud Services,Procurement Request #1453 - Software & Cloud Services,141581.54,26,39,22,13,30,2026-02-22 00:00:00
+AUC-1454,Raw Materials & Metals,Procurement Request #1454 - Raw Materials & Metals,150856.22,41,12,20,27,15,2026-06-05 00:00:00
+AUC-1455,Raw Materials & Metals,Procurement Request #1455 - Raw Materials & Metals,331810.47,33,32,25,10,5,2026-03-14 00:00:00
+AUC-1456,Raw Materials & Metals,Procurement Request #1456 - Raw Materials & Metals,484583.29,22,27,14,37,30,2026-02-08 00:00:00
+AUC-1457,Healthcare & Medical Supplies,Procurement Request #1457 - Healthcare & Medical Supplies,305782.23,33,20,28,19,5,2026-06-04 00:00:00
+AUC-1458,Manufacturing & Heavy Machinery,Procurement Request #1458 - Manufacturing & Heavy Machinery,47719.94,44,11,21,24,30,2026-05-03 00:00:00
+AUC-1459,Software & Cloud Services,Procurement Request #1459 - Software & Cloud Services,47035.97,23,16,10,51,30,2026-03-12 00:00:00
+AUC-1460,Logistics & Freight,Procurement Request #1460 - Logistics & Freight,476197.38,60,15,12,13,10,2026-01-19 00:00:00
+AUC-1461,Logistics & Freight,Procurement Request #1461 - Logistics & Freight,155672.49,45,12,19,24,30,2026-04-19 00:00:00
+AUC-1462,Construction & Infrastructure,Procurement Request #1462 - Construction & Infrastructure,55112.82,33,31,18,18,10,2026-01-15 00:00:00
+AUC-1463,IT Hardware,Procurement Request #1463 - IT Hardware,303531.85,47,20,19,14,10,2026-02-21 00:00:00
+AUC-1464,Logistics & Freight,Procurement Request #1464 - Logistics & Freight,315587.9,41,25,25,10,10,2026-06-29 00:00:00
+AUC-1465,Raw Materials & Metals,Procurement Request #1465 - Raw Materials & Metals,327767.36,37,39,28,10,30,2026-01-04 00:00:00
+AUC-1466,Construction & Infrastructure,Procurement Request #1466 - Construction & Infrastructure,141026.99,58,16,12,14,10,2026-03-25 00:00:00
+AUC-1467,Healthcare & Medical Supplies,Procurement Request #1467 - Healthcare & Medical Supplies,17404.24,40,10,14,36,30,2026-02-08 00:00:00
+AUC-1468,Raw Materials & Metals,Procurement Request #1468 - Raw Materials & Metals,482857.53,40,13,23,24,15,2026-05-15 00:00:00
+AUC-1469,Healthcare & Medical Supplies,Procurement Request #1469 - Healthcare & Medical Supplies,132937.59,20,24,14,42,30,2026-06-14 00:00:00
+AUC-1470,Construction & Infrastructure,Procurement Request #1470 - Construction & Infrastructure,341252.88,26,11,16,47,10,2026-04-19 00:00:00
+AUC-1471,Healthcare & Medical Supplies,Procurement Request #1471 - Healthcare & Medical Supplies,356248.64,49,34,15,10,30,2026-02-26 00:00:00
+AUC-1472,Logistics & Freight,Procurement Request #1472 - Logistics & Freight,308903.63,33,40,16,11,5,2026-04-06 00:00:00
+AUC-1473,Manufacturing & Heavy Machinery,Procurement Request #1473 - Manufacturing & Heavy Machinery,163324.62,43,10,19,28,15,2026-05-10 00:00:00
+AUC-1474,Manufacturing & Heavy Machinery,Procurement Request #1474 - Manufacturing & Heavy Machinery,142837.16,27,32,25,16,30,2026-04-17 00:00:00
+AUC-1475,Raw Materials & Metals,Procurement Request #1475 - Raw Materials & Metals,302857.46,42,21,27,10,30,2026-05-15 00:00:00
+AUC-1476,Manufacturing & Heavy Machinery,Procurement Request #1476 - Manufacturing & Heavy Machinery,434386.86,41,13,15,31,30,2026-04-21 00:00:00
+AUC-1477,Logistics & Freight,Procurement Request #1477 - Logistics & Freight,473899.53,31,27,29,13,10,2026-05-20 00:00:00
+AUC-1478,Raw Materials & Metals,Procurement Request #1478 - Raw Materials & Metals,61893.84,44,19,23,14,15,2026-06-30 00:00:00
+AUC-1479,Construction & Infrastructure,Procurement Request #1479 - Construction & Infrastructure,85866.02,26,12,13,49,5,2026-06-17 00:00:00
+AUC-1480,IT Hardware,Procurement Request #1480 - IT Hardware,472920.77,54,39,23,10,5,2026-05-09 00:00:00
+AUC-1481,Healthcare & Medical Supplies,Procurement Request #1481 - Healthcare & Medical Supplies,370902.26,54,39,27,10,5,2026-06-13 00:00:00
+AUC-1482,Raw Materials & Metals,Procurement Request #1482 - Raw Materials & Metals,442666.97,52,28,11,9,15,2026-04-19 00:00:00
+AUC-1483,Software & Cloud Services,Procurement Request #1483 - Software & Cloud Services,109289.99,34,34,24,8,30,2026-01-31 00:00:00
+AUC-1484,Software & Cloud Services,Procurement Request #1484 - Software & Cloud Services,297917.08,45,40,13,10,15,2026-04-30 00:00:00
+AUC-1485,Raw Materials & Metals,Procurement Request #1485 - Raw Materials & Metals,353558.4,45,10,21,24,10,2026-05-11 00:00:00
+AUC-1486,Logistics & Freight,Procurement Request #1486 - Logistics & Freight,343254.82,37,38,18,7,15,2026-04-18 00:00:00
+AUC-1487,Healthcare & Medical Supplies,Procurement Request #1487 - Healthcare & Medical Supplies,209994.33,35,10,23,32,5,2026-01-05 00:00:00
+AUC-1488,IT Hardware,Procurement Request #1488 - IT Hardware,17543.5,29,35,21,15,15,2026-03-28 00:00:00
+AUC-1489,Software & Cloud Services,Procurement Request #1489 - Software & Cloud Services,295633.77,51,23,17,10,30,2026-02-20 00:00:00
+AUC-1490,Construction & Infrastructure,Procurement Request #1490 - Construction & Infrastructure,134019.75,45,36,11,8,30,2026-02-03 00:00:00
+AUC-1491,Healthcare & Medical Supplies,Procurement Request #1491 - Healthcare & Medical Supplies,230624.58,44,33,15,8,30,2026-03-24 00:00:00
+AUC-1492,Construction & Infrastructure,Procurement Request #1492 - Construction & Infrastructure,479214.7,30,23,17,30,5,2026-02-03 00:00:00
+AUC-1493,Construction & Infrastructure,Procurement Request #1493 - Construction & Infrastructure,205527.31,27,30,28,15,30,2026-06-11 00:00:00
+AUC-1494,Logistics & Freight,Procurement Request #1494 - Logistics & Freight,421502.79,55,15,20,10,10,2026-01-25 00:00:00
+AUC-1495,IT Hardware,Procurement Request #1495 - IT Hardware,102384.9,21,23,10,46,10,2026-01-09 00:00:00
+AUC-1496,Construction & Infrastructure,Procurement Request #1496 - Construction & Infrastructure,339505.64,49,39,12,10,30,2026-01-08 00:00:00
+AUC-1497,Healthcare & Medical Supplies,Procurement Request #1497 - Healthcare & Medical Supplies,488733.41,28,24,30,18,15,2026-02-18 00:00:00
+AUC-1498,Software & Cloud Services,Procurement Request #1498 - Software & Cloud Services,59927.62,34,19,16,31,10,2026-04-08 00:00:00
+AUC-1499,Manufacturing & Heavy Machinery,Procurement Request #1499 - Manufacturing & Heavy Machinery,14076.77,36,31,11,22,15,2026-01-23 00:00:00
+AUC-1500,Software & Cloud Services,Procurement Request #1500 - Software & Cloud Services,222455.57,55,10,30,10,5,2026-01-30 00:00:00

@@ -1,0 +1,83 @@
+[
+  {
+    "log_id": "AUD-000001",
+    "timestamp": "2026-08-04T10:20:06.185863",
+    "action": "AUCTION_CREATED",
+    "user": "Buyer",
+    "details": {
+      "auction_id": "AUC-0002",
+      "title": "er",
+      "budget": 50000.0
+    },
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "598a11d98c58b60e65ac5769b5729f0c9df45df3c9a49e18422a727254183963"
+  },
+  {
+    "log_id": "AUD-000002",
+    "timestamp": "2026-08-04T10:20:35.455880",
+    "action": "BID_SUBMITTED",
+    "user": "HP Enterprise",
+    "details": {
+      "auction_id": "AUC-0002",
+      "price": 57.0
+    },
+    "previous_hash": "598a11d98c58b60e65ac5769b5729f0c9df45df3c9a49e18422a727254183963",
+    "hash": "b2b4425245ef60967ca977d733bf67e8c16f78832036bf4c4cae24d3313aaa79"
+  },
+  {
+    "log_id": "AUD-000003",
+    "timestamp": "2026-08-04T10:20:35.456866",
+    "action": "FRAUD_ALERT_FLAGGED",
+    "user": "System",
+    "details": {
+      "type": "ABNORMAL_PRICING",
+      "severity": "MEDIUM",
+      "reason": "Unusually steep price drop detected (99.9% below max budget).",
+      "risk_score": 65,
+      "id": "FRD-001",
+      "auction_id": [
+        "AUC-0002"
+      ],
+      "vendor_id": [
+        "VND-0001"
+      ],
+      "timestamp": "2026-08-04T10:20:35.455864"
+    },
+    "previous_hash": "b2b4425245ef60967ca977d733bf67e8c16f78832036bf4c4cae24d3313aaa79",
+    "hash": "d6667dbb35c02add6e3a50ac999a07a717fd1c7f47560a447febfa55a0e1cfb9"
+  },
+  {
+    "log_id": "AUD-000004",
+    "timestamp": "2026-08-04T10:20:43.095367",
+    "action": "BID_SUBMITTED",
+    "user": "HP Enterprise",
+    "details": {
+      "auction_id": "AUC-0002",
+      "price": 9.0
+    },
+    "previous_hash": "d6667dbb35c02add6e3a50ac999a07a717fd1c7f47560a447febfa55a0e1cfb9",
+    "hash": "80b9f4e849dc7de7c561299ce97c4c09521a1e6681152ec438c3760fce8b5246"
+  },
+  {
+    "log_id": "AUD-000005",
+    "timestamp": "2026-08-04T10:20:43.096627",
+    "action": "FRAUD_ALERT_FLAGGED",
+    "user": "System",
+    "details": {
+      "type": "ABNORMAL_PRICING",
+      "severity": "MEDIUM",
+      "reason": "Unusually steep price drop detected (100.0% below max budget).",
+      "risk_score": 65,
+      "id": "FRD-002",
+      "auction_id": [
+        "AUC-0002"
+      ],
+      "vendor_id": [
+        "VND-0001"
+      ],
+      "timestamp": "2026-08-04T10:20:43.095353"
+    },
+    "previous_hash": "80b9f4e849dc7de7c561299ce97c4c09521a1e6681152ec438c3760fce8b5246",
+    "hash": "a903f6c4a6a6ee246a9d03fbeff66324447724dd225f60b7b3fb7f09aaa5f025"
+  }
+]

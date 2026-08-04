@@ -1,501 +1,801 @@
-vendor_id,name,category,historical_rating,reliability_score,avg_delay_days,defect_rate,historical_completion_rate
-VND-0001,"Rodriguez, Figueroa and Sanchez",Marketing & Print,4.22,0.687,6.59,0.0769,0.71
-VND-0002,Doyle Ltd,Software Licenses,3.95,0.578,0.5,0.0066,0.803
-VND-0003,"Mcclain, Miller and Henderson",IT Hardware,4.5,0.801,1.72,0.002,0.992
-VND-0004,Davis and Sons,Catering Services,4.79,0.916,0.14,0.0158,0.796
-VND-0005,"Guzman, Hoffman and Baldwin",Logistics & Shipping,4.13,0.652,1.81,0.0466,0.602
-VND-0006,"Gardner, Robinson and Lawrence",Office Supplies,4.51,0.806,0.2,0.0279,0.842
-VND-0007,Blake and Sons,Office Supplies,4.32,0.728,2.93,0.0203,0.879
-VND-0008,"Henderson, Ramirez and Lewis",Office Furniture,4.49,0.796,0.07,0.0585,0.793
-VND-0009,Garcia-James,Catering Services,3.83,0.533,9.73,0.1134,0.783
-VND-0010,Abbott-Munoz,Software Licenses,4.13,0.652,0.25,0.0738,0.654
-VND-0011,Blair PLC,Marketing & Print,3.9,0.561,2.1,0.004,0.818
-VND-0012,Dudley Group,Catering Services,4.07,0.629,2.82,0.0342,0.682
-VND-0013,Arnold Ltd,Security Services,4.43,0.773,0.32,0.0951,0.944
-VND-0014,"Mcclure, Ward and Lee",Software Licenses,4.92,0.97,0.48,0.0493,0.98
-VND-0015,Williams and Sons,HVAC & Maintenance,3.86,0.544,0.7,0.0053,0.614
-VND-0016,Galloway-Wyatt,Chemical Materials,4.24,0.694,0.68,0.0866,0.625
-VND-0017,James Group,IT Hardware,4.1,0.64,1.97,0.0153,0.781
-VND-0018,"Flowers, Martin and Kelly",IT Hardware,3.84,0.537,14.04,0.0904,0.57
-VND-0019,"Adams, Zuniga and Wong",Software Licenses,3.76,0.503,5.88,0.0847,0.755
-VND-0020,"Reid, Ferguson and Sanchez",Office Supplies,4.71,0.886,0.06,0.032,0.779
-VND-0021,Gray-Mayo,Office Supplies,4.83,0.932,0.47,0.0283,0.766
-VND-0022,"Watts, Robinson and Nguyen",Security Services,4.14,0.655,0.95,0.0785,0.723
-VND-0023,Perez Inc,HVAC & Maintenance,4.86,0.944,0.25,0.0101,0.928
-VND-0024,Morales-Jones,IT Hardware,4.7,0.88,0.69,0.0691,0.873
-VND-0025,"Walter, Edwards and Rios",Security Services,4.4,0.761,0.93,0.0025,0.777
-VND-0026,Wilkerson-Day,Office Supplies,3.79,0.516,3.43,0.0373,0.678
-VND-0027,Baker and Sons,Catering Services,4.88,0.954,0.09,0.0343,0.939
-VND-0028,"Hoffman, Baker and Richards",Marketing & Print,4.04,0.614,0.22,0.0321,0.556
-VND-0029,"Ross, Robinson and Bright",Catering Services,4.91,0.965,0.41,0.0525,0.968
-VND-0030,"Snyder, Campos and Callahan",Security Services,4.75,0.902,0.14,0.0784,0.885
-VND-0031,Burton Ltd,Chemical Materials,4.76,0.904,1.53,0.0279,0.778
-VND-0032,Carlson-Cruz,Office Supplies,4.03,0.614,1.51,0.0907,0.801
-VND-0033,"Ferrell, Rice and Maddox",Janitorial Services,3.76,0.503,2.48,0.05,0.578
-VND-0034,Frazier Inc,HVAC & Maintenance,3.9,0.56,1.27,0.1086,0.613
-VND-0035,"Dyer, Potter and Mack",Logistics & Shipping,4.4,0.759,2.04,0.0361,0.993
-VND-0036,Rodriguez-Graham,IT Hardware,4.95,0.981,0.04,0.0405,0.825
-VND-0037,Smith-Bowen,Office Furniture,4.11,0.642,0.09,0.0662,0.676
-VND-0038,"Baker, Mason and White",Catering Services,3.81,0.526,1.08,0.1071,0.584
-VND-0039,Harrell LLC,Chemical Materials,3.93,0.572,2.01,0.1126,0.585
-VND-0040,"Romero, Gonzalez and Brooks",Raw Metals,4.59,0.836,1.65,0.0221,0.932
-VND-0041,Ryan PLC,Logistics & Shipping,4.21,0.684,2.21,0.0667,0.688
-VND-0042,George Group,Office Furniture,3.86,0.545,5.74,0.0373,0.565
-VND-0043,Rodriguez LLC,Office Supplies,3.8,0.52,3.0,0.0802,0.506
-VND-0044,Allen-Allen,Raw Metals,4.39,0.756,0.44,0.0642,0.794
-VND-0045,"Arroyo, Miller and Tucker",Software Licenses,4.61,0.845,0.53,0.0865,0.784
-VND-0046,Spence PLC,Software Licenses,4.18,0.671,0.28,0.0983,0.807
-VND-0047,Anderson Group,Chemical Materials,4.07,0.629,2.8,0.0896,0.694
-VND-0048,"Martin, Rose and Obrien",Software Licenses,4.41,0.765,0.46,0.0092,0.974
-VND-0049,Hickman Ltd,Raw Metals,4.88,0.95,0.35,0.0285,0.837
-VND-0050,"Harris, Collins and Carney",Raw Metals,4.66,0.863,2.18,0.0807,0.945
-VND-0051,"Brooks, Lam and Hayes",HVAC & Maintenance,4.55,0.821,0.11,0.0152,0.975
-VND-0052,Walker LLC,Logistics & Shipping,4.51,0.803,0.01,0.0097,0.916
-VND-0053,Chapman and Sons,IT Hardware,3.76,0.503,0.61,0.0657,0.742
-VND-0054,"Robinson, Jones and Welch",Catering Services,4.56,0.826,0.31,0.0669,0.809
-VND-0055,Jones Inc,Janitorial Services,4.16,0.663,3.24,0.0695,0.797
-VND-0056,Jones-Young,Security Services,4.57,0.829,1.01,0.0088,0.842
-VND-0057,"Washington, Ryan and Cummings",Software Licenses,4.08,0.633,0.72,0.1064,0.638
-VND-0058,"Johnston, Sanchez and Kennedy",Chemical Materials,4.87,0.946,0.38,0.067,0.876
-VND-0059,Lee-Davis,Software Licenses,4.47,0.788,1.0,0.0189,0.931
-VND-0060,Gomez-Jenkins,Security Services,4.1,0.64,0.06,0.0702,0.562
-VND-0061,"Brown, Valdez and Lucas",Logistics & Shipping,4.93,0.97,0.64,0.0754,0.843
-VND-0062,Powell LLC,Marketing & Print,3.77,0.508,9.08,0.0511,0.838
-VND-0063,Wright and Sons,HVAC & Maintenance,4.95,0.982,0.24,0.024,0.846
-VND-0064,"West, Henderson and Ramirez",Raw Metals,4.81,0.926,0.2,0.0146,0.889
-VND-0065,Baxter Inc,HVAC & Maintenance,4.92,0.968,0.27,0.0471,0.774
-VND-0066,Morton-Chase,Office Supplies,4.52,0.808,6.21,0.0134,0.88
-VND-0067,Williams PLC,Catering Services,4.85,0.939,0.58,0.0592,0.926
-VND-0068,Novak and Sons,Software Licenses,4.2,0.68,0.78,0.0855,0.784
-VND-0069,Russell Group,IT Hardware,4.83,0.934,1.14,0.0436,0.875
-VND-0070,Hancock Inc,Marketing & Print,4.75,0.899,0.74,0.0618,0.949
-VND-0071,Gray Group,Office Supplies,4.86,0.945,0.16,0.0317,0.773
-VND-0072,House-Glover,Logistics & Shipping,4.47,0.789,0.05,0.0451,0.886
-VND-0073,Henderson-Bernard,Software Licenses,4.11,0.643,2.23,0.0033,0.513
-VND-0074,"Stanley, Tucker and Lee",Office Supplies,4.78,0.911,0.28,0.0111,0.881
-VND-0075,Novak PLC,Software Licenses,4.71,0.885,0.2,0.0556,0.771
-VND-0076,"Daniels, Adkins and Brown",Chemical Materials,3.81,0.526,2.52,0.0638,0.723
-VND-0077,"Woods, Calhoun and Schmidt",Logistics & Shipping,4.66,0.863,3.57,0.047,0.831
-VND-0078,Yu Inc,Janitorial Services,4.74,0.898,0.23,0.0387,0.77
-VND-0079,Jones Inc,Marketing & Print,3.78,0.513,11.21,0.0995,0.744
-VND-0080,"Hensley, Powell and David",Raw Metals,4.26,0.704,0.39,0.0162,0.813
-VND-0081,"Sanchez, Wheeler and Harvey",Office Furniture,4.44,0.775,1.98,0.0647,0.82
-VND-0082,Sandoval-Cunningham,Raw Metals,4.94,0.977,0.21,0.0453,0.903
-VND-0083,Donovan-Harris,Raw Metals,4.27,0.71,0.58,0.0367,0.939
-VND-0084,"Edwards, Baker and Anderson",Office Supplies,3.77,0.507,0.43,0.0055,0.514
-VND-0085,"Evans, Stewart and Walton",Marketing & Print,4.82,0.928,0.62,0.0407,0.774
-VND-0086,Smith PLC,Logistics & Shipping,4.36,0.746,1.14,0.0174,0.858
-VND-0087,"Ferrell, Jones and Lewis",Catering Services,4.25,0.699,2.01,0.0661,0.516
-VND-0088,Anderson-Bailey,Marketing & Print,4.22,0.687,2.15,0.0528,0.8
-VND-0089,Suarez LLC,Marketing & Print,4.57,0.829,0.21,0.0066,0.911
-VND-0090,Moore-Bass,Software Licenses,3.78,0.513,3.0,0.1118,0.701
-VND-0091,"Turner, Riggs and Roman",HVAC & Maintenance,4.24,0.694,2.21,0.0479,0.691
-VND-0092,"Smith, Montoya and Evans",Marketing & Print,4.93,0.971,0.1,0.0791,0.976
-VND-0093,"Garcia, Humphrey and Baker",Office Furniture,3.99,0.598,0.2,0.0113,0.506
-VND-0094,Newton and Sons,Security Services,3.87,0.547,3.64,0.0083,0.612
-VND-0095,Campbell-Clark,Catering Services,4.81,0.922,0.01,0.0702,0.82
-VND-0096,Harris-Walters,Office Supplies,3.9,0.559,3.68,0.0725,0.807
-VND-0097,Wagner-King,Office Furniture,4.67,0.868,1.51,0.0256,0.794
-VND-0098,Davis Group,Janitorial Services,4.69,0.875,1.44,0.0891,0.853
-VND-0099,Williams-Cook,Chemical Materials,4.22,0.686,3.29,0.0358,0.826
-VND-0100,Walsh LLC,Logistics & Shipping,4.82,0.929,0.28,0.0643,0.939
-VND-0101,Figueroa PLC,Marketing & Print,3.88,0.552,7.31,0.0585,0.789
-VND-0102,"Patterson, Smith and Jones",Catering Services,4.15,0.66,5.38,0.0417,0.504
-VND-0103,"Mckee, Gardner and Davenport",Security Services,4.88,0.953,0.03,0.0268,0.988
-VND-0104,"Tran, Jordan and Williams",Office Supplies,4.94,0.975,0.15,0.0518,0.862
-VND-0105,Nolan-Flynn,Marketing & Print,4.12,0.647,0.99,0.0728,0.763
-VND-0106,Nolan and Sons,Raw Metals,4.74,0.896,1.14,0.0081,0.874
-VND-0107,"Wright, Garcia and Deleon",IT Hardware,3.82,0.529,2.63,0.052,0.811
-VND-0108,Dickson-Brady,Office Supplies,4.19,0.675,0.28,0.0152,0.767
-VND-0109,Hancock and Sons,IT Hardware,4.52,0.809,0.14,0.008,0.925
-VND-0110,Johnson-Doyle,Raw Metals,3.84,0.536,5.6,0.0827,0.528
-VND-0111,Patton-Jenkins,Chemical Materials,3.86,0.542,13.82,0.0436,0.63
-VND-0112,"Shields, Cochran and Adams",Logistics & Shipping,4.77,0.906,1.93,0.0863,0.938
-VND-0113,"Rodriguez, Brennan and Garrison",Software Licenses,4.22,0.688,0.19,0.0816,0.695
-VND-0114,Gonzalez Group,Office Supplies,4.28,0.712,4.77,0.0115,0.873
-VND-0115,Torres-Pope,HVAC & Maintenance,3.76,0.506,2.19,0.0067,0.542
-VND-0116,Walker Ltd,Catering Services,3.9,0.559,3.24,0.086,0.704
-VND-0117,Ross LLC,Raw Metals,4.95,0.981,0.06,0.0233,0.967
-VND-0118,Rasmussen LLC,Office Supplies,4.03,0.612,8.98,0.0013,0.839
-VND-0119,May-Ross,Marketing & Print,3.8,0.522,7.43,0.0624,0.848
-VND-0120,"Rivera, Johnson and Wiley",Janitorial Services,3.84,0.537,2.62,0.1135,0.683
-VND-0121,White-Estes,Chemical Materials,4.54,0.815,1.54,0.0431,0.907
-VND-0122,Johnson-Carlson,Marketing & Print,4.48,0.792,3.37,0.0044,0.82
-VND-0123,Chandler-Edwards,Janitorial Services,4.94,0.975,0.38,0.0374,0.905
-VND-0124,"Joyce, Wilson and Lam",Office Furniture,4.1,0.639,0.53,0.0505,0.624
-VND-0125,Scott Ltd,Logistics & Shipping,4.48,0.792,0.12,0.0942,0.997
-VND-0126,Smith-Frost,Office Furniture,4.62,0.849,0.81,0.0285,0.953
-VND-0127,"Mcdaniel, Bentley and Mclaughlin",Office Supplies,4.61,0.842,0.2,0.0844,0.956
-VND-0128,Diaz Inc,Catering Services,4.94,0.975,0.23,0.0503,0.855
-VND-0129,"Mccall, Hanson and Alvarado",Security Services,4.92,0.966,0.47,0.0037,0.757
-VND-0130,Cortez LLC,Security Services,4.22,0.688,3.63,0.1036,0.553
-VND-0131,"Parker, Ortiz and Powell",Logistics & Shipping,4.49,0.797,0.68,0.0933,0.961
-VND-0132,Spencer-Lee,Catering Services,4.8,0.919,0.36,0.0359,0.818
-VND-0133,"Bentley, Byrd and Orr",HVAC & Maintenance,3.82,0.528,6.61,0.0957,0.85
-VND-0134,"Carroll, Sullivan and Bass",Chemical Materials,5.0,0.998,0.01,0.0616,0.986
-VND-0135,Mitchell-Jordan,HVAC & Maintenance,4.81,0.925,0.15,0.0388,0.782
-VND-0136,"Lawson, Morris and Ramos",Chemical Materials,4.94,0.977,0.15,0.0187,0.918
-VND-0137,"Lewis, Kennedy and Santana",Raw Metals,4.52,0.809,0.59,0.0108,0.918
-VND-0138,"Jackson, Miller and Robertson",Office Supplies,4.4,0.76,2.48,0.0516,0.963
-VND-0139,"Harvey, Davis and Crane",Office Furniture,4.44,0.776,1.29,0.0858,0.851
-VND-0140,Chambers and Sons,Security Services,3.92,0.567,0.09,0.0866,0.717
-VND-0141,Hernandez Inc,Janitorial Services,4.63,0.852,0.25,0.0125,0.754
-VND-0142,Riggs PLC,Software Licenses,4.19,0.675,2.03,0.0416,0.653
-VND-0143,Gibson Ltd,IT Hardware,4.88,0.952,0.14,0.0431,0.946
-VND-0144,"Lee, Horton and Snyder",Software Licenses,4.25,0.698,2.06,0.0898,0.832
-VND-0145,Hernandez Ltd,Office Furniture,3.93,0.574,7.8,0.0562,0.59
-VND-0146,Stafford Inc,Marketing & Print,4.32,0.73,7.41,0.0501,0.832
-VND-0147,Robinson-Brock,Office Furniture,4.54,0.817,0.35,0.0072,0.782
-VND-0148,"Holmes, Williams and Wright",Marketing & Print,3.91,0.564,0.5,0.0159,0.724
-VND-0149,Bryant Group,Chemical Materials,3.98,0.591,1.21,0.1011,0.666
-VND-0150,"Schmidt, Hansen and Stewart",HVAC & Maintenance,4.58,0.834,0.22,0.0179,0.76
-VND-0151,Salazar-Ball,Software Licenses,3.96,0.584,0.95,0.02,0.531
-VND-0152,"Simmons, Meadows and Griffin",Chemical Materials,3.9,0.56,1.9,0.0238,0.627
-VND-0153,Manning Group,Chemical Materials,4.38,0.752,2.04,0.0039,0.95
-VND-0154,Green-Wright,HVAC & Maintenance,4.53,0.814,0.11,0.0829,0.98
-VND-0155,"Ramirez, Strickland and Washington",Janitorial Services,3.83,0.531,1.07,0.0948,0.762
-VND-0156,Hill Inc,Security Services,3.98,0.592,0.67,0.0417,0.67
-VND-0157,"Mitchell, Nelson and Flores",Logistics & Shipping,4.52,0.809,0.62,0.0441,0.937
-VND-0158,"Miller, Hernandez and Reyes",Security Services,3.8,0.518,0.98,0.0846,0.813
-VND-0159,Mccarthy Inc,IT Hardware,4.39,0.756,1.3,0.0107,0.862
-VND-0160,Russell-Daniels,Marketing & Print,4.42,0.766,0.45,0.0266,0.844
-VND-0161,Brown-Wall,Catering Services,3.78,0.51,1.33,0.0252,0.615
-VND-0162,Stein-Silva,Software Licenses,3.9,0.56,6.82,0.0684,0.738
-VND-0163,"Smith, Gilmore and Johnston",Marketing & Print,4.74,0.895,0.51,0.0077,0.884
-VND-0164,Smith-Bell,Security Services,4.48,0.793,1.98,0.0417,0.782
-VND-0165,Castaneda-Ashley,Logistics & Shipping,4.1,0.642,1.13,0.0702,0.7
-VND-0166,Medina-Navarro,Marketing & Print,4.2,0.678,9.7,0.0641,0.583
-VND-0167,"Hurst, Freeman and Nelson",Raw Metals,3.88,0.551,0.52,0.0285,0.556
-VND-0168,Johnson-Rogers,Software Licenses,3.98,0.593,0.96,0.0195,0.814
-VND-0169,"Yates, Ramsey and Pittman",Logistics & Shipping,3.85,0.54,2.39,0.0479,0.844
-VND-0170,Hooper PLC,Chemical Materials,3.89,0.556,1.58,0.112,0.803
-VND-0171,Meadows PLC,Office Furniture,4.77,0.909,0.19,0.0149,0.917
-VND-0172,"Alvarado, Miller and Patterson",Janitorial Services,4.91,0.965,0.2,0.0473,0.82
-VND-0173,White-Green,IT Hardware,4.71,0.885,0.17,0.0289,0.856
-VND-0174,Lewis-Murphy,Catering Services,4.38,0.754,0.48,0.0114,0.903
-VND-0175,Ramirez-Bean,Catering Services,4.11,0.644,2.17,0.0167,0.668
-VND-0176,King-Miller,Logistics & Shipping,4.42,0.766,0.09,0.0332,0.784
-VND-0177,Curry Inc,Security Services,3.83,0.532,15.08,0.0379,0.783
-VND-0178,Walker-Jones,Office Furniture,4.07,0.627,2.98,0.0835,0.708
-VND-0179,"Williams, Johnson and Wright",Security Services,4.34,0.736,0.98,0.0353,0.982
-VND-0180,Howell and Sons,Software Licenses,4.79,0.915,1.99,0.0108,0.933
-VND-0181,Wells Inc,Marketing & Print,4.92,0.969,0.04,0.0055,0.935
-VND-0182,"Gould, Marshall and Scott",Logistics & Shipping,4.47,0.787,2.75,0.0136,0.949
-VND-0183,Jackson-Lawson,Marketing & Print,4.0,0.601,0.5,0.0184,0.785
-VND-0184,"Higgins, Strickland and Martin",Security Services,4.58,0.833,0.87,0.0335,0.969
-VND-0185,Rodriguez-Johnson,HVAC & Maintenance,4.24,0.696,3.61,0.0458,0.632
-VND-0186,Johnston-Odonnell,Office Supplies,4.33,0.731,0.67,0.0759,0.876
-VND-0187,Sanders-Espinoza,Office Furniture,4.04,0.616,6.18,0.0425,0.69
-VND-0188,Vargas Ltd,Raw Metals,4.88,0.953,0.32,0.0098,0.985
-VND-0189,Garcia LLC,Office Furniture,4.53,0.814,0.53,0.0132,0.949
-VND-0190,"Burke, Martinez and Riggs",Security Services,4.53,0.81,1.01,0.0851,0.947
-VND-0191,Reed Group,Security Services,3.94,0.576,1.11,0.0283,0.76
-VND-0192,"Wood, Hunter and Peterson",IT Hardware,3.79,0.517,2.85,0.0905,0.807
-VND-0193,Short-Garcia,HVAC & Maintenance,4.18,0.671,3.96,0.0118,0.796
-VND-0194,Reid-Poole,Raw Metals,3.91,0.564,1.55,0.0916,0.552
-VND-0195,"Hernandez, Thompson and Boyd",Janitorial Services,4.04,0.615,3.46,0.0798,0.724
-VND-0196,"Nelson, Morton and Medina",IT Hardware,4.62,0.847,0.84,0.0232,0.836
-VND-0197,Marshall-Petersen,Software Licenses,3.98,0.591,6.85,0.0658,0.64
-VND-0198,"Adams, Christian and Rivas",Raw Metals,4.33,0.731,5.54,0.0156,0.897
-VND-0199,Ramirez Group,Logistics & Shipping,4.38,0.753,1.63,0.0018,0.968
-VND-0200,Christensen PLC,Office Supplies,4.92,0.966,0.2,0.0576,0.981
-VND-0201,"Barnett, Rogers and Snyder",IT Hardware,4.63,0.854,0.17,0.0529,0.902
-VND-0202,White-Lewis,Office Supplies,4.28,0.712,2.69,0.0963,0.981
-VND-0203,Peterson-Beard,HVAC & Maintenance,4.31,0.725,0.23,0.1004,0.96
-VND-0204,"Beard, Peters and Black",Software Licenses,3.91,0.562,7.77,0.1,0.682
-VND-0205,Miller Ltd,Software Licenses,4.49,0.796,0.73,0.0053,0.834
-VND-0206,Freeman-Chang,Catering Services,4.75,0.901,0.0,0.0293,0.85
-VND-0207,"Alvarez, Joseph and West",Janitorial Services,4.42,0.769,4.09,0.0341,0.837
-VND-0208,Davis and Sons,Software Licenses,4.67,0.869,0.55,0.0203,0.863
-VND-0209,Holt-Torres,Security Services,3.93,0.57,0.58,0.057,0.647
-VND-0210,"Wood, Tran and Cooper",Office Furniture,4.89,0.957,0.13,0.0484,0.908
-VND-0211,"Pierce, Bell and Chavez",Office Furniture,3.77,0.507,3.76,0.0213,0.836
-VND-0212,King-Martinez,Marketing & Print,3.94,0.574,1.6,0.0097,0.849
-VND-0213,Stewart Ltd,Janitorial Services,4.38,0.751,1.58,0.0067,0.937
-VND-0214,"Tapia, Vaughn and Lee",Security Services,4.01,0.605,6.31,0.0229,0.567
-VND-0215,"Washington, Hardy and Bray",Office Furniture,3.8,0.518,2.15,0.067,0.523
-VND-0216,"Carlson, Hooper and Wall",Logistics & Shipping,4.72,0.888,0.47,0.0467,0.86
-VND-0217,Perez-White,Security Services,4.25,0.7,1.72,0.0161,0.795
-VND-0218,Erickson and Sons,HVAC & Maintenance,4.83,0.931,1.41,0.0319,0.818
-VND-0219,Williams-Brown,Chemical Materials,4.55,0.822,0.65,0.0024,0.789
-VND-0220,Terry-Martinez,Office Supplies,4.64,0.858,1.07,0.0025,0.805
-VND-0221,Garcia-Smith,Security Services,4.04,0.616,3.0,0.0022,0.536
-VND-0222,Harrison-Alexander,Catering Services,4.75,0.9,0.14,0.0574,0.81
-VND-0223,Sheppard LLC,Catering Services,3.87,0.55,0.88,0.0838,0.799
-VND-0224,Wilson-Jones,Office Supplies,4.79,0.915,0.3,0.058,0.801
-VND-0225,Jones-Soto,Catering Services,4.12,0.647,5.61,0.0014,0.53
-VND-0226,Hernandez PLC,Logistics & Shipping,4.01,0.604,0.07,0.0203,0.704
-VND-0227,Miller-Wright,Chemical Materials,4.28,0.711,4.52,0.0843,0.835
-VND-0228,"Duran, Obrien and Gibbs",Marketing & Print,4.07,0.63,1.24,0.0647,0.594
-VND-0229,Rowe Group,Marketing & Print,4.53,0.812,0.69,0.0525,0.859
-VND-0230,Kerr-Evans,Raw Metals,4.12,0.647,7.32,0.0826,0.549
-VND-0231,"Branch, Torres and Oliver",Janitorial Services,4.84,0.934,0.31,0.0763,0.95
-VND-0232,"Choi, Garcia and Farmer",Security Services,4.28,0.713,0.05,0.0277,0.885
-VND-0233,"Clark, Guerrero and Moore",Janitorial Services,4.54,0.817,0.38,0.0132,0.959
-VND-0234,Arnold and Sons,Software Licenses,4.98,0.992,0.04,0.0138,0.818
-VND-0235,Ortiz Ltd,Office Supplies,3.77,0.509,8.44,0.014,0.702
-VND-0236,"Harrison, Johnson and Roberts",Office Supplies,4.09,0.637,2.05,0.071,0.79
-VND-0237,Warner-Gibson,Software Licenses,4.01,0.603,0.03,0.0153,0.815
-VND-0238,"Hall, Baker and Moody",Raw Metals,4.84,0.937,0.4,0.0511,0.916
-VND-0239,"Guerrero, Peck and Coleman",IT Hardware,3.97,0.588,7.09,0.0473,0.634
-VND-0240,"Walker, Hernandez and Baker",HVAC & Maintenance,4.4,0.759,0.08,0.0165,0.935
-VND-0241,Jones and Sons,Security Services,3.85,0.541,2.97,0.0286,0.636
-VND-0242,Larson-Holloway,Office Supplies,4.11,0.644,1.09,0.078,0.604
-VND-0243,Gonzales-Harrison,HVAC & Maintenance,4.46,0.783,0.98,0.0646,0.984
-VND-0244,Lyons-Bender,Office Supplies,4.67,0.866,0.23,0.0028,0.816
-VND-0245,"Fernandez, Kim and George",IT Hardware,4.49,0.798,0.07,0.0477,0.899
-VND-0246,Navarro-Munoz,Software Licenses,4.17,0.667,3.43,0.0114,0.526
-VND-0247,Davis Ltd,Catering Services,4.66,0.864,0.65,0.0626,0.859
-VND-0248,"Matthews, Smith and Hubbard",Marketing & Print,4.06,0.623,4.51,0.0881,0.743
-VND-0249,Johnston-Hines,IT Hardware,4.09,0.636,2.27,0.0394,0.532
-VND-0250,Ruiz Ltd,Office Supplies,4.9,0.959,0.04,0.0792,0.862
-VND-0251,Moon-White,Software Licenses,3.98,0.593,2.23,0.0983,0.756
-VND-0252,"Graham, Olsen and Costa",IT Hardware,4.76,0.903,0.73,0.0607,0.962
-VND-0253,Bailey-Cook,Raw Metals,4.06,0.625,1.77,0.0243,0.846
-VND-0254,"Garcia, Martin and Jenkins",Software Licenses,4.93,0.972,0.01,0.058,0.981
-VND-0255,Roberts-Landry,Security Services,3.98,0.59,2.41,0.1032,0.512
-VND-0256,"Johnson, Miller and King",Office Supplies,4.62,0.849,0.37,0.0851,0.993
-VND-0257,Cordova Group,Logistics & Shipping,4.93,0.972,0.13,0.0709,0.961
-VND-0258,"Bryan, Smith and Booth",Marketing & Print,4.15,0.66,4.21,0.004,0.709
-VND-0259,Gutierrez-Lopez,Janitorial Services,4.04,0.615,0.35,0.0085,0.744
-VND-0260,Dean-Jimenez,Office Supplies,4.17,0.67,2.98,0.007,0.61
-VND-0261,Wolf-Harris,Security Services,4.42,0.77,2.52,0.0314,0.906
-VND-0262,"Anderson, Roberts and Gilmore",Office Furniture,4.86,0.943,0.38,0.0197,0.756
-VND-0263,Martinez-Dudley,Catering Services,4.84,0.935,0.01,0.0745,0.882
-VND-0264,"Lloyd, Mckinney and Collins",HVAC & Maintenance,4.92,0.97,0.34,0.0823,0.838
-VND-0265,Tran Inc,HVAC & Maintenance,4.71,0.884,0.42,0.0429,0.907
-VND-0266,Gay Inc,Janitorial Services,4.84,0.937,1.83,0.0653,0.854
-VND-0267,Valentine-Holland,Office Supplies,4.28,0.711,2.71,0.0246,0.778
-VND-0268,Jimenez Ltd,Janitorial Services,4.19,0.677,0.76,0.0314,0.582
-VND-0269,Hicks-Hill,Chemical Materials,3.8,0.521,0.06,0.1169,0.65
-VND-0270,Baird-Sanchez,Office Supplies,4.23,0.692,2.45,0.0228,0.832
-VND-0271,"Thomas, Lee and Greene",Software Licenses,4.73,0.893,0.07,0.037,0.97
-VND-0272,"Suarez, Shields and Hill",Software Licenses,4.93,0.972,0.12,0.0504,0.792
-VND-0273,Morgan-French,Marketing & Print,4.99,0.996,0.01,0.0758,0.912
-VND-0274,Hoover-Campbell,Chemical Materials,4.51,0.804,0.99,0.0221,0.794
-VND-0275,Monroe-Carpenter,Raw Metals,4.03,0.61,0.56,0.0867,0.623
-VND-0276,"Burns, Hernandez and Ryan",Chemical Materials,3.82,0.529,11.47,0.104,0.825
-VND-0277,Cook-Hines,Chemical Materials,4.99,0.997,0.0,0.0318,0.94
-VND-0278,Gibson-Morris,Janitorial Services,4.62,0.848,0.18,0.0752,0.806
-VND-0279,Pollard and Sons,Catering Services,4.03,0.612,2.09,0.0658,0.703
-VND-0280,"Reyes, Chase and Jenkins",IT Hardware,3.86,0.546,6.68,0.0309,0.545
-VND-0281,Garner-Thornton,Marketing & Print,4.86,0.944,1.21,0.0728,0.952
-VND-0282,Hughes-Alvarado,Marketing & Print,4.57,0.828,0.97,0.0082,0.852
-VND-0283,"Pollard, Simpson and Johnson",Marketing & Print,4.22,0.686,0.66,0.076,0.674
-VND-0284,"Sanford, Rivera and Garcia",Software Licenses,3.85,0.541,0.8,0.0798,0.527
-VND-0285,Garcia-Lozano,IT Hardware,4.81,0.926,0.36,0.0413,0.898
-VND-0286,Bowen Group,Chemical Materials,4.78,0.912,0.26,0.059,0.891
-VND-0287,"Booker, Jones and Harrington",Catering Services,4.08,0.634,5.41,0.0872,0.73
-VND-0288,Morgan-Schwartz,Raw Metals,4.81,0.925,1.06,0.0609,0.959
-VND-0289,"Miller, Murphy and Craig",Software Licenses,4.62,0.849,1.21,0.057,0.938
-VND-0290,"James, Stewart and Higgins",Office Supplies,3.95,0.579,6.27,0.0991,0.51
-VND-0291,Brennan-Johnson,Office Supplies,4.78,0.913,0.08,0.0291,0.936
-VND-0292,Young Ltd,Office Supplies,3.95,0.58,5.0,0.0945,0.678
-VND-0293,Bright-Francis,Security Services,3.76,0.503,1.18,0.0739,0.843
-VND-0294,Good-Hodges,Janitorial Services,4.54,0.816,0.39,0.0601,0.885
-VND-0295,"Brennan, Wallace and Benson",Office Furniture,4.72,0.89,0.09,0.0676,0.885
-VND-0296,Williams Inc,Chemical Materials,4.95,0.981,0.05,0.0515,0.983
-VND-0297,Howard-Jordan,Office Furniture,3.88,0.551,8.7,0.0797,0.524
-VND-0298,Schmidt PLC,Logistics & Shipping,4.13,0.65,3.01,0.0073,0.704
-VND-0299,"Sparks, Jackson and Miller",Janitorial Services,4.18,0.673,2.22,0.0049,0.805
-VND-0300,Harvey-Allen,Office Supplies,4.97,0.987,0.32,0.0608,0.783
-VND-0301,"Thomas, Murray and King",Software Licenses,4.7,0.879,0.02,0.002,0.831
-VND-0302,Estrada-Nolan,Janitorial Services,4.36,0.744,2.63,0.0686,0.861
-VND-0303,Santana-Byrd,Security Services,4.09,0.637,14.88,0.0465,0.658
-VND-0304,Jones LLC,Software Licenses,3.95,0.582,4.64,0.0787,0.577
-VND-0305,"Evans, Hayden and Vaughn",IT Hardware,3.85,0.541,3.66,0.0764,0.596
-VND-0306,Bruce-Gonzalez,Marketing & Print,4.94,0.975,0.03,0.0354,0.986
-VND-0307,Castaneda-Rodriguez,Security Services,4.27,0.71,2.07,0.041,0.819
-VND-0308,Armstrong-Andrews,IT Hardware,4.98,0.992,0.03,0.0721,0.807
-VND-0309,"Phillips, Spence and Barrett",Software Licenses,4.02,0.607,0.09,0.0726,0.629
-VND-0310,Smith-Grimes,Office Supplies,4.83,0.932,0.3,0.0827,0.796
-VND-0311,"Beltran, Lozano and Mcgee",Office Furniture,4.84,0.934,0.69,0.0657,0.961
-VND-0312,Parsons-Hall,Chemical Materials,4.7,0.881,0.82,0.0118,0.758
-VND-0313,Robinson-Lee,Janitorial Services,4.9,0.96,0.27,0.0662,0.87
-VND-0314,Byrd-Le,Janitorial Services,3.9,0.559,0.41,0.0791,0.651
-VND-0315,"Becker, Taylor and Davis",Office Supplies,4.0,0.6,1.89,0.0072,0.704
-VND-0316,"Lucas, Parker and Alexander",Chemical Materials,4.09,0.634,4.09,0.0339,0.659
-VND-0317,"Diaz, Anderson and Browning",IT Hardware,3.76,0.506,0.26,0.0469,0.668
-VND-0318,Burgess-Thompson,Office Furniture,4.5,0.8,0.48,0.0667,0.965
-VND-0319,Buchanan LLC,Chemical Materials,4.72,0.89,0.03,0.0427,0.776
-VND-0320,"Shaw, Nelson and Martin",IT Hardware,4.05,0.621,11.45,0.0157,0.675
-VND-0321,Coffey-Phillips,Chemical Materials,4.52,0.809,1.62,0.0533,0.752
-VND-0322,Brock-Mcdonald,Logistics & Shipping,4.16,0.663,1.72,0.0094,0.623
-VND-0323,Taylor and Sons,Janitorial Services,3.79,0.517,0.28,0.0471,0.546
-VND-0324,"Ramsey, Whitney and Coffey",Logistics & Shipping,4.46,0.784,1.77,0.0779,0.8
-VND-0325,"Diaz, Gibbs and Smith",Chemical Materials,3.96,0.584,0.32,0.0721,0.747
-VND-0326,"Martinez, Richardson and Curry",Catering Services,3.79,0.516,9.33,0.0062,0.689
-VND-0327,Richards-Carson,Catering Services,4.64,0.855,2.09,0.0654,0.95
-VND-0328,Rodriguez-Hall,Security Services,4.17,0.67,3.9,0.0085,0.813
-VND-0329,Harvey PLC,Marketing & Print,4.43,0.774,2.69,0.0444,0.911
-VND-0330,Herman-Walker,Catering Services,4.41,0.763,2.18,0.0081,0.765
-VND-0331,Reid Group,Janitorial Services,4.06,0.624,0.46,0.096,0.577
-VND-0332,"Turner, Ortiz and Taylor",Office Furniture,4.97,0.988,0.03,0.0147,0.947
-VND-0333,Torres Group,Office Supplies,4.57,0.829,0.82,0.052,0.93
-VND-0334,Davis PLC,Logistics & Shipping,4.04,0.614,15.15,0.1081,0.728
-VND-0335,Price LLC,Office Supplies,4.0,0.6,3.19,0.0081,0.511
-VND-0336,"Avery, Horton and Fernandez",IT Hardware,4.07,0.629,1.61,0.0952,0.755
-VND-0337,"Newton, Moore and Perry",HVAC & Maintenance,4.68,0.871,0.5,0.0312,0.843
-VND-0338,Bass PLC,Catering Services,4.98,0.994,0.0,0.0698,0.895
-VND-0339,Crosby-Ramirez,Security Services,4.3,0.719,2.54,0.0499,0.968
-VND-0340,"Wood, Ramos and Sampson",IT Hardware,4.88,0.95,0.19,0.0232,0.898
-VND-0341,Garcia-Jennings,Catering Services,4.89,0.956,0.07,0.052,0.908
-VND-0342,"Winters, Newman and Brown",Raw Metals,4.67,0.867,0.13,0.0649,0.977
-VND-0343,Lopez-Martinez,IT Hardware,3.97,0.59,0.78,0.1096,0.563
-VND-0344,Davis-Lewis,IT Hardware,4.82,0.927,0.35,0.0212,0.968
-VND-0345,"Harper, Smith and Buchanan",HVAC & Maintenance,4.31,0.723,1.4,0.0367,0.898
-VND-0346,Zhang PLC,Janitorial Services,3.95,0.582,1.45,0.11,0.59
-VND-0347,Jones PLC,Security Services,4.57,0.828,0.47,0.0725,0.783
-VND-0348,Willis and Sons,Security Services,4.96,0.985,0.06,0.0192,0.768
-VND-0349,Schroeder-Kramer,Office Furniture,3.96,0.585,2.13,0.0382,0.79
-VND-0350,"Smith, Garrison and Thomas",IT Hardware,4.29,0.715,0.57,0.0634,0.927
-VND-0351,Fernandez and Sons,Security Services,3.96,0.584,0.53,0.0042,0.758
-VND-0352,Guerrero Inc,Software Licenses,4.58,0.832,0.76,0.0789,0.951
-VND-0353,Smith and Sons,Office Furniture,4.48,0.793,2.94,0.0199,0.778
-VND-0354,"Morris, Thompson and Williams",Software Licenses,4.09,0.635,0.15,0.058,0.828
-VND-0355,"Fisher, Wilson and Brown",HVAC & Maintenance,3.8,0.52,0.44,0.0536,0.827
-VND-0356,Strickland-Palmer,Software Licenses,4.15,0.658,1.69,0.0045,0.552
-VND-0357,Hayes and Sons,Marketing & Print,4.98,0.993,0.16,0.0004,0.988
-VND-0358,"Williams, Logan and Camacho",Office Supplies,4.55,0.82,2.56,0.0429,0.879
-VND-0359,"Turner, Schneider and Johnson",Chemical Materials,4.36,0.744,1.97,0.014,0.757
-VND-0360,Boone-Simmons,Software Licenses,4.13,0.654,2.95,0.0217,0.736
-VND-0361,Henry Group,HVAC & Maintenance,4.96,0.985,0.01,0.0546,0.861
-VND-0362,Lam LLC,Office Supplies,4.84,0.934,0.09,0.0591,0.96
-VND-0363,"Hernandez, Martinez and Weber",HVAC & Maintenance,4.93,0.972,0.22,0.0409,0.904
-VND-0364,"Kelley, Nguyen and Vang",HVAC & Maintenance,4.84,0.934,0.39,0.0026,0.983
-VND-0365,"Phillips, Wagner and Jordan",IT Hardware,4.61,0.845,1.23,0.0199,0.915
-VND-0366,"Wilson, Pena and Rich",HVAC & Maintenance,4.24,0.697,2.23,0.0111,0.73
-VND-0367,"Le, Lewis and Hayes",Software Licenses,5.0,1.0,0.0,0.0782,0.852
-VND-0368,Gutierrez Group,Chemical Materials,4.84,0.935,0.69,0.0483,0.935
-VND-0369,Perry-Davis,Marketing & Print,4.85,0.939,0.22,0.0278,0.917
-VND-0370,Edwards-Scott,HVAC & Maintenance,4.76,0.904,0.97,0.07,0.859
-VND-0371,Mcdaniel Group,HVAC & Maintenance,4.77,0.909,0.08,0.0475,0.751
-VND-0372,Davis Inc,Security Services,4.16,0.662,1.08,0.0424,0.743
-VND-0373,Reynolds Ltd,Raw Metals,4.24,0.694,1.27,0.0248,0.631
-VND-0374,"Watson, Anderson and Brown",Logistics & Shipping,4.03,0.614,0.21,0.0669,0.734
-VND-0375,"Hoffman, Santiago and Jenkins",Office Supplies,4.52,0.81,0.83,0.0362,0.966
-VND-0376,"Pugh, Henderson and Moon",Marketing & Print,4.4,0.76,1.1,0.0025,0.835
-VND-0377,Schmitt PLC,Catering Services,4.23,0.69,1.1,0.0608,0.687
-VND-0378,Bell-Lane,Raw Metals,4.51,0.804,1.99,0.0778,0.93
-VND-0379,Moore Group,Office Supplies,4.94,0.978,0.0,0.016,0.752
-VND-0380,Boone LLC,Logistics & Shipping,4.56,0.824,2.82,0.0229,0.982
-VND-0381,"Richardson, Farmer and Andrews",Chemical Materials,3.83,0.53,8.96,0.0413,0.535
-VND-0382,Bruce-Villegas,Office Furniture,4.36,0.743,0.53,0.0286,0.827
-VND-0383,"Austin, Day and Johnson",Marketing & Print,4.75,0.902,0.53,0.0274,0.903
-VND-0384,"Gallegos, Adams and White",Marketing & Print,4.65,0.858,0.32,0.0378,0.78
-VND-0385,"Farmer, Dorsey and Bell",Logistics & Shipping,3.98,0.591,3.28,0.0205,0.684
-VND-0386,Kane PLC,Janitorial Services,4.64,0.855,0.12,0.052,0.814
-VND-0387,"Morales, Thomas and Schultz",Raw Metals,4.95,0.981,0.09,0.0657,0.888
-VND-0388,Davis PLC,Software Licenses,3.8,0.522,3.36,0.1125,0.711
-VND-0389,Bennett Group,IT Hardware,4.77,0.91,1.36,0.0199,0.803
-VND-0390,Moore-Collins,Janitorial Services,4.51,0.805,0.72,0.0803,0.975
-VND-0391,Frank-Bradley,HVAC & Maintenance,4.19,0.677,0.61,0.0826,0.596
-VND-0392,Ware and Sons,HVAC & Maintenance,4.78,0.911,0.34,0.0581,0.774
-VND-0393,Webster Inc,Software Licenses,4.53,0.812,0.79,0.0558,0.792
-VND-0394,"Miller, Ramos and Coleman",Software Licenses,4.67,0.868,1.83,0.0196,0.774
-VND-0395,"Ramos, Nelson and Fischer",Security Services,3.78,0.512,3.51,0.0723,0.691
-VND-0396,Reed Inc,Office Supplies,4.04,0.616,1.33,0.0658,0.674
-VND-0397,Gregory-Watkins,Security Services,4.98,0.994,0.01,0.056,0.851
-VND-0398,"Estrada, Williams and Foster",Logistics & Shipping,4.29,0.714,2.53,0.0712,0.998
-VND-0399,"Brown, Harris and Dougherty",Office Furniture,3.91,0.564,0.34,0.0832,0.702
-VND-0400,Duran LLC,Raw Metals,4.09,0.637,0.21,0.0093,0.813
-VND-0401,Wilson-Jimenez,Software Licenses,3.99,0.596,1.1,0.0255,0.624
-VND-0402,Thompson-James,Office Supplies,3.84,0.535,2.38,0.0079,0.78
-VND-0403,"Hall, Hansen and Barnett",Raw Metals,4.04,0.617,2.08,0.0974,0.728
-VND-0404,Jones-Hensley,Logistics & Shipping,4.42,0.766,0.64,0.0329,0.917
-VND-0405,Graham Group,Office Furniture,4.99,0.997,0.02,0.0448,0.933
-VND-0406,Atkins PLC,Janitorial Services,4.33,0.733,0.12,0.057,0.989
-VND-0407,Berry-Mckinney,Security Services,3.97,0.588,3.38,0.0227,0.688
-VND-0408,Roberts-Sullivan,Catering Services,3.87,0.548,1.89,0.0878,0.622
-VND-0409,Jackson-Meza,Logistics & Shipping,4.58,0.832,1.86,0.0866,0.809
-VND-0410,Collier-Gillespie,HVAC & Maintenance,4.25,0.7,0.35,0.1032,0.824
-VND-0411,Kim Inc,Marketing & Print,4.42,0.77,2.97,0.0513,0.906
-VND-0412,Graham Group,Security Services,3.86,0.545,4.49,0.0149,0.789
-VND-0413,"Miller, Harrell and Reese",IT Hardware,4.73,0.891,0.94,0.0032,0.826
-VND-0414,Cook and Sons,Marketing & Print,4.08,0.632,1.15,0.0096,0.828
-VND-0415,Dixon Inc,Security Services,4.44,0.777,0.57,0.0388,0.862
-VND-0416,"Hicks, Bullock and Bailey",Logistics & Shipping,4.5,0.8,1.01,0.0882,0.874
-VND-0417,"Mullen, Brewer and Hernandez",Marketing & Print,4.99,0.996,0.05,0.0167,0.983
-VND-0418,Thomas and Sons,Software Licenses,3.9,0.558,5.26,0.0439,0.807
-VND-0419,Morrison Ltd,Office Furniture,4.84,0.934,0.76,0.0674,0.826
-VND-0420,Thompson Ltd,Logistics & Shipping,3.85,0.54,1.66,0.0203,0.743
-VND-0421,Marshall-Elliott,Software Licenses,4.18,0.673,8.5,0.068,0.788
-VND-0422,"Cole, Glass and Cunningham",Software Licenses,3.92,0.566,6.01,0.1058,0.67
-VND-0423,"Downs, Morris and Maddox",Catering Services,4.51,0.803,1.99,0.0167,0.876
-VND-0424,Hernandez-Jones,Security Services,4.25,0.699,0.33,0.0382,0.524
-VND-0425,Welch-Hogan,Office Furniture,3.78,0.513,0.5,0.1146,0.692
-VND-0426,"Brown, Romero and Collins",Logistics & Shipping,4.96,0.983,0.07,0.0254,0.877
-VND-0427,Johnson-Wood,Logistics & Shipping,4.3,0.72,0.22,0.0656,0.804
-VND-0428,Jones-Lin,HVAC & Maintenance,4.52,0.81,1.4,0.0145,0.765
-VND-0429,Gilbert PLC,Office Supplies,4.73,0.89,0.47,0.0052,0.999
-VND-0430,Ford-Spencer,Catering Services,3.82,0.529,3.92,0.1158,0.584
-VND-0431,"Huang, Cole and Pacheco",Raw Metals,3.93,0.571,0.39,0.0347,0.535
-VND-0432,"Lopez, Jacobs and Mason",Office Supplies,4.62,0.846,0.07,0.047,0.999
-VND-0433,Hayes LLC,Marketing & Print,4.77,0.907,0.62,0.0268,0.906
-VND-0434,"Miller, Lucas and Williams",Marketing & Print,4.41,0.764,0.92,0.0129,0.972
-VND-0435,"Kim, Gonzales and Mills",Logistics & Shipping,4.31,0.725,0.42,0.0375,0.854
-VND-0436,Cox LLC,Security Services,4.78,0.914,0.8,0.0669,0.753
-VND-0437,Ortiz-Morgan,Janitorial Services,4.27,0.708,1.34,0.002,0.815
-VND-0438,"Williams, Mccoy and Cook",Logistics & Shipping,4.7,0.88,0.12,0.048,0.804
-VND-0439,Davis-Gregory,IT Hardware,3.77,0.506,0.95,0.1166,0.781
-VND-0440,King-York,Software Licenses,4.95,0.98,0.09,0.009,0.887
-VND-0441,"Marks, Cook and Aguilar",Marketing & Print,4.32,0.727,3.55,0.01,0.872
-VND-0442,Rangel LLC,Chemical Materials,3.94,0.575,1.17,0.0841,0.667
-VND-0443,"Hale, Myers and Larson",Logistics & Shipping,4.22,0.688,1.1,0.0482,0.775
-VND-0444,Collins Group,IT Hardware,4.87,0.946,1.17,0.0663,0.829
-VND-0445,"Conner, Li and Santiago",IT Hardware,4.61,0.844,0.63,0.0236,0.96
-VND-0446,"Osborn, Gaines and Davis",Raw Metals,3.8,0.519,7.81,0.0547,0.723
-VND-0447,"Henderson, Cox and Cox",Office Furniture,4.57,0.83,2.69,0.0596,0.903
-VND-0448,Bean LLC,Marketing & Print,3.83,0.533,2.39,0.0176,0.758
-VND-0449,Lee-Cooke,Logistics & Shipping,4.39,0.756,1.95,0.0041,0.771
-VND-0450,Jones Inc,Office Furniture,4.65,0.858,0.07,0.0065,0.753
-VND-0451,"Wise, Conley and Stephenson",Catering Services,4.95,0.978,0.2,0.0289,0.824
-VND-0452,Stanley PLC,Janitorial Services,4.19,0.675,3.39,0.0701,0.565
-VND-0453,Harper and Sons,Security Services,3.97,0.587,0.3,0.0746,0.768
-VND-0454,White Ltd,Catering Services,4.08,0.633,0.05,0.009,0.839
-VND-0455,"Lamb, Martin and Kim",Chemical Materials,4.12,0.648,3.62,0.0676,0.634
-VND-0456,Diaz-Ball,Security Services,4.01,0.603,0.36,0.0687,0.771
-VND-0457,Bishop-Goodwin,IT Hardware,4.55,0.822,0.94,0.004,0.992
-VND-0458,Young-Allen,Software Licenses,4.75,0.899,0.24,0.0863,0.9
-VND-0459,Mckee-Lee,Software Licenses,4.48,0.791,2.01,0.0785,0.914
-VND-0460,"Valentine, Joyce and Murray",Catering Services,3.91,0.564,1.26,0.1066,0.579
-VND-0461,Strickland-Shaw,Office Furniture,4.22,0.686,1.24,0.0462,0.715
-VND-0462,Burch-Montoya,Security Services,4.93,0.972,0.05,0.01,0.799
-VND-0463,"Taylor, Wright and Davidson",IT Hardware,4.86,0.943,0.41,0.0242,0.954
-VND-0464,Spencer-Garcia,Raw Metals,4.83,0.931,0.91,0.0786,0.813
-VND-0465,"Rosales, Mitchell and Hines",HVAC & Maintenance,4.69,0.878,0.53,0.0756,0.932
-VND-0466,Cole-Palmer,Security Services,4.72,0.888,0.84,0.0158,0.886
-VND-0467,Davis-Lozano,Office Furniture,4.98,0.992,0.15,0.0035,0.791
-VND-0468,Wilkerson-Arias,Chemical Materials,3.91,0.566,3.93,0.0938,0.575
-VND-0469,Brown-Shaw,Office Furniture,4.38,0.753,3.18,0.0731,0.886
-VND-0470,Hughes Inc,IT Hardware,4.49,0.795,1.02,0.0287,0.891
-VND-0471,Walker-Flores,Logistics & Shipping,4.61,0.844,2.25,0.0588,0.94
-VND-0472,Combs Ltd,Raw Metals,3.95,0.58,1.82,0.0011,0.586
-VND-0473,Moody-Taylor,IT Hardware,4.66,0.863,4.6,0.009,0.85
-VND-0474,Lowery-Kennedy,Raw Metals,4.75,0.9,0.16,0.0488,0.933
-VND-0475,Blake Group,Office Supplies,4.52,0.808,0.28,0.0339,0.946
-VND-0476,Gilbert-Bullock,Marketing & Print,4.44,0.777,0.01,0.0744,0.759
-VND-0477,Scott and Sons,Office Supplies,4.68,0.873,0.2,0.0864,0.842
-VND-0478,"Bentley, Lynch and Henderson",Marketing & Print,4.16,0.663,0.38,0.0327,0.807
-VND-0479,Young-Martinez,Software Licenses,5.0,0.998,0.01,0.036,0.931
-VND-0480,Barnes PLC,Raw Metals,4.86,0.943,0.36,0.0331,0.853
-VND-0481,Brown-Copeland,Security Services,4.62,0.848,0.0,0.0571,0.839
-VND-0482,Carlson-Smith,Chemical Materials,4.74,0.897,0.07,0.0519,0.87
-VND-0483,"Andrews, Higgins and Carter",HVAC & Maintenance,4.55,0.821,0.08,0.0547,0.89
-VND-0484,Mendez and Sons,Catering Services,4.45,0.78,1.42,0.066,0.951
-VND-0485,"Butler, Beck and Miller",Office Furniture,4.09,0.635,4.46,0.0544,0.527
-VND-0486,Jones-Fox,Office Supplies,3.82,0.529,1.34,0.0923,0.748
-VND-0487,"Hartman, Romero and Smith",Office Furniture,4.74,0.894,0.54,0.0389,0.787
-VND-0488,Williams-Hughes,Office Furniture,4.16,0.664,1.34,0.0095,0.577
-VND-0489,King-Smith,Chemical Materials,4.5,0.799,1.87,0.0959,0.983
-VND-0490,Cooper Ltd,IT Hardware,4.55,0.821,0.68,0.06,0.946
-VND-0491,"Fuller, Ingram and Moss",Office Furniture,3.9,0.559,1.63,0.0968,0.634
-VND-0492,Anderson-Bell,Catering Services,4.46,0.786,1.33,0.0179,0.841
-VND-0493,Li-Thompson,Raw Metals,4.17,0.667,0.06,0.0026,0.791
-VND-0494,"Marshall, Dominguez and Welch",Chemical Materials,4.09,0.637,1.86,0.0326,0.829
-VND-0495,Brown Group,Marketing & Print,4.07,0.63,1.46,0.0957,0.795
-VND-0496,Carter Inc,Catering Services,3.98,0.593,4.62,0.0516,0.669
-VND-0497,Blackwell LLC,Office Supplies,3.92,0.567,0.25,0.0835,0.674
-VND-0498,Robertson-Hays,Logistics & Shipping,4.3,0.718,2.58,0.0785,0.79
-VND-0499,"Kennedy, Johnson and Lucas",Office Furniture,4.51,0.805,0.2,0.0718,0.914
-VND-0500,Kelly-Norman,Catering Services,4.95,0.978,0.01,0.0047,0.821
+vendor_id,name,domain,historical_rating,reliability_score,delivery_score,avg_delay_days,defect_rate,completed_contracts,cancellation_rate,verified
+VND-0001,"Rodriguez, Figueroa and Sanchez",Software & Cloud Services,4.22,0.687,73.5,8.0,0.0188,27,0.026,1
+VND-0002,Doyle Ltd,Construction & Infrastructure,4.66,0.866,77.9,6.6,0.008,67,0.013,1
+VND-0003,"Mcclain, Miller and Henderson",IT Hardware,3.95,0.578,50.0,15.0,0.0253,231,0.006,0
+VND-0004,Davis and Sons,Construction & Infrastructure,3.82,0.529,52.5,14.2,0.0283,273,0.03,0
+VND-0005,"Guzman, Hoffman and Baldwin",Raw Materials & Metals,4.5,0.801,74.5,7.6,0.012,294,0.012,1
+VND-0006,"Gardner, Robinson and Lawrence",Software & Cloud Services,3.78,0.51,56.0,13.2,0.0294,18,0.037,0
+VND-0007,Blake and Sons,Software & Cloud Services,4.79,0.916,76.8,7.0,0.005,189,0.005,1
+VND-0008,"Henderson, Ramirez and Lewis",Raw Materials & Metals,3.98,0.591,54.1,13.8,0.0245,187,0.009,0
+VND-0009,Garcia-James,Manufacturing & Heavy Machinery,4.13,0.652,56.5,13.0,0.0209,191,0.023,1
+VND-0010,Abbott-Munoz,Raw Materials & Metals,4.29,0.716,56.6,13.0,0.017,250,0.018,1
+VND-0011,Blair PLC,Construction & Infrastructure,4.51,0.806,60.5,11.8,0.0116,165,0.02,1
+VND-0012,Dudley Group,Healthcare & Medical Supplies,4.12,0.646,60.9,11.7,0.0212,200,0.023,0
+VND-0013,Arnold Ltd,IT Hardware,4.32,0.728,68.2,9.5,0.0163,131,0.024,1
+VND-0014,"Mcclure, Ward and Lee",Raw Materials & Metals,4.0,0.6,59.5,12.2,0.024,66,0.018,0
+VND-0015,Williams and Sons,Logistics & Freight,4.49,0.796,63.2,11.0,0.0122,201,0.006,1
+VND-0016,Galloway-Wyatt,Healthcare & Medical Supplies,4.51,0.804,62.3,11.3,0.0118,151,0.018,1
+VND-0017,James Group,Software & Cloud Services,3.83,0.533,58.4,12.5,0.028,102,0.027,0
+VND-0018,"Flowers, Martin and Kelly",Healthcare & Medical Supplies,4.96,0.983,93.5,2.0,0.001,209,0.003,1
+VND-0019,"Adams, Zuniga and Wong",Manufacturing & Heavy Machinery,4.13,0.652,54.4,13.7,0.0209,127,0.026,1
+VND-0020,"Reid, Ferguson and Sanchez",IT Hardware,4.61,0.842,77.4,6.8,0.0095,43,0.007,1
+VND-0021,Gray-Mayo,Software & Cloud Services,3.9,0.561,55.4,13.4,0.0263,220,0.015,0
+VND-0022,"Watts, Robinson and Nguyen",Raw Materials & Metals,3.79,0.517,59.0,12.3,0.029,176,0.015,0
+VND-0023,Perez Inc,Software & Cloud Services,4.07,0.629,60.1,12.0,0.0222,249,0.009,0
+VND-0024,Morales-Jones,Construction & Infrastructure,4.14,0.656,58.3,12.5,0.0206,290,0.013,1
+VND-0025,"Walter, Edwards and Rios",Software & Cloud Services,4.43,0.773,62.6,11.2,0.0136,219,0.012,1
+VND-0026,Wilkerson-Day,Manufacturing & Heavy Machinery,4.96,0.985,96.2,1.1,0.001,61,0.007,1
+VND-0027,Baker and Sons,Raw Materials & Metals,4.92,0.97,94.1,1.8,0.0018,96,0.009,1
+VND-0028,"Hoffman, Baker and Richards",Raw Materials & Metals,4.5,0.799,83.3,5.0,0.0121,212,0.011,1
+VND-0029,"Ross, Robinson and Bright",IT Hardware,3.86,0.544,50.0,15.0,0.0273,298,0.039,0
+VND-0030,"Snyder, Campos and Callahan",Construction & Infrastructure,3.81,0.523,50.0,15.0,0.0286,73,0.033,0
+VND-0031,Burton Ltd,Raw Materials & Metals,4.24,0.694,61.6,11.5,0.0183,189,0.007,1
+VND-0032,Carlson-Cruz,Healthcare & Medical Supplies,4.79,0.914,75.0,7.5,0.0051,16,0.014,1
+VND-0033,"Ferrell, Rice and Maddox",Construction & Infrastructure,4.1,0.64,57.5,12.8,0.0216,271,0.029,0
+VND-0034,Frazier Inc,Construction & Infrastructure,3.93,0.57,62.3,11.3,0.0258,167,0.036,0
+VND-0035,"Dyer, Potter and Mack",Software & Cloud Services,3.84,0.537,59.1,12.3,0.0278,93,0.02,0
+VND-0036,Rodriguez-Graham,Construction & Infrastructure,4.72,0.886,72.5,8.2,0.0068,286,0.016,1
+VND-0037,Smith-Bowen,Logistics & Freight,3.76,0.503,50.3,14.9,0.0298,24,0.011,0
+VND-0038,"Baker, Mason and White",Software & Cloud Services,4.63,0.853,86.6,4.0,0.0088,172,0.007,1
+VND-0039,Harrell LLC,Raw Materials & Metals,4.71,0.886,72.7,8.2,0.0069,55,0.003,1
+VND-0040,"Romero, Gonzalez and Brooks",Software & Cloud Services,4.2,0.679,58.0,12.6,0.0192,287,0.027,1
+VND-0041,Ryan PLC,Construction & Infrastructure,4.83,0.932,88.6,3.4,0.0041,296,0.004,1
+VND-0042,George Group,Construction & Infrastructure,4.16,0.665,56.5,13.0,0.0201,231,0.034,1
+VND-0043,Rodriguez LLC,Raw Materials & Metals,4.14,0.655,59.6,12.1,0.0207,117,0.027,1
+VND-0044,Allen-Allen,Construction & Infrastructure,4.66,0.865,86.5,4.0,0.0081,206,0.01,1
+VND-0045,"Arroyo, Miller and Tucker",Logistics & Freight,4.86,0.944,83.5,5.0,0.0034,141,0.004,1
+VND-0046,Spence PLC,Software & Cloud Services,3.9,0.56,51.0,14.7,0.0264,298,0.014,0
+VND-0047,Anderson Group,IT Hardware,4.7,0.88,76.0,7.2,0.0072,45,0.006,1
+VND-0048,"Martin, Rose and Obrien",Logistics & Freight,4.71,0.885,83.3,5.0,0.0069,51,0.01,1
+VND-0049,Hickman Ltd,Healthcare & Medical Supplies,4.4,0.761,69.4,9.2,0.0143,124,0.016,1
+VND-0050,"Harris, Collins and Carney",Raw Materials & Metals,3.78,0.513,50.0,15.0,0.0292,257,0.016,0
+VND-0051,"Brooks, Lam and Hayes",Healthcare & Medical Supplies,3.79,0.516,53.7,13.9,0.0291,112,0.01,0
+VND-0052,Walker LLC,Manufacturing & Heavy Machinery,4.14,0.657,60.0,12.0,0.0206,231,0.017,1
+VND-0053,Chapman and Sons,Healthcare & Medical Supplies,4.88,0.954,81.0,5.7,0.0028,65,0.002,1
+VND-0054,"Robinson, Jones and Welch",Software & Cloud Services,4.26,0.705,68.2,9.5,0.0177,70,0.011,1
+VND-0055,Jones Inc,Logistics & Freight,4.04,0.614,50.0,15.0,0.0231,86,0.019,0
+VND-0056,Jones-Young,Manufacturing & Heavy Machinery,4.11,0.645,52.8,14.2,0.0213,53,0.019,0
+VND-0057,"Washington, Ryan and Cummings",Construction & Infrastructure,4.91,0.965,98.7,0.4,0.0021,65,0.002,1
+VND-0058,"Johnston, Sanchez and Kennedy",Manufacturing & Heavy Machinery,4.54,0.817,86.2,4.1,0.011,62,0.021,1
+VND-0059,Lee-Davis,Software & Cloud Services,4.75,0.902,70.4,8.9,0.0059,223,0.009,1
+VND-0060,Gomez-Jenkins,IT Hardware,4.87,0.946,89.7,3.1,0.0032,45,0.003,1
+VND-0061,"Brown, Valdez and Lucas",Manufacturing & Heavy Machinery,4.76,0.904,96.6,1.0,0.0058,150,0.015,1
+VND-0062,Powell LLC,Healthcare & Medical Supplies,4.15,0.659,52.8,14.2,0.0205,231,0.026,1
+VND-0063,Wright and Sons,Raw Materials & Metals,4.03,0.614,60.5,11.8,0.0232,299,0.027,0
+VND-0064,"West, Henderson and Ramirez",IT Hardware,4.77,0.909,87.9,3.6,0.0055,166,0.005,1
+VND-0065,Baxter Inc,Logistics & Freight,3.76,0.503,50.0,15.0,0.0298,292,0.009,0
+VND-0066,Morton-Chase,Manufacturing & Heavy Machinery,4.27,0.709,54.7,13.6,0.0175,259,0.018,1
+VND-0067,Williams PLC,IT Hardware,3.9,0.56,50.0,15.0,0.0264,44,0.042,0
+VND-0068,Novak and Sons,Healthcare & Medical Supplies,4.93,0.971,85.6,4.3,0.0017,50,0.007,1
+VND-0069,Russell Group,Construction & Infrastructure,4.4,0.759,77.3,6.8,0.0144,221,0.006,1
+VND-0070,Hancock Inc,Raw Materials & Metals,4.2,0.682,69.4,9.2,0.0191,35,0.022,1
+VND-0071,Gray Group,Logistics & Freight,4.95,0.981,82.4,5.3,0.0011,282,0.004,1
+VND-0072,House-Glover,Raw Materials & Metals,4.37,0.749,61.0,11.7,0.0151,175,0.009,1
+VND-0073,Henderson-Bernard,Manufacturing & Heavy Machinery,4.11,0.642,50.0,15.0,0.0215,168,0.019,0
+VND-0074,"Stanley, Tucker and Lee",Construction & Infrastructure,4.51,0.805,77.4,6.8,0.0117,19,0.012,1
+VND-0075,Novak PLC,Construction & Infrastructure,3.81,0.526,51.0,14.7,0.0285,52,0.027,0
+VND-0076,"Daniels, Adkins and Brown",Software & Cloud Services,4.89,0.954,76.1,7.2,0.0028,193,0.01,1
+VND-0077,"Woods, Calhoun and Schmidt",Construction & Infrastructure,3.93,0.572,51.9,14.4,0.0257,95,0.021,0
+VND-0078,Yu Inc,Manufacturing & Heavy Machinery,4.98,0.993,83.5,5.0,0.001,285,0.001,1
+VND-0079,Jones Inc,Software & Cloud Services,4.59,0.836,82.5,5.2,0.0098,68,0.02,1
+VND-0080,"Hensley, Powell and David",Software & Cloud Services,4.05,0.619,59.0,12.3,0.0229,69,0.03,0
+VND-0081,"Sanchez, Wheeler and Harvey",Software & Cloud Services,4.21,0.684,63.1,11.1,0.019,122,0.025,1
+VND-0082,Sandoval-Cunningham,Logistics & Freight,4.54,0.817,76.7,7.0,0.011,150,0.013,1
+VND-0083,Donovan-Harris,Raw Materials & Metals,3.86,0.545,60.4,11.9,0.0273,41,0.009,0
+VND-0084,"Edwards, Baker and Anderson",Manufacturing & Heavy Machinery,4.15,0.66,58.1,12.6,0.0204,37,0.005,1
+VND-0085,"Evans, Stewart and Walton",Raw Materials & Metals,3.8,0.52,50.0,15.0,0.0288,149,0.012,0
+VND-0086,Smith PLC,IT Hardware,4.6,0.839,64.6,10.6,0.0097,233,0.013,1
+VND-0087,"Ferrell, Jones and Lewis",Manufacturing & Heavy Machinery,4.39,0.756,58.6,12.4,0.0146,91,0.017,1
+VND-0088,Anderson-Bailey,Software & Cloud Services,4.56,0.823,65.4,10.4,0.0106,297,0.006,1
+VND-0089,Suarez LLC,Manufacturing & Heavy Machinery,4.61,0.845,69.1,9.3,0.0093,201,0.019,1
+VND-0090,Moore-Bass,Software & Cloud Services,4.92,0.968,81.4,5.6,0.0019,35,0.01,1
+VND-0091,"Turner, Riggs and Roman",Construction & Infrastructure,4.18,0.671,56.0,13.2,0.0198,67,0.015,1
+VND-0092,"Smith, Montoya and Evans",Healthcare & Medical Supplies,4.91,0.962,100.0,0.1,0.0023,223,0.011,1
+VND-0093,"Garcia, Humphrey and Baker",Manufacturing & Heavy Machinery,4.07,0.629,57.6,12.7,0.0223,136,0.033,0
+VND-0094,Newton and Sons,Healthcare & Medical Supplies,4.77,0.909,86.3,4.1,0.0055,226,0.002,1
+VND-0095,Campbell-Clark,Manufacturing & Heavy Machinery,4.41,0.765,68.1,9.6,0.0141,225,0.022,1
+VND-0096,Harris-Walters,Manufacturing & Heavy Machinery,3.87,0.547,59.8,12.1,0.0272,142,0.016,0
+VND-0097,Wagner-King,Manufacturing & Heavy Machinery,4.88,0.95,91.0,2.7,0.003,210,0.011,1
+VND-0098,Davis Group,Raw Materials & Metals,4.17,0.67,58.4,12.5,0.0198,117,0.029,1
+VND-0099,Williams-Cook,Healthcare & Medical Supplies,4.66,0.863,86.4,4.1,0.0082,131,0.006,1
+VND-0100,Walsh LLC,IT Hardware,4.86,0.944,89.3,3.2,0.0034,183,0.005,1
+VND-0101,Figueroa PLC,Construction & Infrastructure,4.55,0.821,69.1,9.3,0.0107,157,0.01,1
+VND-0102,"Patterson, Smith and Jones",IT Hardware,3.95,0.581,59.8,12.1,0.0252,289,0.017,0
+VND-0103,"Mckee, Gardner and Davenport",Logistics & Freight,4.51,0.803,57.6,12.7,0.0118,148,0.007,1
+VND-0104,"Tran, Jordan and Williams",Manufacturing & Heavy Machinery,3.88,0.551,50.0,15.0,0.027,237,0.019,0
+VND-0105,Nolan-Flynn,Construction & Infrastructure,3.76,0.503,50.0,15.0,0.0298,276,0.011,0
+VND-0106,Nolan and Sons,IT Hardware,4.44,0.774,71.6,8.5,0.0135,37,0.019,1
+VND-0107,"Wright, Garcia and Deleon",Healthcare & Medical Supplies,4.56,0.826,68.4,9.5,0.0104,290,0.016,1
+VND-0108,Dickson-Brady,IT Hardware,4.64,0.856,73.2,8.0,0.0086,115,0.009,1
+VND-0109,Hancock and Sons,Healthcare & Medical Supplies,4.16,0.663,70.2,8.9,0.0202,184,0.023,1
+VND-0110,Johnson-Doyle,Healthcare & Medical Supplies,4.56,0.825,86.5,4.0,0.0105,168,0.013,1
+VND-0111,Patton-Jenkins,Construction & Infrastructure,4.57,0.829,75.8,7.3,0.0103,221,0.016,1
+VND-0112,"Shields, Cochran and Adams",Raw Materials & Metals,3.87,0.547,50.0,15.0,0.0272,230,0.031,0
+VND-0113,"Rodriguez, Brennan and Garrison",Logistics & Freight,4.08,0.633,55.5,13.4,0.022,104,0.025,0
+VND-0114,Gonzalez Group,Software & Cloud Services,4.97,0.987,84.4,4.7,0.001,15,0.004,1
+VND-0115,Torres-Pope,Raw Materials & Metals,4.87,0.946,87.8,3.7,0.0032,179,0.007,1
+VND-0116,Walker Ltd,Manufacturing & Heavy Machinery,4.74,0.897,82.7,5.2,0.0062,276,0.009,1
+VND-0117,Ross LLC,Healthcare & Medical Supplies,4.47,0.788,73.8,7.9,0.0127,58,0.009,1
+VND-0118,Rasmussen LLC,Manufacturing & Heavy Machinery,3.99,0.598,60.7,11.8,0.0241,186,0.008,0
+VND-0119,May-Ross,Software & Cloud Services,4.1,0.64,50.0,15.0,0.0216,173,0.012,0
+VND-0120,"Rivera, Johnson and Wiley",Raw Materials & Metals,4.56,0.823,63.3,11.0,0.0106,38,0.008,1
+VND-0121,White-Estes,Healthcare & Medical Supplies,4.93,0.97,100.0,0.1,0.0018,52,0.005,1
+VND-0122,Johnson-Carlson,Software & Cloud Services,4.89,0.957,83.1,5.1,0.0026,211,0.006,1
+VND-0123,Chandler-Edwards,Manufacturing & Heavy Machinery,3.77,0.508,50.7,14.8,0.0295,17,0.043,0
+VND-0124,"Joyce, Wilson and Lam",Software & Cloud Services,4.29,0.714,77.7,6.7,0.0172,69,0.025,1
+VND-0125,Scott Ltd,Construction & Infrastructure,4.95,0.982,94.8,1.6,0.0011,280,0.005,1
+VND-0126,Smith-Frost,Manufacturing & Heavy Machinery,4.12,0.647,55.0,13.5,0.0212,77,0.019,0
+VND-0127,"Mcdaniel, Bentley and Mclaughlin",Construction & Infrastructure,4.81,0.926,77.9,6.6,0.0045,286,0.014,1
+VND-0128,Diaz Inc,Healthcare & Medical Supplies,3.96,0.585,53.5,14.0,0.0249,241,0.027,0
+VND-0129,"Mccall, Hanson and Alvarado",Construction & Infrastructure,4.92,0.968,96.2,1.1,0.0019,233,0.009,1
+VND-0130,Cortez LLC,Raw Materials & Metals,4.46,0.785,61.6,11.5,0.0129,96,0.02,1
+VND-0131,"Parker, Ortiz and Powell",Logistics & Freight,4.52,0.808,84.2,4.7,0.0115,141,0.02,1
+VND-0132,Spencer-Lee,Software & Cloud Services,3.93,0.57,56.1,13.2,0.0258,281,0.023,0
+VND-0133,"Bentley, Byrd and Orr",Software & Cloud Services,4.85,0.939,88.6,3.4,0.0037,54,0.01,1
+VND-0134,"Carroll, Sullivan and Bass",IT Hardware,4.62,0.849,79.4,6.2,0.0091,178,0.018,1
+VND-0135,Mitchell-Jordan,Software & Cloud Services,4.2,0.68,54.8,13.6,0.0192,133,0.015,1
+VND-0136,"Lawson, Morris and Ramos",Logistics & Freight,4.76,0.905,91.6,2.5,0.0057,47,0.008,1
+VND-0137,"Lewis, Kennedy and Santana",Manufacturing & Heavy Machinery,4.83,0.934,95.5,1.3,0.004,227,0.002,1
+VND-0138,"Jackson, Miller and Robertson",Manufacturing & Heavy Machinery,4.39,0.756,68.1,9.6,0.0147,25,0.024,1
+VND-0139,"Harvey, Davis and Crane",Logistics & Freight,4.75,0.899,85.6,4.3,0.0061,259,0.002,1
+VND-0140,Chambers and Sons,Manufacturing & Heavy Machinery,4.63,0.851,82.2,5.3,0.0089,214,0.017,1
+VND-0141,Hernandez Inc,Software & Cloud Services,4.86,0.945,79.6,6.1,0.0033,294,0.01,1
+VND-0142,Riggs PLC,IT Hardware,4.22,0.688,54.9,13.5,0.0187,154,0.017,1
+VND-0143,Gibson Ltd,Manufacturing & Heavy Machinery,4.47,0.789,60.0,12.0,0.0127,222,0.019,1
+VND-0144,"Lee, Horton and Snyder",Construction & Infrastructure,4.33,0.733,67.5,9.8,0.016,80,0.029,1
+VND-0145,Hernandez Ltd,Healthcare & Medical Supplies,4.11,0.643,56.3,13.1,0.0214,216,0.023,0
+VND-0146,Stafford Inc,Raw Materials & Metals,3.79,0.515,50.0,15.0,0.0291,234,0.011,0
+VND-0147,Robinson-Brock,Software & Cloud Services,4.78,0.911,75.1,7.5,0.0053,148,0.007,1
+VND-0148,"Holmes, Williams and Wright",Raw Materials & Metals,3.91,0.564,52.5,14.2,0.0262,187,0.034,0
+VND-0149,Bryant Group,IT Hardware,4.71,0.885,70.3,8.9,0.0069,230,0.006,1
+VND-0150,"Schmidt, Hansen and Stewart",Logistics & Freight,4.53,0.811,63.5,11.0,0.0113,291,0.004,1
+VND-0151,Salazar-Ball,Healthcare & Medical Supplies,3.81,0.526,50.0,15.0,0.0284,50,0.037,0
+VND-0152,"Simmons, Meadows and Griffin",Software & Cloud Services,4.43,0.77,68.6,9.4,0.0138,30,0.025,1
+VND-0153,Manning Group,Raw Materials & Metals,4.66,0.863,93.2,2.0,0.0082,93,0.006,1
+VND-0154,Green-Wright,Logistics & Freight,4.4,0.758,66.9,9.9,0.0145,126,0.015,1
+VND-0155,"Ramirez, Strickland and Washington",Healthcare & Medical Supplies,4.74,0.898,77.6,6.7,0.0061,100,0.011,1
+VND-0156,Hill Inc,IT Hardware,4.3,0.719,59.2,12.2,0.0168,98,0.03,1
+VND-0157,"Mitchell, Nelson and Flores",Raw Materials & Metals,3.78,0.513,56.0,13.2,0.0292,174,0.03,0
+VND-0158,"Miller, Hernandez and Reyes",Healthcare & Medical Supplies,4.79,0.918,86.8,4.0,0.0049,116,0.003,1
+VND-0159,Mccarthy Inc,Manufacturing & Heavy Machinery,4.26,0.704,61.2,11.6,0.0177,139,0.007,1
+VND-0160,Russell-Daniels,Construction & Infrastructure,3.95,0.578,50.0,15.0,0.0253,76,0.034,0
+VND-0161,Brown-Wall,Healthcare & Medical Supplies,4.44,0.775,78.1,6.6,0.0135,192,0.015,1
+VND-0162,Stein-Silva,IT Hardware,4.58,0.83,68.6,9.4,0.0102,274,0.015,1
+VND-0163,"Smith, Gilmore and Johnston",Logistics & Freight,4.94,0.977,97.8,0.7,0.0014,265,0.002,1
+VND-0164,Smith-Bell,Raw Materials & Metals,4.44,0.777,74.5,7.6,0.0134,250,0.019,1
+VND-0165,Castaneda-Ashley,Logistics & Freight,4.27,0.71,56.5,13.0,0.0174,282,0.03,1
+VND-0166,Medina-Navarro,Raw Materials & Metals,4.19,0.678,68.5,9.4,0.0193,290,0.027,1
+VND-0167,"Hurst, Freeman and Nelson",Software & Cloud Services,3.77,0.507,50.0,15.0,0.0296,152,0.019,0
+VND-0168,Johnson-Rogers,Raw Materials & Metals,3.81,0.523,50.0,15.0,0.0286,59,0.017,0
+VND-0169,"Yates, Ramsey and Pittman",Healthcare & Medical Supplies,4.82,0.928,86.3,4.1,0.0043,252,0.009,1
+VND-0170,Hooper PLC,Logistics & Freight,4.34,0.737,57.5,12.8,0.0158,29,0.016,1
+VND-0171,Meadows PLC,Logistics & Freight,4.36,0.746,64.3,10.7,0.0153,123,0.012,1
+VND-0172,"Alvarado, Miller and Patterson",Construction & Infrastructure,3.97,0.587,51.8,14.5,0.0248,156,0.025,0
+VND-0173,White-Green,Raw Materials & Metals,4.25,0.699,70.9,8.7,0.018,58,0.011,1
+VND-0174,Lewis-Murphy,Healthcare & Medical Supplies,4.54,0.818,63.2,11.0,0.0109,138,0.016,1
+VND-0175,Ramirez-Bean,IT Hardware,4.22,0.687,67.7,9.7,0.0188,244,0.027,1
+VND-0176,King-Miller,Logistics & Freight,4.38,0.752,74.2,7.7,0.0149,222,0.02,1
+VND-0177,Curry Inc,Construction & Infrastructure,4.57,0.829,68.6,9.4,0.0102,203,0.012,1
+VND-0178,Walker-Jones,Healthcare & Medical Supplies,3.84,0.535,50.9,14.7,0.0279,296,0.019,0
+VND-0179,"Williams, Johnson and Wright",IT Hardware,3.78,0.513,50.0,15.0,0.0292,171,0.016,0
+VND-0180,Howell and Sons,Construction & Infrastructure,4.93,0.97,91.3,2.6,0.0018,176,0.002,1
+VND-0181,Wells Inc,Healthcare & Medical Supplies,4.24,0.694,71.0,8.7,0.0184,109,0.01,1
+VND-0182,"Gould, Marshall and Scott",IT Hardware,4.32,0.729,67.4,9.8,0.0163,283,0.019,1
+VND-0183,Jackson-Lawson,Software & Cloud Services,4.93,0.971,87.1,3.9,0.0018,166,0.003,1
+VND-0184,"Higgins, Strickland and Martin",IT Hardware,4.95,0.981,97.4,0.8,0.0012,288,0.002,1
+VND-0185,Rodriguez-Johnson,Software & Cloud Services,3.99,0.598,52.8,14.2,0.0241,298,0.015,0
+VND-0186,Johnston-Odonnell,IT Hardware,3.88,0.55,50.0,15.0,0.027,266,0.009,0
+VND-0187,Sanders-Espinoza,Logistics & Freight,3.87,0.547,54.9,13.5,0.0272,255,0.024,0
+VND-0188,Vargas Ltd,Manufacturing & Heavy Machinery,3.84,0.536,50.0,15.0,0.0279,41,0.016,0
+VND-0189,Garcia LLC,IT Hardware,4.81,0.922,70.0,9.0,0.0047,48,0.007,1
+VND-0190,"Burke, Martinez and Riggs",Manufacturing & Heavy Machinery,4.77,0.907,76.7,7.0,0.0056,42,0.004,1
+VND-0191,Reed Group,Software & Cloud Services,3.9,0.559,56.1,13.2,0.0265,170,0.009,0
+VND-0192,"Wood, Hunter and Peterson",Manufacturing & Heavy Machinery,4.54,0.814,78.9,6.3,0.0111,228,0.015,1
+VND-0193,Short-Garcia,Raw Materials & Metals,4.67,0.868,87.1,3.9,0.0079,282,0.009,1
+VND-0194,Reid-Poole,Construction & Infrastructure,4.1,0.641,51.1,14.7,0.0215,234,0.014,0
+VND-0195,"Hernandez, Thompson and Boyd",Software & Cloud Services,4.69,0.875,82.4,5.3,0.0075,65,0.017,1
+VND-0196,"Nelson, Morton and Medina",Software & Cloud Services,4.99,0.995,87.8,3.7,0.001,150,0.006,1
+VND-0197,Marshall-Petersen,IT Hardware,4.22,0.686,65.9,10.2,0.0188,297,0.006,1
+VND-0198,"Adams, Christian and Rivas",Software & Cloud Services,4.18,0.67,69.1,9.3,0.0198,255,0.013,1
+VND-0199,Ramirez Group,Raw Materials & Metals,4.82,0.929,79.5,6.1,0.0042,159,0.01,1
+VND-0200,Christensen PLC,Manufacturing & Heavy Machinery,4.69,0.875,81.1,5.7,0.0075,134,0.017,1
+VND-0201,"Barnett, Rogers and Snyder",Construction & Infrastructure,3.88,0.552,61.0,11.7,0.0269,116,0.022,0
+VND-0202,White-Lewis,Manufacturing & Heavy Machinery,4.38,0.753,73.0,8.1,0.0148,91,0.026,1
+VND-0203,Peterson-Beard,Logistics & Freight,4.15,0.66,64.8,10.6,0.0204,45,0.01,1
+VND-0204,"Beard, Peters and Black",Raw Materials & Metals,4.24,0.695,54.8,13.6,0.0183,162,0.017,1
+VND-0205,Miller Ltd,Construction & Infrastructure,4.88,0.953,76.1,7.2,0.0028,221,0.011,1
+VND-0206,Freeman-Chang,IT Hardware,4.15,0.66,69.8,9.1,0.0204,239,0.007,1
+VND-0207,"Alvarez, Joseph and West",IT Hardware,4.94,0.975,93.4,2.0,0.0015,180,0.007,1
+VND-0208,Davis and Sons,Healthcare & Medical Supplies,4.54,0.816,68.6,9.4,0.011,25,0.023,1
+VND-0209,Holt-Torres,Software & Cloud Services,4.12,0.647,59.6,12.1,0.0212,35,0.029,0
+VND-0210,"Wood, Tran and Cooper",Software & Cloud Services,4.59,0.836,81.5,5.6,0.0098,241,0.02,1
+VND-0211,"Pierce, Bell and Chavez",Raw Materials & Metals,4.74,0.896,93.2,2.0,0.0063,238,0.011,1
+VND-0212,King-Martinez,Logistics & Freight,3.86,0.546,55.7,13.3,0.0273,255,0.019,0
+VND-0213,Stewart Ltd,Logistics & Freight,3.82,0.529,50.0,15.0,0.0283,68,0.04,0
+VND-0214,"Tapia, Vaughn and Lee",Raw Materials & Metals,4.3,0.721,73.1,8.1,0.0168,268,0.011,1
+VND-0215,"Washington, Hardy and Bray",IT Hardware,4.19,0.675,57.7,12.7,0.0195,296,0.005,1
+VND-0216,"Carlson, Hooper and Wall",Manufacturing & Heavy Machinery,3.93,0.571,55.8,13.3,0.0257,180,0.01,0
+VND-0217,Perez-White,IT Hardware,4.52,0.809,63.1,11.1,0.0115,278,0.02,1
+VND-0218,Erickson and Sons,IT Hardware,3.86,0.542,55.5,13.4,0.0275,292,0.024,0
+VND-0219,Williams-Brown,Raw Materials & Metals,3.84,0.536,52.2,14.3,0.0278,200,0.03,0
+VND-0220,Terry-Martinez,Construction & Infrastructure,4.63,0.853,68.0,9.6,0.0088,41,0.006,1
+VND-0221,Garcia-Smith,Healthcare & Medical Supplies,3.86,0.542,54.8,13.6,0.0275,162,0.023,0
+VND-0222,Harrison-Alexander,Construction & Infrastructure,4.22,0.687,60.3,11.9,0.0188,29,0.032,1
+VND-0223,Sheppard LLC,IT Hardware,4.77,0.906,96.3,1.1,0.0056,96,0.006,1
+VND-0224,Wilson-Jones,Manufacturing & Heavy Machinery,4.98,0.993,96.7,1.0,0.001,62,0.003,1
+VND-0225,Jones-Soto,Healthcare & Medical Supplies,4.22,0.688,59.0,12.3,0.0187,251,0.031,1
+VND-0226,Hernandez PLC,Logistics & Freight,4.72,0.889,84.9,4.5,0.0067,270,0.016,1
+VND-0227,Miller-Wright,Raw Materials & Metals,4.28,0.712,73.7,7.9,0.0173,154,0.015,1
+VND-0228,"Duran, Obrien and Gibbs",Software & Cloud Services,3.89,0.556,56.6,13.0,0.0267,139,0.023,0
+VND-0229,Rowe Group,Software & Cloud Services,3.76,0.506,50.0,15.0,0.0297,275,0.037,0
+VND-0230,Kerr-Evans,Manufacturing & Heavy Machinery,3.82,0.528,50.0,15.0,0.0283,156,0.037,0
+VND-0231,"Branch, Torres and Oliver",IT Hardware,3.9,0.559,53.8,13.9,0.0265,274,0.016,0
+VND-0232,"Choi, Garcia and Farmer",Construction & Infrastructure,4.68,0.873,78.7,6.4,0.0076,167,0.016,1
+VND-0233,"Clark, Guerrero and Moore",Raw Materials & Metals,4.95,0.981,89.3,3.2,0.0011,265,0.008,1
+VND-0234,Arnold and Sons,Manufacturing & Heavy Machinery,4.11,0.643,66.6,10.0,0.0214,191,0.015,0
+VND-0235,Ortiz Ltd,Manufacturing & Heavy Machinery,4.03,0.612,65.3,10.4,0.0233,248,0.037,0
+VND-0236,"Harrison, Johnson and Roberts",Software & Cloud Services,3.77,0.506,51.5,14.6,0.0296,137,0.03,0
+VND-0237,Warner-Gibson,Healthcare & Medical Supplies,3.8,0.522,58.5,12.4,0.0287,225,0.008,0
+VND-0238,"Hall, Baker and Moody",Healthcare & Medical Supplies,4.41,0.764,80.2,5.9,0.0142,210,0.012,1
+VND-0239,"Guerrero, Peck and Coleman",IT Hardware,3.84,0.537,54.1,13.8,0.0278,92,0.025,0
+VND-0240,"Walker, Hernandez and Baker",Manufacturing & Heavy Machinery,4.96,0.985,85.1,4.5,0.001,184,0.008,1
+VND-0241,Jones and Sons,Raw Materials & Metals,4.54,0.815,81.9,5.4,0.0111,66,0.013,1
+VND-0242,Larson-Holloway,Healthcare & Medical Supplies,4.32,0.727,64.3,10.7,0.0164,88,0.014,1
+VND-0243,Gonzales-Harrison,Logistics & Freight,4.48,0.792,85.9,4.2,0.0125,53,0.013,1
+VND-0244,Lyons-Bender,Manufacturing & Heavy Machinery,3.81,0.523,50.0,15.0,0.0286,218,0.032,0
+VND-0245,"Fernandez, Kim and George",Logistics & Freight,4.94,0.975,96.7,1.0,0.0015,288,0.005,1
+VND-0246,Navarro-Munoz,IT Hardware,4.32,0.728,70.3,8.9,0.0163,264,0.026,1
+VND-0247,Davis Ltd,Logistics & Freight,4.1,0.639,54.4,13.7,0.0217,135,0.025,0
+VND-0248,"Matthews, Smith and Hubbard",IT Hardware,4.33,0.732,68.7,9.4,0.0161,61,0.015,1
+VND-0249,Johnston-Hines,Healthcare & Medical Supplies,4.48,0.792,64.8,10.6,0.0125,66,0.013,1
+VND-0250,Ruiz Ltd,Manufacturing & Heavy Machinery,4.97,0.987,100.0,0.1,0.001,29,0.001,1
+VND-0251,Moon-White,Software & Cloud Services,4.62,0.849,73.2,8.0,0.0091,198,0.009,1
+VND-0252,"Graham, Olsen and Costa",Manufacturing & Heavy Machinery,4.14,0.655,63.7,10.9,0.0207,225,0.022,1
+VND-0253,Bailey-Cook,Manufacturing & Heavy Machinery,4.61,0.842,64.7,10.6,0.0095,104,0.004,1
+VND-0254,"Garcia, Martin and Jenkins",Construction & Infrastructure,4.89,0.955,93.5,2.0,0.0027,138,0.006,1
+VND-0255,Roberts-Landry,Raw Materials & Metals,4.94,0.975,90.2,2.9,0.0015,251,0.007,1
+VND-0256,"Johnson, Miller and King",Raw Materials & Metals,4.52,0.807,68.8,9.4,0.0116,19,0.021,1
+VND-0257,Cordova Group,Raw Materials & Metals,4.92,0.966,100.0,0.1,0.002,294,0.003,1
+VND-0258,"Bryan, Smith and Booth",Raw Materials & Metals,3.81,0.523,50.0,15.0,0.0286,168,0.032,0
+VND-0259,Gutierrez-Lopez,Software & Cloud Services,4.22,0.688,71.3,8.6,0.0187,248,0.028,1
+VND-0260,Dean-Jimenez,Raw Materials & Metals,4.98,0.994,83.9,4.8,0.001,262,0.002,1
+VND-0261,Wolf-Harris,Logistics & Freight,4.49,0.797,70.3,8.9,0.0122,166,0.024,1
+VND-0262,"Anderson, Roberts and Gilmore",Construction & Infrastructure,4.96,0.985,93.2,2.0,0.001,217,0.003,1
+VND-0263,Martinez-Dudley,Healthcare & Medical Supplies,4.8,0.919,85.5,4.4,0.0049,40,0.013,1
+VND-0264,"Lloyd, Mckinney and Collins",Software & Cloud Services,4.27,0.707,60.1,12.0,0.0176,161,0.025,1
+VND-0265,Tran Inc,Software & Cloud Services,3.82,0.528,56.3,13.1,0.0283,195,0.014,0
+VND-0266,Gay Inc,Healthcare & Medical Supplies,4.77,0.906,95.9,1.2,0.0056,85,0.01,1
+VND-0267,Valentine-Holland,IT Hardware,5.0,0.998,92.4,2.3,0.001,173,0.007,1
+VND-0268,Jimenez Ltd,Logistics & Freight,4.71,0.884,91.9,2.4,0.0069,82,0.004,1
+VND-0269,Hicks-Hill,Software & Cloud Services,4.81,0.925,74.6,7.6,0.0045,227,0.004,1
+VND-0270,Baird-Sanchez,Logistics & Freight,4.31,0.725,61.4,11.6,0.0165,202,0.018,1
+VND-0271,"Thomas, Lee and Greene",Raw Materials & Metals,4.94,0.977,93.9,1.8,0.0014,146,0.009,1
+VND-0272,"Suarez, Shields and Hill",Logistics & Freight,4.04,0.614,64.6,10.6,0.0231,166,0.03,0
+VND-0273,Morgan-French,Software & Cloud Services,4.52,0.809,73.1,8.1,0.0115,254,0.023,1
+VND-0274,Hoover-Campbell,Healthcare & Medical Supplies,3.89,0.557,57.4,12.8,0.0266,130,0.038,0
+VND-0275,Monroe-Carpenter,Manufacturing & Heavy Machinery,4.4,0.76,77.0,6.9,0.0144,218,0.026,1
+VND-0276,"Burns, Hernandez and Ryan",IT Hardware,4.4,0.76,77.6,6.7,0.0144,61,0.022,1
+VND-0277,Cook-Hines,Healthcare & Medical Supplies,4.44,0.776,69.6,9.1,0.0134,78,0.014,1
+VND-0278,Gibson-Morris,Manufacturing & Heavy Machinery,4.85,0.938,84.2,4.7,0.0037,149,0.008,1
+VND-0279,Pollard and Sons,Software & Cloud Services,3.92,0.567,50.0,15.0,0.026,205,0.009,0
+VND-0280,"Reyes, Chase and Jenkins",Software & Cloud Services,4.69,0.878,81.9,5.4,0.0073,182,0.016,1
+VND-0281,Garner-Thornton,Logistics & Freight,4.63,0.852,71.4,8.6,0.0089,252,0.018,1
+VND-0282,Hughes-Alvarado,IT Hardware,3.92,0.568,50.0,15.0,0.0259,74,0.011,0
+VND-0283,"Pollard, Simpson and Johnson",Software & Cloud Services,4.19,0.675,61.9,11.4,0.0195,267,0.008,1
+VND-0284,"Sanford, Rivera and Garcia",Logistics & Freight,4.24,0.696,66.4,10.1,0.0182,84,0.015,1
+VND-0285,Garcia-Lozano,Healthcare & Medical Supplies,4.88,0.952,83.0,5.1,0.0029,291,0.006,1
+VND-0286,Bowen Group,Manufacturing & Heavy Machinery,4.39,0.757,77.5,6.8,0.0146,227,0.019,1
+VND-0287,"Booker, Jones and Harrington",Logistics & Freight,4.25,0.698,66.4,10.1,0.0181,223,0.03,1
+VND-0288,Morgan-Schwartz,Raw Materials & Metals,4.83,0.931,91.2,2.6,0.0041,204,0.004,1
+VND-0289,"Miller, Murphy and Craig",Healthcare & Medical Supplies,3.93,0.574,65.1,10.5,0.0256,200,0.009,0
+VND-0290,"James, Stewart and Higgins",Logistics & Freight,4.37,0.746,61.5,11.5,0.0152,198,0.005,1
+VND-0291,Brennan-Johnson,Manufacturing & Heavy Machinery,4.32,0.73,73.7,7.9,0.0162,77,0.028,1
+VND-0292,Young Ltd,Construction & Infrastructure,4.37,0.746,63.9,10.8,0.0152,123,0.019,1
+VND-0293,Bright-Francis,Software & Cloud Services,4.54,0.817,72.6,8.2,0.011,40,0.018,1
+VND-0294,Good-Hodges,Manufacturing & Heavy Machinery,3.84,0.538,50.0,15.0,0.0277,120,0.008,0
+VND-0295,"Brennan, Wallace and Benson",Software & Cloud Services,3.91,0.564,50.0,15.0,0.0262,125,0.036,0
+VND-0296,Williams Inc,Construction & Infrastructure,3.92,0.569,53.7,13.9,0.0258,90,0.035,0
+VND-0297,Howard-Jordan,Construction & Infrastructure,3.98,0.591,50.0,15.0,0.0245,89,0.04,0
+VND-0298,Schmidt PLC,Manufacturing & Heavy Machinery,4.87,0.948,81.9,5.4,0.0031,104,0.003,1
+VND-0299,"Sparks, Jackson and Miller",Manufacturing & Heavy Machinery,4.58,0.834,62.8,11.2,0.01,22,0.009,1
+VND-0300,Harvey-Allen,Logistics & Freight,3.99,0.596,50.0,15.0,0.0242,180,0.006,0
+VND-0301,"Thomas, Murray and King",Healthcare & Medical Supplies,3.96,0.584,50.0,15.0,0.0249,230,0.024,0
+VND-0302,Estrada-Nolan,Construction & Infrastructure,3.97,0.589,50.0,15.0,0.0247,244,0.033,0
+VND-0303,Santana-Byrd,Construction & Infrastructure,3.9,0.56,52.6,14.2,0.0264,246,0.024,0
+VND-0304,Jones LLC,Healthcare & Medical Supplies,4.01,0.603,50.0,15.0,0.0238,281,0.015,0
+VND-0305,"Evans, Hayden and Vaughn",Manufacturing & Heavy Machinery,4.38,0.752,77.3,6.8,0.0149,46,0.028,1
+VND-0306,Bruce-Gonzalez,Raw Materials & Metals,3.8,0.52,52.4,14.3,0.0288,70,0.026,0
+VND-0307,Castaneda-Rodriguez,Software & Cloud Services,4.53,0.814,59.6,12.1,0.0112,56,0.009,1
+VND-0308,Armstrong-Andrews,Construction & Infrastructure,4.84,0.937,91.2,2.6,0.0038,155,0.009,1
+VND-0309,"Phillips, Spence and Barrett",Construction & Infrastructure,3.83,0.531,50.0,15.0,0.0282,181,0.021,0
+VND-0310,Smith-Grimes,Raw Materials & Metals,4.76,0.903,88.1,3.6,0.0058,247,0.009,1
+VND-0311,"Beltran, Lozano and Mcgee",Healthcare & Medical Supplies,3.98,0.592,50.0,15.0,0.0245,73,0.035,0
+VND-0312,Parsons-Hall,Software & Cloud Services,4.21,0.685,66.4,10.1,0.0189,297,0.025,1
+VND-0313,Robinson-Lee,Manufacturing & Heavy Machinery,4.52,0.809,69.6,9.1,0.0115,131,0.011,1
+VND-0314,Byrd-Le,Logistics & Freight,4.33,0.731,71.6,8.5,0.0161,227,0.023,1
+VND-0315,"Becker, Taylor and Davis",Software & Cloud Services,3.8,0.518,50.0,15.0,0.0289,145,0.021,0
+VND-0316,"Lucas, Parker and Alexander",Manufacturing & Heavy Machinery,4.64,0.857,89.1,3.3,0.0086,257,0.004,1
+VND-0317,"Diaz, Anderson and Browning",Healthcare & Medical Supplies,4.39,0.756,65.4,10.4,0.0146,236,0.006,1
+VND-0318,Burgess-Thompson,Construction & Infrastructure,3.88,0.554,50.0,15.0,0.0268,81,0.027,0
+VND-0319,Buchanan LLC,Raw Materials & Metals,4.42,0.766,68.6,9.4,0.014,183,0.019,1
+VND-0320,"Shaw, Nelson and Martin",Healthcare & Medical Supplies,4.09,0.635,54.9,13.5,0.0219,231,0.033,0
+VND-0321,Coffey-Phillips,Logistics & Freight,3.78,0.51,50.0,15.0,0.0294,162,0.031,0
+VND-0322,Brock-Mcdonald,Healthcare & Medical Supplies,4.01,0.606,50.0,15.0,0.0237,274,0.012,0
+VND-0323,Taylor and Sons,Construction & Infrastructure,3.9,0.56,58.5,12.4,0.0264,70,0.019,0
+VND-0324,"Ramsey, Whitney and Coffey",Manufacturing & Heavy Machinery,4.49,0.797,75.1,7.5,0.0122,157,0.015,1
+VND-0325,"Diaz, Gibbs and Smith",Healthcare & Medical Supplies,4.74,0.895,79.8,6.1,0.0063,300,0.002,1
+VND-0326,"Martinez, Richardson and Curry",Logistics & Freight,3.86,0.543,54.8,13.6,0.0274,151,0.007,0
+VND-0327,Richards-Carson,Logistics & Freight,4.48,0.793,79.7,6.1,0.0124,173,0.023,1
+VND-0328,Rodriguez-Hall,Raw Materials & Metals,4.29,0.716,52.8,14.2,0.0171,88,0.019,1
+VND-0329,Harvey PLC,Construction & Infrastructure,4.1,0.642,52.4,14.3,0.0215,30,0.008,0
+VND-0330,Herman-Walker,Software & Cloud Services,4.56,0.823,73.4,8.0,0.0106,229,0.012,1
+VND-0331,Reid Group,Construction & Infrastructure,4.2,0.678,70.6,8.8,0.0193,181,0.027,1
+VND-0332,"Turner, Ortiz and Taylor",Manufacturing & Heavy Machinery,4.51,0.803,67.7,9.7,0.0118,41,0.006,1
+VND-0333,Torres Group,Healthcare & Medical Supplies,3.88,0.551,50.0,15.0,0.0269,56,0.016,0
+VND-0334,Davis PLC,Software & Cloud Services,4.06,0.623,50.8,14.8,0.0226,241,0.019,0
+VND-0335,Price LLC,IT Hardware,3.98,0.593,54.0,13.8,0.0244,73,0.017,0
+VND-0336,"Avery, Horton and Fernandez",Logistics & Freight,3.97,0.587,59.2,12.2,0.0248,264,0.024,0
+VND-0337,"Newton, Moore and Perry",IT Hardware,3.85,0.54,50.0,15.0,0.0276,217,0.044,0
+VND-0338,Bass PLC,Manufacturing & Heavy Machinery,4.26,0.705,69.5,9.2,0.0177,169,0.03,1
+VND-0339,Crosby-Ramirez,IT Hardware,3.89,0.556,50.0,15.0,0.0266,145,0.016,0
+VND-0340,"Wood, Ramos and Sampson",Raw Materials & Metals,4.96,0.985,93.7,1.9,0.001,235,0.003,1
+VND-0341,Garcia-Jennings,Manufacturing & Heavy Machinery,4.77,0.909,75.7,7.3,0.0055,132,0.009,1
+VND-0342,"Winters, Newman and Brown",Manufacturing & Heavy Machinery,3.96,0.585,59.0,12.3,0.0249,196,0.008,0
+VND-0343,Lopez-Martinez,IT Hardware,4.91,0.965,90.5,2.8,0.0021,238,0.002,1
+VND-0344,Davis-Lewis,Healthcare & Medical Supplies,4.46,0.786,70.0,9.0,0.0129,234,0.016,1
+VND-0345,"Harper, Smith and Buchanan",IT Hardware,4.71,0.885,73.1,8.1,0.0069,163,0.004,1
+VND-0346,Zhang PLC,Construction & Infrastructure,4.15,0.662,64.2,10.7,0.0203,102,0.029,1
+VND-0347,Jones PLC,Manufacturing & Heavy Machinery,4.38,0.754,62.7,11.2,0.0148,200,0.006,1
+VND-0348,Willis and Sons,Construction & Infrastructure,3.89,0.557,50.0,15.0,0.0266,238,0.028,0
+VND-0349,Schroeder-Kramer,Software & Cloud Services,4.11,0.644,56.7,13.0,0.0213,173,0.028,0
+VND-0350,"Smith, Garrison and Thomas",Healthcare & Medical Supplies,3.94,0.577,51.8,14.5,0.0254,101,0.008,0
+VND-0351,Fernandez and Sons,Manufacturing & Heavy Machinery,4.42,0.766,55.9,13.2,0.014,276,0.008,1
+VND-0352,Guerrero Inc,Software & Cloud Services,4.17,0.668,52.9,14.1,0.0199,90,0.011,1
+VND-0353,Smith and Sons,Manufacturing & Heavy Machinery,3.83,0.532,55.0,13.5,0.0281,103,0.03,0
+VND-0354,"Morris, Thompson and Williams",Manufacturing & Heavy Machinery,4.15,0.661,69.4,9.2,0.0203,53,0.01,1
+VND-0355,"Fisher, Wilson and Brown",Manufacturing & Heavy Machinery,4.07,0.627,62.6,11.2,0.0224,252,0.03,0
+VND-0356,Strickland-Palmer,Healthcare & Medical Supplies,4.7,0.88,82.6,5.2,0.0072,180,0.016,1
+VND-0357,Hayes and Sons,Raw Materials & Metals,4.34,0.736,63.5,11.0,0.0159,240,0.005,1
+VND-0358,"Williams, Logan and Camacho",Logistics & Freight,4.19,0.674,71.7,8.5,0.0195,155,0.022,1
+VND-0359,"Turner, Schneider and Johnson",IT Hardware,4.79,0.915,94.8,1.6,0.0051,173,0.008,1
+VND-0360,Boone-Simmons,Manufacturing & Heavy Machinery,3.91,0.562,51.8,14.5,0.0263,161,0.008,0
+VND-0361,Henry Group,Construction & Infrastructure,4.92,0.969,82.7,5.2,0.0018,61,0.007,1
+VND-0362,Lam LLC,Healthcare & Medical Supplies,3.83,0.533,52.6,14.2,0.028,298,0.044,0
+VND-0363,"Hernandez, Martinez and Weber",Construction & Infrastructure,4.47,0.787,83.3,5.0,0.0128,245,0.023,1
+VND-0364,"Kelley, Nguyen and Vang",Construction & Infrastructure,3.92,0.57,59.6,12.1,0.0258,179,0.028,0
+VND-0365,"Phillips, Wagner and Jordan",Manufacturing & Heavy Machinery,4.0,0.601,50.0,15.0,0.024,46,0.021,0
+VND-0366,"Wilson, Pena and Rich",IT Hardware,3.96,0.582,63.5,11.0,0.0251,190,0.041,0
+VND-0367,"Le, Lewis and Hayes",Healthcare & Medical Supplies,4.58,0.833,76.0,7.2,0.01,103,0.003,1
+VND-0368,Gutierrez Group,Construction & Infrastructure,4.2,0.679,69.2,9.2,0.0192,239,0.02,1
+VND-0369,Perry-Davis,Raw Materials & Metals,4.24,0.696,66.8,10.0,0.0182,205,0.03,1
+VND-0370,Edwards-Scott,IT Hardware,4.3,0.72,62.3,11.3,0.0168,188,0.022,1
+VND-0371,Mcdaniel Group,IT Hardware,4.33,0.731,65.5,10.4,0.0161,186,0.005,1
+VND-0372,Davis Inc,Healthcare & Medical Supplies,4.68,0.874,79.5,6.1,0.0076,212,0.007,1
+VND-0373,Reynolds Ltd,Construction & Infrastructure,4.04,0.616,67.7,9.7,0.023,91,0.016,0
+VND-0374,"Watson, Anderson and Brown",Healthcare & Medical Supplies,4.23,0.692,66.0,10.2,0.0185,194,0.013,1
+VND-0375,"Hoffman, Santiago and Jenkins",Healthcare & Medical Supplies,4.88,0.953,91.0,2.7,0.0028,215,0.003,1
+VND-0376,"Pugh, Henderson and Moon",Healthcare & Medical Supplies,3.9,0.558,63.7,10.9,0.0265,173,0.027,0
+VND-0377,Schmitt PLC,Manufacturing & Heavy Machinery,4.53,0.814,72.8,8.2,0.0112,80,0.016,1
+VND-0378,Bell-Lane,Healthcare & Medical Supplies,3.92,0.57,62.5,11.2,0.0258,284,0.009,0
+VND-0379,Moore Group,Logistics & Freight,4.53,0.81,73.5,8.0,0.0114,200,0.003,1
+VND-0380,Boone LLC,Manufacturing & Heavy Machinery,4.87,0.947,89.7,3.1,0.0032,124,0.005,1
+VND-0381,"Richardson, Farmer and Andrews",Software & Cloud Services,3.94,0.576,50.4,14.9,0.0254,130,0.042,0
+VND-0382,Bruce-Villegas,Construction & Infrastructure,4.06,0.624,57.9,12.6,0.0225,66,0.022,0
+VND-0383,"Austin, Day and Johnson",Logistics & Freight,3.79,0.517,53.1,14.1,0.029,284,0.007,0
+VND-0384,"Gallegos, Adams and White",Software & Cloud Services,4.7,0.881,92.9,2.1,0.0071,82,0.011,1
+VND-0385,"Farmer, Dorsey and Bell",IT Hardware,4.18,0.671,64.6,10.6,0.0197,99,0.026,1
+VND-0386,Kane PLC,Construction & Infrastructure,3.89,0.555,56.6,13.0,0.0267,136,0.042,0
+VND-0387,"Morales, Thomas and Schultz",Software & Cloud Services,3.91,0.564,50.0,15.0,0.0262,244,0.014,0
+VND-0388,Davis PLC,Software & Cloud Services,4.75,0.899,69.9,9.0,0.0061,255,0.015,1
+VND-0389,Bennett Group,Logistics & Freight,4.04,0.615,59.6,12.1,0.0231,240,0.021,0
+VND-0390,Moore-Collins,Software & Cloud Services,4.65,0.86,84.0,4.8,0.0084,272,0.011,1
+VND-0391,Frank-Bradley,IT Hardware,4.62,0.847,80.8,5.8,0.0092,85,0.018,1
+VND-0392,Ware and Sons,IT Hardware,4.06,0.626,56.5,13.0,0.0224,205,0.023,0
+VND-0393,Webster Inc,Logistics & Freight,3.98,0.591,64.0,10.8,0.0246,279,0.035,0
+VND-0394,"Miller, Ramos and Coleman",Construction & Infrastructure,4.48,0.792,65.5,10.4,0.0125,97,0.009,1
+VND-0395,"Ramos, Nelson and Fischer",Software & Cloud Services,4.33,0.731,72.7,8.2,0.0161,238,0.006,1
+VND-0396,Reed Inc,Raw Materials & Metals,3.94,0.577,58.3,12.5,0.0254,193,0.039,0
+VND-0397,Gregory-Watkins,Raw Materials & Metals,4.38,0.753,66.6,10.0,0.0148,272,0.013,1
+VND-0398,"Estrada, Williams and Foster",Logistics & Freight,3.77,0.509,58.5,12.4,0.0295,206,0.015,0
+VND-0399,"Brown, Harris and Dougherty",Software & Cloud Services,4.92,0.966,92.8,2.2,0.002,186,0.009,1
+VND-0400,Duran LLC,Software & Cloud Services,4.62,0.848,82.5,5.2,0.0091,256,0.015,1
+VND-0401,Wilson-Jimenez,IT Hardware,4.63,0.854,71.1,8.7,0.0088,255,0.01,1
+VND-0402,Thompson-James,Manufacturing & Heavy Machinery,4.47,0.788,78.1,6.6,0.0127,24,0.009,1
+VND-0403,"Hall, Hansen and Barnett",Manufacturing & Heavy Machinery,4.28,0.712,66.5,10.0,0.0173,285,0.015,1
+VND-0404,Jones-Hensley,Software & Cloud Services,4.92,0.967,96.5,1.0,0.002,169,0.002,1
+VND-0405,Graham Group,Manufacturing & Heavy Machinery,4.31,0.725,57.4,12.8,0.0165,249,0.005,1
+VND-0406,Atkins PLC,Construction & Infrastructure,4.98,0.992,100.0,0.1,0.001,289,0.001,1
+VND-0407,Berry-Mckinney,IT Hardware,3.91,0.562,60.1,12.0,0.0263,88,0.016,0
+VND-0408,Roberts-Sullivan,Software & Cloud Services,4.84,0.935,85.7,4.3,0.0039,138,0.008,1
+VND-0409,Jackson-Meza,Logistics & Freight,4.49,0.796,71.5,8.5,0.0123,58,0.014,1
+VND-0410,Collier-Gillespie,Manufacturing & Heavy Machinery,3.82,0.527,50.0,15.0,0.0284,284,0.028,0
+VND-0411,Kim Inc,Manufacturing & Heavy Machinery,4.75,0.901,73.1,8.1,0.0059,298,0.002,1
+VND-0412,Graham Group,Logistics & Freight,4.17,0.667,59.1,12.3,0.02,213,0.034,1
+VND-0413,"Miller, Harrell and Reese",Logistics & Freight,4.42,0.769,81.8,5.5,0.0139,197,0.022,1
+VND-0414,Cook and Sons,Healthcare & Medical Supplies,4.18,0.673,56.3,13.1,0.0196,68,0.027,1
+VND-0415,Dixon Inc,Construction & Infrastructure,4.67,0.869,79.8,6.1,0.0079,83,0.003,1
+VND-0416,"Hicks, Bullock and Bailey",Healthcare & Medical Supplies,4.03,0.612,54.3,13.7,0.0233,104,0.033,0
+VND-0417,"Mullen, Brewer and Hernandez",Manufacturing & Heavy Machinery,3.93,0.57,50.0,15.0,0.0258,260,0.029,0
+VND-0418,Thomas and Sons,Software & Cloud Services,4.37,0.749,62.9,11.1,0.015,249,0.004,1
+VND-0419,Morrison Ltd,Logistics & Freight,4.89,0.957,77.5,6.8,0.0026,117,0.01,1
+VND-0420,Thompson Ltd,Manufacturing & Heavy Machinery,4.48,0.79,79.1,6.3,0.0126,278,0.012,1
+VND-0421,Marshall-Elliott,Healthcare & Medical Supplies,3.77,0.507,50.6,14.8,0.0296,144,0.007,0
+VND-0422,"Cole, Glass and Cunningham",IT Hardware,3.97,0.589,59.6,12.1,0.0247,197,0.036,0
+VND-0423,"Downs, Morris and Maddox",Manufacturing & Heavy Machinery,3.94,0.574,55.8,13.3,0.0255,184,0.015,0
+VND-0424,Hernandez-Jones,Raw Materials & Metals,3.86,0.543,57.4,12.8,0.0274,219,0.035,0
+VND-0425,Welch-Hogan,Raw Materials & Metals,4.38,0.751,68.9,9.3,0.0149,110,0.016,1
+VND-0426,"Brown, Romero and Collins",IT Hardware,3.83,0.534,52.6,14.2,0.028,280,0.016,0
+VND-0427,Johnson-Wood,Manufacturing & Heavy Machinery,4.01,0.605,65.4,10.4,0.0237,55,0.02,0
+VND-0428,Jones-Lin,IT Hardware,4.01,0.603,50.0,15.0,0.0238,165,0.016,0
+VND-0429,Gilbert PLC,Construction & Infrastructure,3.8,0.518,50.0,15.0,0.0289,166,0.018,0
+VND-0430,Ford-Spencer,Logistics & Freight,4.46,0.782,63.4,11.0,0.0131,100,0.019,1
+VND-0431,"Huang, Cole and Pacheco",Raw Materials & Metals,4.72,0.888,78.3,6.5,0.0067,195,0.011,1
+VND-0432,"Lopez, Jacobs and Mason",Healthcare & Medical Supplies,4.41,0.762,65.8,10.3,0.0143,44,0.005,1
+VND-0433,Hayes LLC,Healthcare & Medical Supplies,4.25,0.7,64.5,10.6,0.018,277,0.026,1
+VND-0434,"Miller, Lucas and Williams",Construction & Infrastructure,3.94,0.578,50.0,15.0,0.0253,30,0.01,0
+VND-0435,"Kim, Gonzales and Mills",IT Hardware,4.83,0.931,97.5,0.8,0.0041,239,0.002,1
+VND-0436,Cox LLC,Construction & Infrastructure,4.22,0.687,55.8,13.3,0.0188,202,0.015,1
+VND-0437,Ortiz-Morgan,Logistics & Freight,4.55,0.822,67.6,9.7,0.0107,93,0.016,1
+VND-0438,"Williams, Mccoy and Cook",Construction & Infrastructure,3.78,0.513,50.0,15.0,0.0292,54,0.029,0
+VND-0439,Davis-Gregory,Software & Cloud Services,4.64,0.858,80.1,6.0,0.0085,175,0.013,1
+VND-0440,King-York,Raw Materials & Metals,3.78,0.514,50.0,15.0,0.0292,28,0.036,0
+VND-0441,"Marks, Cook and Aguilar",Logistics & Freight,4.04,0.616,60.3,11.9,0.0231,75,0.014,0
+VND-0442,Rangel LLC,Logistics & Freight,3.77,0.51,50.0,15.0,0.0294,124,0.047,0
+VND-0443,"Hale, Myers and Larson",Software & Cloud Services,4.75,0.9,74.6,7.6,0.006,266,0.005,1
+VND-0444,Collins Group,Healthcare & Medical Supplies,4.57,0.826,72.1,8.4,0.0104,246,0.006,1
+VND-0445,"Conner, Li and Santiago",Manufacturing & Heavy Machinery,3.87,0.55,50.0,15.0,0.027,59,0.037,0
+VND-0446,"Osborn, Gaines and Davis",Construction & Infrastructure,4.65,0.861,91.5,2.6,0.0083,192,0.014,1
+VND-0447,"Henderson, Cox and Cox",Healthcare & Medical Supplies,4.79,0.915,80.0,6.0,0.0051,168,0.013,1
+VND-0448,Bean LLC,Construction & Infrastructure,4.59,0.834,70.4,8.9,0.01,104,0.017,1
+VND-0449,Lee-Cooke,Software & Cloud Services,4.12,0.647,64.3,10.7,0.0212,117,0.03,0
+VND-0450,Jones Inc,Construction & Infrastructure,3.77,0.507,50.0,15.0,0.0296,28,0.021,0
+VND-0451,"Wise, Conley and Stephenson",IT Hardware,4.01,0.604,50.0,15.0,0.0238,297,0.009,0
+VND-0452,Stanley PLC,Healthcare & Medical Supplies,3.98,0.591,52.0,14.4,0.0246,218,0.041,0
+VND-0453,Harper and Sons,Manufacturing & Heavy Machinery,4.28,0.711,72.9,8.1,0.0174,225,0.025,1
+VND-0454,White Ltd,Healthcare & Medical Supplies,4.77,0.909,78.4,6.5,0.0055,79,0.015,1
+VND-0455,"Lamb, Martin and Kim",Logistics & Freight,4.07,0.63,51.8,14.5,0.0222,253,0.027,0
+VND-0456,Diaz-Ball,Software & Cloud Services,4.49,0.795,63.1,11.1,0.0123,297,0.017,1
+VND-0457,Bishop-Goodwin,Manufacturing & Heavy Machinery,4.53,0.812,74.2,7.7,0.0113,81,0.012,1
+VND-0458,Young-Allen,Logistics & Freight,4.44,0.776,64.7,10.6,0.0134,78,0.015,1
+VND-0459,Mckee-Lee,Software & Cloud Services,4.12,0.647,64.8,10.6,0.0212,180,0.034,0
+VND-0460,"Valentine, Joyce and Murray",Manufacturing & Heavy Machinery,4.7,0.882,68.8,9.4,0.0071,280,0.016,1
+VND-0461,Strickland-Shaw,Construction & Infrastructure,4.84,0.934,79.4,6.2,0.0039,115,0.009,1
+VND-0462,Burch-Montoya,IT Hardware,4.87,0.947,91.0,2.7,0.0032,170,0.008,1
+VND-0463,"Taylor, Wright and Davidson",Construction & Infrastructure,4.28,0.713,55.4,13.4,0.0172,101,0.02,1
+VND-0464,Spencer-Garcia,Construction & Infrastructure,4.09,0.634,55.9,13.2,0.0219,187,0.032,0
+VND-0465,"Rosales, Mitchell and Hines",Healthcare & Medical Supplies,4.54,0.817,63.7,10.9,0.011,29,0.004,1
+VND-0466,Cole-Palmer,Manufacturing & Heavy Machinery,3.92,0.57,61.4,11.6,0.0258,150,0.029,0
+VND-0467,Davis-Lozano,Healthcare & Medical Supplies,4.98,0.992,90.3,2.9,0.001,30,0.005,1
+VND-0468,Wilkerson-Arias,Manufacturing & Heavy Machinery,3.96,0.586,51.1,14.7,0.0248,169,0.023,0
+VND-0469,Brown-Shaw,IT Hardware,3.77,0.509,57.2,12.8,0.0294,222,0.018,0
+VND-0470,Hughes Inc,Raw Materials & Metals,3.9,0.559,55.4,13.4,0.0265,95,0.022,0
+VND-0471,Walker-Flores,Logistics & Freight,4.09,0.637,59.5,12.2,0.0218,189,0.024,0
+VND-0472,Combs Ltd,Manufacturing & Heavy Machinery,4.56,0.826,86.3,4.1,0.0105,178,0.017,1
+VND-0473,Moody-Taylor,Logistics & Freight,4.01,0.603,50.0,15.0,0.0238,219,0.01,0
+VND-0474,Lowery-Kennedy,Raw Materials & Metals,3.92,0.568,59.8,12.1,0.0259,69,0.017,0
+VND-0475,Blake Group,IT Hardware,4.84,0.937,83.0,5.1,0.0038,245,0.004,1
+VND-0476,Gilbert-Bullock,Raw Materials & Metals,4.5,0.8,72.0,8.4,0.012,211,0.021,1
+VND-0477,Scott and Sons,Construction & Infrastructure,3.97,0.588,59.2,12.2,0.0247,96,0.034,0
+VND-0478,"Bentley, Lynch and Henderson",Raw Materials & Metals,4.27,0.709,64.8,10.6,0.0174,112,0.025,1
+VND-0479,Young-Martinez,Logistics & Freight,4.4,0.759,64.2,10.7,0.0144,254,0.015,1
+VND-0480,Barnes PLC,Construction & Infrastructure,3.96,0.583,58.3,12.5,0.025,61,0.039,0
+VND-0481,Brown-Copeland,Logistics & Freight,3.85,0.541,51.9,14.4,0.0275,138,0.014,0
+VND-0482,Carlson-Smith,Manufacturing & Heavy Machinery,4.06,0.623,51.1,14.7,0.0226,159,0.021,0
+VND-0483,"Andrews, Higgins and Carter",IT Hardware,4.11,0.644,58.3,12.5,0.0213,255,0.014,0
+VND-0484,Mendez and Sons,Logistics & Freight,4.65,0.86,76.0,7.2,0.0084,235,0.005,1
+VND-0485,"Butler, Beck and Miller",Raw Materials & Metals,4.46,0.783,72.9,8.1,0.013,221,0.011,1
+VND-0486,Jones-Fox,Logistics & Freight,4.58,0.832,81.3,5.6,0.0101,114,0.009,1
+VND-0487,"Hartman, Romero and Smith",Construction & Infrastructure,4.67,0.866,66.8,10.0,0.008,273,0.01,1
+VND-0488,Williams-Hughes,IT Hardware,3.79,0.516,50.0,15.0,0.0291,75,0.011,0
+VND-0489,King-Smith,Logistics & Freight,4.49,0.798,61.0,11.7,0.0121,188,0.015,1
+VND-0490,Cooper Ltd,Raw Materials & Metals,4.37,0.748,72.9,8.1,0.0151,116,0.018,1
+VND-0491,"Fuller, Ingram and Moss",Healthcare & Medical Supplies,4.17,0.667,66.6,10.0,0.02,38,0.006,1
+VND-0492,Anderson-Bell,Software & Cloud Services,3.88,0.553,50.0,15.0,0.0268,257,0.025,0
+VND-0493,Li-Thompson,Construction & Infrastructure,4.66,0.864,79.0,6.3,0.0082,278,0.005,1
+VND-0494,"Marshall, Dominguez and Welch",Healthcare & Medical Supplies,4.61,0.844,72.9,8.1,0.0093,216,0.02,1
+VND-0495,Brown Group,Construction & Infrastructure,4.06,0.623,66.9,9.9,0.0226,187,0.022,0
+VND-0496,Carter Inc,IT Hardware,4.75,0.9,86.4,4.1,0.006,168,0.009,1
+VND-0497,Blackwell LLC,Construction & Infrastructure,4.09,0.636,59.1,12.3,0.0218,71,0.036,0
+VND-0498,Robertson-Hays,Logistics & Freight,4.2,0.68,52.5,14.2,0.0192,28,0.022,1
+VND-0499,"Kennedy, Johnson and Lucas",Construction & Infrastructure,4.9,0.959,80.6,5.8,0.0025,131,0.009,1
+VND-0500,Kelly-Norman,Construction & Infrastructure,4.94,0.975,85.7,4.3,0.0015,283,0.007,1
+VND-0501,"Rivera, Martinez and Richardson",Healthcare & Medical Supplies,3.98,0.593,58.5,12.4,0.0244,209,0.01,0
+VND-0502,Paul-Kline,Raw Materials & Metals,4.84,0.936,87.9,3.6,0.0038,71,0.004,1
+VND-0503,Morgan-Lopez,Software & Cloud Services,4.76,0.903,83.6,4.9,0.0058,92,0.008,1
+VND-0504,"Jimenez, Glass and Stone",Healthcare & Medical Supplies,4.62,0.846,84.2,4.7,0.0092,256,0.018,1
+VND-0505,Acosta Inc,Construction & Infrastructure,4.06,0.625,59.9,12.0,0.0225,85,0.022,0
+VND-0506,Morrison-Short,Logistics & Freight,4.03,0.611,63.5,11.0,0.0234,259,0.023,0
+VND-0507,"Carter, Garcia and Murphy",Logistics & Freight,4.93,0.972,78.7,6.4,0.0017,250,0.009,1
+VND-0508,Parker-Morrison,Software & Cloud Services,4.63,0.853,88.0,3.6,0.0088,150,0.013,1
+VND-0509,Jackson-Wallace,Software & Cloud Services,3.98,0.59,60.6,11.8,0.0246,157,0.025,0
+VND-0510,Williams-Berg,Healthcare & Medical Supplies,4.89,0.958,77.4,6.8,0.0025,167,0.009,1
+VND-0511,Mendez-Graham,Logistics & Freight,4.62,0.849,68.8,9.4,0.0091,265,0.008,1
+VND-0512,"Whitney, Gould and Jones",Construction & Infrastructure,4.91,0.962,100.0,0.1,0.0023,155,0.004,1
+VND-0513,"Sullivan, Palmer and Brady",Raw Materials & Metals,4.93,0.972,88.2,3.5,0.0017,209,0.009,1
+VND-0514,Cisneros and Sons,Logistics & Freight,4.83,0.931,96.2,1.1,0.0041,89,0.005,1
+VND-0515,"Gregory, Kim and Martinez",Raw Materials & Metals,4.15,0.66,71.6,8.5,0.0204,55,0.015,1
+VND-0516,Osborne LLC,Manufacturing & Heavy Machinery,3.8,0.519,51.8,14.5,0.0289,260,0.015,0
+VND-0517,Reyes-Bradley,Construction & Infrastructure,4.04,0.615,50.6,14.8,0.0231,154,0.01,0
+VND-0518,"Hernandez, Cole and Watson",Healthcare & Medical Supplies,3.85,0.538,56.0,13.2,0.0277,137,0.015,0
+VND-0519,Hines-Berry,IT Hardware,4.17,0.67,70.0,9.0,0.0198,130,0.024,1
+VND-0520,"Richardson, Edwards and Ramirez",IT Hardware,3.83,0.533,50.0,15.0,0.028,184,0.034,0
+VND-0521,Johnson and Sons,Construction & Infrastructure,4.42,0.77,78.3,6.5,0.0138,85,0.003,1
+VND-0522,Holmes-Mcintyre,Raw Materials & Metals,4.15,0.659,67.9,9.6,0.0204,95,0.017,1
+VND-0523,Green LLC,Logistics & Freight,4.86,0.943,87.6,3.7,0.0034,117,0.01,1
+VND-0524,"Griffin, Davies and Mitchell",IT Hardware,4.04,0.616,50.0,15.0,0.023,45,0.036,0
+VND-0525,Gonzalez-Taylor,Healthcare & Medical Supplies,4.84,0.935,72.6,8.2,0.0039,133,0.008,1
+VND-0526,Hayes Ltd,Software & Cloud Services,4.84,0.937,88.5,3.4,0.0038,34,0.012,1
+VND-0527,Osborn-Cochran,IT Hardware,4.92,0.97,94.5,1.6,0.0018,105,0.01,1
+VND-0528,Contreras-Mckinney,Software & Cloud Services,5.0,0.999,90.1,3.0,0.001,218,0.007,1
+VND-0529,"Daniels, Vance and York",IT Hardware,4.71,0.884,81.5,5.6,0.007,163,0.015,1
+VND-0530,"Mckinney, Graves and Thompson",Logistics & Freight,4.35,0.74,68.2,9.5,0.0156,69,0.027,1
+VND-0531,Hicks-Martinez,Software & Cloud Services,4.84,0.937,95.2,1.4,0.0038,293,0.008,1
+VND-0532,Conner and Sons,Manufacturing & Heavy Machinery,4.71,0.884,81.1,5.7,0.007,254,0.006,1
+VND-0533,Johnson-Spencer,Healthcare & Medical Supplies,4.28,0.711,66.1,10.2,0.0174,98,0.024,1
+VND-0534,Mcdonald-Bird,Logistics & Freight,4.05,0.619,50.0,15.0,0.0228,110,0.005,0
+VND-0535,Salazar Inc,Manufacturing & Heavy Machinery,4.19,0.677,61.0,11.7,0.0194,113,0.009,1
+VND-0536,Parker Ltd,Construction & Infrastructure,4.12,0.648,56.1,13.2,0.0211,222,0.031,0
+VND-0537,"Mendoza, Jenkins and Ortiz",Software & Cloud Services,3.8,0.521,50.0,15.0,0.0287,220,0.033,0
+VND-0538,"Jones, Compton and Day",Software & Cloud Services,4.98,0.994,91.7,2.5,0.001,259,0.003,1
+VND-0539,Owens-Holmes,Manufacturing & Heavy Machinery,4.23,0.692,62.2,11.3,0.0185,211,0.011,1
+VND-0540,Humphrey PLC,Healthcare & Medical Supplies,4.02,0.609,62.1,11.4,0.0235,183,0.015,0
+VND-0541,"Matthews, Saunders and Anderson",Healthcare & Medical Supplies,4.73,0.893,70.6,8.8,0.0064,148,0.012,1
+VND-0542,"Bartlett, Brown and Martinez",Software & Cloud Services,4.27,0.709,70.0,9.0,0.0175,75,0.017,1
+VND-0543,Torres and Sons,Healthcare & Medical Supplies,4.93,0.972,85.3,4.4,0.0017,272,0.01,1
+VND-0544,Donovan-Perez,Logistics & Freight,4.52,0.807,68.1,9.6,0.0116,75,0.016,1
+VND-0545,"Jacobson, Singleton and King",Software & Cloud Services,4.99,0.996,80.1,6.0,0.001,128,0.003,1
+VND-0546,"Huber, Hill and Weber",Construction & Infrastructure,4.93,0.971,91.1,2.7,0.0017,247,0.008,1
+VND-0547,"Ferguson, Shaw and Jackson",Manufacturing & Heavy Machinery,4.51,0.804,72.0,8.4,0.0118,296,0.022,1
+VND-0548,"Moore, Hopkins and Le",Healthcare & Medical Supplies,4.04,0.615,51.6,14.5,0.0231,126,0.031,0
+VND-0549,"Morgan, Bradshaw and Williams",Construction & Infrastructure,4.03,0.61,53.6,13.9,0.0234,56,0.023,0
+VND-0550,Miller Ltd,IT Hardware,4.72,0.89,78.4,6.5,0.0066,54,0.016,1
+VND-0551,"Baker, Clark and Armstrong",Software & Cloud Services,3.82,0.529,52.5,14.2,0.0283,295,0.042,0
+VND-0552,"Fowler, Jimenez and Burton",Manufacturing & Heavy Machinery,4.85,0.942,97.0,0.9,0.0035,91,0.003,1
+VND-0553,May-Turner,Healthcare & Medical Supplies,4.99,0.997,80.1,6.0,0.001,74,0.006,1
+VND-0554,Ballard Ltd,Raw Materials & Metals,4.25,0.698,70.1,9.0,0.0181,61,0.029,1
+VND-0555,Evans-Jones,Raw Materials & Metals,4.62,0.848,71.2,8.6,0.0091,247,0.005,1
+VND-0556,Moore Group,Healthcare & Medical Supplies,4.77,0.908,74.0,7.8,0.0055,44,0.009,1
+VND-0557,Marshall-Peterson,Manufacturing & Heavy Machinery,4.03,0.612,60.4,11.9,0.0233,26,0.018,0
+VND-0558,Edwards Ltd,IT Hardware,4.49,0.796,69.2,9.2,0.0122,126,0.015,1
+VND-0559,Gross-Valencia,IT Hardware,3.86,0.546,56.3,13.1,0.0273,47,0.027,0
+VND-0560,Anderson-Wood,Raw Materials & Metals,4.08,0.633,56.0,13.2,0.022,50,0.037,0
+VND-0561,"Rodriguez, Allen and Martinez",Software & Cloud Services,4.86,0.944,92.6,2.2,0.0033,224,0.004,1
+VND-0562,Wright-Davis,Raw Materials & Metals,4.83,0.931,94.7,1.6,0.0041,230,0.006,1
+VND-0563,Dougherty-Lin,Healthcare & Medical Supplies,4.57,0.828,75.6,7.3,0.0103,208,0.01,1
+VND-0564,Wright-Grimes,Manufacturing & Heavy Machinery,3.86,0.543,54.1,13.8,0.0274,291,0.011,0
+VND-0565,Li PLC,Raw Materials & Metals,4.22,0.686,56.7,13.0,0.0188,106,0.033,1
+VND-0566,"Edwards, Hines and Jimenez",Manufacturing & Heavy Machinery,4.65,0.862,78.0,6.6,0.0083,129,0.016,1
+VND-0567,"Owens, Koch and Jimenez",Healthcare & Medical Supplies,3.85,0.541,50.0,15.0,0.0276,167,0.024,0
+VND-0568,Landry PLC,Software & Cloud Services,4.6,0.842,66.2,10.1,0.0095,287,0.009,1
+VND-0569,Levy-Lewis,Software & Cloud Services,4.81,0.926,80.6,5.8,0.0045,192,0.004,1
+VND-0570,Williams-Campbell,Healthcare & Medical Supplies,4.35,0.74,73.9,7.8,0.0156,72,0.004,1
+VND-0571,"Khan, Pena and Ruiz",IT Hardware,4.78,0.912,77.3,6.8,0.0053,23,0.005,1
+VND-0572,"Smith, Rodriguez and Anderson",Healthcare & Medical Supplies,4.6,0.839,73.5,8.0,0.0097,32,0.011,1
+VND-0573,Luna-Gallagher,IT Hardware,4.08,0.634,67.5,9.8,0.022,39,0.013,0
+VND-0574,Williams-Williams,Manufacturing & Heavy Machinery,4.75,0.899,84.1,4.8,0.0061,134,0.01,1
+VND-0575,"Lee, Tran and Jones",Logistics & Freight,4.81,0.925,96.7,1.0,0.0045,43,0.003,1
+VND-0576,"Cole, Pierce and Bryan",Manufacturing & Heavy Machinery,4.64,0.854,82.9,5.1,0.0087,178,0.012,1
+VND-0577,"Becker, Wilson and Hester",Software & Cloud Services,4.62,0.849,82.9,5.1,0.0091,179,0.007,1
+VND-0578,Brooks-Hatfield,Logistics & Freight,4.52,0.809,84.2,4.7,0.0114,281,0.007,1
+VND-0579,"Mcmillan, Fischer and Gonzalez",Healthcare & Medical Supplies,3.95,0.579,58.1,12.6,0.0252,300,0.04,0
+VND-0580,"Morales, Williams and Williams",IT Hardware,4.84,0.936,75.4,7.4,0.0038,233,0.008,1
+VND-0581,"Cook, Wells and Bryant",Logistics & Freight,4.78,0.913,77.0,6.9,0.0052,210,0.012,1
+VND-0582,"Barry, Taylor and Velazquez",Raw Materials & Metals,4.17,0.668,68.1,9.6,0.0199,224,0.009,1
+VND-0583,Martin-Ewing,Manufacturing & Heavy Machinery,3.95,0.58,56.2,13.1,0.0252,290,0.022,0
+VND-0584,"Kirby, Wheeler and Romero",IT Hardware,4.79,0.916,79.9,6.0,0.005,88,0.012,1
+VND-0585,"Patel, Erickson and Evans",Software & Cloud Services,3.76,0.503,50.0,15.0,0.0298,228,0.029,0
+VND-0586,Richardson Ltd,Healthcare & Medical Supplies,4.52,0.808,83.5,5.0,0.0115,145,0.007,1
+VND-0587,Whitney PLC,IT Hardware,4.54,0.816,64.1,10.8,0.011,245,0.02,1
+VND-0588,Robles-Swanson,Raw Materials & Metals,4.54,0.817,75.3,7.4,0.011,112,0.004,1
+VND-0589,"Soto, Carlson and Baker",Software & Cloud Services,4.72,0.89,71.8,8.5,0.0066,35,0.015,1
+VND-0590,"Patton, Parsons and Lane",Manufacturing & Heavy Machinery,4.7,0.881,83.5,5.0,0.0072,126,0.01,1
+VND-0591,"Williams, Castillo and Warren",IT Hardware,4.95,0.981,87.5,3.8,0.0011,170,0.009,1
+VND-0592,"Harvey, Randall and Hernandez",IT Hardware,4.54,0.816,81.3,5.6,0.011,112,0.022,1
+VND-0593,"Allen, Armstrong and Graves",Healthcare & Medical Supplies,3.88,0.551,61.0,11.7,0.0269,260,0.041,0
+VND-0594,Smith LLC,Software & Cloud Services,4.61,0.844,66.8,10.0,0.0094,119,0.01,1
+VND-0595,Hernandez-Vaughn,Construction & Infrastructure,4.13,0.65,64.4,10.7,0.021,159,0.016,1
+VND-0596,Shaw-Carr,Construction & Infrastructure,3.83,0.534,52.9,14.1,0.028,172,0.016,0
+VND-0597,Salas-Fitzgerald,Healthcare & Medical Supplies,4.18,0.673,68.1,9.6,0.0196,253,0.007,1
+VND-0598,Thornton PLC,Logistics & Freight,3.81,0.523,54.5,13.6,0.0286,178,0.043,0
+VND-0599,Hoffman Ltd,Software & Cloud Services,4.97,0.987,99.9,0.1,0.001,38,0.006,1
+VND-0600,Fox-Edwards,Construction & Infrastructure,4.69,0.875,72.0,8.4,0.0075,23,0.006,1
+VND-0601,Stevens PLC,Software & Cloud Services,4.7,0.879,68.0,9.6,0.0073,228,0.007,1
+VND-0602,Payne-Lowe,Software & Cloud Services,3.78,0.511,50.0,15.0,0.0293,209,0.029,0
+VND-0603,"Becker, Lara and Baker",Manufacturing & Heavy Machinery,4.36,0.744,73.7,7.9,0.0153,187,0.01,1
+VND-0604,Lee-Wright,Healthcare & Medical Supplies,4.6,0.842,74.7,7.6,0.0095,266,0.011,1
+VND-0605,"Evans, David and Hendrix",Construction & Infrastructure,4.09,0.637,70.9,8.7,0.0218,101,0.009,0
+VND-0606,Bush-Vaughn,IT Hardware,4.28,0.713,64.1,10.8,0.0172,292,0.031,1
+VND-0607,Stewart-Bailey,Healthcare & Medical Supplies,3.95,0.582,59.4,12.2,0.0251,53,0.039,0
+VND-0608,"Hill, Martinez and Rhodes",Manufacturing & Heavy Machinery,4.62,0.847,65.2,10.4,0.0092,18,0.01,1
+VND-0609,Huang-Foster,IT Hardware,3.85,0.541,54.9,13.5,0.0275,49,0.033,0
+VND-0610,Blevins-Ballard,Construction & Infrastructure,4.57,0.827,66.7,10.0,0.0104,248,0.01,1
+VND-0611,Williams-Moses,IT Hardware,4.94,0.975,78.9,6.3,0.0015,262,0.007,1
+VND-0612,Reed Group,IT Hardware,4.29,0.716,69.8,9.1,0.017,297,0.015,1
+VND-0613,"Scott, Mendoza and Harris",Logistics & Freight,4.27,0.71,68.1,9.6,0.0174,155,0.019,1
+VND-0614,"Nelson, Hoffman and Nelson",Software & Cloud Services,4.25,0.699,54.6,13.6,0.0181,235,0.027,1
+VND-0615,Gilbert PLC,Software & Cloud Services,4.98,0.992,82.3,5.3,0.001,64,0.005,1
+VND-0616,Sanchez Ltd,Logistics & Freight,4.87,0.947,74.5,7.6,0.0032,284,0.004,1
+VND-0617,"Perez, Hall and Garcia",Raw Materials & Metals,4.02,0.607,50.0,15.0,0.0236,218,0.008,0
+VND-0618,Love-Garcia,Software & Cloud Services,4.56,0.826,71.2,8.6,0.0104,139,0.022,1
+VND-0619,Smith PLC,Manufacturing & Heavy Machinery,4.83,0.932,81.0,5.7,0.0041,56,0.009,1
+VND-0620,Russell Group,Raw Materials & Metals,4.96,0.984,80.7,5.8,0.001,31,0.002,1
+VND-0621,Santos-Avila,IT Hardware,4.84,0.934,90.2,2.9,0.0039,258,0.002,1
+VND-0622,Morris-Brewer,Raw Materials & Metals,4.71,0.885,90.7,2.8,0.0069,57,0.01,1
+VND-0623,Pearson and Sons,Manufacturing & Heavy Machinery,4.7,0.881,84.1,4.8,0.0072,184,0.011,1
+VND-0624,"Rodgers, Jefferson and Johnson",Software & Cloud Services,3.91,0.566,50.0,15.0,0.0261,285,0.04,0
+VND-0625,Butler and Sons,IT Hardware,4.9,0.96,86.5,4.0,0.0024,258,0.004,1
+VND-0626,Osborn Group,Construction & Infrastructure,4.75,0.898,82.3,5.3,0.0061,158,0.015,1
+VND-0627,Lopez-Curry,Logistics & Freight,3.9,0.559,50.0,15.0,0.0265,106,0.041,0
+VND-0628,Mcdowell-Smith,Manufacturing & Heavy Machinery,4.61,0.843,69.7,9.1,0.0094,121,0.013,1
+VND-0629,"Morrison, Hebert and Rogers",Logistics & Freight,4.0,0.6,58.8,12.4,0.024,218,0.037,0
+VND-0630,Hays-Daniels,Manufacturing & Heavy Machinery,3.83,0.532,50.0,15.0,0.0281,138,0.028,0
+VND-0631,Small-Anderson,Manufacturing & Heavy Machinery,4.09,0.634,63.0,11.1,0.0219,291,0.015,0
+VND-0632,"Mcdonald, Lee and Rodriguez",Logistics & Freight,4.14,0.655,61.9,11.4,0.0207,55,0.02,1
+VND-0633,Simon Ltd,IT Hardware,3.76,0.506,50.0,15.0,0.0297,238,0.016,0
+VND-0634,Higgins-Smith,Logistics & Freight,4.24,0.696,61.8,11.5,0.0182,218,0.031,1
+VND-0635,Gibbs-Bradley,Raw Materials & Metals,4.5,0.8,63.1,11.1,0.012,154,0.019,1
+VND-0636,Thompson Ltd,Raw Materials & Metals,4.62,0.847,85.4,4.4,0.0092,197,0.012,1
+VND-0637,Wilcox-Robertson,Construction & Infrastructure,4.72,0.89,67.6,9.7,0.0066,209,0.003,1
+VND-0638,Morales Inc,IT Hardware,4.35,0.74,57.0,12.9,0.0156,141,0.022,1
+VND-0639,Holden Group,Healthcare & Medical Supplies,4.05,0.621,63.9,10.8,0.0227,209,0.029,0
+VND-0640,Boyle-Smith,IT Hardware,3.93,0.571,50.0,15.0,0.0257,214,0.017,0
+VND-0641,Young-Molina,Manufacturing & Heavy Machinery,4.52,0.809,74.0,7.8,0.0115,172,0.012,1
+VND-0642,Turner-Sharp,Raw Materials & Metals,4.45,0.78,57.5,12.8,0.0132,82,0.005,1
+VND-0643,Green LLC,IT Hardware,4.16,0.663,60.9,11.7,0.0202,299,0.02,1
+VND-0644,"Young, Contreras and Marshall",Construction & Infrastructure,3.86,0.544,50.0,15.0,0.0274,196,0.027,0
+VND-0645,Sullivan PLC,IT Hardware,3.79,0.517,50.0,15.0,0.029,181,0.041,0
+VND-0646,"Carrillo, Vaughn and Fowler",Healthcare & Medical Supplies,4.25,0.698,54.5,13.6,0.0181,213,0.026,1
+VND-0647,Richardson-Walker,Software & Cloud Services,4.46,0.784,79.5,6.1,0.013,139,0.016,1
+VND-0648,Mendoza Group,Logistics & Freight,4.75,0.9,75.1,7.5,0.006,101,0.004,1
+VND-0649,"Zhang, Brooks and Miles",Raw Materials & Metals,3.96,0.584,50.0,15.0,0.025,89,0.007,0
+VND-0650,Todd-Pham,IT Hardware,4.55,0.818,76.8,7.0,0.0109,168,0.012,1
+VND-0651,Gill Ltd,Raw Materials & Metals,3.79,0.516,53.7,13.9,0.0291,141,0.035,0
+VND-0652,"Marks, Miller and Griffin",Software & Cloud Services,3.81,0.526,51.0,14.7,0.0284,115,0.024,0
+VND-0653,"Cox, Stark and Rodriguez",Construction & Infrastructure,4.64,0.855,84.4,4.7,0.0087,217,0.008,1
+VND-0654,"Leach, Harris and Herrera",Raw Materials & Metals,4.64,0.857,83.7,4.9,0.0086,183,0.01,1
+VND-0655,Murphy PLC,Construction & Infrastructure,4.17,0.67,70.9,8.7,0.0198,84,0.013,1
+VND-0656,Wilson-Harris,Software & Cloud Services,3.85,0.54,61.3,11.6,0.0276,117,0.024,0
+VND-0657,"Burns, Nolan and Griffin",Healthcare & Medical Supplies,4.43,0.774,82.2,5.3,0.0136,178,0.01,1
+VND-0658,Chavez PLC,Logistics & Freight,4.32,0.726,70.7,8.8,0.0164,139,0.012,1
+VND-0659,Bryant-Brown,Construction & Infrastructure,4.41,0.763,77.8,6.7,0.0142,216,0.012,1
+VND-0660,Chambers-Parker,Manufacturing & Heavy Machinery,3.85,0.541,50.0,15.0,0.0276,294,0.013,0
+VND-0661,Foster Inc,Software & Cloud Services,4.06,0.624,52.0,14.4,0.0226,251,0.036,0
+VND-0662,"Robinson, Jones and Henderson",IT Hardware,4.84,0.936,75.8,7.3,0.0038,164,0.011,1
+VND-0663,"Brown, Mcknight and Michael",Software & Cloud Services,4.97,0.988,87.0,3.9,0.001,224,0.006,1
+VND-0664,Andersen Group,Software & Cloud Services,3.98,0.591,61.2,11.6,0.0245,138,0.014,0
+VND-0665,Mitchell and Sons,Construction & Infrastructure,4.57,0.829,77.2,6.8,0.0102,208,0.004,1
+VND-0666,Cannon Ltd,Manufacturing & Heavy Machinery,4.44,0.778,75.5,7.4,0.0133,220,0.015,1
+VND-0667,"Stuart, Brooks and Vance",Logistics & Freight,4.04,0.614,67.7,9.7,0.0231,293,0.006,0
+VND-0668,Kane-Knox,IT Hardware,4.97,0.987,94.8,1.6,0.001,289,0.006,1
+VND-0669,Miller-Brandt,Logistics & Freight,4.0,0.6,54.9,13.5,0.024,142,0.028,0
+VND-0670,"Anderson, Dalton and Wilson",Healthcare & Medical Supplies,3.84,0.536,50.0,15.0,0.0278,37,0.028,0
+VND-0671,"Long, Anderson and Irwin",Logistics & Freight,4.07,0.629,59.2,12.2,0.0223,219,0.037,0
+VND-0672,Avila LLC,IT Hardware,4.84,0.934,94.7,1.6,0.004,235,0.003,1
+VND-0673,Nunez-Stephens,Construction & Infrastructure,4.68,0.871,74.3,7.7,0.0077,276,0.014,1
+VND-0674,"Gray, Hall and Murray",Raw Materials & Metals,4.18,0.673,60.2,11.9,0.0196,128,0.018,1
+VND-0675,Hill Ltd,IT Hardware,4.98,0.994,75.4,7.4,0.001,271,0.002,1
+VND-0676,Johnson Ltd,IT Hardware,4.83,0.934,85.8,4.3,0.004,166,0.007,1
+VND-0677,Mendez-Mayer,Logistics & Freight,4.3,0.719,66.6,10.0,0.0168,87,0.013,1
+VND-0678,Allen Inc,Logistics & Freight,4.36,0.743,75.4,7.4,0.0154,120,0.017,1
+VND-0679,Wheeler Group,Raw Materials & Metals,4.88,0.95,82.9,5.1,0.003,239,0.009,1
+VND-0680,"Powers, Brennan and Sanchez",Healthcare & Medical Supplies,4.1,0.638,58.8,12.4,0.0217,168,0.006,0
+VND-0681,Morales and Sons,Healthcare & Medical Supplies,4.89,0.956,73.9,7.8,0.0026,190,0.008,1
+VND-0682,"Robinson, Shields and Brown",Construction & Infrastructure,4.53,0.811,79.7,6.1,0.0113,139,0.013,1
+VND-0683,"Holder, Young and Hendricks",Software & Cloud Services,4.67,0.867,65.6,10.3,0.008,233,0.018,1
+VND-0684,"Flores, Harper and Chambers",Healthcare & Medical Supplies,4.64,0.858,90.6,2.8,0.0085,109,0.006,1
+VND-0685,Young-Walter,Software & Cloud Services,3.97,0.59,50.0,15.0,0.0246,29,0.031,0
+VND-0686,"Boyd, Gutierrez and Hill",Healthcare & Medical Supplies,4.96,0.986,78.7,6.4,0.001,234,0.004,1
+VND-0687,"Fry, Hobbs and Buck",Manufacturing & Heavy Machinery,4.82,0.927,80.3,5.9,0.0044,157,0.011,1
+VND-0688,"Shelton, Peters and Williams",Construction & Infrastructure,4.06,0.624,67.4,9.8,0.0226,67,0.031,0
+VND-0689,David-Powers,IT Hardware,4.31,0.723,63.2,11.0,0.0166,181,0.009,1
+VND-0690,"Flores, Butler and Hernandez",Healthcare & Medical Supplies,4.2,0.68,61.9,11.4,0.0192,265,0.02,1
+VND-0691,White-Medina,Construction & Infrastructure,3.95,0.582,50.5,14.8,0.0251,213,0.027,0
+VND-0692,Atkinson LLC,Construction & Infrastructure,4.96,0.985,77.4,6.8,0.001,195,0.008,1
+VND-0693,"Thomas, Ford and Brown",Construction & Infrastructure,4.57,0.828,67.5,9.8,0.0103,167,0.02,1
+VND-0694,Faulkner-Grant,Software & Cloud Services,4.72,0.887,66.3,10.1,0.0068,83,0.007,1
+VND-0695,Price LLC,Software & Cloud Services,4.96,0.985,85.0,4.5,0.001,108,0.004,1
+VND-0696,Rivera Inc,Construction & Infrastructure,4.05,0.618,50.0,15.0,0.0229,229,0.025,0
+VND-0697,Boone-Davis,Construction & Infrastructure,3.96,0.585,53.6,13.9,0.0249,110,0.023,0
+VND-0698,"Calderon, Williams and Bennett",Raw Materials & Metals,4.17,0.669,69.8,9.1,0.0199,103,0.021,1
+VND-0699,"Morrison, Russo and Lopez",Raw Materials & Metals,4.29,0.715,58.1,12.6,0.0171,110,0.012,1
+VND-0700,"Ramsey, Hansen and Mendoza",Raw Materials & Metals,4.52,0.809,79.4,6.2,0.0115,198,0.022,1
+VND-0701,Turner-Stout,Construction & Infrastructure,3.96,0.584,50.0,15.0,0.025,211,0.04,0
+VND-0702,Giles Ltd,Raw Materials & Metals,3.8,0.518,53.9,13.8,0.0289,224,0.034,0
+VND-0703,Burgess Group,IT Hardware,4.58,0.832,76.8,7.0,0.0101,242,0.012,1
+VND-0704,Dominguez Ltd,Logistics & Freight,4.81,0.922,91.7,2.5,0.0047,127,0.005,1
+VND-0705,Sanders and Sons,Raw Materials & Metals,4.48,0.793,77.7,6.7,0.0124,162,0.007,1
+VND-0706,"Morris, Campbell and Owens",IT Hardware,4.01,0.603,50.0,15.0,0.0238,268,0.024,0
+VND-0707,"Howard, Green and Hunt",Manufacturing & Heavy Machinery,4.09,0.635,51.2,14.6,0.0219,152,0.03,0
+VND-0708,Owens-Lang,IT Hardware,4.41,0.766,84.3,4.7,0.0141,292,0.023,1
+VND-0709,"Harrison, Franco and Rocha",Raw Materials & Metals,3.8,0.52,50.0,15.0,0.0288,240,0.028,0
+VND-0710,Edwards-Williams,IT Hardware,4.32,0.726,71.5,8.5,0.0164,141,0.012,1
+VND-0711,Figueroa Inc,IT Hardware,4.15,0.658,60.2,11.9,0.0205,193,0.031,1
+VND-0712,Tran-Silva,Software & Cloud Services,3.8,0.521,50.0,15.0,0.0288,75,0.037,0
+VND-0713,"Butler, Hernandez and Rivera",Construction & Infrastructure,4.98,0.993,99.4,0.2,0.001,194,0.007,1
+VND-0714,Hudson-Sanchez,Manufacturing & Heavy Machinery,3.76,0.502,55.4,13.4,0.0299,99,0.032,0
+VND-0715,"Pena, Cohen and Scott",Construction & Infrastructure,4.55,0.82,80.1,6.0,0.0108,120,0.019,1
+VND-0716,Levy-May,Software & Cloud Services,4.32,0.727,65.3,10.4,0.0164,158,0.019,1
+VND-0717,Murray-Oconnor,Logistics & Freight,4.36,0.744,69.7,9.1,0.0153,164,0.011,1
+VND-0718,Jackson-Cortez,Healthcare & Medical Supplies,3.92,0.57,50.0,15.0,0.0258,278,0.042,0
+VND-0719,White-Preston,Manufacturing & Heavy Machinery,4.13,0.654,67.3,9.8,0.0208,84,0.035,1
+VND-0720,"Bernard, Warren and Combs",Manufacturing & Heavy Machinery,4.0,0.601,57.9,12.6,0.0239,45,0.04,0
+VND-0721,Landry Ltd,Healthcare & Medical Supplies,4.96,0.985,78.2,6.5,0.001,82,0.003,1
+VND-0722,Duran Group,Healthcare & Medical Supplies,4.59,0.836,72.5,8.2,0.0098,141,0.017,1
+VND-0723,Kirby and Sons,Logistics & Freight,4.84,0.934,74.1,7.8,0.004,87,0.008,1
+VND-0724,Mann Inc,Healthcare & Medical Supplies,4.62,0.846,86.1,4.2,0.0092,207,0.011,1
+VND-0725,Wagner LLC,Healthcare & Medical Supplies,4.93,0.972,95.3,1.4,0.0017,62,0.005,1
+VND-0726,Williamson Ltd,Raw Materials & Metals,4.37,0.749,68.6,9.4,0.0151,203,0.015,1
+VND-0727,"Durham, Hopkins and Smith",Manufacturing & Heavy Machinery,4.84,0.934,84.1,4.8,0.0039,16,0.012,1
+VND-0728,"Arnold, Smith and Moreno",Healthcare & Medical Supplies,3.79,0.515,57.3,12.8,0.0291,249,0.032,0
+VND-0729,Nichols-Mitchell,Raw Materials & Metals,4.61,0.845,79.3,6.2,0.0093,47,0.017,1
+VND-0730,"Li, Craig and Drake",Raw Materials & Metals,4.02,0.608,56.3,13.1,0.0235,234,0.033,0
+VND-0731,Rodriguez Inc,Construction & Infrastructure,4.24,0.697,64.6,10.6,0.0182,160,0.014,1
+VND-0732,"Hernandez, Lee and Fox",Healthcare & Medical Supplies,3.88,0.553,50.6,14.8,0.0268,263,0.036,0
+VND-0733,Adams-Sanders,Manufacturing & Heavy Machinery,5.0,1.0,79.0,6.3,0.001,38,0.002,1
+VND-0734,Chung-Stevens,Manufacturing & Heavy Machinery,4.97,0.989,89.2,3.2,0.001,23,0.002,1
+VND-0735,Branch and Sons,Raw Materials & Metals,4.84,0.935,88.3,3.5,0.0039,248,0.002,1
+VND-0736,Sutton-Abbott,Logistics & Freight,4.46,0.784,73.6,7.9,0.013,82,0.023,1
+VND-0737,"Frey, Santos and Johnson",Logistics & Freight,4.85,0.939,78.3,6.5,0.0036,155,0.003,1
+VND-0738,Gray-Tran,Healthcare & Medical Supplies,4.16,0.664,61.8,11.5,0.0202,205,0.025,1
+VND-0739,Walsh Ltd,Healthcare & Medical Supplies,4.76,0.904,84.9,4.5,0.0058,217,0.011,1
+VND-0740,Miller Group,IT Hardware,4.75,0.899,81.3,5.6,0.0061,134,0.008,1
+VND-0741,"Mueller, Knight and Hodge",IT Hardware,4.77,0.909,73.8,7.9,0.0055,15,0.005,1
+VND-0742,Jacobson Inc,Raw Materials & Metals,4.43,0.772,55.5,13.4,0.0137,130,0.015,1
+VND-0743,Lewis Ltd,Manufacturing & Heavy Machinery,4.16,0.662,53.5,14.0,0.0203,190,0.029,1
+VND-0744,"Alvarez, Williams and Jones",Software & Cloud Services,4.25,0.698,67.2,9.8,0.0181,82,0.017,1
+VND-0745,Lam-Elliott,Logistics & Freight,4.24,0.694,61.5,11.5,0.0183,67,0.007,1
+VND-0746,White LLC,Manufacturing & Heavy Machinery,4.05,0.619,58.8,12.4,0.0229,85,0.018,0
+VND-0747,Ali PLC,Healthcare & Medical Supplies,4.03,0.614,51.8,14.5,0.0232,83,0.027,0
+VND-0748,Goodwin Ltd,Construction & Infrastructure,4.5,0.802,73.1,8.1,0.0119,286,0.015,1
+VND-0749,Hickman-Evans,Software & Cloud Services,4.52,0.81,74.1,7.8,0.0114,240,0.01,1
+VND-0750,"Allen, Davenport and Price",Construction & Infrastructure,4.22,0.69,71.8,8.5,0.0186,92,0.031,1
+VND-0751,"Rivera, Campos and Taylor",IT Hardware,4.4,0.76,70.6,8.8,0.0144,126,0.005,1
+VND-0752,"Ramsey, Mason and Mccann",Raw Materials & Metals,3.78,0.513,50.0,15.0,0.0292,78,0.03,0
+VND-0753,Davis and Sons,Software & Cloud Services,4.23,0.69,59.8,12.1,0.0186,234,0.013,1
+VND-0754,Peterson PLC,Construction & Infrastructure,4.48,0.79,70.0,9.0,0.0126,58,0.008,1
+VND-0755,"Sanders, Ayala and Johnson",Healthcare & Medical Supplies,4.51,0.804,80.1,6.0,0.0118,160,0.019,1
+VND-0756,Bowers-Hayes,Construction & Infrastructure,4.77,0.906,82.6,5.2,0.0056,169,0.005,1
+VND-0757,Kelly Group,IT Hardware,4.94,0.978,74.1,7.8,0.0013,215,0.004,1
+VND-0758,Lopez-Willis,IT Hardware,3.99,0.598,50.0,15.0,0.0241,137,0.022,0
+VND-0759,Miller-Montgomery,IT Hardware,4.56,0.824,81.5,5.6,0.0106,51,0.013,1
+VND-0760,Marquez Inc,Manufacturing & Heavy Machinery,4.05,0.622,70.1,9.0,0.0227,177,0.009,0
+VND-0761,Moore-Dawson,Healthcare & Medical Supplies,3.83,0.53,59.9,12.0,0.0282,230,0.02,0
+VND-0762,"Moore, Price and Ward",Manufacturing & Heavy Machinery,4.19,0.676,51.0,14.7,0.0195,256,0.033,1
+VND-0763,Smith LLC,Software & Cloud Services,4.36,0.743,58.3,12.5,0.0154,49,0.004,1
+VND-0764,Ward-Nelson,Raw Materials & Metals,4.11,0.642,51.1,14.7,0.0215,45,0.035,0
+VND-0765,Miller Group,Raw Materials & Metals,4.75,0.902,82.3,5.3,0.0059,271,0.013,1
+VND-0766,Hawkins-Hunt,Construction & Infrastructure,4.14,0.656,64.5,10.6,0.0207,57,0.024,1
+VND-0767,Johnson LLC,IT Hardware,4.65,0.858,73.0,8.1,0.0085,157,0.004,1
+VND-0768,"Davis, George and Nguyen",Software & Cloud Services,4.27,0.707,57.1,12.9,0.0176,119,0.031,1
+VND-0769,Smith-Gutierrez,Manufacturing & Heavy Machinery,3.98,0.591,58.4,12.5,0.0246,215,0.026,0
+VND-0770,Hardy PLC,Raw Materials & Metals,3.98,0.591,58.7,12.4,0.0246,48,0.016,0
+VND-0771,Armstrong and Sons,IT Hardware,4.64,0.855,69.8,9.1,0.0087,137,0.003,1
+VND-0772,"James, Taylor and Turner",Construction & Infrastructure,4.46,0.784,69.9,9.0,0.013,74,0.013,1
+VND-0773,Thomas-Jackson,Healthcare & Medical Supplies,4.95,0.981,83.0,5.1,0.0011,104,0.002,1
+VND-0774,Fisher-Washington,Logistics & Freight,4.76,0.903,79.0,6.3,0.0058,20,0.004,1
+VND-0775,Ward and Sons,Software & Cloud Services,3.8,0.522,51.3,14.6,0.0287,147,0.013,0
+VND-0776,"Weber, Wheeler and Gonzalez",IT Hardware,4.94,0.976,92.8,2.2,0.0015,152,0.008,1
+VND-0777,Taylor Inc,Raw Materials & Metals,4.77,0.91,94.7,1.6,0.0054,30,0.006,1
+VND-0778,Cook-Oliver,Construction & Infrastructure,4.04,0.614,50.0,15.0,0.0232,47,0.014,0
+VND-0779,Alexander-Jordan,Logistics & Freight,4.51,0.805,72.3,8.3,0.0117,269,0.012,1
+VND-0780,"Mccann, Taylor and Flores",Logistics & Freight,4.8,0.92,89.0,3.3,0.0048,100,0.006,1
+VND-0781,"Harris, Edwards and Oconnell",Construction & Infrastructure,4.19,0.677,59.8,12.1,0.0194,74,0.011,1
+VND-0782,Carter-Neal,Raw Materials & Metals,4.73,0.89,69.4,9.2,0.0066,21,0.006,1
+VND-0783,Faulkner-Casey,Manufacturing & Heavy Machinery,4.78,0.911,78.6,6.4,0.0053,91,0.004,1
+VND-0784,Bennett-Velasquez,Software & Cloud Services,4.58,0.834,61.0,11.7,0.01,229,0.007,1
+VND-0785,Diaz-Frederick,IT Hardware,4.53,0.812,71.6,8.5,0.0113,178,0.008,1
+VND-0786,Vargas PLC,IT Hardware,4.48,0.793,65.1,10.5,0.0124,76,0.014,1
+VND-0787,Maldonado PLC,Raw Materials & Metals,4.67,0.868,84.3,4.7,0.0079,279,0.018,1
+VND-0788,Benton Group,Manufacturing & Heavy Machinery,4.02,0.608,50.0,15.0,0.0235,253,0.035,0
+VND-0789,"Clark, Salinas and Guerra",Raw Materials & Metals,3.78,0.512,53.8,13.9,0.0293,182,0.009,0
+VND-0790,Fuentes Group,Manufacturing & Heavy Machinery,4.51,0.804,69.1,9.3,0.0118,117,0.009,1
+VND-0791,"Porter, Schultz and Allen",Construction & Infrastructure,4.04,0.616,53.1,14.1,0.023,139,0.021,0
+VND-0792,"Moore, Henderson and Bennett",Construction & Infrastructure,4.49,0.797,77.0,6.9,0.0122,115,0.019,1
+VND-0793,Ewing-Mendoza,Raw Materials & Metals,4.98,0.994,81.1,5.7,0.001,140,0.002,1
+VND-0794,Ferguson-Mclean,Manufacturing & Heavy Machinery,4.62,0.848,69.5,9.2,0.0091,292,0.009,1
+VND-0795,"Barnes, Johnson and Schmitt",IT Hardware,4.29,0.714,71.8,8.5,0.0172,19,0.03,1
+VND-0796,"Woodard, Herrera and Little",Healthcare & Medical Supplies,4.62,0.846,91.2,2.6,0.0092,207,0.018,1
+VND-0797,Rodriguez and Sons,Software & Cloud Services,3.91,0.564,50.0,15.0,0.0261,120,0.025,0
+VND-0798,"Ortega, Jackson and Salazar",Software & Cloud Services,4.66,0.862,79.0,6.3,0.0083,45,0.019,1
+VND-0799,"Terrell, Byrd and Ross",Software & Cloud Services,4.09,0.637,53.2,14.0,0.0218,62,0.006,0
+VND-0800,Sheppard-Jordan,Logistics & Freight,3.86,0.543,61.0,11.7,0.0274,281,0.022,0
