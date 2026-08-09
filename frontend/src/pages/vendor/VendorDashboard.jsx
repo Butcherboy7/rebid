@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
+import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
 import { formatINR } from '../../utils/formatters';
 import { Truck, ArrowLeft, ArrowDownRight, Lightbulb, RefreshCw, CheckCircle, Star, Users, ChevronDown, Zap, ShieldCheck, Lock, AlertCircle, Clock, TrendingUp, TrendingDown, Info, Award, Download, Sparkles, PartyPopper } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function VendorDashboard() {
-  const { user, token, login } = useAuth();
+  const { user, token } = useAuth();
+  const { showSuccess, showError } = useModal();
 
-  const [activeTab, setActiveTab] = useState('BIDROOM'); // 'BIDROOM' or 'MY_AWARDS'
-  const [viewMode, setViewMode] = useState('GRID'); // 'GRID' or 'ROOM'
+  const [activeTab, setActiveTab] = useState('BIDROOM');
+  const [viewMode, setViewMode] = useState('GRID');
   const [auctions, setAuctions] = useState([]);
   const [awardedContracts, setAwardedContracts] = useState([]);
   const [selectedAuctionId, setSelectedAuctionId] = useState(null);
@@ -20,12 +22,9 @@ export function VendorDashboard() {
   const [bidPrice, setBidPrice] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [loadingAuctions, setLoadingAuctions] = useState(false);
-  const [showAccountDropdown, setShowAccountDropdown] = useState(false);
 
-  // Vendor Profile Modal State
   const [selectedVendorForProfile, setSelectedVendorForProfile] = useState(null);
 
-  // Floating Toast Notification Stack State
   const [toasts, setToasts] = useState([]);
 
   const addToast = (msg, type = 'success') => {
@@ -36,38 +35,10 @@ export function VendorDashboard() {
     }, 4000);
   };
   
-  // Rank movement tracking
   const prevRankRef = useRef(null);
   const [rankShiftMessage, setRankShiftMessage] = useState('');
 
-  // Demo Switcher Accounts
-  const demoVendors = [
-    { name: "HP Enterprise Solutions", email: "vendor1@rebid.ai", category: "IT Hardware", rating: 4.9, sla: "96%" },
-    { name: "Dell Technologies", email: "vendor2@rebid.ai", category: "IT Hardware", rating: 4.7, sla: "92%" },
-    { name: "Lenovo Business", email: "lenovo@rebid.ai", category: "IT Hardware", rating: 4.6, sla: "89%" },
-    { name: "Acer Commercial", email: "acer@rebid.ai", category: "IT Hardware", rating: 4.4, sla: "86%" },
-    { name: "Tata Steel Ltd", email: "tatasteel@rebid.ai", category: "Raw Materials & Metals", rating: 4.9, sla: "95%" },
-    { name: "JSW Steel Infra", email: "jswsteel@rebid.ai", category: "Raw Materials & Metals", rating: 4.7, sla: "91%" },
-    { name: "L&T Construction", email: "ltconst@rebid.ai", category: "Construction & Infrastructure", rating: 4.8, sla: "94%" },
-    { name: "Blue Dart Logistics", email: "bluedart@rebid.ai", category: "Logistics & Freight", rating: 4.8, sla: "96%" },
-    { name: "DHL Supply Chain", email: "dhl@rebid.ai", category: "Logistics & Freight", rating: 4.6, sla: "90%" },
-    { name: "Amazon Business Services", email: "amazon@rebid.ai", category: "Software & Cloud Services", rating: 4.9, sla: "97%" }
-  ];
-
-  const currentVendorProfile = demoVendors.find(v => v.email === user?.email) || demoVendors[0];
-
-  const handleSwitchDemoVendor = async (vendor) => {
-    try {
-      const res = await axios.post(`${API_BASE}/vendor/login`, { email: vendor.email, password: "password123" });
-      login(res.data.access_token, res.data);
-      addToast(`Switched company account to: ${vendor.name}`, 'info');
-      setShowAccountDropdown(false);
-      fetchAuctions();
-      fetchAwardedContracts();
-    } catch (err) {
-      alert("Failed switching demo account");
-    }
-  };
+  const vendorName = user?.name || 'Vendor';
 
   const fetchAuctions = async () => {
     setLoadingAuctions(true);
@@ -98,8 +69,6 @@ export function VendorDashboard() {
       const data = res.data;
       setAuctionDetail(data);
 
-      // Compute Dynamic Rank Shift
-      const vendorName = user?.name || currentVendorProfile.name;
       const myCurrentBid = data.leaderboard?.find(b => b.vendor_name === vendorName || b.vendor_id === user?.vendor_id);
       if (myCurrentBid) {
         const currRank = myCurrentBid.rank;
@@ -124,6 +93,11 @@ export function VendorDashboard() {
   useEffect(() => {
     fetchAuctions();
     fetchAwardedContracts();
+    const interval = setInterval(() => {
+      fetchAuctions();
+      fetchAwardedContracts();
+    }, 6000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -134,7 +108,6 @@ export function VendorDashboard() {
     }
   }, [selectedAuctionId, viewMode]);
 
-  // Open Live Room
   const handleOpenAuctionRoom = (aucId) => {
     setSelectedAuctionId(aucId);
     prevRankRef.current = null;
@@ -143,20 +116,16 @@ export function VendorDashboard() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Vendor current bid & rank
-  const vendorName = user?.name || currentVendorProfile.name;
   const currentLeaderboard = auctionDetail?.leaderboard || [];
   const myBid = currentLeaderboard.find(b => b.vendor_name === vendorName || b.vendor_id === user?.vendor_id);
   const lowestBidPrice = auctionDetail?.lowest_bid || auctionDetail?.max_budget || 0;
 
   const isAuctionClosed = auctionDetail && auctionDetail.status !== 'live';
 
-  // AI Bidding Assistant Calculations
   const suggestedCounterBid = Math.max(1000, lowestBidPrice - 25000);
   const projectedRank = "#1";
   const projectedAIScore = "95%";
 
-  // Quick One-Click Bids (INR)
   const quickBids = [
     { label: '-₹25,000 Drop', val: 25000 },
     { label: '-₹50,000 Drop', val: 50000 },
@@ -166,13 +135,13 @@ export function VendorDashboard() {
   const handleSubmitBid = async (priceToSubmit) => {
     if (!selectedAuctionId) return;
     if (isAuctionClosed) {
-      alert("This auction has ended and is closed for bidding.");
+      showError('Auction Closed', "This auction has ended and is closed for bidding.");
       return;
     }
 
     const finalPrice = parseFloat(priceToSubmit || bidPrice);
     if (!finalPrice || isNaN(finalPrice)) {
-      alert("Please enter a valid bid price");
+      showError('Invalid Bid', "Please enter a valid bid price");
       return;
     }
 
@@ -184,11 +153,11 @@ export function VendorDashboard() {
         price: finalPrice
       }, { headers });
 
-      addToast(`Bid of ${formatINR(finalPrice)} submitted!`, 'success');
+      showSuccess('Bid Submitted!', `Bid of ${formatINR(finalPrice)} submitted successfully!`);
       setBidPrice('');
       fetchAuctionDetail();
     } catch (err) {
-      alert(err.response?.data?.detail || "Failed submitting bid");
+      showError('Bid Failed', err.response?.data?.detail || "Failed submitting bid");
     } finally {
       setSubmitting(false);
     }
@@ -198,13 +167,11 @@ export function VendorDashboard() {
 
   return (
     <div className="app-container">
-      {/* Global Vendor Profile Modal */}
       <VendorProfileModal
         vendorIdentifier={selectedVendorForProfile}
         onClose={() => setSelectedVendorForProfile(null)}
       />
 
-      {/* Floating Toast Notification Container */}
       <div className="toast-container">
         {toasts.map((t) => (
           <div key={t.id} className="toast-item" style={{ background: t.type === 'info' ? '#0F172A' : '#059669' }}>
@@ -214,13 +181,10 @@ export function VendorDashboard() {
         ))}
       </div>
 
-      {/* Navigation (Sidebar Desktop + Mobile Drawer) */}
       <Navigation activePortal="VENDOR" activeItem={activeTab} onSelectTab={setActiveTab} />
 
-      {/* Main Content Area */}
       <main className="content-area">
 
-        {/* TOP TAB NAV CONTROLS: Active Bidding vs My Contract Awards */}
         <div className="filter-tabs" style={{ marginBottom: '20px' }}>
           <button className={`filter-tab-btn ${activeTab === 'BIDROOM' ? 'active' : ''}`} onClick={() => { setActiveTab('BIDROOM'); setViewMode('GRID'); }}>
             Active Procurement Bidding
@@ -231,9 +195,6 @@ export function VendorDashboard() {
         </div>
 
 
-        {/* ---------------------------------------------------- */}
-        {/* VIEW MODE 1: GRID VIEW (Auctions Browser)           */}
-        {/* ---------------------------------------------------- */}
         {viewMode === 'GRID' && activeTab === 'BIDROOM' && (
           <>
             <div className="top-header">
@@ -247,7 +208,33 @@ export function VendorDashboard() {
               </button>
             </div>
 
-            {/* PROMINENT CONGRATULATIONS AWARD CARD IF AWARDED CONTRACT EXISTS */}
+            <div style={{
+              background: '#F0FDF4',
+              border: '1px solid #86EFAC',
+              borderRadius: '12px',
+              padding: '16px 20px',
+              marginBottom: '24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '16px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <CheckCircle size={24} color="#059669" />
+                <div>
+                  <div style={{ fontSize: '15px', fontWeight: '800', color: '#166534' }}>
+                    🎉 Vendor Account Approved & Verified!
+                  </div>
+                  <div style={{ fontSize: '13px', color: '#15803D' }}>
+                    Your business documents have been verified by Admin. You are authorized to participate in live procurement auctions.
+                  </div>
+                </div>
+              </div>
+              <span className="badge badge-completed" style={{ padding: '6px 12px', fontSize: '12px' }}>
+                <ShieldCheck size={14} /> ACTIVE VENDOR
+              </span>
+            </div>
+
             {latestAward && (
               <div style={{
                 background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
@@ -278,7 +265,7 @@ export function VendorDashboard() {
                   </div>
 
                   <a
-                    href={`http://localhost:8000${latestAward.pdf_url}`}
+                    href={`http://localhost:8001${latestAward.pdf_url}`}
                     target="_blank"
                     rel="noreferrer"
                     className="btn btn-primary"
@@ -290,7 +277,6 @@ export function VendorDashboard() {
               </div>
             )}
 
-            {/* Vendor Company Profile Banner Card */}
             <div className="card" style={{ background: '#FFFFFF', border: '1px solid #CBD5E1', padding: '20px 24px', marginBottom: '28px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -311,52 +297,13 @@ export function VendorDashboard() {
                       </span>
                     </div>
                     <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
-                      <span>Category: <b>{currentVendorProfile.category}</b></span>
-                      <span>Rating: <b style={{ color: '#D97706' }}>★ {currentVendorProfile.rating}</b></span>
-                      <span>Reliability SLA: <b style={{ color: '#059669' }}>{currentVendorProfile.sla}</b></span>
+                      <span>Logged in as: <b>{user?.email}</b></span>
                     </div>
                   </div>
-                </div>
-
-                {/* Account Switcher Dropdown */}
-                <div style={{ position: 'relative' }}>
-                  <button className="btn btn-secondary" onClick={() => setShowAccountDropdown(!showAccountDropdown)}>
-                    <Users size={15} color="#059669" /> Switch Company Account <ChevronDown size={14} />
-                  </button>
-
-                  {showAccountDropdown && (
-                    <div className="user-menu-dropdown" style={{ width: '320px', right: 0, top: '46px' }}>
-                      <div style={{ padding: '12px 16px', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC' }}>
-                        <span style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>Select Demo Vendor Account</span>
-                      </div>
-                      <div style={{ maxHeight: '280px', overflowY: 'auto' }}>
-                        {demoVendors.map((v) => (
-                          <div
-                            key={v.email}
-                            onClick={() => handleSwitchDemoVendor(v)}
-                            style={{
-                              padding: '10px 16px',
-                              cursor: 'pointer',
-                              borderBottom: '1px solid #F1F5F9',
-                              background: user?.email === v.email ? '#ECFDF5' : 'transparent',
-                              transition: 'background 0.15s ease'
-                            }}
-                          >
-                            <div style={{ fontWeight: '700', fontSize: '13px', color: '#0F172A' }}>{v.name}</div>
-                            <div style={{ fontSize: '11px', color: '#64748B', display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
-                              <span>{v.category}</span>
-                              <span style={{ color: '#059669', fontWeight: '600' }}>SLA {v.sla}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
 
-            {/* Category Auctions Bento Cards Grid */}
             <div>
               <h2 style={{ marginBottom: '16px' }}>Active Procurement Auctions</h2>
               <div className="auction-grid">
@@ -396,9 +343,6 @@ export function VendorDashboard() {
         )}
 
 
-        {/* ---------------------------------------------------- */}
-        {/* VIEW MODE 1-B: VENDOR AWARDED CONTRACTS TAB          */}
-        {/* ---------------------------------------------------- */}
         {activeTab === 'MY_AWARDS' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -427,7 +371,7 @@ export function VendorDashboard() {
                 {awardedContracts.length === 0 ? (
                   <tr>
                     <td colSpan={7} style={{ textAlign: 'center', color: '#64748B', padding: '32px' }}>
-                      No awarded contracts found for this vendor account. Win live auctions to receive official Purchase Orders.
+                      No awarded contracts found for your vendor account. Win live auctions to receive official Purchase Orders.
                     </td>
                   </tr>
                 ) : (
@@ -441,7 +385,7 @@ export function VendorDashboard() {
                       <td><b style={{ color: '#0F172A' }}>{po.delivery_deadline}</b></td>
                       <td>
                         <a
-                          href={`http://localhost:8000${po.pdf_url}`}
+                          href={`http://localhost:8001${po.pdf_url}`}
                           target="_blank"
                           rel="noreferrer"
                           className="btn btn-primary"
@@ -459,12 +403,8 @@ export function VendorDashboard() {
         )}
 
 
-        {/* ---------------------------------------------------- */}
-        {/* VIEW MODE 2: HERO LIVE AUCTION ROOM (Focused Screen) */}
-        {/* ---------------------------------------------------- */}
         {viewMode === 'ROOM' && auctionDetail && (
           <div>
-            {/* Top Back Navigation Bar */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
               <button className="btn btn-secondary" onClick={() => setViewMode('GRID')}>
                 <ArrowLeft size={16} /> Back to Auctions
@@ -482,7 +422,6 @@ export function VendorDashboard() {
               </div>
             </div>
 
-            {/* Read-Only Banner for Closed Auctions */}
             {isAuctionClosed && (
               <div style={{ padding: '14px 18px', background: '#FEF2F2', border: '1px solid #FCA5A5', color: '#991B1B', borderRadius: '12px', fontSize: '14px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
                 <Lock size={18} />
@@ -490,7 +429,6 @@ export function VendorDashboard() {
               </div>
             )}
 
-            {/* 1. TOP HERO STATUS SUMMARY CARD */}
             <div className="card" style={{ background: '#FFFFFF', border: '2px solid #0F172A', boxShadow: 'var(--shadow-hover)', marginBottom: '24px' }}>
               <div style={{ borderBottom: '1px solid #E2E8F0', paddingBottom: '16px', marginBottom: '18px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
                 <div>
@@ -506,7 +444,6 @@ export function VendorDashboard() {
                 </div>
               </div>
 
-              {/* 4 Metrics Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
                 <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
                   <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>Target Budget</div>
@@ -536,7 +473,6 @@ export function VendorDashboard() {
             </div>
 
 
-            {/* 2. LIVE LEADERBOARD CARD */}
             <div className="table-container" style={{ marginBottom: '24px' }}>
               <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
@@ -581,14 +517,12 @@ export function VendorDashboard() {
             </div>
 
 
-            {/* 3. FULL-WIDTH RESPONSIVE BIDDING CONTROLS */}
             <div className="card" style={{ marginBottom: '24px', opacity: isAuctionClosed ? 0.6 : 1, pointerEvents: isAuctionClosed ? 'none' : 'auto' }}>
               <h2 style={{ marginBottom: '6px' }}>Your Bidding Controls</h2>
               <p className="text-muted" style={{ marginBottom: '16px' }}>
                 {isAuctionClosed ? "Bidding is closed for this auction." : "Select a quick drop or enter a custom counter-bid"}
               </p>
 
-              {/* Quick Bid Buttons Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', marginBottom: '16px' }}>
                 {quickBids.map((qb, i) => {
                   const targetPrice = Math.max(1000, lowestBidPrice - qb.val);
@@ -607,7 +541,6 @@ export function VendorDashboard() {
                 })}
               </div>
 
-              {/* Custom Bid Input Row */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <input
                   type="number"
@@ -630,7 +563,6 @@ export function VendorDashboard() {
             </div>
 
 
-            {/* 4. AI BIDDING ASSISTANT CARD (PROJECTIONS) */}
             <div className="card" style={{ background: '#FFFFFF', border: '2px solid #059669', boxShadow: 'var(--shadow-md)', marginBottom: '24px' }}>
               <div className="card-header-bar" style={{ background: '#ECFDF5' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#059669' }}>
@@ -674,7 +606,6 @@ export function VendorDashboard() {
             </div>
 
 
-            {/* 5. LIVE ACTIVITY FEED LOG */}
             <div className="card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                 <h2>Live Activity Feed</h2>

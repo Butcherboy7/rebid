@@ -18,11 +18,11 @@
   --sidebar-bg: #0F172A;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Multi-Layer Elevation Shadows (ui-ux-pro-max dimensional layering) */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 20px 30px -6px rgba(15, 23, 42, 0.15), 0 8px 12px -4px rgba(15, 23, 42, 0.06);
+  /* Multi-Layer Elevation Shadows (Rich 3D Depth Layering Scale) */
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 20px -2px rgba(15, 23, 42, 0.1), 0 2px 8px -1px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 18px 36px -4px rgba(15, 23, 42, 0.15), 0 6px 12px -2px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 26px 44px -8px rgba(15, 23, 42, 0.2), 0 12px 20px -4px rgba(15, 23, 42, 0.1);
 }
 
 * {
@@ -210,9 +210,13 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   margin-bottom: 24px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 6px 12px -3px rgba(15, 23, 42, 0.06);
 }
 
 .card-header-bar {
@@ -225,6 +229,7 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
 .stat-grid {
@@ -240,13 +245,14 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
   border-radius: 16px;
   padding: 22px 26px;
   position: relative;
-  box-shadow: var(--shadow-md);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -6px rgba(15, 23, 42, 0.14), 0 6px 12px -2px rgba(15, 23, 42, 0.06);
+  border-color: #94A3B8;
 }
 
 .stat-label {
@@ -285,35 +291,39 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
 .btn-primary {
   background-color: var(--primary);
   color: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25), 0 2px 4px rgba(15, 23, 42, 0.15);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
 }
 
 .btn-secondary {
   background-color: #FFFFFF;
   border: 1px solid var(--border-color);
   color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .btn-secondary:hover {
   background-color: #F8FAFC;
   border-color: #94A3B8;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
 }
 
 .btn-danger {
   background-color: var(--danger);
   color: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
 }
 
 .btn-danger:hover {
   background-color: #B91C1C;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
 }
 
 .btn-ghost {
@@ -327,7 +337,7 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
   color: var(--text-primary);
 }
 
-/* Form Inputs */
+/* Form Inputs with Inset Depth */
 .form-group {
   margin-bottom: 18px;
 }
@@ -342,20 +352,20 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
 
 .form-control {
   width: 100%;
-  height: 42px;
+  height: 44px;
   padding: 0 14px;
   border-radius: 10px;
-  border: 1px solid var(--border-color);
+  border: 1.5px solid #CBD5E1;
   background-color: #FFFFFF;
   color: var(--text-primary);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .form-control:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.18), inset 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 /* Tables (Stripe / Linear Style - 0 Vertical Lines) */
@@ -364,7 +374,7 @@ body, input, button, select { font-size: 14px; font-weight: 400; }
   border: 1px solid var(--border-color);
   border-radius: 16px;
   overflow-x: auto;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 28px -4px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
 }
 
 table {

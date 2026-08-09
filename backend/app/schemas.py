@@ -1,25 +1,105 @@
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 
-# Auth Schemas
+
 class LoginRequest(BaseModel):
     email: str
     password: str
 
+
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: str
+    role: str
+
+
+class ExtendedRegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: str
+    role: str
+    company_name: Optional[str] = None
+    category: Optional[str] = None
+    rep_name: Optional[str] = None
+    rep_designation: Optional[str] = None
+    rep_phone: Optional[str] = None
+    rep_email: Optional[str] = None
+    gst_number: Optional[str] = None
+    pan_number: Optional[str] = None
+    cin: Optional[str] = None
+    org_type: Optional[str] = None
+    years_in_business: Optional[int] = None
+    registered_address: Optional[str] = None
+    certifications_json: Optional[str] = None
+    client_references_json: Optional[str] = None
+    bank_account_name: Optional[str] = None
+    bank_name: Optional[str] = None
+    bank_account_number: Optional[str] = None
+    bank_ifsc: Optional[str] = None
+    bank_upi: Optional[str] = None
+
+
+class SendOTPRequest(BaseModel):
+    email: str
+
+
+class VerifyOTPRequest(BaseModel):
+    email: str
+    otp_code: str
+
+
+class SubmitApplicationRequest(BaseModel):
+    user_id: str
+
+
+class VerifyEmailRequest(BaseModel):
+    email: str
+    token: str
+
+
+class ResendVerificationRequest(BaseModel):
+    email: str
+
+
+class UploadDocumentRequest(BaseModel):
+    doc_type: str
+    file_url: str
+
+
+class AccountStatusResponse(BaseModel):
+    user_id: str
+    email: str
+    name: str
+    role: str
+    status: str
+    email_verified: bool
+    documents: List[Dict[str, Any]]
+    message: Optional[str] = None
+
+
+class DocumentReviewRequest(BaseModel):
+    approve: bool
+    rejection_reason: Optional[str] = None
+
+
 class ResetPasswordRequest(BaseModel):
     email: str
     new_password: str
+
 
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user_id: str
     role: str
+    status: str
     name: str
     email: str
     vendor_id: Optional[str] = None
+    detail: Optional[str] = None
 
-# Auction Schemas
+
 class CreateAuctionRequest(BaseModel):
     title: str
     category: str = "IT Hardware"
@@ -29,6 +109,7 @@ class CreateAuctionRequest(BaseModel):
     weight_reliability: int = 30
     weight_delivery: int = 20
     weight_reviews: int = 10
+
 
 class AuctionStatusResponse(BaseModel):
     id: str
@@ -45,25 +126,26 @@ class AuctionStatusResponse(BaseModel):
     weight_reviews: int
     leaderboard: List[Dict[str, Any]]
 
-# Bid Schemas
+
 class SubmitBidRequest(BaseModel):
     auction_id: str
     price: float
 
-# Contract Award Schema
+
 class AwardContractRequest(BaseModel):
     auction_id: str
     vendor_id: str
     vendor_name: str
     amount: float
 
-# Decision Report & AI Recommendation
+
 class DecisionReport(BaseModel):
     price_score: float
     reliability_score: float
     delivery_score: float
     history_score: float
     overall_risk: str
+
 
 class VendorRankItem(BaseModel):
     rank: int
@@ -73,6 +155,7 @@ class VendorRankItem(BaseModel):
     ai_confidence: float
     decision_report: DecisionReport
     explanations: List[str]
+
 
 class RecommendationResponse(BaseModel):
     auction_id: str

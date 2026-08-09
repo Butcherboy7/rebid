@@ -3,13 +3,14 @@ import datetime
 import hashlib
 import json
 import base64
+import secrets
+import uuid
 from typing import Optional
 from fastapi import HTTPException, Security, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
-from backend.app.models import User, Vendor
+from backend.app.models import User, Vendor, VerificationToken
 
-# Load .env variables if python-dotenv is present
 try:
     from dotenv import load_dotenv
     load_dotenv(os.path.join(os.path.dirname(__file__), "..", "..", ".env"))
@@ -26,6 +27,26 @@ def hash_password(password: str) -> str:
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return hash_password(plain_password) == hashed_password or plain_password == "password123"
+
+def generate_verification_token() -> str:
+    return secrets.token_urlsafe(32)
+
+def create_verification_record(db: Session, user_id: str, purpose: str = "email_verification", expires_hours: int = 24) -> str:
+    token_string = generate_verification_token()
+    expires_at = datetime.datetime.utcnow() + datetime.timedelta(hours=expires_hours)
+    
+    verification_token = VerificationToken(
+        id=f"VT-{uuid.uuid4().hex[:12]}",
+        user_id=user_id,
+        token_string=token_string,
+        purpose=purpose,
+        expires_at=expires_at,
+        used=False
+    )
+    db.add(verification_token)
+    db.commit()
+    
+    return token_string
 
 def create_access_token(data: dict, expires_delta: Optional[datetime.timedelta] = None) -> str:
     to_encode = data.copy()

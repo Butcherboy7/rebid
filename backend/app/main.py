@@ -4,17 +4,17 @@ import csv
 import random
 import datetime
 import uuid
+import shutil
 from typing import List, Optional
-from fastapi import FastAPI, HTTPException, Depends, Header
+from fastapi import FastAPI, HTTPException, Depends, Header, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 
-# Add project root to sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from backend.app.database import engine, Base, get_db
-from backend.app.models import User, Vendor, Auction, Bid, AuditLog, FraudAlert, PurchaseOrder
+from backend.app.models import User, Vendor, Auction, Bid, AuditLog, FraudAlert, PurchaseOrder, UserDocument, VerificationToken
 from backend.app.schemas import (
     LoginRequest, ResetPasswordRequest, TokenResponse, CreateAuctionRequest, SubmitBidRequest,
     AwardContractRequest, RecommendationResponse
@@ -22,11 +22,12 @@ from backend.app.schemas import (
 from backend.app.auth import hash_password, verify_password, create_access_token, get_current_user, require_role
 from backend.app.services import log_audit_event, analyze_bid_fraud, generate_purchase_order_pdf, format_inr
 from ml.predict import ai_engine
+from backend.app.routes.auth import router as auth_router
+from backend.app.routes.admin_docs import router as admin_docs_router
 
-# Initialize Database Tables
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="ReBid AI - Enterprise Reverse Procurement System API", version="4.0.0")
+app = FastAPI(title="ReBid AI - Enterprise Reverse Procurement System API", version="5.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -36,10 +37,38 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Static PDF mount
+app.include_router(auth_router)
+app.include_router(admin_docs_router)
+
 static_pdf_dir = os.path.join(os.path.dirname(__file__), "..", "static")
 os.makedirs(static_pdf_dir, exist_ok=True)
 app.mount("/static", StaticFiles(directory=static_pdf_dir), name="static")
+
+uploads_dir = os.path.join(os.path.dirname(__file__), "..", "uploads")
+os.makedirs(uploads_dir, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
+
+
+@app.post("/api/upload")
+async def upload_file(file: UploadFile = File(...)):
+    try:
+        file_extension = os.path.splitext(file.filename)[1]
+        unique_filename = f"{uuid.uuid4().hex}{file_extension}"
+        file_path = os.path.join(uploads_dir, unique_filename)
+        
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        file_url = f"http://localhost:8001/uploads/{unique_filename}"
+        
+        return {
+            "status": "success",
+            "filename": file.filename,
+            "url": file_url,
+            "size": os.path.getsize(file_path)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"File upload failed: {str(e)}")
 
 
 # Helper: Seed initial 1 single bid for auction start
@@ -97,7 +126,9 @@ def startup_seed_db():
                     email=acc["email"],
                     password_hash=hash_password("password123"),
                     role=acc["role"],
-                    name=acc["name"]
+                    name=acc["name"],
+                    email_verified=True,
+                    status="approved"
                 ))
                 db.commit()
 
@@ -189,12 +220,23 @@ def _login_user(db: Session, req: LoginRequest, expected_role: str):
     
     if user.role != expected_role:
         raise HTTPException(status_code=403, detail=f"User role is {user.role}, not authorized for {expected_role} portal")
+    
+    if user.status != "approved":
+        status_messages = {
+            "pending_verification": "Please verify your email address first",
+            "pending_documents": "Please complete document upload",
+            "pending_approval": "Your account is under admin review",
+            "amendment_required": "Some documents require re-upload",
+            "rejected": "Your account has been rejected"
+        }
+        raise HTTPException(status_code=403, detail=status_messages.get(user.status, f"Account status: {user.status}"))
 
     vendor = db.query(Vendor).filter(Vendor.user_id == user.id).first()
     token = create_access_token({
         "user_id": user.id,
         "email": user.email,
         "role": user.role,
+        "status": user.status,
         "name": user.name,
         "vendor_id": vendor.id if vendor else None
     })
@@ -204,6 +246,7 @@ def _login_user(db: Session, req: LoginRequest, expected_role: str):
         token_type="bearer",
         user_id=user.id,
         role=user.role,
+        status=user.status,
         name=user.name,
         email=user.email,
         vendor_id=vendor.id if vendor else None
@@ -243,15 +286,21 @@ def trigger_autonomous_bot_bids(db: Session, auction: Auction):
     if auction.status != "live":
         return
 
+    import random as rand
+    rand_val = rand.random()
+    
+    if rand_val > 0.15:
+        return
+    
+    num_bots = 1 if rand_val > 0.03 else 2
+
     bids = db.query(Bid).filter(Bid.auction_id == auction.id).order_by(Bid.price.asc()).all()
+    if len(bids) >= 20:
+        return
+        
     lowest_bid_price = bids[0].price if bids else auction.max_budget
     lowest_vendor_id = bids[0].vendor_id if bids else None
 
-    # Cap maximum total bids per auction at 20
-    if len(bids) >= 20:
-        return
-
-    # Strictly filter candidate vendors by auction category
     category_vendors = db.query(Vendor).filter(Vendor.category == auction.category).all()
     if not category_vendors:
         category_vendors = db.query(Vendor).filter(Vendor.verified == True).limit(6).all()
@@ -259,39 +308,38 @@ def trigger_autonomous_bot_bids(db: Session, auction: Auction):
     if not category_vendors:
         return
 
-    # Filter vendors not holding Rank 1
     eligible_vendors = [v for v in category_vendors if v.id != lowest_vendor_id]
     if not eligible_vendors:
         eligible_vendors = category_vendors
 
-    bot_vendor = random.choice(eligible_vendors)
+    for _ in range(num_bots):
+        bot_vendor = rand.choice(eligible_vendors)
 
-    # Vendor Profile Floor Strategy:
-    if bot_vendor.rating >= 4.8:
-        min_floor = round(0.80 * auction.max_budget, 2)
-    else:
-        min_floor = round(0.50 * auction.max_budget, 2)
+        if bot_vendor.rating >= 4.8:
+            min_floor = round(0.80 * auction.max_budget, 2)
+        else:
+            min_floor = round(0.50 * auction.max_budget, 2)
 
-    decrement = random.randint(15000, 45000) # INR Decrement
-    new_price = round(lowest_bid_price - decrement, 2)
+        decrement = rand.randint(15000, 45000)
+        new_price = round(lowest_bid_price - decrement, 2)
 
-    if new_price < min_floor:
-        return
+        if new_price < min_floor:
+            continue
 
-    # Submit Bot Bid
-    bid_id = f"BID-{db.query(Bid).count() + 1:05d}-{uuid.uuid4().hex[:4]}"
-    bot_bid = Bid(
-        id=bid_id,
-        auction_id=auction.id,
-        vendor_id=bot_vendor.id,
-        vendor_name=bot_vendor.name,
-        price=new_price,
-        timestamp=datetime.datetime.utcnow()
-    )
-    db.add(bot_bid)
-    db.commit()
+        bid_id = f"BID-{db.query(Bid).count() + 1:05d}-{uuid.uuid4().hex[:4]}"
+        bot_bid = Bid(
+            id=bid_id,
+            auction_id=auction.id,
+            vendor_id=bot_vendor.id,
+            vendor_name=bot_vendor.name,
+            price=new_price,
+            timestamp=datetime.datetime.utcnow()
+        )
+        db.add(bot_bid)
+        db.commit()
 
-    log_audit_event(db, "BID_SUBMITTED", f"{bot_vendor.name} [Bot]", {"auction_id": auction.id, "price": new_price})
+        log_audit_event(db, "BID_SUBMITTED", f"{bot_vendor.name} [Bot]", {"auction_id": auction.id, "price": new_price})
+        lowest_bid_price = new_price
 
 
 # ----------------------------------------------------
@@ -300,15 +348,131 @@ def trigger_autonomous_bot_bids(db: Session, auction: Auction):
 
 @app.get("/api/vendors/{vendor_identifier}/profile")
 def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
-    """Retrieves LinkedIn + Amazon Seller style profile enriched with stat-consistent reviews and charts."""
+    """Retrieves state-aware vendor profile."""
     vendor = db.query(Vendor).filter((Vendor.id == vendor_identifier) | (Vendor.name == vendor_identifier) | (Vendor.company_name == vendor_identifier)).first()
     if not vendor:
         raise HTTPException(status_code=404, detail=f"Vendor profile not found for '{vendor_identifier}'")
 
+    user = db.query(User).filter(User.id == vendor.user_id).first() if vendor.user_id else None
+    vendor_status = user.status if user else "unknown"
+    is_verified_vendor = vendor.verified and vendor_status == "approved"
+
+    if not is_verified_vendor:
+        documents = []
+        if user and vendor.user_id:
+            docs = db.query(UserDocument).filter(UserDocument.user_id == vendor.user_id).all()
+            for d in docs:
+                documents.append({
+                    "id": d.id,
+                    "doc_type": d.doc_type,
+                    "file_url": d.file_url,
+                    "status": d.status,
+                    "rejection_reason": d.rejection_reason,
+                    "uploaded_at": d.uploaded_at.isoformat() if d.uploaded_at else None
+                })
+
+        return {
+            "id": vendor.id,
+            "user_id": vendor.user_id,
+            "name": vendor.name,
+            "company_name": vendor.company_name,
+            "category": vendor.category,
+            "verified": vendor.verified,
+            "status": vendor_status,
+            "documents": documents,
+            "is_approved": False,
+            "message": "This vendor application is under review or not yet approved" if vendor_status != "rejected" else "This vendor application was rejected"
+        }
+
     rel_pct = int(vendor.reliability_score * 100) if vendor.reliability_score else 90
     del_pct = int(vendor.delivery_score) if vendor.delivery_score else 90
     rating = round(vendor.rating, 1) if vendor.rating else 4.5
-    completed_contracts = vendor.contracts_completed or 50
+
+    # Check actual awarded contracts for this vendor
+    actual_pos = db.query(PurchaseOrder).filter((PurchaseOrder.vendor_name == vendor.name) | (PurchaseOrder.vendor_name == vendor.company_name)).all()
+
+    is_real_vendor = vendor.user_id is not None or vendor.contracts_completed == 0
+
+    if is_real_vendor:
+        completed_contracts = len(actual_pos)
+        total_procurement_val = sum(p.amount for p in actual_pos)
+        
+        if completed_contracts == 0:
+            reviews = []
+            history = []
+            monthly_contracts = [0, 0, 0, 0, 0, 0]
+            monthly_win_rates = [0, 0, 0, 0, 0, 0]
+        else:
+            reviews = []
+            history = []
+            for i, p in enumerate(actual_pos):
+                history.append({
+                    "id": p.id,
+                    "buyer_name": p.buyer_name,
+                    "category": vendor.category,
+                    "contract_value": p.amount,
+                    "status": "ACTIVE" if i == 0 else "COMPLETED",
+                    "rating": 5.0,
+                    "date": p.created_at.strftime("%b %Y") if p.created_at else "Recent"
+                })
+            monthly_contracts = [0, 0, 0, 0, 0, completed_contracts]
+            monthly_win_rates = [0, 0, 0, 0, 0, 100]
+    else:
+        completed_contracts = vendor.contracts_completed or 50
+        total_procurement_val = completed_contracts * random.randint(3500000, 7500000)
+
+        buyer_companies = [
+            ("Malla Reddy University", "Mark Stevenson", "VP Supply Chain"),
+            ("Tata Enterprises Corp", "Rajesh Sharma", "Head of Procurement"),
+            ("Apex Cloud Infrastructure", "Sarah Jenkins", "Senior Buyer"),
+            ("Metro Tech Solutions", "David Miller", "Infrastructure Lead"),
+            ("Orion Industrial Corp", "Elena Rostova", "Operations Director")
+        ]
+
+        reviews = []
+        days_ago = [4, 18, 35, 62, 90]
+
+        for idx, (b_comp, reviewer, title) in enumerate(buyer_companies):
+            r_date = (datetime.datetime.utcnow() - datetime.timedelta(days=days_ago[idx])).strftime("%B %d, %Y")
+            
+            if rel_pct >= 92 and rating >= 4.7:
+                stars = 5
+                text = f"Exceptional partner! Delivered all equipment with {del_pct}% SLA compliance. Zero defects reported across {format_inr(random.randint(4500000,9000000))} contract value."
+            elif rel_pct >= 85:
+                stars = 4
+                text = f"Very solid execution by {vendor.name}. Delivery was completed within {vendor.avg_delay_days:.1f} days margin. Professional communication throughout."
+            else:
+                stars = 3 if idx % 2 == 0 else 4
+                text = f"Acceptable delivery quality, though experienced minor scheduling delays ({vendor.avg_delay_days:.1f} days). Pricing remains competitive."
+
+            reviews.append({
+                "id": f"REV-{vendor.id}-{idx+1}",
+                "buyer_company": b_comp,
+                "reviewer_name": reviewer,
+                "reviewer_title": title,
+                "stars": stars,
+                "review_text": text,
+                "date": r_date,
+                "verified": True
+            })
+
+        categories_list = [vendor.category, "IT Infrastructure", "Commercial Fleet", "SaaS Licensing"]
+        history = []
+        for i in range(5):
+            h_val = random.randint(2500000, 9500000)
+            h_date = (datetime.datetime.utcnow() - datetime.timedelta(days=(i+1)*28)).strftime("%b %Y")
+            history.append({
+                "id": f"PO-HIST-{vendor.id[:4]}-{i+1:03d}",
+                "buyer_name": buyer_companies[i % len(buyer_companies)][0],
+                "category": categories_list[i % len(categories_list)],
+                "contract_value": h_val,
+                "status": "COMPLETED",
+                "rating": round(min(5.0, rating + random.uniform(-0.2, 0.2)), 1),
+                "date": h_date
+            })
+
+        monthly_contracts = [random.randint(4, 12) for _ in range(6)]
+        monthly_win_rates = [random.randint(65, 92) for _ in range(6)]
 
     if vendor.cancellation_rate > 0.05 or rel_pct < 80:
         risk_level = "HIGH"
@@ -318,66 +482,7 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
         risk_level = "LOW"
 
     ai_score = round((0.40 * 92) + (0.30 * rel_pct) + (0.20 * del_pct) + (0.10 * (rating * 20)), 1)
-    years_on_platform = max(2, (hash(vendor.id) % 8) + 2)
-    total_procurement_val = completed_contracts * random.randint(3500000, 7500000) # INR Value
-
-    buyer_companies = [
-        ("Malla Reddy University", "Mark Stevenson", "VP Supply Chain"),
-        ("Tata Enterprises Corp", "Rajesh Sharma", "Head of Procurement"),
-        ("Apex Cloud Infrastructure", "Sarah Jenkins", "Senior Buyer"),
-        ("Metro Tech Solutions", "David Miller", "Infrastructure Lead"),
-        ("Orion Industrial Corp", "Elena Rostova", "Operations Director")
-    ]
-
-    reviews = []
-    days_ago = [4, 18, 35, 62, 90]
-
-    for idx, (b_comp, reviewer, title) in enumerate(buyer_companies):
-        r_date = (datetime.datetime.utcnow() - datetime.timedelta(days=days_ago[idx])).strftime("%B %d, %Y")
-        
-        if rel_pct >= 92 and rating >= 4.7:
-            stars = 5
-            text = f"Exceptional partner! Delivered all equipment with {del_pct}% SLA compliance. Zero defects reported across {format_inr(random.randint(4500000,9000000))} contract value."
-        elif rel_pct >= 85:
-            stars = 4
-            text = f"Very solid execution by {vendor.name}. Delivery was completed within {vendor.avg_delay_days:.1f} days margin. Professional communication throughout."
-        else:
-            stars = 3 if idx % 2 == 0 else 4
-            text = f"Acceptable delivery quality, though experienced minor scheduling delays ({vendor.avg_delay_days:.1f} days). Pricing remains competitive."
-
-        if vendor.cancellation_rate > 0.03 and idx == 0:
-            stars = 3
-            text = f"Competitive pricing, but had 1 cancellation incident on a previous order. Required closer monitoring."
-
-        reviews.append({
-            "id": f"REV-{vendor.id}-{idx+1}",
-            "buyer_company": b_comp,
-            "reviewer_name": reviewer,
-            "reviewer_title": title,
-            "stars": stars,
-            "review_text": text,
-            "date": r_date,
-            "verified": True
-        })
-
-    categories_list = [vendor.category, "IT Infrastructure", "Commercial Fleet", "SaaS Licensing"]
-    history = []
-    for i in range(5):
-        h_val = random.randint(2500000, 9500000)
-        h_date = (datetime.datetime.utcnow() - datetime.timedelta(days=(i+1)*28)).strftime("%b %Y")
-        history.append({
-            "id": f"PO-HIST-{vendor.id[:4]}-{i+1:03d}",
-            "buyer_name": buyer_companies[i % len(buyer_companies)][0],
-            "category": categories_list[i % len(categories_list)],
-            "contract_value": h_val,
-            "status": "COMPLETED",
-            "rating": round(min(5.0, rating + random.uniform(-0.2, 0.2)), 1),
-            "date": h_date
-        })
-
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-    monthly_contracts = [random.randint(4, 12) for _ in range(6)]
-    monthly_win_rates = [random.randint(65, 92) for _ in range(6)]
+    years_on_platform = max(1, min(5, (hash(vendor.id) % 6) + 1))
 
     return {
         "id": vendor.id,
@@ -401,7 +506,7 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
         "reviews": reviews,
         "history": history,
         "chart_data": {
-            "months": months,
+            "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
             "monthly_contracts": monthly_contracts,
             "monthly_win_rates": monthly_win_rates
         },
@@ -411,7 +516,9 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
             "delivery_score": del_pct,
             "history_score": int(rating * 20),
             "overall_ai_score": ai_score
-        }
+        },
+        "is_approved": True,
+        "status": "approved"
     }
 
 
@@ -717,10 +824,7 @@ def list_vendor_awarded_contracts(db: Session = Depends(get_db), current_user: d
     vendor_name = current_user.get("name")
     pos = db.query(PurchaseOrder).order_by(PurchaseOrder.created_at.desc()).all()
     
-    # Filter for logged in vendor or return all demo awards
-    matching_pos = [p for p in pos if p.vendor_name == vendor_name or vendor_name in ["HP Enterprise Solutions", "Compliance Administrator"]]
-    if not matching_pos:
-        matching_pos = pos
+    matching_pos = [p for p in pos if p.vendor_name == vendor_name]
 
     res = []
     for p in matching_pos:
@@ -823,22 +927,80 @@ def list_all_vendors(
 
 @app.get("/api/admin/pending_vendors")
 def list_pending_vendors(db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
-    return db.query(Vendor).filter(Vendor.verified == False).all()
+    # Query unverified vendors
+    vendors = db.query(Vendor).filter(Vendor.verified == False).all()
+    
+    result = []
+    for v in vendors:
+        user = db.query(User).filter(User.id == v.user_id).first() if v.user_id else None
+        documents = db.query(UserDocument).filter(UserDocument.user_id == v.user_id).all() if v.user_id else []
+        
+        doc_list = [
+            {
+                "id": doc.id,
+                "doc_type": doc.doc_type,
+                "file_url": doc.file_url,
+                "status": doc.status,
+                "rejection_reason": doc.rejection_reason,
+                "uploaded_at": doc.uploaded_at.isoformat() if doc.uploaded_at else None
+            }
+            for doc in documents
+        ]
+        
+        # Real users use created_at; synthetic dataset items default to epoch start so real users are top priority
+        created_dt = user.created_at if user else datetime.datetime(2026, 1, 1, 0, 0, 0)
+        
+        result.append({
+            "id": v.id,
+            "user_id": v.user_id,
+            "name": v.name,
+            "company_name": v.company_name,
+            "category": v.category,
+            "email": user.email if user else None,
+            "status": user.status if user else "pending_approval",
+            "rating": v.rating if v.rating is not None else 4.5,
+            "created_at": created_dt.isoformat(),
+            "documents": doc_list
+        })
+    
+    # Sort real applicant applications descending by created_at (newest real applicants always first at top)
+    result.sort(key=lambda x: (x["user_id"] is not None, x["created_at"]), reverse=True)
+    return result
 
 @app.post("/api/admin/verify_vendor/{vendor_id}")
 def verify_vendor(vendor_id: str, approve: bool = True, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["ADMIN"]))):
     vendor = db.query(Vendor).filter(Vendor.id == vendor_id).first()
     if not vendor:
+        # Fallback search by user_id
+        vendor = db.query(Vendor).filter(Vendor.user_id == vendor_id).first()
+    if not vendor:
         raise HTTPException(status_code=404, detail="Vendor not found")
+
+    user = db.query(User).filter(User.id == vendor.user_id).first() if vendor.user_id else None
 
     if approve:
         vendor.verified = True
+        if user:
+            user.status = "approved"
+            user.email_verified = True
+            
+            # Auto-approve all pending documents for this user
+            docs = db.query(UserDocument).filter(UserDocument.user_id == user.id).all()
+            for doc in docs:
+                if doc.status != "rejected":
+                    doc.status = "approved"
+                    doc.reviewed_at = datetime.datetime.utcnow()
+                    doc.reviewed_by = current_user.get("user_id")
+
         db.commit()
-        log_audit_event(db, "VENDOR_VERIFIED", current_user.get("name", "Admin"), {"vendor_id": vendor_id, "name": vendor.name})
-        return {"status": "success", "message": f"Vendor {vendor.name} verified successfully"}
+        log_audit_event(db, "VENDOR_VERIFIED", current_user.get("name", "Admin"), {"vendor_id": vendor.id, "name": vendor.name})
+        return {"status": "success", "message": f"Vendor {vendor.name} approved successfully"}
     else:
-        db.delete(vendor)
+        if user:
+            user.status = "rejected"
+        vendor.verified = False
         db.commit()
+        log_audit_event(db, "VENDOR_REJECTED", current_user.get("name", "Admin"), {"vendor_id": vendor.id, "name": vendor.name})
         return {"status": "success", "message": "Vendor application rejected"}
 
 @app.get("/api/admin/audit_logs")

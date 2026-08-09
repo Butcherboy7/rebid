@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
+import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
 import { formatINR } from '../../utils/formatters';
 import { ShoppingBag, Plus, Sparkles, Award, FileText, Clock, TrendingDown, CheckCircle, AlertTriangle, ArrowRight, ArrowLeft, Layers, DollarSign, ShieldCheck, RefreshCw, Download, FileCheck } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function BuyerDashboard() {
   const { user, token } = useAuth();
+  const { showSuccess, showError } = useModal();
 
   const [activeTab, setActiveTab] = useState('AUCTIONS'); // 'AUCTIONS' or 'AWARDED'
   const [viewMode, setViewMode] = useState('GRID'); // 'GRID' or 'ROOM'
@@ -107,12 +109,12 @@ export function BuyerDashboard() {
         weight_reviews: parseInt(weightRev)
       }, { headers });
 
-      alert(res.data.message || "Procurement Auction created and submitted to Admin for approval!");
+      showSuccess('Procurement Created', res.data.message || "Procurement Auction created and submitted to Admin for approval!");
       setShowCreateModal(false);
       setTitle('');
       await fetchAuctions();
     } catch (err) {
-      alert("Failed to create auction: " + (err.response?.data?.detail || err.message));
+      showError('Creation Failed', "Failed to create auction: " + (err.response?.data?.detail || err.message));
     }
   };
 
@@ -123,7 +125,7 @@ export function BuyerDashboard() {
       const res = await axios.post(`${API_BASE}/recommend/${selectedAuctionId}`);
       setRecommendation(res.data);
     } catch (err) {
-      alert("Failed generating AI recommendation");
+      showError('AI Error', "Failed generating AI recommendation");
     } finally {
       setLoadingRec(false);
     }
@@ -140,15 +142,15 @@ export function BuyerDashboard() {
         amount: parseFloat(amount)
       }, { headers });
 
-      alert(`Contract Awarded to ${vendorName}! Official Purchase Order ${res.data.po_id} generated.`);
+      showSuccess('Contract Awarded!', `Contract Awarded to ${vendorName}! Official Purchase Order ${res.data.po_id} generated.`);
       if (res.data.pdf_url) {
-        window.open(`http://localhost:8000${res.data.pdf_url}`, '_blank');
+          window.open(`http://localhost:8001${res.data.pdf_url}`, '_blank');
       }
       fetchAuctionDetail();
       fetchAuctions();
       fetchAwardedContracts();
     } catch (err) {
-      alert("Failed awarding contract");
+      showError('Award Failed', "Failed awarding contract");
     }
   };
 
@@ -386,7 +388,7 @@ export function BuyerDashboard() {
                       <td className="text-muted">{new Date(po.created_at).toLocaleDateString()}</td>
                       <td>
                         <a
-                          href={`http://localhost:8000${po.pdf_url}`}
+                          href={`http://localhost:8001${po.pdf_url}`}
                           target="_blank"
                           rel="noreferrer"
                           className="btn btn-secondary"

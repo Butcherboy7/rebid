@@ -9,11 +9,17 @@ class User(Base):
     id = Column(String, primary_key=True, index=True)
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column(String, nullable=False)
-    role = Column(String, nullable=False) # BUYER, VENDOR, ADMIN
+    role = Column(String, nullable=False)
     name = Column(String, nullable=False)
+    email_verified = Column(Boolean, default=False)
+    email_verified_at = Column(DateTime, nullable=True)
+    status = Column(String, default="pending_verification")
+    rejection_reason = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     vendor_profile = relationship("Vendor", back_populates="user", uselist=False)
+    documents = relationship("UserDocument", back_populates="user", cascade="all, delete-orphan")
+    verification_tokens = relationship("VerificationToken", back_populates="user", cascade="all, delete-orphan")
 
 class Vendor(Base):
     __tablename__ = "vendors"
@@ -25,13 +31,37 @@ class Vendor(Base):
     category = Column(String, nullable=False, default="IT Hardware")
     verified = Column(Boolean, default=False)
     rating = Column(Float, default=4.5)
-    reliability_score = Column(Float, default=0.90) # 0.0 to 1.0
-    delivery_score = Column(Float, default=90.0)    # 0 to 100.0
-    contracts_completed = Column(Integer, default=50)
+    reliability_score = Column(Float, default=0.90)
+    delivery_score = Column(Float, default=90.0)
+    contracts_completed = Column(Integer, default=0)
     cancellation_rate = Column(Float, default=0.02)
     avg_delay_days = Column(Float, default=1.0)
     defect_rate = Column(Float, default=0.01)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    rep_name = Column(String, nullable=True)
+    rep_designation = Column(String, nullable=True)
+    rep_phone = Column(String, nullable=True)
+    rep_email = Column(String, nullable=True)
+
+    gst_number = Column(String, nullable=True)
+    pan_number = Column(String, nullable=True)
+    cin = Column(String, nullable=True)
+    org_type = Column(String, nullable=True)
+    years_in_business = Column(Integer, nullable=True)
+    registered_address = Column(Text, nullable=True)
+
+    certifications_json = Column(Text, nullable=True)
+    client_references_json = Column(Text, nullable=True)
+    previous_contracts_json = Column(Text, nullable=True)
+    product_categories_json = Column(Text, nullable=True)
+    manufacturing_capacity = Column(String, nullable=True)
+
+    bank_account_name = Column(String, nullable=True)
+    bank_name = Column(String, nullable=True)
+    bank_account_number = Column(String, nullable=True)
+    bank_ifsc = Column(String, nullable=True)
+    bank_upi = Column(String, nullable=True)
 
     user = relationship("User", back_populates="vendor_profile")
 
@@ -96,3 +126,34 @@ class PurchaseOrder(Base):
     amount = Column(Float, nullable=False)
     pdf_url = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+class UserDocument(Base):
+    __tablename__ = "user_documents"
+
+    id = Column(String, primary_key=True, index=True)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    doc_type = Column(String, nullable=False)
+    file_url = Column(String, nullable=True)
+    status = Column(String, default="pending")
+    rejection_reason = Column(Text, nullable=True)
+    uploaded_at = Column(DateTime, default=datetime.datetime.utcnow)
+    reviewed_at = Column(DateTime, nullable=True)
+    reviewed_by = Column(String, nullable=True)
+
+    user = relationship("User", back_populates="documents")
+
+class VerificationToken(Base):
+    __tablename__ = "verification_tokens"
+
+    id = Column(String, primary_key=True, index=True)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    token_string = Column(String, unique=True, nullable=False, index=True)
+    otp_code = Column(String, nullable=True, index=True)
+    purpose = Column(String, nullable=False)
+    attempts_count = Column(Integer, default=0)
+    resend_cooldown_until = Column(DateTime, nullable=True)
+    expires_at = Column(DateTime, nullable=False)
+    used = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    user = relationship("User", back_populates="verification_tokens")

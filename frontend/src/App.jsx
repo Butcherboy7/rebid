@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import { BuyerLogin } from './pages/buyer/BuyerLogin';
+import { ModalProvider } from './context/ModalContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { UnifiedLogin } from './pages/UnifiedLogin';
+import { RegistrationWizard } from './pages/RegistrationWizard';
+import { UnderReview } from './pages/UnderReview';
+import { ReuploadDocuments } from './pages/ReuploadDocuments';
 import { BuyerDashboard } from './pages/buyer/BuyerDashboard';
-import { VendorLogin } from './pages/vendor/VendorLogin';
 import { VendorDashboard } from './pages/vendor/VendorDashboard';
-import { AdminLogin } from './pages/admin/AdminLogin';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { DocumentReviewQueue } from './pages/admin/DocumentReviewQueue';
 import { ShoppingBag, Truck, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function AppContent() {
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const [path, setPath] = useState(window.location.pathname);
 
   useEffect(() => {
@@ -23,41 +27,99 @@ function AppContent() {
     setPath(newPath);
   };
 
-  // Router logic
-  if (path.startsWith('/buyer/login')) {
-    return <BuyerLogin onLoginSuccess={() => navigate('/buyer')} />;
+  if (path === '/auth/login' || path === '/login') {
+    return <UnifiedLogin />;
+  }
+
+  if (path === '/auth/register' || path === '/register') {
+    return <RegistrationWizard />;
+  }
+
+  if (path === '/auth/under-review') {
+    return <UnderReview />;
+  }
+
+  if (path === '/auth/re-upload') {
+    return <ReuploadDocuments />;
+  }
+
+  if (path === '/auth/verify-email') {
+    return <RegistrationWizard />;
+  }
+
+  if (path === '/auth/upload-documents') {
+    return <RegistrationWizard />;
+  }
+
+  if (path === '/auth/rejected') {
+    return (
+      <div style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#F9FAFB',
+        padding: '20px'
+      }}>
+        <div style={{ textAlign: 'center', maxWidth: '400px' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: '800', color: '#991B1B', marginBottom: '16px' }}>
+            Application Rejected
+          </h1>
+          <p style={{ color: '#64748B', marginBottom: '24px' }}>
+            Unfortunately, your application has been rejected. Please contact support for more information.
+          </p>
+          <a href="/auth/login" style={{ color: '#0F172A', fontWeight: '600' }}>Back to Login</a>
+        </div>
+      </div>
+    );
   }
 
   if (path.startsWith('/buyer')) {
-    if (!user || user.role !== 'BUYER') {
-      return <BuyerLogin onLoginSuccess={() => navigate('/buyer')} />;
+    if (user && user.role === 'BUYER') {
+      if (user.status === 'pending_approval' || user.status === 'under_review' || user.status === 'pending_documents') {
+        return <UnderReview />;
+      }
+      return <BuyerDashboard />;
     }
-    return <BuyerDashboard />;
-  }
-
-  if (path.startsWith('/vendor/login')) {
-    return <VendorLogin onLoginSuccess={() => navigate('/vendor')} />;
+    return <UnifiedLogin />;
   }
 
   if (path.startsWith('/vendor')) {
-    if (!user || user.role !== 'VENDOR') {
-      return <VendorLogin onLoginSuccess={() => navigate('/vendor')} />;
+    if (user && user.role === 'VENDOR') {
+      if (user.status === 'pending_approval' || user.status === 'under_review' || user.status === 'pending_documents') {
+        return <UnderReview />;
+      }
+      return <VendorDashboard />;
     }
-    return <VendorDashboard />;
+    return <UnifiedLogin />;
   }
 
-  if (path.startsWith('/admin/login')) {
-    return <AdminLogin onLoginSuccess={() => navigate('/admin')} />;
+  if (path.startsWith('/admin/documents')) {
+    if (user && user.role === 'ADMIN') {
+      return (
+        <div className="app-container">
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '250px', backgroundColor: '#F8FAFC', minHeight: '100vh', borderRight: '1px solid #E2E8F0', padding: '20px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '24px' }}>Admin Panel</h2>
+              <button onClick={() => navigate('/admin')} style={{ marginBottom: '12px', padding: '12px', width: '100%', textAlign: 'left', backgroundColor: 'transparent', border: 'none', cursor: 'pointer', fontWeight: '600' }}>← Back to Dashboard</button>
+            </div>
+            <div style={{ flex: 1, overflow: 'auto' }}>
+              <DocumentReviewQueue />
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return <UnifiedLogin />;
   }
 
   if (path.startsWith('/admin')) {
-    if (!user || user.role !== 'ADMIN') {
-      return <AdminLogin onLoginSuccess={() => navigate('/admin')} />;
+    if (user && user.role === 'ADMIN') {
+      return <AdminDashboard />;
     }
-    return <AdminDashboard />;
+    return <UnifiedLogin />;
   }
 
-  // Default Landing / Portal Dispatcher Page
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F9FAFB', padding: '24px' }}>
       <div style={{ textAlign: 'center', maxWidth: '640px', marginBottom: '40px' }}>
@@ -70,8 +132,7 @@ function AppContent() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', width: '100%', maxWidth: '840px' }}>
-        {/* Buyer Portal Card */}
-        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/buyer/login')}>
+        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/auth/login')}>
           <div style={{ width: '56px', height: '56px', backgroundColor: '#111827', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
             <ShoppingBag size={28} />
           </div>
@@ -82,8 +143,7 @@ function AppContent() {
           </button>
         </div>
 
-        {/* Vendor Portal Card */}
-        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/vendor/login')}>
+        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/auth/login')}>
           <div style={{ width: '56px', height: '56px', backgroundColor: '#059669', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
             <Truck size={28} />
           </div>
@@ -94,8 +154,7 @@ function AppContent() {
           </button>
         </div>
 
-        {/* Admin Portal Card */}
-        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/admin/login')}>
+        <div className="card" style={{ textAlign: 'center', padding: '32px 24px', cursor: 'pointer', transition: 'transform 0.15s ease' }} onClick={() => navigate('/auth/login')}>
           <div style={{ width: '56px', height: '56px', backgroundColor: '#111827', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
             <ShieldCheck size={28} />
           </div>
@@ -106,6 +165,27 @@ function AppContent() {
           </button>
         </div>
       </div>
+
+      <div style={{ marginTop: '32px', textAlign: 'center' }}>
+        <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '12px' }}>
+          New to ReBid AI?
+        </p>
+        <button
+          onClick={() => navigate('/auth/register')}
+          style={{
+            padding: '12px 32px',
+            backgroundColor: '#FFFFFF',
+            border: '2px solid #0F172A',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '600',
+            color: '#0F172A',
+            cursor: 'pointer'
+          }}
+        >
+          Create an Account
+        </button>
+      </div>
     </div>
   );
 }
@@ -113,7 +193,9 @@ function AppContent() {
 export function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <ModalProvider>
+        <AppContent />
+      </ModalProvider>
     </AuthProvider>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { ShieldCheck, AlertTriangle, Lock } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function AdminDashboard({ state, refreshState }) {
   const handleVerify = async (vendorId, approve) => {

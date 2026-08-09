@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { UserCheck, ShieldCheck, Zap, Send, MessageSquare } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function VendorDashboard({ state, refreshState }) {
   const [selectedVendor, setSelectedVendor] = useState(state.verified_vendors[0] || {});

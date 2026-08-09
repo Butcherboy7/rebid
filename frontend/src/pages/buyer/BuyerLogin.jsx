@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { ShoppingBag, Lock, AlertCircle, CheckCircle, Key } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function BuyerLogin({ onLoginSuccess }) {
   const { login } = useAuth();

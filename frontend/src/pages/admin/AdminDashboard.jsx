@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
+import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
 import { formatINR } from '../../utils/formatters';
-import { ShieldCheck, Users, AlertTriangle, FileText, CheckCircle, XCircle, Search, RefreshCw, ChevronLeft, ChevronRight, Clock, ShoppingBag } from 'lucide-react';
+import { ShieldCheck, Users, AlertTriangle, FileText, CheckCircle, XCircle, Search, RefreshCw, ChevronLeft, ChevronRight, Clock, ShoppingBag, ArrowUpDown } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'http://localhost:8001/api';
 
 export function AdminDashboard() {
   const { token } = useAuth();
+  const { showConfirm, showSuccess, showError } = useModal();
 
   const [activeTab, setActiveTab] = useState('PENDING_AUCTIONS');
   const [pendingAuctions, setPendingAuctions] = useState([]);
@@ -22,8 +24,8 @@ export function AdminDashboard() {
   const [fraudAlerts, setFraudAlerts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Vendor Profile Modal State
   const [selectedVendorForProfile, setSelectedVendorForProfile] = useState(null);
+  const [pendingVendorSort, setPendingVendorSort] = useState('newest');
 
   const fetchPendingAuctions = async () => {
     try {
@@ -63,7 +65,8 @@ export function AdminDashboard() {
     try {
       const headers = { Authorization: `Bearer ${token}` };
       const res = await axios.get(`${API_BASE}/admin/pending_vendors`, { headers });
-      setPendingVendors(res.data || []);
+      const vendors = res.data || [];
+      setPendingVendors(vendors);
     } catch (err) {
       console.error(err);
     }
@@ -110,41 +113,69 @@ export function AdminDashboard() {
   };
 
   const handleApproveAuction = async (auctionId, approve) => {
+    const action = approve ? 'approve and launch' : 'reject';
+    const confirmed = await showConfirm({
+      title: `${approve ? 'Approve' : 'Reject'} Procurement Auction`,
+      message: `Are you sure you want to ${action} this procurement auction?`,
+      type: approve ? 'success' : 'error',
+      confirmText: approve ? 'Approve & Launch' : 'Reject',
+      cancelText: 'Cancel'
+    });
+
+    if (!confirmed) return;
+
     try {
       const headers = { Authorization: `Bearer ${token}` };
       await axios.post(`${API_BASE}/admin/approve_auction/${auctionId}?approve=${approve}`, {}, { headers });
-      alert(approve ? "Procurement Auction approved & launched LIVE!" : "Procurement Auction rejected.");
+      showSuccess('Action Complete', approve ? "Procurement Auction approved & launched LIVE!" : "Procurement Auction rejected.");
       fetchPendingAuctions();
       fetchAuditLogs();
     } catch (err) {
-      alert("Failed processing auction approval");
+      showError('Action Failed', "Failed processing auction approval");
     }
   };
 
   const handleVerifyVendor = async (vendorId, approve) => {
+    const confirmed = await showConfirm({
+      title: `${approve ? 'Approve' : 'Reject'} Vendor`,
+      message: `Are you sure you want to ${approve ? 'approve' : 'reject'} this vendor?`,
+      type: approve ? 'success' : 'error',
+      confirmText: approve ? 'Approve' : 'Reject',
+      cancelText: 'Cancel'
+    });
+
+    if (!confirmed) return;
+
     try {
       const headers = { Authorization: `Bearer ${token}` };
       await axios.post(`${API_BASE}/admin/verify_vendor/${vendorId}?approve=${approve}`, {}, { headers });
-      alert(approve ? "Vendor verified successfully!" : "Vendor application rejected.");
+      showSuccess('Action Complete', approve ? "Vendor verified successfully!" : "Vendor application rejected.");
       fetchPendingVendors();
       fetchVendors(currentPage, searchQuery);
     } catch (err) {
-      alert("Failed processing verification");
+      showError('Action Failed', "Failed processing verification");
     }
   };
 
+  const sortedPendingVendors = [...pendingVendors].sort((a, b) => {
+    if (pendingVendorSort === 'newest') return new Date(b.created_at) - new Date(a.created_at);
+    if (pendingVendorSort === 'oldest') return new Date(a.created_at) - new Date(b.created_at);
+    if (pendingVendorSort === 'name_asc') return (a.name || '').localeCompare(b.name || '');
+    if (pendingVendorSort === 'name_desc') return (b.name || '').localeCompare(a.name || '');
+    if (pendingVendorSort === 'status') return (a.status || '').localeCompare(b.status || '');
+    return 0;
+  });
+
   return (
     <div className="app-container">
-      {/* Global Vendor Profile Modal */}
       <VendorProfileModal
         vendorIdentifier={selectedVendorForProfile}
         onClose={() => setSelectedVendorForProfile(null)}
+        onRefreshData={fetchPendingVendors}
       />
 
-      {/* Navigation (Sidebar Desktop + Mobile Drawer) */}
       <Navigation activePortal="ADMIN" activeItem={activeTab} onSelectTab={setActiveTab} />
 
-      {/* Main Content Area */}
       <main className="content-area">
         <div className="top-header">
           <div>
@@ -156,12 +187,12 @@ export function AdminDashboard() {
             fetchVendors(currentPage, searchQuery);
             fetchAuditLogs();
             fetchFraudAlerts();
+            fetchPendingVendors();
           }}>
             <RefreshCw size={15} /> Refresh Console
           </button>
         </div>
 
-        {/* Tab Navigation Controls */}
         <div className="filter-tabs" style={{ marginBottom: '24px' }}>
           <button className={`filter-tab-btn ${activeTab === 'PENDING_AUCTIONS' ? 'active' : ''}`} onClick={() => setActiveTab('PENDING_AUCTIONS')}>
             Procurement Approvals ({pendingAuctions.length})
@@ -184,7 +215,6 @@ export function AdminDashboard() {
         </div>
 
 
-        {/* TAB 1: PENDING PROCUREMENT AUCTION APPROVALS */}
         {activeTab === 'PENDING_AUCTIONS' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
@@ -238,7 +268,6 @@ export function AdminDashboard() {
         )}
 
 
-        {/* TAB 2: 500+ VENDOR DATASET TABLE WITH SERVER-SIDE PAGINATION */}
         {activeTab === 'DATASET' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
@@ -247,7 +276,6 @@ export function AdminDashboard() {
                 <p className="text-muted">Click any vendor name to view enriched performance profile dossier</p>
               </div>
 
-              {/* Search Bar Form */}
               <form onSubmit={handleSearchSubmit} style={{ display: 'flex', gap: '8px' }}>
                 <input
                   className="form-control"
@@ -301,7 +329,6 @@ export function AdminDashboard() {
               </tbody>
             </table>
 
-            {/* Pagination Controls */}
             <div style={{ padding: '14px 20px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#F8FAFC' }}>
               <span className="text-muted" style={{ fontSize: '13px' }}>
                 Showing Page <b>{vendorsData.page || 1}</b> of <b>{vendorsData.total_pages || 1}</b> ({vendorsData.total_count || 0} Total Vendors)
@@ -330,7 +357,6 @@ export function AdminDashboard() {
         )}
 
 
-        {/* TAB 3: FRAUD DETECTION ALERTS TABLE */}
         {activeTab === 'FRAUD' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
@@ -382,7 +408,6 @@ export function AdminDashboard() {
         )}
 
 
-        {/* TAB 4: SYSTEM AUDIT TRAIL LOGS */}
         {activeTab === 'AUDIT' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
@@ -416,44 +441,103 @@ export function AdminDashboard() {
         )}
 
 
-        {/* TAB 5: PENDING VENDOR VERIFICATIONS */}
         {activeTab === 'PENDING' && (
           <div className="table-container">
-            <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
-              <h2>Pending Vendor Verification Applications</h2>
-              <p className="text-muted">Review compliance details and approve vendor platform access</p>
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h2>Pending Vendor Applications Queue</h2>
+                <p className="text-muted">Review business documents and approve vendor platform access.</p>
+              </div>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <select
+                  value={pendingVendorSort}
+                  onChange={(e) => setPendingVendorSort(e.target.value)}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #E2E8F0',
+                    fontSize: '13px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <option value="newest">Newest First</option>
+                  <option value="oldest">Oldest First</option>
+                  <option value="name_asc">Company A-Z</option>
+                  <option value="name_desc">Company Z-A</option>
+                  <option value="status">Status</option>
+                </select>
+                <button className="btn btn-secondary" style={{ fontSize: '13px', padding: '6px 12px' }} onClick={fetchPendingVendors}>
+                  <RefreshCw size={14} /> Refresh Queue
+                </button>
+              </div>
             </div>
 
             <table>
               <thead>
                 <tr>
+                  <th>Submitted Date</th>
                   <th>Vendor ID</th>
-                  <th>Company Name</th>
+                  <th>Company & Email</th>
                   <th>Category</th>
-                  <th>Historical Rating</th>
+                  <th>Uploaded Business Documents</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {pendingVendors.length === 0 ? (
-                  <tr><td colSpan={5} style={{ textAlign: 'center', color: '#64748B', padding: '24px' }}>No pending vendor applications.</td></tr>
+                {sortedPendingVendors.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} style={{ textAlign: 'center', color: '#64748B', padding: '32px' }}>
+                      <CheckCircle size={24} color="#059669" style={{ marginBottom: '8px', display: 'block', margin: '0 auto' }} />
+                      No pending vendor applications. All applicant dossiers have been reviewed.
+                    </td>
+                  </tr>
                 ) : (
-                  pendingVendors.map((v) => (
+                  sortedPendingVendors.map((v) => (
                     <tr key={v.id}>
+                      <td className="text-muted" style={{ fontSize: '12px' }}>
+                        {v.created_at ? new Date(v.created_at).toLocaleString() : 'Recent'}
+                      </td>
                       <td><code>{v.id}</code></td>
                       <td>
-                        <b
-                          onClick={() => setSelectedVendorForProfile(v.name)}
-                          style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline' }}
-                          title="Click to view Vendor Profile Dossier"
-                        >
-                          {v.name}
-                        </b>
+                        <div>
+                          <b
+                            onClick={() => setSelectedVendorForProfile(v.name)}
+                            style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline', fontSize: '14px' }}
+                            title="Click to view Dossier & Review Documents"
+                          >
+                            {v.name}
+                          </b>
+                          {v.email && <div style={{ fontSize: '12px', color: '#64748B' }}>{v.email}</div>}
+                        </div>
                       </td>
                       <td><span className="badge badge-live">{v.category}</span></td>
-                      <td>★ {v.rating}</td>
+                      <td>
+                        {v.documents && v.documents.length > 0 ? (
+                          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                            {v.documents.map((doc, idx) => (
+                              <span key={idx} style={{
+                                fontSize: '11px',
+                                padding: '2px 8px',
+                                borderRadius: '4px',
+                                background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
+                                color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
+                                fontWeight: '600'
+                              }}>
+                                {doc.doc_type?.replace('_', ' ')}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span style={{ fontSize: '12px', color: '#94A3B8' }}>No docs uploaded</span>
+                        )}
+                      </td>
                       <td>
                         <div style={{ display: 'flex', gap: '8px' }}>
+                          <button className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '12px' }} onClick={() => setSelectedVendorForProfile(v.name)}>
+                            <FileText size={14} /> Review Docs
+                          </button>
                           <button className="btn btn-primary" style={{ backgroundColor: '#059669', padding: '4px 10px', fontSize: '12px' }} onClick={() => handleVerifyVendor(v.id, true)}>
                             <CheckCircle size={14} /> Approve
                           </button>
@@ -471,7 +555,6 @@ export function AdminDashboard() {
         )}
 
 
-        {/* TAB 6: USER DIRECTORY */}
         {activeTab === 'USERS' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>

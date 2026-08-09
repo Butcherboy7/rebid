@@ -17,7 +17,11 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.pytest_cache/
+# Temporary scratch files and test uploads
+scratch/
+backend/uploads/
+backend/static/*.pdf
+opencode.json
 
 # OS files
 .DS_Store

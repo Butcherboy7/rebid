@@ -3,12 +3,13 @@ import json
 import datetime
 import hashlib
 from sqlalchemy.orm import Session
+from sqlalchemy import and_
 from backend.app.models import AuditLog, FraudAlert, Bid, Auction, PurchaseOrder
+from backend.app.database import SessionLocal
 
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "..", "static")
 os.makedirs(STATIC_DIR, exist_ok=True)
 
-# Helper: Format Indian Rupee (INR) numbers (e.g. 5575500 -> 55,75,500)
 def format_inr(number: float) -> str:
     try:
         s, *d = str(f"{number:.2f}").partition('.')
@@ -17,10 +18,23 @@ def format_inr(number: float) -> str:
     except Exception:
         return f"Rs {number:,.2f}"
 
-# 1. Audit Logging Service
 def log_audit_event(db: Session, action: str, actor: str, details: dict = None):
+    previous_hash = "GENESIS"
+    
+    try:
+        last_log = db.query(AuditLog).order_by(AuditLog.timestamp.desc()).with_for_update().first()
+        if last_log:
+            previous_hash = last_log.id
+    except Exception:
+        pass
+    
+    current_data = f"{action}|{actor}|{json.dumps(details or {})}|{datetime.datetime.utcnow().isoformat()}"
+    current_hash = hashlib.sha256(f"{previous_hash}|{current_data}".encode()).hexdigest()[:32]
+    
+    log_id = f"LOG-{datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')[:17]}-{current_hash[:8]}"
+    
     log = AuditLog(
-        id=f"LOG-{datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')[:17]}",
+        id=log_id,
         action=action,
         actor=actor,
         details=json.dumps(details or {}),
