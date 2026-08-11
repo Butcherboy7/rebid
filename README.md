@@ -1,23 +1,167 @@
 # 🚀 ReBid AI — Next-Gen Autonomous Reverse Procurement Platform
 
-> **An AI-powered, multi-criteria enterprise reverse auction ecosystem driven by trained XGBoost Machine Learning, automated fraud & collusion detection, live bidding rooms, and SAP/GeM-grade Purchase Order generation.**
+> **An AI-powered, multi-criteria enterprise reverse auction ecosystem driven by trained XGBoost Machine Learning, real-time fraud & collusion detection, live bidding rooms, and SAP/GeM-grade Purchase Order generation.**
 
 ---
 
-## 🌟 Executive Summary & Innovation Spotlight
+## ⚡ Quick Start Guide (Run Locally in 2 Minutes)
 
-Traditional procurement platforms fail because they rely solely on a **"race to the bottom"** price-only selection model. Lowest-cost vendors frequently default on delivery deadlines, deliver defective equipment, or inflate downstream maintenance costs. 
+Follow these simple steps to run both the **Backend** and **Frontend** on any PC (Windows, macOS, or Linux).
 
-**ReBid AI** solves this multi-billion dollar enterprise problem by combining:
-1. **XGBoost Machine Learning Classifier (`84.12%` accuracy)** trained on synthetic vendor telemetry to evaluate composite procurement scorecards across Price, SLA Reliability, Delivery Velocity, and Historical Feedback.
-2. **Automated Collusion & Fraud Detection Rule Engine** that monitors real-time bidding rooms to flag high-frequency bots, suspicious price dumps, and sub-60-second collusive bidding patterns between participating vendors.
-3. **Enterprise Compliance & Approval Workflow** where buyer procurement requests pass through strict Admin review queues before going live.
-4. **LinkedIn + Amazon Seller Hybrid Vendor Dossier** featuring statistically consistent buyer reviews, 6-month contract trend charts, and AI match breakdowns.
-5. **SAP / GeM-Grade Official Purchase Order Generation** issuing PDF contract award letters with 18% GST statutory calculations, payment terms, and cryptographic SHA-256 verification hashes.
+### 📋 Prerequisites
+Before running, make sure you have installed:
+- **Python**: `3.10` or higher ([Download Python](https://www.python.org/downloads/))
+- **Node.js**: `18.0` or higher with `npm` ([Download Node.js](https://nodejs.org/))
+- **Git**: ([Download Git](https://git-scm.com/))
 
 ---
 
-## 🧠 Architectural Deep Dive — The AI & ML Engine
+### 🖥️ Step-by-Step Instructions
+
+#### 1️⃣ Clone & Open the Repository
+Open your terminal (PowerShell, Command Prompt, or Bash) and navigate to the project directory:
+```bash
+git clone <your-repository-url>
+cd "rebid neha"
+```
+
+---
+
+#### 2️⃣ Set Up & Start the Backend (Terminal 1)
+
+1. **Create and activate a virtual environment**:
+   - **Windows (Command Prompt / PowerShell)**:
+     ```powershell
+     python -m venv venv
+     .\venv\Scripts\activate
+     ```
+     *(If PowerShell blocks script execution, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` first)*
+   - **macOS / Linux**:
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+
+2. **Install Python dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Configure Environment Variables**:
+   Create your local `.env` file by copying the template:
+   - **Windows**:
+     ```cmd
+     copy .env.example .env
+     ```
+   - **macOS / Linux**:
+     ```bash
+     cp .env.example .env
+     ```
+
+4. **Start the FastAPI backend server**:
+   ```bash
+   python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
+   ```
+
+🟢 **Backend Server Running At**: [http://127.0.0.1:8000](http://127.0.0.1:8000)  
+🟢 **Interactive API Documentation (Swagger)**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+#### 3️⃣ Set Up & Start the Frontend (Terminal 2)
+
+Open a **new separate terminal window** (keep the backend running in Terminal 1):
+
+1. **Navigate to the `frontend` folder**:
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Launch Vite Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+🟢 **Frontend Web Application Running At**: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🔑 Demo Login Credentials
+
+The platform comes pre-seeded with enterprise accounts so you can test all roles immediately without registration.
+
+> **Universal Password for all Demo Accounts**: `password123`
+
+| Portal | Email Address | Password | Role & Permissions |
+| :--- | :--- | :--- | :--- |
+| **🏢 Buyer Portal** | `buyer@rebid.ai` | `password123` | Create procurement auctions, monitor live reverse bidding, trigger XGBoost AI evaluations, and award contracts with SAP/GeM POs. |
+| **🛡️ Admin Portal** | `admin@rebid.ai` | `password123` | Review & approve buyer procurement requests, inspect 500+ vendor database, verify documents, and review real-time fraud alerts. |
+| **🏭 Vendor Portal** | `vendor1@rebid.ai` | `password123` | Submit real-time counter-bids, view rank updates, inspect intelligence dossiers, and download awarded PO letters. |
+| **🏭 Vendor 2** | `vendor2@rebid.ai` | `password123` | Secondary vendor account (*Dell Technologies*) to simulate multi-vendor live auction competition. |
+
+*Additional pre-seeded vendor accounts (password `password123`): `lenovo@rebid.ai`, `acer@rebid.ai`, `tatasteel@rebid.ai`, `jswsteel@rebid.ai`, `ltconst@rebid.ai`, `bluedart@rebid.ai`, `dhl@rebid.ai`, `amazon@rebid.ai`.*
+
+---
+
+## 📧 Email Verification & Resend API Key FAQ
+
+### ❓ Do I need to provide a Resend API Key to others?
+**NO, you do NOT need to send or share your Resend API Key.**
+
+Here is why the system runs seamlessly out-of-the-box on anyone's machine:
+
+1. **Pre-Seeded Demo Accounts**:
+   - All demo accounts listed above are already pre-verified and approved.
+   - Anyone can log in directly without requiring OTP email verification.
+
+2. **Built-In Terminal OTP Fallback (Dev Mode)**:
+   - When registering a **new custom account**, if `RESEND_API_KEY` is left blank in `.env`, the backend automatically outputs the 6-digit OTP directly into the **Backend Terminal console**:
+     ```text
+     ============================================================
+     [DEV MODE] OTP for newuser@example.com: 849201
+     ============================================================
+     ```
+   - The user can simply copy the 6-digit code from their terminal and paste it into the verification field.
+
+3. **Optional Real Email Delivery**:
+   - If someone wishes to test real email inbox delivery on their machine, they can register for a free key at [resend.com](https://resend.com) and add it to their local `.env` file:
+     ```env
+     RESEND_API_KEY=re_your_api_key_here
+     ```
+
+---
+
+## 🎮 Recommended End-to-End Demo Walkthrough
+
+Experience the complete autonomous reverse auction workflow in 4 steps:
+
+1. **Login as Buyer (`buyer@rebid.ai`)**:
+   - Go to [http://localhost:5173/buyer/login](http://localhost:5173/buyer/login).
+   - Click **"Create Procurement"**, fill in title, budget (e.g. ₹50,00,000 INR), category, and weight criteria (Price 40%, SLA 30%, Delivery 20%, Reviews 10%).
+   - Submit the auction. It will be placed in `pending_approval` status.
+
+2. **Login as Admin (`admin@rebid.ai`)**:
+   - Go to [http://localhost:5173/admin/login](http://localhost:5173/admin/login).
+   - Navigate to the **Procurement Approval Queue** and click **"Approve"** on the newly created auction to make it `LIVE`.
+
+3. **Login as Vendor (`vendor1@rebid.ai` or `vendor2@rebid.ai`)**:
+   - Go to [http://localhost:5173/vendor/login](http://localhost:5173/vendor/login).
+   - Enter the live auction room, review current ranks, and place a lower counter-bid.
+   - Watch the real-time leaderboard update and observe fraud engine checks.
+
+4. **Award Contract & Generate SAP/GeM Purchase Order**:
+   - Switch back to the Buyer Portal and enter the live auction.
+   - Click **"AI Recommendation"** to trigger the **XGBoost Classifier Model** (`84.12% accuracy`).
+   - Click **"Award Contract"** to issue an official SAP/GeM-grade Purchase Order PDF with 18% GST calculation, digital signature stamp, and SHA-256 integrity hash.
+
+---
+
+## 🧠 Architectural Deep Dive
 
 ```
                                ┌────────────────────────────────┐
@@ -76,168 +220,52 @@ Vendor reviews and ratings are **statistically generated from real telemetry**:
 
 ---
 
-## 🛠️ Complete Local Setup & Run Guide
-
-Follow these exact steps to launch both backend and frontend servers on your local computer.
-
-### 📋 System Prerequisites
-- **Python**: `3.10` or higher
-- **Node.js**: `18.0` or higher (with `npm`)
-- **Git**: Installed
-
----
-
-### 💻 Step 1: Clone & Open Repository
-```bash
-git clone <your-repository-url>
-cd "rebid neha"
-```
-
----
-
-### 🐍 Step 2: Set Up Python Backend
-
-1. **Create and activate a Virtual Environment**:
-   - **Windows (Command Prompt / PowerShell)**:
-     ```powershell
-     python -m venv venv
-     .\venv\Scripts\activate
-     ```
-   - **macOS / Linux**:
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-
-2. **Install Required Dependencies**:
-   ```bash
-   pip install fastapi uvicorn sqlalchemy xgboost reportlab pydantic python-jose passlib bcrypt requests
-   ```
-
-3. **Verify Environment Variables (`.env`)**:
-   Ensure a `.env` file exists in the project root directory with:
-   ```env
-   SECRET_KEY=rebid-ai-enterprise-procurement-jwt-secret-key-2026-prod-hash
-   ALGORITHM=HS256
-   ACCESS_TOKEN_EXPIRE_MINUTES=1440
-   ```
-
-4. **Launch the FastAPI Server**:
-   ```bash
-   python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
-   ```
-   > 🟢 **Backend Server will run at**: `http://127.0.0.1:8000`  
-   > 🟢 **Interactive API Docs**: `http://127.0.0.1:8000/docs`
-
----
-
-### ⚛️ Step 3: Set Up React Frontend
-
-Open a **new terminal window** (keep the backend server running in the first window):
-
-1. **Navigate to the frontend directory**:
-   ```bash
-   cd frontend
-   ```
-
-2. **Install Node Dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the Vite Development Server**:
-   ```bash
-   npm run dev
-   ```
-   > 🟢 **Frontend Web App will run at**: `http://localhost:5173`
-
----
-
-## 🔑 Demo Login Credentials
-
-You can test all 3 enterprise portals using these pre-seeded accounts (Password for all accounts: **`password123`**):
-
-| Portal | Email Address | Password | Role & Function |
-| :--- | :--- | :--- | :--- |
-| **Buyer Portal** | `buyer@rebid.ai` | `password123` | Create procurements, monitor live auction rooms, trigger XGBoost AI recommendations, award contracts. |
-| **Admin Portal** | `admin@rebid.ai` | `password123` | Review & approve buyer procurements, search 500+ vendor dataset, monitor real-time fraud alerts & audit logs. |
-| **Vendor Portal** | `vendor1@rebid.ai` | `password123` | Place quick/custom counter-bids, view rank shifts, switch between 10 company accounts, download SAP/GeM PO PDFs. |
-
----
-
-## 🧪 Automated Verification & System Health Tests
-
-To verify that all backend routes, auth tokens, database connections, and PDF generators are operating with 100% clean health, run the backend test script:
-
-```bash
-python scratch/test_backend.py
-```
-
-Expected Output:
-```text
---- 1. Testing Auth Endpoints ---
-[OK] Buyer login successful
-[OK] Vendor login successful
-[OK] Admin login successful
-
---- 2. Creating Fresh Test Auction (INR Currency) ---
-[OK] Created procurement auction AUC-0015 (Status: pending_approval)
-
---- 3. Testing Admin Auction Approval Workflow ---
-[OK] Admin approved procurement auction AUC-0015! Status is now LIVE!
-
---- 4. Testing Enriched Vendor Intelligence Profile & Stat-Driven Reviews ---
-[OK] Vendor Profile retrieved! Company: HP Enterprise Solutions | Rating: 4.9 Stars | AI Match: 94.4%
-
---- 5. Testing Vendor Bidding & Fraud Detection Rules (INR Decrement) ---
-[OK] Bid submitted successfully in INR
-
---- 6. Testing Enterprise SAP / GeM Style Purchase Order PDF Generation ---
-[OK] Contract awarded! Issued Official Purchase Order: PO-2026-001010 | PDF: /static/purchase_order_PO-2026-001010.pdf
-
-ALL ENTERPRISE PURCHASE ORDER & INR TESTS PASSED PERFECTLY!
-```
-
----
-
 ## 📂 Project Structure Overview
 
 ```text
 rebid neha/
-├── .env                       # Hardened JWT secret key & auth config
-├── alembic.ini                # Alembic database migration config
+├── .env.example               # Environment variables template
+├── requirements.txt           # Python backend & ML dependencies
+├── alembic.ini                # Database migration config
 ├── README.md                  # System architecture & setup documentation
+├── HANDOFF.md                 # Architecture status & implementation notes
 ├── ml/
 │   ├── xgb_model.json         # Trained XGBoost binary model (84.12% accuracy)
 │   └── predict.py             # Multi-criteria AI recommendation engine
 ├── backend/
 │   ├── static/                # Generated SAP / GeM Purchase Order PDFs
+│   ├── uploads/               # Uploaded vendor onboarding documents
 │   └── app/
-│       ├── main.py            # FastAPI API application endpoints
+│       ├── main.py            # FastAPI application endpoints & seeds
 │       ├── models.py          # SQLAlchemy ORM database models
 │       ├── schemas.py         # Pydantic input validation models
 │       ├── services.py        # Fraud engine & ReportLab PDF generator
-│       └── auth.py            # JWT token authentication & role RBAC
+│       ├── auth.py            # JWT token authentication & role RBAC
+│       └── routes/            # Sub-routers for auth & admin document review
 └── frontend/
     ├── src/
     │   ├── App.jsx            # Main React application router
-    │   ├── index.css          # Design system, mobile viewport & toast styles
-    │   ├── components/
-    │   │   ├── Navigation.jsx # Responsive portal sidebar & drawer nav
-    │   │   └── VendorProfileModal.jsx # LinkedIn + Amazon Seller Dossier
-    │   ├── context/
-    │   │   └── AuthContext.jsx# Auth context & 401 response interceptor
-    │   ├── utils/
-    │   │   └── formatters.js  # Indian Rupee (INR ₹) number formatting
-    │   └── pages/
-    │       ├── buyer/         # Buyer Dashboard & Sign-in cards
-    │       ├── vendor/        # Vendor Bidding Workstation & Awards
-    │       └── admin/         # Compliance Admin Portal & Approvals
+    │   ├── index.css          # Design system & styling
+    │   ├── components/        # Navigation, Dossier modal, Modals
+    │   ├── context/           # AuthContext & ModalContext
+    │   ├── utils/             # Indian Rupee (INR ₹) formatters
+    │   └── pages/             # Buyer, Vendor, Admin, Registration portals
 ```
+
+---
+
+## 🔧 Common Troubleshooting
+
+| Issue | Solution |
+| :--- | :--- |
+| **PowerShell script execution disabled** | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in PowerShell before activating `venv`. |
+| **Port 8000 already in use** | Run `python -m uvicorn backend.app.main:app --port 8001 --reload` (or terminate the process occupying port 8000). |
+| **Port 5173 already in use** | Vite will automatically offer port 5174 or prompt you to select an open port. |
+| **Database reset** | To start with a fresh clean database, delete `rebid.db` and restart the backend. The startup script will re-seed all demo data automatically. |
 
 ---
 
 ## 🛡️ License & Enterprise Compliance
 
-Designed & Built with ❤️ for Enterprise Procurement Excellence.  
+Designed & Built for Enterprise Procurement Excellence.  
 *All generated Purchase Orders, Audit Trail Logs, and Vendor Dossiers are encrypted and digitally checksummed.*
