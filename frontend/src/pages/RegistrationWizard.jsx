@@ -4,7 +4,7 @@ import { ReBidLogo } from '../components/ReBidLogo';
 import { 
   ArrowRight, ArrowLeft, CheckCircle, Upload, Loader, 
   AlertCircle, RefreshCw, ShoppingBag, Truck, ShieldCheck, 
-  Lock, Building, CreditCard, FileCheck, Check 
+  Lock, Building, CreditCard, FileCheck, Check, Mail 
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8001/api';
@@ -429,7 +429,7 @@ export function RegistrationWizard({ onNavigate = null }) {
       }}>
         {/* Logo & Step Tracker */}
         <div style={{ marginBottom: '28px', textAlign: 'center' }}>
-          <ReBidLogo size="md" variant="dark" style={{ marginBottom: '14px' }} />
+          <ReBidLogo size="md" variant="dark" style={{ marginBottom: '14px', justifyContent: 'center' }} />
           
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
             {[1, 2, 3, 4, 5, 6, 7].map((s) => (

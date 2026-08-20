@@ -1,0 +1,73 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arrowTopStatic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <linearGradient id="arrowBottomStatic" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="barGradStatic" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#9333EA" />
+    </linearGradient>
+  </defs>
+
+  <!-- Top-Right Circular Arrow -->
+  <path
+    d="M 28 42 C 34 22, 54 12, 75 14 C 92 16, 106 28, 108 45"
+    stroke="url(#arrowTopStatic)"
+    stroke-width="9"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <polygon points="98,34 116,50 114,28" fill="#7C3AED" />
+
+  <!-- Bottom-Left Circular Arrow -->
+  <path
+    d="M 92 78 C 86 98, 66 108, 45 106 C 28 104, 14 92, 12 75"
+    stroke="url(#arrowBottomStatic)"
+    stroke-width="9"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <polygon points="22,86 4,70 6,92" fill="#2563EB" />
+
+  <!-- Bar Chart -->
+  <rect x="44" y="44" width="7" height="12" rx="1.5" fill="url(#barGradStatic)" />
+  <rect x="54" y="36" width="7" height="20" rx="1.5" fill="url(#barGradStatic)" />
+  <rect x="64" y="28" width="7" height="28" rx="1.5" fill="url(#barGradStatic)" />
+
+  <!-- Handshake Graphic -->
+  <path
+    d="M 28 68 L 44 54 C 47 51, 52 52, 55 55 L 61 61"
+    stroke="#1E40AF"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M 92 68 L 76 54 C 73 51, 68 52, 65 55 L 59 61"
+    stroke="#1D4ED8"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M 46 64 C 46 64, 52 70, 60 70 C 68 70, 74 64, 74 64 L 68 76 C 64 80, 56 80, 52 76 Z"
+    fill="#1E3A8A"
+  />
+  <path
+    d="M 44 68 C 47 72, 53 75, 60 75 C 67 75, 73 72, 76 68"
+    stroke="#2563EB"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <circle cx="53" cy="74" r="2" fill="#1D4ED8" />
+  <circle cx="60" cy="75" r="2" fill="#1D4ED8" />
+  <circle cx="67" cy="74" r="2" fill="#1D4ED8" />
+</svg>

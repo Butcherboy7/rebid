@@ -103,27 +103,319 @@ def startup_seed_db():
     from backend.app.database import SessionLocal
     db = SessionLocal()
     try:
-        # 1. Seed Enterprise Users (Buyer, Admin, and 10 Industry Vendors)
+        # 1. Seed Enterprise Users (Buyer, Admin, and 10 Industry Vendors) with rich realistic profile data
         demo_accounts = [
-            {"id": "usr_buyer", "email": "buyer@rebid.ai", "name": "Enterprise Procurement Corp", "role": "BUYER"},
-            {"id": "usr_admin", "email": "admin@rebid.ai", "name": "Compliance Administrator", "role": "ADMIN"},
+            {
+                "id": "usr_buyer",
+                "email": "buyer@rebid.ai",
+                "name": "Enterprise Procurement Corp",
+                "role": "BUYER",
+                "company_name": "Apex Global Procurement Ltd",
+                "rep_name": "Vikram Malhotra",
+                "rep_designation": "VP Global Sourcing & Supply Chain",
+                "rep_phone": "+91 98201 54321",
+                "rep_email": "vikram.malhotra@apexprocure.com",
+                "gst_number": "27AAACA9876Q1Z2",
+                "pan_number": "AAACA9876Q",
+                "cin": "U74999MH2018PTC309876",
+                "org_type": "Public Limited",
+                "years_in_business": 14,
+                "registered_address": "Level 12, Tower 3, Bandra Kurla Complex (BKC), Bandra East, Mumbai, Maharashtra 400051",
+                "bank_account_name": "Apex Global Procurement Ltd - Corporate",
+                "bank_name": "HDFC Bank",
+                "bank_account_number": "50200045892147",
+                "bank_ifsc": "HDFC0000060",
+                "bank_upi": "apexprocure@hdfcbank"
+            },
+            {
+                "id": "usr_admin",
+                "email": "admin@rebid.ai",
+                "name": "Compliance Administrator",
+                "role": "ADMIN",
+                "company_name": "ReBid AI Governance Center",
+                "rep_name": "Dr. Ananya Iyer",
+                "rep_designation": "Chief Compliance Officer & System Administrator",
+                "rep_phone": "+91 98110 87654",
+                "rep_email": "ananya.iyer@rebid.ai",
+                "gst_number": "06AAACR5544P1Z3",
+                "pan_number": "AAACR5544P",
+                "cin": "U72200HR2022PTC105432",
+                "org_type": "Private Limited",
+                "years_in_business": 4,
+                "registered_address": "Cyber City, DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
+                "bank_account_name": "ReBid AI Technologies Private Limited",
+                "bank_name": "ICICI Bank",
+                "bank_account_number": "000405099881",
+                "bank_ifsc": "ICIC0000004",
+                "bank_upi": "rebidgov@icici"
+            },
             # 10 Industry Vendor Users
-            {"id": "usr_hp", "email": "vendor1@rebid.ai", "name": "HP Enterprise Solutions", "role": "VENDOR", "category": "IT Hardware", "rel": 0.96, "del": 95.0, "rating": 4.9},
-            {"id": "usr_dell", "email": "vendor2@rebid.ai", "name": "Dell Technologies", "role": "VENDOR", "category": "IT Hardware", "rel": 0.92, "del": 91.0, "rating": 4.7},
-            {"id": "usr_lenovo", "email": "lenovo@rebid.ai", "name": "Lenovo Business", "role": "VENDOR", "category": "IT Hardware", "rel": 0.89, "del": 88.0, "rating": 4.6},
-            {"id": "usr_acer", "email": "acer@rebid.ai", "name": "Acer Commercial", "role": "VENDOR", "category": "IT Hardware", "rel": 0.86, "del": 87.0, "rating": 4.4},
-            {"id": "usr_tata", "email": "tatasteel@rebid.ai", "name": "Tata Steel Ltd", "role": "VENDOR", "category": "Raw Materials & Metals", "rel": 0.95, "del": 94.0, "rating": 4.9},
-            {"id": "usr_jsw", "email": "jswsteel@rebid.ai", "name": "JSW Steel Infra", "role": "VENDOR", "category": "Raw Materials & Metals", "rel": 0.91, "del": 90.0, "rating": 4.7},
-            {"id": "usr_lt", "email": "ltconst@rebid.ai", "name": "L&T Construction", "role": "VENDOR", "category": "Construction & Infrastructure", "rel": 0.94, "del": 93.0, "rating": 4.8},
-            {"id": "usr_bluedart", "email": "bluedart@rebid.ai", "name": "Blue Dart Logistics", "role": "VENDOR", "category": "Logistics & Freight", "rel": 0.93, "del": 96.0, "rating": 4.8},
-            {"id": "usr_dhl", "email": "dhl@rebid.ai", "name": "DHL Supply Chain", "role": "VENDOR", "category": "Logistics & Freight", "rel": 0.90, "del": 92.0, "rating": 4.6},
-            {"id": "usr_amazon", "email": "amazon@rebid.ai", "name": "Amazon Business Services", "role": "VENDOR", "category": "Software & Cloud Services", "rel": 0.97, "del": 97.0, "rating": 4.9}
+            {
+                "id": "usr_hp",
+                "email": "vendor1@rebid.ai",
+                "name": "HP Enterprise Solutions",
+                "role": "VENDOR",
+                "category": "IT Hardware",
+                "rel": 0.96,
+                "del": 95.0,
+                "rating": 4.9,
+                "company_name": "Hewlett Packard Enterprise India Pvt Ltd",
+                "rep_name": "Rohan Sengupta",
+                "rep_designation": "Director - Enterprise Public Sector",
+                "rep_phone": "+91 98450 12345",
+                "rep_email": "rohan.sengupta@hpe-india.com",
+                "gst_number": "29AABCH1234F1Z8",
+                "pan_number": "AABCH1234F",
+                "cin": "U72200KA2000PTC028456",
+                "org_type": "Private Limited",
+                "years_in_business": 24,
+                "registered_address": "24 Salarpuria Arena, Hosur Main Road, Adugodi, Bengaluru, Karnataka 560030",
+                "bank_account_name": "Hewlett Packard Enterprise India Pvt Ltd",
+                "bank_name": "Citibank N.A.",
+                "bank_account_number": "054321987654",
+                "bank_ifsc": "CITI0000004",
+                "bank_upi": "hpeindia@citibank"
+            },
+            {
+                "id": "usr_dell",
+                "email": "vendor2@rebid.ai",
+                "name": "Dell Technologies",
+                "role": "VENDOR",
+                "category": "IT Hardware",
+                "rel": 0.92,
+                "del": 91.0,
+                "rating": 4.7,
+                "company_name": "Dell International Services India Pvt Ltd",
+                "rep_name": "Meera Krishnan",
+                "rep_designation": "National Sales Head - Commercial",
+                "rep_phone": "+91 98801 65432",
+                "rep_email": "meera.krishnan@dell-commercial.com",
+                "gst_number": "29AABCD5678G1Z4",
+                "pan_number": "AABCD5678G",
+                "cin": "U72900KA1996PTC020584",
+                "org_type": "Private Limited",
+                "years_in_business": 28,
+                "registered_address": "Divyasree Greens, Ground Floor, Inner Ring Road, Domlur, Bengaluru, Karnataka 560071",
+                "bank_account_name": "Dell International Services India Pvt Ltd",
+                "bank_name": "Standard Chartered Bank",
+                "bank_account_number": "428059871234",
+                "bank_ifsc": "SCBL0036001",
+                "bank_upi": "dellindia@scb"
+            },
+            {
+                "id": "usr_lenovo",
+                "email": "lenovo@rebid.ai",
+                "name": "Lenovo Business",
+                "role": "VENDOR",
+                "category": "IT Hardware",
+                "rel": 0.89,
+                "del": 88.0,
+                "rating": 4.6,
+                "company_name": "Lenovo India Private Limited",
+                "rep_name": "Amitabh Verma",
+                "rep_designation": "Executive Director - Commercial PC",
+                "rep_phone": "+91 97170 34567",
+                "rep_email": "amitabh.verma@lenovo-corp.com",
+                "gst_number": "29AABCL3456K1Z9",
+                "pan_number": "AABCL3456K",
+                "cin": "U30009KA2005PTC035789",
+                "org_type": "Private Limited",
+                "years_in_business": 19,
+                "registered_address": "Ferns Icon, Level 2, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037",
+                "bank_account_name": "Lenovo India Private Limited",
+                "bank_name": "HSBC Bank India",
+                "bank_account_number": "012384759201",
+                "bank_ifsc": "HSBC0560002",
+                "bank_upi": "lenovoindia@hsbc"
+            },
+            {
+                "id": "usr_acer",
+                "email": "acer@rebid.ai",
+                "name": "Acer Commercial",
+                "role": "VENDOR",
+                "category": "IT Hardware",
+                "rel": 0.86,
+                "del": 87.0,
+                "rating": 4.4,
+                "company_name": "Acer India Private Limited",
+                "rep_name": "Siddharth Nair",
+                "rep_designation": "Head of Government & Commercial Solutions",
+                "rep_phone": "+91 99000 87654",
+                "rep_email": "siddharth.nair@acer-solutions.com",
+                "gst_number": "29AABCA7890M1Z3",
+                "pan_number": "AABCA7890M",
+                "cin": "U32109KA1999PTC025412",
+                "org_type": "Private Limited",
+                "years_in_business": 25,
+                "registered_address": "Embassy Heights, 6th Floor, Magrath Road, Ashok Nagar, Bengaluru, Karnataka 560025",
+                "bank_account_name": "Acer India Private Limited",
+                "bank_name": "State Bank of India",
+                "bank_account_number": "31098475621",
+                "bank_ifsc": "SBIN0001858",
+                "bank_upi": "acerindia@sbi"
+            },
+            {
+                "id": "usr_tata",
+                "email": "tatasteel@rebid.ai",
+                "name": "Tata Steel Ltd",
+                "role": "VENDOR",
+                "category": "Raw Materials & Metals",
+                "rel": 0.95,
+                "del": 94.0,
+                "rating": 4.9,
+                "company_name": "Tata Steel Limited",
+                "rep_name": "Debashish Roy",
+                "rep_designation": "Chief Procurement & B2B Solutions",
+                "rep_phone": "+91 94311 23456",
+                "rep_email": "debashish.roy@tatasteel.com",
+                "gst_number": "20AAACT2702H1ZK",
+                "pan_number": "AAACT2702H",
+                "cin": "L27100MH1907PLC000260",
+                "org_type": "Public Limited",
+                "years_in_business": 117,
+                "registered_address": "Bombay House, 24 Homi Mody Street, Fort, Mumbai, Maharashtra 400001",
+                "bank_account_name": "Tata Steel Limited - Commercial Bids",
+                "bank_name": "State Bank of India",
+                "bank_account_number": "10984756291",
+                "bank_ifsc": "SBIN0000300",
+                "bank_upi": "tatasteel@sbi"
+            },
+            {
+                "id": "usr_jsw",
+                "email": "jswsteel@rebid.ai",
+                "name": "JSW Steel Infra",
+                "role": "VENDOR",
+                "category": "Raw Materials & Metals",
+                "rel": 0.91,
+                "del": 90.0,
+                "rating": 4.7,
+                "company_name": "JSW Steel Infra Ltd",
+                "rep_name": "Pooja Hegde",
+                "rep_designation": "VP Industrial Marketing & Supply",
+                "rep_phone": "+91 98200 45678",
+                "rep_email": "pooja.hegde@jsw.in",
+                "gst_number": "27AAACJ4321N1ZY",
+                "pan_number": "AAACJ4321N",
+                "cin": "L27102MH1994PLC152925",
+                "org_type": "Public Limited",
+                "years_in_business": 30,
+                "registered_address": "JSW Centre, Bandra Kurla Complex (BKC), Bandra East, Mumbai, Maharashtra 400051",
+                "bank_account_name": "JSW Steel Infra Ltd",
+                "bank_name": "ICICI Bank",
+                "bank_account_number": "000405012948",
+                "bank_ifsc": "ICIC0000004",
+                "bank_upi": "jswsteel@icici"
+            },
+            {
+                "id": "usr_lt",
+                "email": "ltconst@rebid.ai",
+                "name": "L&T Construction",
+                "role": "VENDOR",
+                "category": "Construction & Infrastructure",
+                "rel": 0.94,
+                "del": 93.0,
+                "rating": 4.8,
+                "company_name": "Larsen & Toubro Limited - Heavy Civil Infra",
+                "rep_name": "K. R. Venkataraman",
+                "rep_designation": "Senior VP Tendering & Contracts",
+                "rep_phone": "+91 98400 98765",
+                "rep_email": "kr.venkat@lntecc.com",
+                "gst_number": "33AAACL0140P1ZU",
+                "pan_number": "AAACL0140P",
+                "cin": "L99999MH1946PLC004768",
+                "org_type": "Public Limited",
+                "years_in_business": 86,
+                "registered_address": "L&T House, Ballard Estate, N. M. Marg, Mumbai, Maharashtra 400001",
+                "bank_account_name": "Larsen & Toubro Ltd Infra Division",
+                "bank_name": "Axis Bank",
+                "bank_account_number": "912020034958172",
+                "bank_ifsc": "UTIB0000005",
+                "bank_upi": "ltinfra@axisbank"
+            },
+            {
+                "id": "usr_bluedart",
+                "email": "bluedart@rebid.ai",
+                "name": "Blue Dart Logistics",
+                "role": "VENDOR",
+                "category": "Logistics & Freight",
+                "rel": 0.93,
+                "del": 96.0,
+                "rating": 4.8,
+                "company_name": "Blue Dart Express Limited",
+                "rep_name": "Sunil Shenoy",
+                "rep_designation": "Head of Corporate Logistics & Enterprise",
+                "rep_phone": "+91 98210 65432",
+                "rep_email": "sunil.shenoy@bluedart.com",
+                "gst_number": "27AAACB2188E1ZG",
+                "pan_number": "AAACB2188E",
+                "cin": "L61074MH1991PLC061074",
+                "org_type": "Public Limited",
+                "years_in_business": 33,
+                "registered_address": "Blue Dart Centre, Sahar Airport Road, Andheri East, Mumbai, Maharashtra 400099",
+                "bank_account_name": "Blue Dart Express Limited",
+                "bank_name": "Kotak Mahindra Bank",
+                "bank_account_number": "6811234509",
+                "bank_ifsc": "KKBK0000958",
+                "bank_upi": "bluedart@kotak"
+            },
+            {
+                "id": "usr_dhl",
+                "email": "dhl@rebid.ai",
+                "name": "DHL Supply Chain",
+                "role": "VENDOR",
+                "category": "Logistics & Freight",
+                "rel": 0.90,
+                "del": 92.0,
+                "rating": 4.6,
+                "company_name": "DHL Express India Pvt Ltd",
+                "rep_name": "Farhan Qureshi",
+                "rep_designation": "Director Global Forwarding",
+                "rep_phone": "+91 98190 32109",
+                "rep_email": "farhan.qureshi@dhl.com",
+                "gst_number": "27AAACD1111Q1Z8",
+                "pan_number": "AAACD1111Q",
+                "cin": "U64120MH2001PTC132984",
+                "org_type": "Private Limited",
+                "years_in_business": 23,
+                "registered_address": "801 Silver Metropolis, Western Express Highway, Goregaon East, Mumbai, Maharashtra 400063",
+                "bank_account_name": "DHL Express India Pvt Ltd",
+                "bank_name": "Deutsche Bank AG",
+                "bank_account_number": "0018394012",
+                "bank_ifsc": "DEUT0784BBY",
+                "bank_upi": "dhlindia@db"
+            },
+            {
+                "id": "usr_amazon",
+                "email": "amazon@rebid.ai",
+                "name": "Amazon Business Services",
+                "role": "VENDOR",
+                "category": "Software & Cloud Services",
+                "rel": 0.97,
+                "del": 97.0,
+                "rating": 4.9,
+                "company_name": "Amazon Wholesale India Private Limited",
+                "rep_name": "Priyanka Saxena",
+                "rep_designation": "General Manager - Enterprise B2B",
+                "rep_phone": "+91 98860 11223",
+                "rep_email": "priyanka.saxena@amazon.in",
+                "gst_number": "29AABCA9999K1Z5",
+                "pan_number": "AABCA9999K",
+                "cin": "U51900KA2013PTC068705",
+                "org_type": "Private Limited",
+                "years_in_business": 11,
+                "registered_address": "Brigade Gateway, 8th-14th Floor, 26/1 Dr. Rajkumar Road, Malleshwaram, Bengaluru, Karnataka 560055",
+                "bank_account_name": "Amazon Wholesale India Private Limited",
+                "bank_name": "JPMorgan Chase Bank N.A.",
+                "bank_account_number": "0009847123984",
+                "bank_ifsc": "CHAS0INBX01",
+                "bank_upi": "amazonb2b@jpmorgan"
+            }
         ]
 
         for acc in demo_accounts:
             existing_user = db.query(User).filter(User.email == acc["email"]).first()
             if not existing_user:
-                db.add(User(
+                existing_user = User(
                     id=acc["id"],
                     email=acc["email"],
                     password_hash=hash_password("password123"),
@@ -131,19 +423,38 @@ def startup_seed_db():
                     name=acc["name"],
                     email_verified=True,
                     status="approved"
-                ))
-                db.commit()
+                )
+                db.add(existing_user)
+            
+            # Enrich user fields
+            existing_user.company_name = acc.get("company_name", acc["name"])
+            existing_user.rep_name = acc.get("rep_name", acc["name"])
+            existing_user.rep_designation = acc.get("rep_designation", "Authorized Representative")
+            existing_user.rep_phone = acc.get("rep_phone", "+91 98765 43210")
+            existing_user.rep_email = acc.get("rep_email", acc["email"])
+            existing_user.gst_number = acc.get("gst_number")
+            existing_user.pan_number = acc.get("pan_number")
+            existing_user.cin = acc.get("cin")
+            existing_user.org_type = acc.get("org_type", "Private Limited")
+            existing_user.years_in_business = acc.get("years_in_business", 10)
+            existing_user.registered_address = acc.get("registered_address")
+            existing_user.bank_account_name = acc.get("bank_account_name")
+            existing_user.bank_name = acc.get("bank_name")
+            existing_user.bank_account_number = acc.get("bank_account_number")
+            existing_user.bank_ifsc = acc.get("bank_ifsc")
+            existing_user.bank_upi = acc.get("bank_upi")
+            db.commit()
 
-            # Seed vendor profile if vendor
+            # Seed or enrich vendor profile if vendor
             if acc["role"] == "VENDOR":
                 v_id = f"VND-{acc['id'].upper().replace('USR_', '')}"
-                existing_vendor = db.query(Vendor).filter(Vendor.id == v_id).first()
+                existing_vendor = db.query(Vendor).filter((Vendor.id == v_id) | (Vendor.user_id == acc["id"])).first()
                 if not existing_vendor:
-                    db.add(Vendor(
+                    existing_vendor = Vendor(
                         id=v_id,
                         user_id=acc["id"],
                         name=acc["name"],
-                        company_name=acc["name"],
+                        company_name=acc.get("company_name", acc["name"]),
                         category=acc.get("category", "IT Hardware"),
                         verified=True,
                         rating=acc.get("rating", 4.5),
@@ -153,8 +464,28 @@ def startup_seed_db():
                         cancellation_rate=0.01,
                         avg_delay_days=0.8,
                         defect_rate=0.008
-                    ))
-                    db.commit()
+                    )
+                    db.add(existing_vendor)
+                
+                existing_vendor.company_name = acc.get("company_name", acc["name"])
+                existing_vendor.category = acc.get("category", existing_vendor.category)
+                existing_vendor.rep_name = acc.get("rep_name", acc["name"])
+                existing_vendor.rep_designation = acc.get("rep_designation")
+                existing_vendor.rep_phone = acc.get("rep_phone")
+                existing_vendor.rep_email = acc.get("rep_email")
+                existing_vendor.gst_number = acc.get("gst_number")
+                existing_vendor.pan_number = acc.get("pan_number")
+                existing_vendor.cin = acc.get("cin")
+                existing_vendor.org_type = acc.get("org_type")
+                existing_vendor.years_in_business = acc.get("years_in_business")
+                existing_vendor.registered_address = acc.get("registered_address")
+                existing_vendor.bank_account_name = acc.get("bank_account_name")
+                existing_vendor.bank_name = acc.get("bank_name")
+                existing_vendor.bank_account_number = acc.get("bank_account_number")
+                existing_vendor.bank_ifsc = acc.get("bank_ifsc")
+                existing_vendor.bank_upi = acc.get("bank_upi")
+                existing_vendor.verified = True
+                db.commit()
 
         # 2. Seed 500+ Vendor Dataset from data/csv/vendors.csv
         current_vendor_count = db.query(Vendor).count()
