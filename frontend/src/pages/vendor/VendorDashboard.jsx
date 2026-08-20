@@ -197,8 +197,8 @@ export function VendorDashboard() {
           <>
             <div className="top-header">
               <div>
-                <h1>Vendor Bidding Workstation</h1>
-                <p className="text-muted">Select an active procurement auction to enter the Hero Live Bidding Room</p>
+                <h1>Active Auctions</h1>
+                <p className="text-muted">Select an auction below to enter the live bidding room</p>
               </div>
               <button className="btn btn-secondary" onClick={fetchAuctions} disabled={loadingAuctions}>
                 <RefreshCw size={15} className={loadingAuctions ? 'spin' : ''} />

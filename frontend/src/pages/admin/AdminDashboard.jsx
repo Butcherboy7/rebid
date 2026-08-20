@@ -186,8 +186,8 @@ export function AdminDashboard() {
       <main className="content-area">
         <div className="top-header">
           <div>
-            <h1>Enterprise Governance & Compliance Audit</h1>
-            <p className="text-muted">Approve buyer procurements, monitor synthetic vendor dataset, security audit trails & fraud detection alerts</p>
+            <h1>Admin Dashboard</h1>
+            <p className="text-muted">Approve auctions, manage vendors, review alerts, and monitor platform activity</p>
           </div>
           <button className="btn btn-secondary" onClick={() => {
             fetchPendingAuctions();
@@ -264,8 +264,8 @@ export function AdminDashboard() {
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
               <div>
-                <h2>Synthetic Vendor Intelligence Dataset</h2>
-                <p className="text-muted">Click any vendor name to view enriched performance profile dossier</p>
+                <h2>Vendor Directory</h2>
+                <p className="text-muted">Click any vendor name to view their full profile</p>
               </div>
 
               <form onSubmit={handleSearchSubmit} style={{ display: 'flex', gap: '8px' }}>

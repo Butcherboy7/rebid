@@ -165,10 +165,10 @@ function AppContent() {
       <div style={{ textAlign: 'center', maxWidth: '680px', marginBottom: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ReBidLogo size="xl" variant="dark" style={{ marginBottom: '16px' }} />
         <h1 style={{ fontSize: '32px', fontWeight: '800', color: '#0F172A', marginBottom: '12px', letterSpacing: '-0.03em' }}>
-          Autonomous Reverse Procurement Platform
+          Reverse Auction Procurement Platform
         </h1>
         <p style={{ fontSize: '15px', color: '#64748B', lineHeight: '1.6' }}>
-          Live competitive reverse auctions powered by XGBoost multi-criteria vendor scoring, real-time collusion fraud analysis & cryptographic SHA256 audit chaining.
+          A reverse auction platform where buyers post requirements, vendors compete by lowering their prices, and the system automatically ranks and recommends the best vendor.
         </p>
       </div>
 
@@ -186,7 +186,7 @@ function AppContent() {
             </div>
             <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Buyer Portal</h2>
             <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Create reverse auctions, set multi-criteria priority weights, view live leaderboard & trigger AI vendor recommendations.
+              Post procurement requirements, set budgets, review vendor bids in real time, and award contracts to the best vendor.
             </p>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#0F172A' }}>
@@ -206,7 +206,7 @@ function AppContent() {
             </div>
             <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Vendor Portal</h2>
             <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Participate in competitive reverse auctions, monitor live rank shifts, access AI price recommendations & win purchase orders.
+              Join active auctions, place competitive bids, track your rank on the live leaderboard, and win purchase orders.
             </p>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#059669' }}>
@@ -226,7 +226,7 @@ function AppContent() {
             </div>
             <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Admin Governance</h2>
             <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Approve buyer procurements, verify vendor credentials, inspect fraud alerts & audit cryptographic SHA256 logs.
+              Approve buyer auctions, verify vendor registrations, review fraud alerts, and track all platform activity.
             </p>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#0F172A' }}>
@@ -238,7 +238,7 @@ function AppContent() {
       {/* Account Registration Link */}
       <div style={{ marginTop: '36px', textAlign: 'center' }}>
         <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '12px' }}>
-          New organization joining the reverse auction procurement exchange?
+          New to the platform?
         </p>
         <button
           type="button"
