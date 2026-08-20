@@ -338,7 +338,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
             <div className="table-container" style={{ marginBottom: '24px' }}>
               <div style={{ padding: '14px 18px', borderBottom: '1px solid #E2E8F0' }}>
                 <h3 style={{ fontSize: '15px' }}>Procurement Contract History</h3>
-                <p className="text-muted" style={{ fontSize: '12px' }}>Verified past contracts executed on ReBid AI</p>
+                <p className="text-muted" style={{ fontSize: '12px' }}>Verified past contracts executed on ReBid</p>
               </div>
 
               <table>
@@ -370,7 +370,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
             <div className="card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                 <div>
-                  <h3>Buyer Feedback & Enterprise Reviews</h3>
+                  <h3>Buyer Feedback & Reviews</h3>
                   <p className="text-muted" style={{ fontSize: '12px' }}>Statistically generated based on vendor's actual SLA ({profile.reliability_pct}%) & delivery record</p>
                 </div>
                 <span className="badge badge-completed">
@@ -638,7 +638,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <Building2 size={20} color="#059669" />
-            <span style={{ fontWeight: '800', fontSize: '16px', letterSpacing: '-0.01em' }}>Enterprise Vendor Dossier</span>
+            <span style={{ fontWeight: '800', fontSize: '16px', letterSpacing: '-0.01em' }}>Vendor Profile</span>
           </div>
           <button
             onClick={onClose}

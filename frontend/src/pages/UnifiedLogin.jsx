@@ -119,7 +119,7 @@ export function UnifiedLogin({ onNavigate = null }) {
         <div style={{ marginBottom: '24px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <ReBidLogo size="lg" variant="dark" style={{ marginBottom: '10px' }} />
           <p style={{ color: '#64748B', fontSize: '13px', fontWeight: '500' }}>
-            Enterprise Reverse Procurement Platform
+            Reverse Auction Platform
           </p>
         </div>
 

@@ -477,7 +477,7 @@ export function RegistrationWizard({ onNavigate = null }) {
         {step === 1 && (
           <div>
             <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>Select Account Role</h2>
-            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>Choose your organization's participation type on ReBid AI</p>
+            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>Choose your organization's participation type on ReBid</p>
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <button

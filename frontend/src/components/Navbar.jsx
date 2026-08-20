@@ -9,7 +9,7 @@ export function Navbar({ activePortal, setActivePortal, state }) {
           <Cpu size={20} color="white" />
         </div>
         <div>
-          <h1 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }} className="gradient-text">ReBid AI</h1>
+          <h1 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }} className="gradient-text">ReBid</h1>
           <span style={{ fontSize: '0.7rem', color: '#94a3b8', letterSpacing: '1px', textTransform: 'uppercase' }}>Enterprise Reverse Procurement</span>
         </div>
       </div>

@@ -190,7 +190,7 @@ export function BuyerDashboard() {
             <div className="top-header">
               <div>
                 <h1>Procurement Command Center</h1>
-                <p className="text-muted">Manage enterprise reverse procurements, monitor live bids & trigger XGBoost recommendations</p>
+                <p className="text-muted">Manage procurements, monitor live bids & view AI vendor recommendations</p>
               </div>
               <button className="btn btn-primary" onClick={() => setShowCreateModal(true)}>
                 <Plus size={16} /> Create New Procurement

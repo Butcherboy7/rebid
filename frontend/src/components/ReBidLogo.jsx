@@ -1,150 +1,128 @@
 import React from 'react';
 
-export function ReBidLogo({ 
-  size = 'md', 
-  variant = 'dark', 
-  subtitle = null, 
-  className = '', 
-  style = {} 
-}) {
-  const sizeMap = {
-    sm: { icon: 26, text: '16px', subtext: '9px', gap: '8px' },
-    md: { icon: 34, text: '20px', subtext: '11px', gap: '10px' },
-    lg: { icon: 44, text: '24px', subtext: '12px', gap: '12px' },
-    xl: { icon: 58, text: '32px', subtext: '14px', gap: '16px' }
+/**
+ * ReBid Logo Component
+ * Circular arrows with handshake & bar chart icon, matching the brand logo.
+ * Sizes: sm (24px), md (32px), lg (44px), xl (64px)
+ * Variants: dark (dark text), light (white text), icon-only
+ */
+export function ReBidLogo({ size = 'md', variant = 'dark', subtitle = null, style = {} }) {
+  const sizes = {
+    sm:  { icon: 28, fontSize: '15px', subFontSize: '9px',  gap: '8px'  },
+    md:  { icon: 36, fontSize: '18px', subFontSize: '10px', gap: '10px' },
+    lg:  { icon: 48, fontSize: '24px', subFontSize: '11px', gap: '12px' },
+    xl:  { icon: 64, fontSize: '32px', subFontSize: '12px', gap: '16px' }
   };
 
-  const currentSize = sizeMap[size] || sizeMap.md;
-  const isLight = variant === 'light';
+  const s = sizes[size] || sizes.md;
+  const textColor = variant === 'light' ? '#FFFFFF' : '#0F172A';
+  const subColor  = variant === 'light' ? 'rgba(255,255,255,0.65)' : '#64748B';
+
+  const iconSize = s.icon;
 
   return (
-    <div 
-      className={`rebid-logo-brand ${className}`}
-      style={{ 
-        display: 'inline-flex', 
-        alignItems: 'center', 
-        gap: currentSize.gap, 
-        userSelect: 'none',
-        ...style 
-      }}
-    >
-      {/* Precision Vector Emblem */}
-      <div 
-        style={{ 
-          width: `${currentSize.icon}px`, 
-          height: `${currentSize.icon}px`, 
-          flexShrink: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          filter: 'drop-shadow(0 2px 8px rgba(5, 150, 105, 0.35))'
-        }}
+    <div style={{ display: 'flex', alignItems: 'center', gap: s.gap, ...style }}>
+      {/* Icon */}
+      <svg
+        width={iconSize}
+        height={iconSize}
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ flexShrink: 0 }}
       >
-        <svg 
-          viewBox="0 0 48 48" 
-          width={currentSize.icon} 
-          height={currentSize.icon} 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="rebid_grad_primary" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#059669" />
-              <stop offset="50%" stopColor="#10B981" />
-              <stop offset="100%" stopColor="#0284C7" />
-            </linearGradient>
-            <linearGradient id="rebid_grad_accent" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#0F172A" />
-              <stop offset="100%" stopColor="#334155" />
-            </linearGradient>
-            <linearGradient id="rebid_grad_glow" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#34D399" />
-              <stop offset="100%" stopColor="#38BDF8" />
-            </linearGradient>
-          </defs>
+        <defs>
+          <linearGradient id="rbArrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stopColor="#2563EB" />
+            <stop offset="100%" stopColor="#7C3AED" />
+          </linearGradient>
+          <linearGradient id="rbHandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#4F46E5" />
+          </linearGradient>
+          <linearGradient id="rbBarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#2563EB" />
+          </linearGradient>
+        </defs>
 
-          {/* Background Rounded Diamond Shield */}
-          <rect 
-            x="4" 
-            y="4" 
-            width="40" 
-            height="40" 
-            rx="12" 
-            fill="url(#rebid_grad_accent)" 
-            stroke="rgba(255,255,255,0.15)" 
-            strokeWidth="1.5"
-          />
+        {/* Outer circular arrow - top arc (blue, clockwise) */}
+        <path
+          d="M 50 8 A 42 42 0 0 1 88 38"
+          stroke="url(#rbArrowGrad)"
+          strokeWidth="9"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* Arrow tip - top right */}
+        <polygon
+          points="88,28 96,42 80,40"
+          fill="#2563EB"
+        />
 
-          {/* Reverse Auction Chevron & Dynamic Nodes */}
-          <path 
-            d="M13 18L24 10L35 18V28L24 38L13 28V18Z" 
-            fill="url(#rebid_grad_primary)" 
-            fillOpacity="0.85"
-          />
+        {/* Outer circular arrow - bottom arc (purple, clockwise) */}
+        <path
+          d="M 50 92 A 42 42 0 0 1 12 62"
+          stroke="url(#rbArrowGrad)"
+          strokeWidth="9"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* Arrow tip - bottom left */}
+        <polygon
+          points="12,72 4,58 20,60"
+          fill="#7C3AED"
+        />
 
-          {/* Central Precision Bidding Core */}
-          <path 
-            d="M24 16L31 22L24 31L17 22L24 16Z" 
-            fill="#FFFFFF" 
-            fillOpacity="0.95"
-          />
+        {/* Handshake */}
+        {/* Left hand */}
+        <path
+          d="M 20 56 C 20 56 28 48 36 48 L 44 48 L 48 52 L 40 52 C 40 52 38 54 42 56 L 52 56 L 60 50"
+          stroke="url(#rbHandGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        {/* Right hand */}
+        <path
+          d="M 80 56 C 80 56 72 48 64 48 L 56 48 L 52 52 L 60 52 C 60 52 62 54 58 56 L 48 56 L 40 50"
+          stroke="url(#rbHandGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        {/* Grip/clasp center */}
+        <ellipse cx="50" cy="54" rx="8" ry="5" fill="url(#rbHandGrad)" opacity="0.85" />
 
-          {/* Quantum Arrow Down-Trend (Competitive Price Reduction) */}
-          <path 
-            d="M24 20V28M24 28L20.5 24.5M24 28L27.5 24.5" 
-            stroke="#059669" 
-            strokeWidth="2.2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          />
+        {/* Bar chart - above handshake */}
+        <rect x="36" y="34" width="6" height="12" rx="2" fill="url(#rbBarGrad)" />
+        <rect x="45" y="28" width="6" height="18" rx="2" fill="url(#rbBarGrad)" />
+        <rect x="54" y="32" width="6" height="14" rx="2" fill="url(#rbBarGrad)" />
+      </svg>
 
-          {/* Spark Core */}
-          <circle cx="24" cy="13" r="2" fill="#34D399" />
-          <circle cx="34" cy="23" r="1.5" fill="#38BDF8" />
-          <circle cx="14" cy="23" r="1.5" fill="#38BDF8" />
-        </svg>
-      </div>
-
-      {/* Typography Section (unless icon-only) */}
+      {/* Text (hidden in icon-only mode) */}
       {variant !== 'icon-only' && (
-        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span 
-              style={{ 
-                fontSize: currentSize.text, 
-                fontWeight: '900', 
-                letterSpacing: '-0.03em', 
-                color: isLight ? '#FFFFFF' : '#0F172A',
-                fontFamily: 'inherit'
-              }}
-            >
-              ReBid
-            </span>
-            <span 
-              style={{ 
-                fontSize: currentSize.text, 
-                fontWeight: '900', 
-                letterSpacing: '-0.03em',
-                background: 'linear-gradient(135deg, #059669 0%, #0284C7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}
-            >
-              AI
-            </span>
-          </div>
-
+        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+          <span style={{
+            fontSize: s.fontSize,
+            fontWeight: '900',
+            color: textColor,
+            letterSpacing: '-0.03em',
+            fontFamily: "'Inter', 'Segoe UI', sans-serif"
+          }}>
+            ReBid
+          </span>
           {subtitle && (
-            <span 
-              style={{ 
-                fontSize: currentSize.subtext, 
-                color: isLight ? '#94A3B8' : '#64748B', 
-                fontWeight: '700', 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.08em',
-                marginTop: '2px'
-              }}
-            >
+            <span style={{
+              fontSize: s.subFontSize,
+              fontWeight: '700',
+              color: subColor,
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              marginTop: '2px'
+            }}>
               {subtitle}
             </span>
           )}

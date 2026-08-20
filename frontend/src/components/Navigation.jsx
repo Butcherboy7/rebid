@@ -22,7 +22,7 @@ export function Navigation({ activePortal, activeItem, onSelectTab, vendorCount 
       case 'ADMIN':
         return { title: 'Admin Dashboard', roleLabel: 'ADMIN PORTAL' };
       default:
-        return { title: 'ReBid AI', roleLabel: 'ENTERPRISE' };
+        return { title: 'ReBid', roleLabel: 'ENTERPRISE' };
     }
   };
 
