@@ -4,6 +4,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
+import { ProfileView } from '../../components/ProfileView';
+import { SettingsView } from '../../components/SettingsView';
 import { formatINR } from '../../utils/formatters';
 import { Truck, ArrowLeft, ArrowDownRight, Lightbulb, RefreshCw, CheckCircle, Star, Users, ChevronDown, Zap, ShieldCheck, Lock, AlertCircle, Clock, TrendingUp, TrendingDown, Info, Award, Download, Sparkles, PartyPopper } from 'lucide-react';
 
@@ -181,19 +183,15 @@ export function VendorDashboard() {
         ))}
       </div>
 
-      <Navigation activePortal="VENDOR" activeItem={activeTab} onSelectTab={setActiveTab} />
+      <Navigation activePortal="VENDOR" activeItem={activeTab} onSelectTab={(tab) => { setActiveTab(tab); setViewMode('GRID'); }} />
 
       <main className="content-area">
 
-        <div className="filter-tabs" style={{ marginBottom: '20px' }}>
-          <button className={`filter-tab-btn ${activeTab === 'BIDROOM' ? 'active' : ''}`} onClick={() => { setActiveTab('BIDROOM'); setViewMode('GRID'); }}>
-            Active Procurement Bidding
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'MY_AWARDS' ? 'active' : ''}`} onClick={() => { setActiveTab('MY_AWARDS'); setViewMode('GRID'); }}>
-            My Awarded Contracts ({awardedContracts.length})
-          </button>
-        </div>
+        {/* Profile View */}
+        {activeTab === 'PROFILE' && <ProfileView role="VENDOR" />}
 
+        {/* Settings View */}
+        {activeTab === 'SETTINGS' && <SettingsView role="VENDOR" />}
 
         {viewMode === 'GRID' && activeTab === 'BIDROOM' && (
           <>

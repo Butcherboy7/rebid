@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ShoppingBag, Truck, ShieldCheck, Menu, X, LogOut, ChevronDown, User, CheckCircle, Database, AlertTriangle, FileText, Users } from 'lucide-react';
+import { ReBidLogo } from './ReBidLogo';
+import { 
+  ShoppingBag, Truck, ShieldCheck, Menu, X, LogOut, 
+  ChevronDown, User, CheckCircle, Database, AlertTriangle, 
+  FileText, Users, FileCheck, Award, Settings, Building, 
+  Layers, Zap 
+} from 'lucide-react';
 
-export function Navigation({ activePortal, activeItem, onSelectTab }) {
+export function Navigation({ activePortal, activeItem, onSelectTab, vendorCount = null }) {
   const { user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -10,17 +16,22 @@ export function Navigation({ activePortal, activeItem, onSelectTab }) {
   const getPortalInfo = () => {
     switch (activePortal) {
       case 'BUYER':
-        return { title: 'Buyer Procurement', icon: <ShoppingBag color="#059669" size={20} />, roleLabel: 'BUYER PORTAL' };
+        return { title: 'Buyer Procurement', roleLabel: 'BUYER PORTAL' };
       case 'VENDOR':
-        return { title: 'Vendor Bidding', icon: <Truck color="#059669" size={20} />, roleLabel: 'VENDOR PORTAL' };
+        return { title: 'Vendor Bidding', roleLabel: 'VENDOR PORTAL' };
       case 'ADMIN':
-        return { title: 'Admin Governance', icon: <ShieldCheck color="#059669" size={20} />, roleLabel: 'ADMIN GOVERNANCE' };
+        return { title: 'Admin Governance', roleLabel: 'ADMIN GOVERNANCE' };
       default:
-        return { title: 'ReBid AI', icon: <ShoppingBag color="#059669" size={20} />, roleLabel: 'ENTERPRISE' };
+        return { title: 'ReBid AI', roleLabel: 'ENTERPRISE' };
     }
   };
 
   const portalInfo = getPortalInfo();
+
+  const handleItemClick = (itemKey) => {
+    onSelectTab(itemKey);
+    setMobileOpen(false);
+  };
 
   return (
     <>
@@ -30,10 +41,7 @@ export function Navigation({ activePortal, activeItem, onSelectTab }) {
           <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '700', fontSize: '16px', color: '#111827' }}>
-            {portalInfo.icon}
-            <span>ReBid AI</span>
-          </div>
+          <ReBidLogo size="sm" variant="dark" />
         </div>
 
         {/* User Profile Badge */}
@@ -48,8 +56,15 @@ export function Navigation({ activePortal, activeItem, onSelectTab }) {
               <div style={{ padding: '12px 14px', borderBottom: '1px solid #E5E7EB' }}>
                 <div style={{ fontWeight: '600', fontSize: '13px', color: '#111827' }}>{user?.name}</div>
                 <div style={{ fontSize: '12px', color: '#6B7280' }}>{user?.email}</div>
+                <div style={{ fontSize: '11px', color: '#059669', fontWeight: '700', marginTop: '2px' }}>{portalInfo.roleLabel}</div>
               </div>
-              <button className="dropdown-logout-btn" onClick={logout}>
+              <button className="dropdown-logout-btn" onClick={() => handleItemClick('PROFILE')}>
+                <User size={15} /> My Profile
+              </button>
+              <button className="dropdown-logout-btn" onClick={() => handleItemClick('SETTINGS')}>
+                <Settings size={15} /> System Settings
+              </button>
+              <button className="dropdown-logout-btn" onClick={logout} style={{ color: '#DC2626' }}>
                 <LogOut size={15} /> Sign Out
               </button>
             </div>
@@ -59,88 +74,175 @@ export function Navigation({ activePortal, activeItem, onSelectTab }) {
 
       {/* Sidebar (Desktop Fixed + Mobile Drawer Overlay) */}
       <aside className={`sidebar ${mobileOpen ? 'mobile-sidebar-open' : ''}`}>
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          {/* Header Brand */}
           <div className="sidebar-header">
-            <div className="sidebar-brand">
-              <div style={{ width: '32px', height: '32px', backgroundColor: '#059669', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF' }}>
-                <ShoppingBag size={18} />
-              </div>
-              <span>ReBid AI</span>
-            </div>
-            <span style={{ fontSize: '11px', color: '#9CA3AF', display: 'block', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              {portalInfo.roleLabel}
-            </span>
+            <ReBidLogo size="md" variant="light" subtitle={portalInfo.roleLabel} />
           </div>
 
           {/* Sidebar Menu Items */}
-          <ul className="sidebar-menu">
-            {activePortal === 'BUYER' && (
-              <>
-                <li className={`sidebar-item ${activeItem === 'AUCTIONS' ? 'active' : ''}`} onClick={() => { onSelectTab('AUCTIONS'); setMobileOpen(false); }}>
-                  <ShoppingBag size={18} />
-                  <span>Procurement Auctions</span>
-                </li>
-              </>
-            )}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '12px 0' }}>
+            <ul className="sidebar-menu">
+              {/* ---------------- BUYER MENU ---------------- */}
+              {activePortal === 'BUYER' && (
+                <>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'AUCTIONS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('AUCTIONS')}
+                  >
+                    <ShoppingBag size={18} />
+                    <span>Active Procurements</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'AWARDED' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('AWARDED')}
+                  >
+                    <FileCheck size={18} />
+                    <span>Awarded Contracts & POs</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'PROFILE' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('PROFILE')}
+                  >
+                    <User size={18} />
+                    <span>Organization Profile</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'SETTINGS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('SETTINGS')}
+                  >
+                    <Settings size={18} />
+                    <span>Settings & Security</span>
+                  </li>
+                </>
+              )}
 
-            {activePortal === 'VENDOR' && (
-              <>
-                <li className={`sidebar-item ${activeItem === 'BIDROOM' ? 'active' : ''}`} onClick={() => { onSelectTab('BIDROOM'); setMobileOpen(false); }}>
-                  <Truck size={18} />
-                  <span>Live Bidding Room</span>
-                </li>
-              </>
-            )}
+              {/* ---------------- VENDOR MENU ---------------- */}
+              {activePortal === 'VENDOR' && (
+                <>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'BIDROOM' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('BIDROOM')}
+                  >
+                    <Zap size={18} />
+                    <span>Live Bidding Room</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'MY_AWARDS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('MY_AWARDS')}
+                  >
+                    <Award size={18} />
+                    <span>My Awarded Contracts</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'PROFILE' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('PROFILE')}
+                  >
+                    <Building size={18} />
+                    <span>Company Profile</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'SETTINGS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('SETTINGS')}
+                  >
+                    <Settings size={18} />
+                    <span>Settings & Security</span>
+                  </li>
+                </>
+              )}
 
-            {activePortal === 'ADMIN' && (
-              <>
-                <li className={`sidebar-item ${activeItem === 'PENDING_AUCTIONS' ? 'active' : ''}`} onClick={() => { onSelectTab('PENDING_AUCTIONS'); setMobileOpen(false); }}>
-                  <CheckCircle size={18} />
-                  <span>Procurement Approvals</span>
-                </li>
-                <li className={`sidebar-item ${activeItem === 'DATASET' ? 'active' : ''}`} onClick={() => { onSelectTab('DATASET'); setMobileOpen(false); }}>
-                  <Database size={18} />
-                  <span>500+ Vendor Directory</span>
-                </li>
-                <li className={`sidebar-item ${activeItem === 'FRAUD' ? 'active' : ''}`} onClick={() => { onSelectTab('FRAUD'); setMobileOpen(false); }}>
-                  <AlertTriangle size={18} />
-                  <span>Fraud Detection Alerts</span>
-                </li>
-                <li className={`sidebar-item ${activeItem === 'AUDIT' ? 'active' : ''}`} onClick={() => { onSelectTab('AUDIT'); setMobileOpen(false); }}>
-                  <FileText size={18} />
-                  <span>System Audit Trail</span>
-                </li>
-                <li className={`sidebar-item ${activeItem === 'PENDING' ? 'active' : ''}`} onClick={() => { onSelectTab('PENDING'); setMobileOpen(false); }}>
-                  <User size={18} />
-                  <span>Vendor Verifications</span>
-                </li>
-                <li className={`sidebar-item ${activeItem === 'USERS' ? 'active' : ''}`} onClick={() => { onSelectTab('USERS'); setMobileOpen(false); }}>
-                  <Users size={18} />
-                  <span>User Directory</span>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-
-        {/* Sidebar Desktop Profile Footer */}
-        <div className="sidebar-footer">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div className="avatar-badge" style={{ background: '#374151', color: '#FFF' }}>
-              {user?.name ? user.name[0].toUpperCase() : 'U'}
-            </div>
-            <div>
-              <div style={{ fontSize: '13px', color: '#FFF', fontWeight: '600', maxWidth: '130px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {user?.name || 'User'}
-              </div>
-              <div style={{ fontSize: '11px', color: '#9CA3AF', maxWidth: '130px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {user?.email}
-              </div>
-            </div>
+              {/* ---------------- ADMIN MENU ---------------- */}
+              {activePortal === 'ADMIN' && (
+                <>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'PENDING_AUCTIONS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('PENDING_AUCTIONS')}
+                  >
+                    <CheckCircle size={18} />
+                    <span>Procurement Approvals</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'DATASET' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('DATASET')}
+                  >
+                    <Database size={18} />
+                    <span>Vendor Directory{vendorCount !== null ? ` (${vendorCount})` : ''}</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'FRAUD' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('FRAUD')}
+                  >
+                    <AlertTriangle size={18} />
+                    <span>Fraud Alerts</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'AUDIT' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('AUDIT')}
+                  >
+                    <FileText size={18} />
+                    <span>Audit Trail</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'PENDING' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('PENDING')}
+                  >
+                    <ShieldCheck size={18} />
+                    <span>Vendor Verifications</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'USERS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('USERS')}
+                  >
+                    <Users size={18} />
+                    <span>User Directory</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'PROFILE' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('PROFILE')}
+                  >
+                    <User size={18} />
+                    <span>Admin Profile</span>
+                  </li>
+                  <li 
+                    className={`sidebar-item ${activeItem === 'SETTINGS' ? 'active' : ''}`} 
+                    onClick={() => handleItemClick('SETTINGS')}
+                  >
+                    <Settings size={18} />
+                    <span>Settings & Security</span>
+                  </li>
+                </>
+              )}
+            </ul>
           </div>
-          <button onClick={logout} className="btn btn-ghost" title="Logout" style={{ color: '#9CA3AF', padding: '6px' }}>
-            <LogOut size={16} />
-          </button>
+
+          {/* Sidebar Desktop Profile Footer */}
+          <div className="sidebar-footer">
+            <div 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
+              onClick={() => handleItemClick('PROFILE')}
+              title="View Profile"
+            >
+              <div className="avatar-badge" style={{ background: '#374151', color: '#FFF' }}>
+                {user?.name ? user.name[0].toUpperCase() : 'U'}
+              </div>
+              <div>
+                <div style={{ fontSize: '13px', color: '#FFF', fontWeight: '600', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {user?.name || 'User'}
+                </div>
+                <div style={{ fontSize: '11px', color: '#9CA3AF', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {user?.email}
+                </div>
+              </div>
+            </div>
+            <button 
+              onClick={logout} 
+              className="btn btn-ghost" 
+              title="Logout" 
+              style={{ color: '#9CA3AF', padding: '6px' }}
+            >
+              <LogOut size={16} />
+            </button>
+          </div>
         </div>
       </aside>
 
@@ -149,3 +251,5 @@ export function Navigation({ activePortal, activeItem, onSelectTab }) {
     </>
   );
 }
+
+export default Navigation;

@@ -4,6 +4,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
+import { ProfileView } from '../../components/ProfileView';
+import { SettingsView } from '../../components/SettingsView';
 import { formatINR } from '../../utils/formatters';
 import { ShoppingBag, Plus, Sparkles, Award, FileText, Clock, TrendingDown, CheckCircle, AlertTriangle, ArrowRight, ArrowLeft, Layers, DollarSign, ShieldCheck, RefreshCw, Download, FileCheck } from 'lucide-react';
 
@@ -171,25 +173,18 @@ export function BuyerDashboard() {
       />
 
       {/* Navigation (Sidebar Desktop + Mobile Drawer) */}
-      <Navigation activePortal="BUYER" activeItem={activeTab} onSelectTab={setActiveTab} />
+      <Navigation activePortal="BUYER" activeItem={activeTab} onSelectTab={(tab) => { setActiveTab(tab); setViewMode('GRID'); }} />
 
       {/* Main Content Area */}
       <main className="content-area">
 
-        {/* TOP TAB NAV CONTROLS: Procurements vs Awarded Contracts */}
-        <div className="filter-tabs" style={{ marginBottom: '20px' }}>
-          <button className={`filter-tab-btn ${activeTab === 'AUCTIONS' ? 'active' : ''}`} onClick={() => { setActiveTab('AUCTIONS'); setViewMode('GRID'); }}>
-            Active Procurements ({auctions.length})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'AWARDED' ? 'active' : ''}`} onClick={() => { setActiveTab('AWARDED'); setViewMode('GRID'); }}>
-            Awarded Contracts & Purchase Orders ({awardedContracts.length})
-          </button>
-        </div>
+        {/* Profile View */}
+        {activeTab === 'PROFILE' && <ProfileView role="BUYER" />}
 
+        {/* Settings View */}
+        {activeTab === 'SETTINGS' && <SettingsView role="BUYER" />}
 
-        {/* ---------------------------------------------------- */}
-        {/* VIEW MODE 1: GRID VIEW (Procurements List)         */}
-        {/* ---------------------------------------------------- */}
+        {/* VIEW MODE 1: GRID VIEW (Procurements List) */}
         {viewMode === 'GRID' && activeTab === 'AUCTIONS' && (
           <>
             <div className="top-header">

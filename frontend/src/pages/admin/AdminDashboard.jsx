@@ -4,6 +4,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
+import { ProfileView } from '../../components/ProfileView';
+import { SettingsView } from '../../components/SettingsView';
 import { formatINR } from '../../utils/formatters';
 import { ShieldCheck, Users, AlertTriangle, FileText, CheckCircle, XCircle, Search, RefreshCw, ChevronLeft, ChevronRight, Clock, ShoppingBag, ArrowUpDown } from 'lucide-react';
 
@@ -174,7 +176,12 @@ export function AdminDashboard() {
         onRefreshData={fetchPendingVendors}
       />
 
-      <Navigation activePortal="ADMIN" activeItem={activeTab} onSelectTab={setActiveTab} />
+      <Navigation 
+        activePortal="ADMIN" 
+        activeItem={activeTab} 
+        onSelectTab={setActiveTab} 
+        vendorCount={vendorsData.total_count || 0}
+      />
 
       <main className="content-area">
         <div className="top-header">
@@ -193,26 +200,11 @@ export function AdminDashboard() {
           </button>
         </div>
 
-        <div className="filter-tabs" style={{ marginBottom: '24px' }}>
-          <button className={`filter-tab-btn ${activeTab === 'PENDING_AUCTIONS' ? 'active' : ''}`} onClick={() => setActiveTab('PENDING_AUCTIONS')}>
-            Procurement Approvals ({pendingAuctions.length})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'DATASET' ? 'active' : ''}`} onClick={() => setActiveTab('DATASET')}>
-            500+ Vendor Directory ({vendorsData.total_count || 0})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'FRAUD' ? 'active' : ''}`} onClick={() => setActiveTab('FRAUD')}>
-            Fraud Detection Alerts ({fraudAlerts.length})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'AUDIT' ? 'active' : ''}`} onClick={() => setActiveTab('AUDIT')}>
-            System Audit Trail ({auditLogs.length})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'PENDING' ? 'active' : ''}`} onClick={() => setActiveTab('PENDING')}>
-            Pending Vendor Approvals ({pendingVendors.length})
-          </button>
-          <button className={`filter-tab-btn ${activeTab === 'USERS' ? 'active' : ''}`} onClick={() => setActiveTab('USERS')}>
-            User Directory ({users.length})
-          </button>
-        </div>
+        {/* Profile View */}
+        {activeTab === 'PROFILE' && <ProfileView role="ADMIN" />}
+
+        {/* Settings View */}
+        {activeTab === 'SETTINGS' && <SettingsView role="ADMIN" />}
 
 
         {activeTab === 'PENDING_AUCTIONS' && (

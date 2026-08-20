@@ -163,3 +163,73 @@ class RecommendationResponse(BaseModel):
     confidence_percentage: float
     ranking_list: List[VendorRankItem]
     decision_report: Optional[DecisionReport] = None
+
+
+class UserProfileResponse(BaseModel):
+    user_id: str
+    email: str
+    name: str
+    role: str
+    status: str
+    email_verified: bool
+    created_at: Optional[str] = None
+    # Vendor / Org details
+    company_name: Optional[str] = None
+    category: Optional[str] = None
+    verified: Optional[bool] = None
+    rating: Optional[float] = None
+    rep_name: Optional[str] = None
+    rep_designation: Optional[str] = None
+    rep_phone: Optional[str] = None
+    rep_email: Optional[str] = None
+    gst_number: Optional[str] = None
+    pan_number: Optional[str] = None
+    cin: Optional[str] = None
+    org_type: Optional[str] = None
+    years_in_business: Optional[int] = None
+    registered_address: Optional[str] = None
+    bank_account_name: Optional[str] = None
+    bank_name: Optional[str] = None
+    bank_account_number: Optional[str] = None
+    bank_ifsc: Optional[str] = None
+    bank_upi: Optional[str] = None
+
+
+class UserProfileUpdateRequest(BaseModel):
+    name: Optional[str] = None
+    company_name: Optional[str] = None
+    category: Optional[str] = None
+    rep_name: Optional[str] = None
+    rep_designation: Optional[str] = None
+    rep_phone: Optional[str] = None
+    rep_email: Optional[str] = None
+    gst_number: Optional[str] = None
+    pan_number: Optional[str] = None
+    cin: Optional[str] = None
+    org_type: Optional[str] = None
+    years_in_business: Optional[int] = None
+    registered_address: Optional[str] = None
+    bank_account_name: Optional[str] = None
+    bank_name: Optional[str] = None
+    bank_account_number: Optional[str] = None
+    bank_ifsc: Optional[str] = None
+    bank_upi: Optional[str] = None
+
+
+class ChangePasswordRequest(BaseModel):
+    current_password: str
+    new_password: str
+
+
+class UserPreferencesRequest(BaseModel):
+    email_notifications: Optional[bool] = True
+    bidding_sounds: Optional[bool] = True
+    auto_rank_alerts: Optional[bool] = True
+    compact_tables: Optional[bool] = False
+    theme: Optional[str] = "light"
+
+
+class UserPreferencesResponse(BaseModel):
+    status: str = "success"
+    preferences: Dict[str, Any]
+

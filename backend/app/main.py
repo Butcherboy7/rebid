@@ -24,6 +24,7 @@ from backend.app.services import log_audit_event, analyze_bid_fraud, generate_pu
 from ml.predict import ai_engine
 from backend.app.routes.auth import router as auth_router
 from backend.app.routes.admin_docs import router as admin_docs_router
+from backend.app.routes.user import router as user_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -39,6 +40,7 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(admin_docs_router)
+app.include_router(user_router)
 
 static_pdf_dir = os.path.join(os.path.dirname(__file__), "..", "static")
 os.makedirs(static_pdf_dir, exist_ok=True)
