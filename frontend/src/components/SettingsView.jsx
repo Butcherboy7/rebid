@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useModal } from '../context/ModalContext';
-import { 
-  Lock, Bell, Save, RefreshCw, 
-  KeyRound, Eye, EyeOff, AlertCircle, LogOut, User, Settings
+import {
+  Lock, Bell, Save, RefreshCw,
+  KeyRound, Eye, EyeOff, AlertCircle, LogOut, User, ChevronRight, ChevronLeft
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8001/api';
 
+const MENU_ITEMS = [
+  { key: 'PASSWORD', icon: Lock, label: 'Password & Security', desc: 'Change your account password' },
+  { key: 'NOTIFICATIONS', icon: Bell, label: 'Notifications', desc: 'Emails, sounds, and rank alerts' },
+  { key: 'ACCOUNT', icon: User, label: 'Account', desc: 'Role, status, and sign out' }
+];
+
 export function SettingsView({ role = 'BUYER' }) {
   const { token, user, logout } = useAuth();
   const { showSuccess, showError } = useModal();
+
+  const [section, setSection] = useState(null); // null = menu list, else one of MENU_ITEMS keys
 
   // Password State
   const [currentPassword, setCurrentPassword] = useState('');
@@ -107,17 +115,100 @@ export function SettingsView({ role = 'BUYER' }) {
     }
   };
 
-  return (
-    <div style={{ maxWidth: '960px', margin: '0 auto' }}>
-      <div className="top-header" style={{ marginBottom: '24px' }}>
-        <div>
-          <h1>Settings</h1>
-          <p className="text-muted">Manage your password and notification preferences</p>
+  const activeMenuItem = MENU_ITEMS.find(m => m.key === section);
+
+  // ---------------- MENU LIST (Instagram-style) ----------------
+  if (!section) {
+    return (
+      <div style={{ maxWidth: '640px', margin: '0 auto' }}>
+        <div className="top-header" style={{ marginBottom: '24px' }}>
+          <div>
+            <h1>Settings</h1>
+            <p className="text-muted">Manage your password, notifications, and account</p>
+          </div>
+        </div>
+
+        <div className="card" style={{ padding: '8px' }}>
+          {MENU_ITEMS.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.key}
+                type="button"
+                onClick={() => setSection(item.key)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  padding: '16px 12px',
+                  background: 'transparent',
+                  border: 'none',
+                  borderBottom: idx < MENU_ITEMS.length - 1 ? '1px solid #E2E8F0' : 'none',
+                  cursor: 'pointer',
+                  textAlign: 'left'
+                }}
+              >
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '10px',
+                  background: '#ECFDF5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Icon size={19} color="#059669" />
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: '700', fontSize: '14px', color: '#0F172A' }}>{item.label}</div>
+                  <div style={{ fontSize: '12px', color: '#64748B', marginTop: '2px' }}>{item.desc}</div>
+                </div>
+                <ChevronRight size={18} color="#94A3B8" style={{ flexShrink: 0 }} />
+              </button>
+            );
+          })}
         </div>
       </div>
+    );
+  }
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '24px' }}>
-        {/* Card 1: Change Password */}
+  // ---------------- SUBSECTION HEADER (shared) ----------------
+  const SectionHeader = () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
+      <button
+        type="button"
+        onClick={() => setSection(null)}
+        aria-label="Back to Settings"
+        style={{
+          width: '36px',
+          height: '36px',
+          borderRadius: '10px',
+          border: '1px solid var(--border-color)',
+          background: '#FFFFFF',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          flexShrink: 0
+        }}
+      >
+        <ChevronLeft size={18} />
+      </button>
+      <div>
+        <h1 style={{ fontSize: '20px' }}>{activeMenuItem?.label}</h1>
+        <p className="text-muted" style={{ fontSize: '13px' }}>{activeMenuItem?.desc}</p>
+      </div>
+    </div>
+  );
+
+  // ---------------- PASSWORD & SECURITY ----------------
+  if (section === 'PASSWORD') {
+    return (
+      <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+        <SectionHeader />
+
         <div className="card">
           <div className="card-header-bar">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -192,8 +283,16 @@ export function SettingsView({ role = 'BUYER' }) {
             </button>
           </form>
         </div>
+      </div>
+    );
+  }
 
-        {/* Card 2: Notification Preferences */}
+  // ---------------- NOTIFICATIONS ----------------
+  if (section === 'NOTIFICATIONS') {
+    return (
+      <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+        <SectionHeader />
+
         <div className="card">
           <div className="card-header-bar">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -267,9 +366,15 @@ export function SettingsView({ role = 'BUYER' }) {
           </div>
         </div>
       </div>
+    );
+  }
 
-      {/* Account Info */}
-      <div className="card" style={{ marginTop: '24px' }}>
+  // ---------------- ACCOUNT ----------------
+  return (
+    <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+      <SectionHeader />
+
+      <div className="card">
         <div className="card-header-bar">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <User size={18} color="#059669" />
@@ -277,7 +382,7 @@ export function SettingsView({ role = 'BUYER' }) {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '20px' }}>
           <div style={{ background: '#F8FAFC', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
             <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>Role</div>
             <div style={{ fontSize: '18px', fontWeight: '800', color: '#0F172A', marginTop: '4px' }}>{user?.role || role}</div>

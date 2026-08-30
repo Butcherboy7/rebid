@@ -358,20 +358,18 @@ export function UnifiedLogin({ onNavigate = null }) {
         </div>
 
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <p style={{ color: '#64748B', fontSize: '13px' }}>
-            New organization?{' '}
-            <a 
-              href="/auth/register" 
-              onClick={(e) => { e.preventDefault(); navigateTo('/auth/register'); }}
-              style={{ 
-                color: '#059669', 
-                fontWeight: '700', 
-                textDecoration: 'none' 
-              }}
-            >
-              Register for Reverse Auctions
-            </a>
-          </p>
+          <a
+            href="/auth/register"
+            onClick={(e) => { e.preventDefault(); navigateTo('/auth/register'); }}
+            style={{
+              color: '#059669',
+              fontWeight: '700',
+              fontSize: '13px',
+              textDecoration: 'none'
+            }}
+          >
+            Register New Account
+          </a>
         </div>
       </div>
     </div>

@@ -199,8 +199,8 @@ export function BuyerDashboard() {
 
             {/* Create Auction Modal */}
             {showCreateModal && (
-              <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>
-                <div className="card" style={{ width: '540px', margin: 0, maxHeight: '90vh', overflowY: 'auto' }}>
+              <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100, padding: '16px' }}>
+                <div className="card" style={{ width: '100%', maxWidth: '540px', margin: 0, maxHeight: '90vh', overflowY: 'auto' }}>
                   <h2>Create Reverse Auction Procurement</h2>
                   <p className="text-muted" style={{ fontSize: '12px', marginBottom: '14px' }}>
                     Procurement request will be submitted to Compliance Admin for approval before launching live.
@@ -212,7 +212,7 @@ export function BuyerDashboard() {
                       <input className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Server Fleet Infrastructure 2026" required />
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                    <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                       <div className="form-group">
                         <label className="form-label">Category</label>
                         <select className="form-control" value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -230,7 +230,7 @@ export function BuyerDashboard() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                    <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                       <div className="form-group">
                         <label className="form-label">Quantity / Units</label>
                         <input type="number" className="form-control" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
@@ -243,7 +243,7 @@ export function BuyerDashboard() {
 
                     <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '10px', marginBottom: '16px', border: '1px solid #CBD5E1' }}>
                       <p style={{ fontSize: '13px', fontWeight: '700', marginBottom: '8px' }}>AI Decision Weight Sliders (Total 100%)</p>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '12px' }}>
+                      <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '12px' }}>
                         <div>
                           <label style={{ display: 'block', marginBottom: '2px' }}>Cost Weight ({weightCost}%)</label>
                           <input type="range" min="0" max="100" value={weightCost} onChange={(e) => setWeightCost(e.target.value)} style={{ width: '100%' }} />
@@ -572,7 +572,7 @@ export function BuyerDashboard() {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '20px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '20px' }}>
                   {/* Sub-Score Progress Bars */}
                   <div style={{ background: '#F8FAFC', padding: '20px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
                     <h3 style={{ marginBottom: '14px' }}>Decision Factor Sub-Scores</h3>

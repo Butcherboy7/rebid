@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useModal } from '../context/ModalContext';
-import { 
-  User, Building, Mail, Phone, MapPin, ShieldCheck, 
-  CreditCard, Edit3, Save, CheckCircle, RefreshCw, 
-  Briefcase, FileText, Lock, AlertCircle 
+import {
+  User, Building, Mail, Phone, MapPin, ShieldCheck,
+  CreditCard, CheckCircle, RefreshCw,
+  Briefcase, FileText, Lock, AlertCircle, ExternalLink
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8001/api';
@@ -15,8 +15,7 @@ export function ProfileView({ role = 'BUYER' }) {
   const { showSuccess, showError } = useModal();
 
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [editMode, setEditMode] = useState(false);
+  const [documents, setDocuments] = useState([]);
 
   const [profile, setProfile] = useState({
     user_id: '',
@@ -47,17 +46,18 @@ export function ProfileView({ role = 'BUYER' }) {
     bank_upi: ''
   });
 
-  const [formData, setFormData] = useState({ ...profile });
-
   const fetchProfile = async () => {
     setLoading(true);
     try {
       const headers = { Authorization: `Bearer ${token}` };
-      const res = await axios.get(`${API_BASE}/user/profile`, { headers });
-      if (res.data) {
-        setProfile(res.data);
-        setFormData(res.data);
+      const [profileRes, docsRes] = await Promise.all([
+        axios.get(`${API_BASE}/user/profile`, { headers }),
+        axios.get(`${API_BASE}/user/documents`, { headers }).catch(() => ({ data: { documents: [] } }))
+      ]);
+      if (profileRes.data) {
+        setProfile(profileRes.data);
       }
+      setDocuments(docsRes.data?.documents || []);
     } catch (err) {
       console.error('Failed to fetch profile:', err);
       showError('Error', 'Failed loading profile details.');
@@ -69,33 +69,6 @@ export function ProfileView({ role = 'BUYER' }) {
   useEffect(() => {
     fetchProfile();
   }, [token]);
-
-  const handleChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleSave = async (e) => {
-    e.preventDefault();
-    setSaving(true);
-    try {
-      const headers = { Authorization: `Bearer ${token}` };
-      const res = await axios.put(`${API_BASE}/user/profile`, formData, { headers });
-      setProfile(res.data);
-      setFormData(res.data);
-      setEditMode(false);
-      showSuccess('Profile Updated', 'Your profile details have been saved successfully.');
-    } catch (err) {
-      console.error('Failed to update profile:', err);
-      showError('Update Failed', err.response?.data?.detail || 'Could not save profile changes.');
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const handleCancel = () => {
-    setFormData({ ...profile });
-    setEditMode(false);
-  };
 
   if (loading) {
     return (
@@ -162,43 +135,10 @@ export function ProfileView({ role = 'BUYER' }) {
               </p>
             </div>
           </div>
-
-          <div>
-            {!editMode ? (
-              <button 
-                className="btn btn-secondary" 
-                onClick={() => setEditMode(true)}
-                style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.2)' }}
-              >
-                <Edit3 size={16} /> Edit Profile
-              </button>
-            ) : (
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <button 
-                  type="button" 
-                  className="btn btn-secondary" 
-                  onClick={handleCancel}
-                  disabled={saving}
-                  style={{ backgroundColor: 'transparent', color: '#E2E8F0', borderColor: 'rgba(255,255,255,0.2)' }}
-                >
-                  Cancel
-                </button>
-                <button 
-                  type="button" 
-                  className="btn btn-primary" 
-                  onClick={handleSave}
-                  disabled={saving}
-                  style={{ backgroundColor: '#059669' }}
-                >
-                  {saving ? <RefreshCw size={16} className="spin" /> : <Save size={16} />} Save Changes
-                </button>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
-      <form onSubmit={handleSave}>
+      <div>
         {/* Section 1: Personal & Contact Information */}
         <div className="card" style={{ marginBottom: '24px' }}>
           <div className="card-header-bar">
@@ -214,9 +154,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="text" 
                 className="form-control" 
-                value={formData.name || ''} 
-                onChange={(e) => handleChange('name', e.target.value)}
-                disabled={!editMode}
+                value={profile.name || ''} 
+                disabled
                 required
               />
             </div>
@@ -242,9 +181,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="text" 
                 className="form-control" 
-                value={formData.rep_name || ''} 
-                onChange={(e) => handleChange('rep_name', e.target.value)}
-                disabled={!editMode}
+                value={profile.rep_name || ''} 
+                disabled
                 placeholder="Authorized contact person"
               />
             </div>
@@ -254,9 +192,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="text" 
                 className="form-control" 
-                value={formData.rep_designation || ''} 
-                onChange={(e) => handleChange('rep_designation', e.target.value)}
-                disabled={!editMode}
+                value={profile.rep_designation || ''} 
+                disabled
                 placeholder="e.g. Director, Procurement Lead"
               />
             </div>
@@ -266,9 +203,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="tel" 
                 className="form-control" 
-                value={formData.rep_phone || ''} 
-                onChange={(e) => handleChange('rep_phone', e.target.value)}
-                disabled={!editMode}
+                value={profile.rep_phone || ''} 
+                disabled
                 placeholder="+91 9876543210"
               />
             </div>
@@ -278,9 +214,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="email" 
                 className="form-control" 
-                value={formData.rep_email || ''} 
-                onChange={(e) => handleChange('rep_email', e.target.value)}
-                disabled={!editMode}
+                value={profile.rep_email || ''} 
+                disabled
                 placeholder="rep@company.com"
               />
             </div>
@@ -302,9 +237,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <input 
                 type="text" 
                 className="form-control" 
-                value={formData.company_name || ''} 
-                onChange={(e) => handleChange('company_name', e.target.value)}
-                disabled={!editMode}
+                value={profile.company_name || ''} 
+                disabled
                 placeholder="Company legal title"
               />
             </div>
@@ -315,9 +249,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <label className="form-label">Primary Business Category</label>
                   <select 
                     className="form-control" 
-                    value={formData.category || 'IT Hardware'} 
-                    onChange={(e) => handleChange('category', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.category || 'IT Hardware'} 
+                    disabled
                   >
                     <option value="IT Hardware">IT Hardware</option>
                     <option value="Raw Materials & Metals">Raw Materials & Metals</option>
@@ -332,9 +265,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <input 
                     type="text" 
                     className="form-control" 
-                    value={formData.gst_number || ''} 
-                    onChange={(e) => handleChange('gst_number', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.gst_number || ''} 
+                    disabled
                     placeholder="22AAAAA0000A1Z5"
                     maxLength={15}
                   />
@@ -345,9 +277,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <input 
                     type="text" 
                     className="form-control" 
-                    value={formData.pan_number || ''} 
-                    onChange={(e) => handleChange('pan_number', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.pan_number || ''} 
+                    disabled
                     placeholder="ABCDE1234F"
                     maxLength={10}
                   />
@@ -358,9 +289,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <input 
                     type="text" 
                     className="form-control" 
-                    value={formData.cin || ''} 
-                    onChange={(e) => handleChange('cin', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.cin || ''} 
+                    disabled
                     placeholder="U12345MH2020PTC123456"
                   />
                 </div>
@@ -369,9 +299,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <label className="form-label">Organization Structure</label>
                   <select 
                     className="form-control" 
-                    value={formData.org_type || 'Private Limited'} 
-                    onChange={(e) => handleChange('org_type', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.org_type || 'Private Limited'} 
+                    disabled
                   >
                     <option value="Private Limited">Private Limited</option>
                     <option value="Public Limited">Public Limited</option>
@@ -386,9 +315,8 @@ export function ProfileView({ role = 'BUYER' }) {
                   <input 
                     type="number" 
                     className="form-control" 
-                    value={formData.years_in_business || ''} 
-                    onChange={(e) => handleChange('years_in_business', e.target.value)}
-                    disabled={!editMode}
+                    value={profile.years_in_business || ''} 
+                    disabled
                     placeholder="5"
                   />
                 </div>
@@ -400,9 +328,8 @@ export function ProfileView({ role = 'BUYER' }) {
               <textarea 
                 className="form-control" 
                 rows={3}
-                value={formData.registered_address || ''} 
-                onChange={(e) => handleChange('registered_address', e.target.value)}
-                disabled={!editMode}
+                value={profile.registered_address || ''} 
+                disabled
                 placeholder="Full official office/facility address"
               />
             </div>
@@ -425,9 +352,8 @@ export function ProfileView({ role = 'BUYER' }) {
                 <input 
                   type="text" 
                   className="form-control" 
-                  value={formData.bank_account_name || ''} 
-                  onChange={(e) => handleChange('bank_account_name', e.target.value)}
-                  disabled={!editMode}
+                  value={profile.bank_account_name || ''} 
+                  disabled
                   placeholder="Exact account holder name"
                 />
               </div>
@@ -437,9 +363,8 @@ export function ProfileView({ role = 'BUYER' }) {
                 <input 
                   type="text" 
                   className="form-control" 
-                  value={formData.bank_name || ''} 
-                  onChange={(e) => handleChange('bank_name', e.target.value)}
-                  disabled={!editMode}
+                  value={profile.bank_name || ''} 
+                  disabled
                   placeholder="e.g. HDFC Bank, SBI, ICICI"
                 />
               </div>
@@ -449,9 +374,8 @@ export function ProfileView({ role = 'BUYER' }) {
                 <input 
                   type="text" 
                   className="form-control" 
-                  value={formData.bank_account_number || ''} 
-                  onChange={(e) => handleChange('bank_account_number', e.target.value)}
-                  disabled={!editMode}
+                  value={profile.bank_account_number || ''} 
+                  disabled
                   placeholder="Account number"
                 />
               </div>
@@ -461,9 +385,8 @@ export function ProfileView({ role = 'BUYER' }) {
                 <input 
                   type="text" 
                   className="form-control" 
-                  value={formData.bank_ifsc || ''} 
-                  onChange={(e) => handleChange('bank_ifsc', e.target.value)}
-                  disabled={!editMode}
+                  value={profile.bank_ifsc || ''} 
+                  disabled
                   placeholder="HDFC0001234"
                   maxLength={11}
                 />
@@ -474,9 +397,8 @@ export function ProfileView({ role = 'BUYER' }) {
                 <input 
                   type="text" 
                   className="form-control" 
-                  value={formData.bank_upi || ''} 
-                  onChange={(e) => handleChange('bank_upi', e.target.value)}
-                  disabled={!editMode}
+                  value={profile.bank_upi || ''} 
+                  disabled
                   placeholder="company@hdfcbank"
                 />
               </div>
@@ -484,27 +406,61 @@ export function ProfileView({ role = 'BUYER' }) {
           </div>
         )}
 
-        {editMode && (
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginBottom: '32px' }}>
-            <button 
-              type="button" 
-              className="btn btn-secondary" 
-              onClick={handleCancel}
-              disabled={saving}
-            >
-              Cancel
-            </button>
-            <button 
-              type="submit" 
-              className="btn btn-primary"
-              disabled={saving}
-              style={{ backgroundColor: '#059669' }}
-            >
-              {saving ? <RefreshCw size={16} className="spin" /> : <Save size={16} />} Save All Changes
-            </button>
+        {/* Section 4: Uploaded Verification Documents */}
+        <div className="card" style={{ marginBottom: '24px' }}>
+          <div className="card-header-bar">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FileText size={18} color="#059669" />
+              <h3>Uploaded Documents</h3>
+            </div>
           </div>
-        )}
-      </form>
+
+          {documents.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '20px', color: '#64748B', fontSize: '14px' }}>
+              No documents submitted yet.
+            </div>
+          ) : (
+            <div style={{ display: 'grid', gap: '12px' }}>
+              {documents.map((doc, i) => (
+                <div key={doc.id || i} style={{ padding: '14px 16px', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <FileText size={18} color="#475569" />
+                    </div>
+                    <div style={{ fontWeight: '700', fontSize: '14px', color: '#0F172A', textTransform: 'capitalize' }}>
+                      {doc.doc_type?.replace(/_/g, ' ')}
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    {doc.file_url && (
+                      <a
+                        href={doc.file_url.startsWith('http') ? doc.file_url : `http://localhost:8001${doc.file_url}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#2563EB', fontWeight: '600', textDecoration: 'none', background: '#EFF6FF', padding: '6px 12px', borderRadius: '6px' }}
+                      >
+                        <ExternalLink size={14} /> View File
+                      </a>
+                    )}
+
+                    <span style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
+                      color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
+                      fontSize: '11px',
+                      fontWeight: '700'
+                    }}>
+                      {doc.status?.toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

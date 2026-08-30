@@ -144,6 +144,20 @@ class PurchaseOrder(Base):
     pdf_url = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
+class VendorReview(Base):
+    __tablename__ = "vendor_reviews"
+
+    id = Column(String, primary_key=True, index=True)
+    vendor_id = Column(String, ForeignKey("vendors.id"), nullable=False)
+    buyer_user_id = Column(String, nullable=False)
+    buyer_company = Column(String, nullable=False)
+    reviewer_name = Column(String, nullable=True)
+    po_id = Column(String, nullable=True)
+    stars = Column(Integer, nullable=False)
+    review_text = Column(Text, nullable=True)
+    photo_url = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
 class UserDocument(Base):
     __tablename__ = "user_documents"
 

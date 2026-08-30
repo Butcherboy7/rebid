@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
+import { BuyerProfileModal } from '../../components/BuyerProfileModal';
 import { ProfileView } from '../../components/ProfileView';
 import { SettingsView } from '../../components/SettingsView';
 import { formatINR } from '../../utils/formatters';
@@ -26,6 +27,7 @@ export function VendorDashboard() {
   const [loadingAuctions, setLoadingAuctions] = useState(false);
 
   const [selectedVendorForProfile, setSelectedVendorForProfile] = useState(null);
+  const [selectedBuyerForProfile, setSelectedBuyerForProfile] = useState(null);
 
   const [toasts, setToasts] = useState([]);
 
@@ -172,6 +174,10 @@ export function VendorDashboard() {
       <VendorProfileModal
         vendorIdentifier={selectedVendorForProfile}
         onClose={() => setSelectedVendorForProfile(null)}
+      />
+      <BuyerProfileModal
+        buyerIdentifier={selectedBuyerForProfile}
+        onClose={() => setSelectedBuyerForProfile(null)}
       />
 
       <div className="toast-container">
@@ -378,7 +384,15 @@ export function VendorDashboard() {
                       <td><code style={{ fontSize: '12px', fontWeight: '700' }}>{po.po_id}</code></td>
                       <td><code>{po.auction_id}</code></td>
                       <td><b>{po.title}</b></td>
-                      <td><b>{po.buyer_name}</b></td>
+                      <td>
+                        <b
+                          onClick={() => setSelectedBuyerForProfile(po.buyer_name)}
+                          style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline' }}
+                          title="Click to view Buyer Profile"
+                        >
+                          {po.buyer_name}
+                        </b>
+                      </td>
                       <td><b style={{ color: '#059669', fontSize: '15px' }}>{formatINR(po.amount)}</b></td>
                       <td><b style={{ color: '#0F172A' }}>{po.delivery_deadline}</b></td>
                       <td>
@@ -432,6 +446,18 @@ export function VendorDashboard() {
                 <div>
                   <span className="badge badge-live" style={{ fontSize: '11px', marginBottom: '4px' }}>{auctionDetail.category}</span>
                   <h1 style={{ fontSize: '24px', fontWeight: '800', color: '#0F172A' }}>{auctionDetail.title}</h1>
+                  {auctionDetail.buyer_name && (
+                    <p className="text-muted" style={{ fontSize: '12px', marginTop: '2px' }}>
+                      Posted by{' '}
+                      <b
+                        onClick={() => setSelectedBuyerForProfile(auctionDetail.buyer_name)}
+                        style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline' }}
+                        title="Click to view Buyer Profile"
+                      >
+                        {auctionDetail.buyer_name}
+                      </b>
+                    </p>
+                  )}
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontSize: '12px', color: '#64748B', textTransform: 'uppercase', fontWeight: '700' }}>Time Remaining</div>
@@ -569,7 +595,7 @@ export function VendorDashboard() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+              <div className="rb-grid-3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                 <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
                   <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>Suggested Counter Bid</div>
                   <div style={{ fontSize: '20px', fontWeight: '800', color: '#059669', marginTop: '4px' }}>

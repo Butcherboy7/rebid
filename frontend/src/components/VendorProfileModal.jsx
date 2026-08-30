@@ -3,17 +3,24 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useModal } from '../context/ModalContext';
 import { formatINR } from '../utils/formatters';
-import { ShieldCheck, Star, Award, Truck, X, Calendar, CheckCircle, XCircle, ExternalLink, TrendingUp, DollarSign, AlertTriangle, Zap, Building2, User, Loader, FileText, MapPin, Phone, Mail, CreditCard } from 'lucide-react';
+import { ShieldCheck, Star, Award, Truck, X, Calendar, CheckCircle, XCircle, ExternalLink, TrendingUp, DollarSign, AlertTriangle, Zap, Building2, User, Loader, FileText, MapPin, Phone, Mail, CreditCard, Camera, PenLine, RefreshCw } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8001/api';
 
 export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData }) {
-  const { token, isAdmin } = useAuth();
+  const { token, isAdmin, isBuyer } = useAuth();
   const { showConfirm, showSuccess, showError } = useModal();
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [actionLoading, setActionLoading] = useState(false);
+
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewStars, setReviewStars] = useState(5);
+  const [reviewText, setReviewText] = useState('');
+  const [reviewPhoto, setReviewPhoto] = useState(null);
+  const [reviewPhotoPreview, setReviewPhotoPreview] = useState(null);
+  const [submittingReview, setSubmittingReview] = useState(false);
 
   const fetchProfile = () => {
     if (!vendorIdentifier) return;
@@ -131,8 +138,56 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
     }
   };
 
+  const handleReviewPhotoSelect = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setReviewPhoto(file);
+    setReviewPhotoPreview(URL.createObjectURL(file));
+  };
+
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+    if (!reviewText.trim()) {
+      showError('Review Required', 'Please write a short comment about your experience.');
+      return;
+    }
+
+    setSubmittingReview(true);
+    try {
+      let photo_url = null;
+      if (reviewPhoto) {
+        const formData = new FormData();
+        formData.append('file', reviewPhoto);
+        const uploadRes = await axios.post(`${API_BASE}/upload`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        photo_url = uploadRes.data?.url;
+      }
+
+      const headers = { Authorization: `Bearer ${token}` };
+      await axios.post(`${API_BASE}/vendors/${encodeURIComponent(profile.id)}/reviews`, {
+        stars: reviewStars,
+        review_text: reviewText.trim(),
+        photo_url
+      }, { headers });
+
+      showSuccess('Review Submitted', 'Thank you for your feedback!');
+      setShowReviewForm(false);
+      setReviewText('');
+      setReviewStars(5);
+      setReviewPhoto(null);
+      setReviewPhotoPreview(null);
+      fetchProfile();
+    } catch (err) {
+      console.error('Failed to submit review:', err);
+      showError('Submission Failed', err.response?.data?.detail || 'Could not submit your review.');
+    } finally {
+      setSubmittingReview(false);
+    }
+  };
+
   if (!vendorIdentifier) return null;
-  
+
   const isApproved = profile?.is_approved && profile?.status === "approved";
 
   const renderContent = () => {
@@ -179,7 +234,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                   fontSize: '26px',
                   display: 'flex',
                   alignItems: 'center',
-                  justify: 'center',
+                  justifyContent: 'center',
                   boxShadow: '0 4px 12px rgba(5, 150, 105, 0.3)'
                 }}>
                   {profile.name.slice(0, 2).toUpperCase()}
@@ -248,7 +303,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
               <div className="card" style={{ padding: '18px', margin: 0 }}>
                 <h3 style={{ fontSize: '14px', marginBottom: '12px' }}>Monthly Contracts Trend</h3>
                 <div style={{ height: '140px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '8px', padding: '10px 4px 0 4px', borderBottom: '1px solid #E2E8F0' }}>
@@ -368,23 +423,100 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
             </div>
 
             <div className="card">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
                 <div>
                   <h3>Buyer Feedback & Reviews</h3>
-                  <p className="text-muted" style={{ fontSize: '12px' }}>Statistically generated based on vendor's actual SLA ({profile.reliability_pct}%) & delivery record</p>
+                  <p className="text-muted" style={{ fontSize: '12px' }}>Feedback from buyers who have completed contracts with this vendor</p>
                 </div>
-                <span className="badge badge-completed">
-                  <ShieldCheck size={14} /> VERIFIED BUYER REVIEWS
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span className="badge badge-completed">
+                    <ShieldCheck size={14} /> VERIFIED BUYER REVIEWS
+                  </span>
+                  {isBuyer && !showReviewForm && (
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => setShowReviewForm(true)}
+                      style={{ fontSize: '12px', padding: '6px 12px' }}
+                    >
+                      <PenLine size={13} /> Write a Review
+                    </button>
+                  )}
+                </div>
               </div>
 
+              {showReviewForm && (
+                <form onSubmit={handleSubmitReview} style={{ padding: '16px', background: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0', marginBottom: '16px' }}>
+                  <div style={{ marginBottom: '12px' }}>
+                    <label className="form-label">Your Rating</label>
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <button
+                          key={n}
+                          type="button"
+                          onClick={() => setReviewStars(n)}
+                          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '2px' }}
+                          aria-label={`${n} star`}
+                        >
+                          <Star size={22} fill={n <= reviewStars ? '#F59E0B' : '#CBD5E1'} color={n <= reviewStars ? '#F59E0B' : '#CBD5E1'} />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">Your Review</label>
+                    <textarea
+                      className="form-control"
+                      rows={3}
+                      value={reviewText}
+                      onChange={(e) => setReviewText(e.target.value)}
+                      placeholder="Share your experience working with this vendor..."
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">Attach a Photo (Optional)</label>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <label className="btn btn-secondary" style={{ fontSize: '12px', cursor: 'pointer' }}>
+                        <Camera size={14} /> Choose Photo
+                        <input type="file" accept="image/*" onChange={handleReviewPhotoSelect} style={{ display: 'none' }} />
+                      </label>
+                      {reviewPhotoPreview && (
+                        <img src={reviewPhotoPreview} alt="Review attachment preview" style={{ width: '44px', height: '44px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #CBD5E1' }} />
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '12px' }}>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => { setShowReviewForm(false); setReviewText(''); setReviewStars(5); setReviewPhoto(null); setReviewPhotoPreview(null); }}
+                      disabled={submittingReview}
+                    >
+                      Cancel
+                    </button>
+                    <button type="submit" className="btn btn-primary" style={{ backgroundColor: '#059669' }} disabled={submittingReview}>
+                      {submittingReview ? <RefreshCw size={16} className="spin" /> : <CheckCircle size={16} />} Submit Review
+                    </button>
+                  </div>
+                </form>
+              )}
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {(!profile.reviews || profile.reviews.length === 0) && !showReviewForm && (
+                  <div style={{ textAlign: 'center', padding: '20px', color: '#64748B', fontSize: '14px' }}>
+                    No reviews yet.
+                  </div>
+                )}
                 {profile.reviews?.map((rev) => (
                   <div key={rev.id} style={{ padding: '16px', background: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <b style={{ color: '#0F172A', fontSize: '14px' }}>{rev.buyer_company}</b>
-                        <span style={{ fontSize: '11px', color: '#64748B' }}>({rev.reviewer_name} - {rev.reviewer_title})</span>
+                        {rev.reviewer_title && <span style={{ fontSize: '11px', color: '#64748B' }}>({rev.reviewer_name} - {rev.reviewer_title})</span>}
                       </div>
                       <span className="text-muted" style={{ fontSize: '11px' }}>{rev.date}</span>
                     </div>
@@ -398,9 +530,69 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                     <p style={{ fontSize: '13px', color: '#334155', lineHeight: 1.5 }}>
                       "{rev.review_text}"
                     </p>
+
+                    {rev.photo_url && (
+                      <img
+                        src={rev.photo_url.startsWith('http') ? rev.photo_url : `http://localhost:8001${rev.photo_url}`}
+                        alt="Review attachment"
+                        style={{ marginTop: '10px', maxWidth: '160px', maxHeight: '160px', borderRadius: '8px', border: '1px solid #E2E8F0', objectFit: 'cover' }}
+                      />
+                    )}
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="card" style={{ marginTop: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                <FileText size={18} color="#059669" />
+                <h3 style={{ fontSize: '15px' }}>Uploaded Verification Documents</h3>
+              </div>
+
+              {(!profile.documents || profile.documents.length === 0) ? (
+                <div style={{ textAlign: 'center', padding: '20px', color: '#64748B', fontSize: '14px' }}>
+                  No verification documents submitted yet.
+                </div>
+              ) : (
+                <div style={{ display: 'grid', gap: '12px' }}>
+                  {profile.documents.map((doc, i) => (
+                    <div key={doc.id || i} style={{ padding: '14px 16px', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <FileText size={18} color="#475569" />
+                        </div>
+                        <div style={{ fontWeight: '700', fontSize: '14px', color: '#0F172A', textTransform: 'capitalize' }}>
+                          {doc.doc_type?.replace(/_/g, ' ')}
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        {doc.file_url && (
+                          <a
+                            href={doc.file_url.startsWith('http') ? doc.file_url : `http://localhost:8001${doc.file_url}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#2563EB', fontWeight: '600', textDecoration: 'none', background: '#EFF6FF', padding: '6px 12px', borderRadius: '6px' }}
+                          >
+                            <ExternalLink size={14} /> View File
+                          </a>
+                        )}
+
+                        <span style={{
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
+                          color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
+                          fontSize: '11px',
+                          fontWeight: '700'
+                        }}>
+                          {doc.status?.toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
       );
@@ -432,7 +624,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                 <Building2 size={18} color="#0F172A" />
                 <h4 style={{ fontWeight: '700', color: '#0F172A' }}>Applicant Business Details</h4>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
+              <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
                 <div><span style={{ color: '#64748B' }}>Company Name:</span> <br /><b>{profile.company_name || profile.name}</b></div>
                 <div><span style={{ color: '#64748B' }}>Category / Industry:</span> <br /><b>{profile.category}</b></div>
                 <div><span style={{ color: '#64748B' }}>Vendor ID:</span> <br /><code style={{ fontSize: '12px' }}>{profile.id}</code></div>
@@ -450,7 +642,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                   <User size={18} color="#0F172A" />
                   <h4 style={{ fontWeight: '700', color: '#0F172A' }}>Authorized Representative</h4>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
                   {profile.user.rep_name && <div><span style={{ color: '#64748B' }}>Name:</span> <br /><b>{profile.user.rep_name}</b></div>}
                   {profile.user.rep_designation && <div><span style={{ color: '#64748B' }}>Designation:</span> <br /><b>{profile.user.rep_designation}</b></div>}
                   {profile.user.rep_phone && <div><span style={{ color: '#64748B' }}>Phone:</span> <br /><b>{profile.user.rep_phone}</b></div>}
@@ -465,7 +657,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                   <FileText size={18} color="#0F172A" />
                   <h4 style={{ fontWeight: '700', color: '#0F172A' }}>Business Registration</h4>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
                   {profile.user.gst_number && <div><span style={{ color: '#64748B' }}>GST Number:</span> <br /><code style={{ fontSize: '12px', fontWeight: '700' }}>{profile.user.gst_number}</code></div>}
                   {profile.user.pan_number && <div><span style={{ color: '#64748B' }}>PAN Number:</span> <br /><code style={{ fontSize: '12px', fontWeight: '700' }}>{profile.user.pan_number}</code></div>}
                   {profile.user.cin && <div><span style={{ color: '#64748B' }}>CIN:</span> <br /><code style={{ fontSize: '12px', fontWeight: '700' }}>{profile.user.cin}</code></div>}
@@ -481,7 +673,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
                   <h4 style={{ fontWeight: '700', color: '#0F172A' }}>Bank Details</h4>
                   <span style={{ padding: '4px 12px', borderRadius: '6px', background: '#FEF3C7', color: '#D97706', fontSize: '11px', fontWeight: '700' }}>UNVERIFIED</span>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
                   {profile.user.bank_account_name && <div><span style={{ color: '#64748B' }}>Account Name:</span> <br /><b>{profile.user.bank_account_name}</b></div>}
                   {profile.user.bank_name && <div><span style={{ color: '#64748B' }}>Bank Name:</span> <br /><b>{profile.user.bank_name}</b></div>}
                   {profile.user.bank_account_number && <div><span style={{ color: '#64748B' }}>Account Number:</span> <br /><code>****{profile.user.bank_account_number.slice(-4)}</code></div>}
@@ -611,7 +803,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
       backgroundColor: 'rgba(15, 23, 42, 0.65)',
       backdropFilter: 'blur(4px)',
       display: 'flex',
-      justify: 'flex-end',
+      justifyContent: 'flex-end',
       zIndex: 9999,
       animation: 'fadeIn 0.2s ease'
     }}>
@@ -630,7 +822,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
           background: '#0F172A',
           color: '#FFFFFF',
           display: 'flex',
-          justify: 'space-between',
+          justifyContent: 'space-between',
           alignItems: 'center',
           position: 'sticky',
           top: 0,
@@ -652,7 +844,7 @@ export function VendorProfileModal({ vendorIdentifier, onClose, onRefreshData })
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              justify: 'center'
+              justifyContent: 'center'
             }}
           >
             <X size={18} />

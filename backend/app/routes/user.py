@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 from backend.app.database import get_db
-from backend.app.models import User, Vendor
+from backend.app.models import User, Vendor, UserDocument
 from backend.app.schemas import (
     UserProfileResponse, UserProfileUpdateRequest,
     ChangePasswordRequest, UserPreferencesRequest, UserPreferencesResponse
@@ -60,6 +60,28 @@ def get_user_profile(
         bank_ifsc=(vendor.bank_ifsc if vendor and vendor.bank_ifsc else user.bank_ifsc),
         bank_upi=(vendor.bank_upi if vendor and vendor.bank_upi else user.bank_upi),
     )
+
+
+@router.get("/documents")
+def get_user_documents(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    user_id = current_user.get("user_id")
+    docs = db.query(UserDocument).filter(UserDocument.user_id == user_id).all()
+    return {
+        "documents": [
+            {
+                "id": doc.id,
+                "doc_type": doc.doc_type,
+                "file_url": doc.file_url,
+                "status": doc.status,
+                "rejection_reason": doc.rejection_reason,
+                "uploaded_at": doc.uploaded_at.isoformat() if doc.uploaded_at else None
+            }
+            for doc in docs
+        ]
+    }
 
 
 @router.put("/profile", response_model=UserProfileResponse)

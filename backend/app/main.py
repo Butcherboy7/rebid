@@ -6,7 +6,7 @@ import datetime
 import uuid
 import shutil
 from typing import List, Optional
-from fastapi import FastAPI, HTTPException, Depends, Header, UploadFile, File
+from fastapi import FastAPI, HTTPException, Depends, Header, UploadFile, File, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
@@ -14,13 +14,13 @@ from sqlalchemy.orm import Session
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from backend.app.database import engine, Base, get_db
-from backend.app.models import User, Vendor, Auction, Bid, AuditLog, FraudAlert, PurchaseOrder, UserDocument, VerificationToken
+from backend.app.models import User, Vendor, Auction, Bid, AuditLog, FraudAlert, PurchaseOrder, UserDocument, VerificationToken, VendorReview
 from backend.app.schemas import (
     LoginRequest, ResetPasswordRequest, TokenResponse, CreateAuctionRequest, SubmitBidRequest,
     AwardContractRequest, RecommendationResponse
 )
 from backend.app.auth import hash_password, verify_password, create_access_token, get_current_user, require_role
-from backend.app.services import log_audit_event, analyze_bid_fraud, generate_purchase_order_pdf, format_inr
+from backend.app.services import log_audit_event, analyze_bid_fraud, generate_purchase_order_pdf, format_inr, generate_stock_verification_document, STOCK_DOC_TYPES
 from ml.predict import ai_engine
 from backend.app.routes.auth import router as auth_router
 from backend.app.routes.admin_docs import router as admin_docs_router
@@ -687,8 +687,16 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail=f"Vendor profile not found for '{vendor_identifier}'")
 
     user = db.query(User).filter(User.id == vendor.user_id).first() if vendor.user_id else None
-    vendor_status = user.status if user else "unknown"
-    is_verified_vendor = vendor.verified and vendor_status == "approved"
+    if user:
+        vendor_status = user.status
+        is_verified_vendor = vendor.verified and vendor_status == "approved"
+    else:
+        # Synthetic/dataset vendor with no registered user account — these never go
+        # through the admin approval workflow, and only ever appear in live bidding
+        # when Vendor.verified is True (bot-bid seeding filters on that flag), so the
+        # flag alone is their approval signal here.
+        vendor_status = "approved" if vendor.verified else "pending_approval"
+        is_verified_vendor = vendor.verified
 
     if not is_verified_vendor:
         documents = []
@@ -807,6 +815,23 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
         monthly_contracts = [random.randint(4, 12) for _ in range(6)]
         monthly_win_rates = [random.randint(65, 92) for _ in range(6)]
 
+    real_reviews = db.query(VendorReview).filter(VendorReview.vendor_id == vendor.id).order_by(VendorReview.created_at.desc()).all()
+    if real_reviews:
+        reviews = [
+            {
+                "id": r.id,
+                "buyer_company": r.buyer_company,
+                "reviewer_name": r.reviewer_name or r.buyer_company,
+                "reviewer_title": "Verified Buyer",
+                "stars": r.stars,
+                "review_text": r.review_text,
+                "photo_url": r.photo_url,
+                "date": r.created_at.strftime("%B %d, %Y") if r.created_at else "",
+                "verified": True
+            }
+            for r in real_reviews
+        ]
+
     if vendor.cancellation_rate > 0.05 or rel_pct < 80:
         risk_level = "HIGH"
     elif vendor.cancellation_rate > 0.02 or rel_pct < 88:
@@ -816,6 +841,32 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
 
     ai_score = round((0.40 * 92) + (0.30 * rel_pct) + (0.20 * del_pct) + (0.10 * (rating * 20)), 1)
     years_on_platform = max(1, min(5, (hash(vendor.id) % 6) + 1))
+
+    documents = []
+    if vendor.user_id:
+        docs = db.query(UserDocument).filter(UserDocument.user_id == vendor.user_id).all()
+        for d in docs:
+            documents.append({
+                "id": d.id,
+                "doc_type": d.doc_type,
+                "file_url": d.file_url,
+                "status": d.status,
+                "rejection_reason": d.rejection_reason,
+                "uploaded_at": d.uploaded_at.isoformat() if d.uploaded_at else None
+            })
+    else:
+        # Dataset/bot vendor with no registered user account, so no real uploads exist.
+        # Generate deterministic specimen documents so the profile doesn't look empty.
+        for idx, doc_type in enumerate(STOCK_DOC_TYPES):
+            file_url = generate_stock_verification_document(vendor.id, vendor.company_name or vendor.name, doc_type)
+            documents.append({
+                "id": f"STOCK-{vendor.id}-{idx+1}",
+                "doc_type": doc_type,
+                "file_url": file_url,
+                "status": "approved",
+                "rejection_reason": None,
+                "uploaded_at": None
+            })
 
     return {
         "id": vendor.id,
@@ -851,7 +902,116 @@ def get_vendor_profile(vendor_identifier: str, db: Session = Depends(get_db)):
             "overall_ai_score": ai_score
         },
         "is_approved": True,
-        "status": "approved"
+        "status": "approved",
+        "documents": documents
+    }
+
+
+@app.get("/api/vendors/{vendor_identifier}/reviews")
+def list_vendor_reviews(vendor_identifier: str, db: Session = Depends(get_db)):
+    vendor = db.query(Vendor).filter((Vendor.id == vendor_identifier) | (Vendor.name == vendor_identifier) | (Vendor.company_name == vendor_identifier)).first()
+    if not vendor:
+        raise HTTPException(status_code=404, detail=f"Vendor not found for '{vendor_identifier}'")
+
+    reviews = db.query(VendorReview).filter(VendorReview.vendor_id == vendor.id).order_by(VendorReview.created_at.desc()).all()
+    return {
+        "reviews": [
+            {
+                "id": r.id,
+                "buyer_company": r.buyer_company,
+                "reviewer_name": r.reviewer_name or r.buyer_company,
+                "stars": r.stars,
+                "review_text": r.review_text,
+                "photo_url": r.photo_url,
+                "date": r.created_at.strftime("%B %d, %Y") if r.created_at else ""
+            }
+            for r in reviews
+        ]
+    }
+
+
+@app.post("/api/vendors/{vendor_identifier}/reviews")
+def create_vendor_review(
+    vendor_identifier: str,
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(require_role(["BUYER"]))
+):
+    vendor = db.query(Vendor).filter((Vendor.id == vendor_identifier) | (Vendor.name == vendor_identifier) | (Vendor.company_name == vendor_identifier)).first()
+    if not vendor:
+        raise HTTPException(status_code=404, detail=f"Vendor not found for '{vendor_identifier}'")
+
+    buyer_user = db.query(User).filter(User.id == current_user.get("user_id")).first()
+    if not buyer_user:
+        raise HTTPException(status_code=404, detail="Buyer account not found")
+
+    buyer_names = {n for n in [buyer_user.name, buyer_user.company_name] if n}
+    vendor_names = {n for n in [vendor.name, vendor.company_name] if n}
+    has_contract = db.query(PurchaseOrder).filter(
+        PurchaseOrder.buyer_name.in_(buyer_names),
+        PurchaseOrder.vendor_name.in_(vendor_names)
+    ).first()
+    if not has_contract:
+        raise HTTPException(status_code=403, detail="You can only review vendors you have an awarded contract with")
+
+    stars = payload.get("stars")
+    if not isinstance(stars, int) or stars < 1 or stars > 5:
+        raise HTTPException(status_code=400, detail="Rating must be an integer between 1 and 5")
+
+    review_text = (payload.get("review_text") or "").strip()
+    if not review_text:
+        raise HTTPException(status_code=400, detail="Please write a short review comment")
+
+    review = VendorReview(
+        id=f"REV-{uuid.uuid4().hex[:10]}",
+        vendor_id=vendor.id,
+        buyer_user_id=buyer_user.id,
+        buyer_company=buyer_user.company_name or buyer_user.name,
+        reviewer_name=buyer_user.rep_name or buyer_user.name,
+        po_id=has_contract.id,
+        stars=stars,
+        review_text=review_text,
+        photo_url=payload.get("photo_url")
+    )
+    db.add(review)
+
+    # Keep vendor's headline rating in sync with real reviews
+    all_reviews = db.query(VendorReview).filter(VendorReview.vendor_id == vendor.id).all()
+    avg_rating = (sum(r.stars for r in all_reviews) + stars) / (len(all_reviews) + 1)
+    vendor.rating = round(avg_rating, 2)
+
+    db.commit()
+    log_audit_event(db, "VENDOR_REVIEW_SUBMITTED", buyer_user.name, {"vendor_id": vendor.id, "stars": stars})
+
+    return {"status": "success", "message": "Review submitted successfully"}
+
+
+@app.get("/api/buyers/{buyer_identifier}/profile")
+def get_buyer_profile(buyer_identifier: str, db: Session = Depends(get_db)):
+    buyer = db.query(User).filter(
+        User.role == "BUYER",
+        (User.id == buyer_identifier) | (User.name == buyer_identifier) | (User.company_name == buyer_identifier)
+    ).first()
+    if not buyer:
+        raise HTTPException(status_code=404, detail=f"Buyer profile not found for '{buyer_identifier}'")
+
+    buyer_names = {n for n in [buyer.name, buyer.company_name] if n}
+    orders = db.query(PurchaseOrder).filter(PurchaseOrder.buyer_name.in_(buyer_names)).all()
+    auctions_posted = db.query(Auction).filter(Auction.buyer_id == buyer.id).count()
+
+    return {
+        "id": buyer.id,
+        "name": buyer.name,
+        "company_name": buyer.company_name or buyer.name,
+        "rep_name": buyer.rep_name,
+        "rep_designation": buyer.rep_designation,
+        "registered_address": buyer.registered_address,
+        "verified": buyer.status == "approved",
+        "status": buyer.status,
+        "member_since": buyer.created_at.strftime("%B %Y") if buyer.created_at else None,
+        "auctions_posted": auctions_posted,
+        "contracts_awarded": len(orders),
+        "total_procurement_value": sum(o.amount for o in orders)
     }
 
 
@@ -964,12 +1124,16 @@ def get_auction_live(auction_id: str, db: Session = Depends(get_db)):
     live_feed.reverse()
     lowest_bid = leaderboard[0]["price"] if leaderboard else auction.max_budget
 
+    buyer_user = db.query(User).filter(User.id == auction.buyer_id).first() if auction.buyer_id else None
+
     return {
         "id": auction.id,
         "title": auction.title,
         "category": auction.category,
         "max_budget": auction.max_budget,
         "status": auction.status,
+        "buyer_id": auction.buyer_id,
+        "buyer_name": (buyer_user.company_name or buyer_user.name) if buyer_user else None,
         "time_remaining_seconds": time_remaining,
         "weight_cost": auction.weight_cost,
         "weight_reliability": auction.weight_reliability,
@@ -1220,7 +1384,9 @@ def list_users(db: Session = Depends(get_db), current_user: dict = Depends(requi
         "id": u.id,
         "email": u.email,
         "name": u.name,
+        "company_name": u.company_name,
         "role": u.role,
+        "status": u.status,
         "created_at": u.created_at.isoformat()
     } for u in users]
 

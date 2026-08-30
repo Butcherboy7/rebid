@@ -130,9 +130,9 @@ export function DocumentReviewQueue() {
           <p style={{ color: '#64748B' }}>No documents pending review at this time.</p>
         </div>
       ) : (
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '300px 1fr', 
+        <div className="rb-split-sidebar" style={{
+          display: 'grid',
+          gridTemplateColumns: '300px 1fr',
           gap: '24px',
           minHeight: '600px'
         }}>

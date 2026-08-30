@@ -9,6 +9,21 @@ import {
 
 const API_BASE = 'http://localhost:8001/api';
 
+const COUNTRY_CODES = [
+  { code: '+91', label: '🇮🇳 +91 (India)' },
+  { code: '+1', label: '🇺🇸 +1 (USA/Canada)' },
+  { code: '+44', label: '🇬🇧 +44 (UK)' },
+  { code: '+971', label: '🇦🇪 +971 (UAE)' },
+  { code: '+65', label: '🇸🇬 +65 (Singapore)' },
+  { code: '+61', label: '🇦🇺 +61 (Australia)' },
+  { code: '+49', label: '🇩🇪 +49 (Germany)' },
+  { code: '+33', label: '🇫🇷 +33 (France)' },
+  { code: '+81', label: '🇯🇵 +81 (Japan)' },
+  { code: '+86', label: '🇨🇳 +86 (China)' },
+  { code: '+27', label: '🇿🇦 +27 (South Africa)' },
+  { code: '+55', label: '🇧🇷 +55 (Brazil)' }
+];
+
 export function RegistrationWizard({ onNavigate = null }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -24,6 +39,7 @@ export function RegistrationWizard({ onNavigate = null }) {
     category: 'IT Hardware',
     rep_name: '',
     rep_designation: '',
+    rep_phone_country: '+91',
     rep_phone: '',
     rep_email: '',
     gst_number: '',
@@ -61,11 +77,11 @@ export function RegistrationWizard({ onNavigate = null }) {
   const docLabels = {
     business_license: { label: 'Business Registration / MSME / CIN', required: true },
     tax_id: { label: 'GSTIN / Tax Registration Certificate', required: true },
-    signatory_id: { label: 'Authorized Signatory ID (PAN / Aadhaar / Passport)', required: true },
+    certification: { label: 'Legal Entity Certification (Incorporation / Registration Proof)', required: true },
     bank_info: { label: 'Bank Account Proof (Cancelled Cheque / Statement)', required: true },
+    signatory_id: { label: 'Authorized Signatory ID (PAN / Aadhaar / Passport)', required: false },
     company_profile: { label: 'Company Profile & Capabilities PDF', required: false },
     logo: { label: 'Official Company Brand Logo', required: false },
-    certification: { label: 'Industry Certifications (ISO / CMMI / GeM)', required: false },
     address_proof: { label: 'Registered Business Address Proof', required: false }
   };
 
@@ -155,10 +171,10 @@ export function RegistrationWizard({ onNavigate = null }) {
 
   // Step 5 Validation (Document Uploads)
   const isDocUploaded = (docType) => documents[docType] !== null;
-  const canProceedStep5 = formData.role === 'BUYER' || (
+  const canProceedStep5 = (
     isDocUploaded('business_license') &&
     isDocUploaded('tax_id') &&
-    isDocUploaded('signatory_id') &&
+    isDocUploaded('certification') &&
     isDocUploaded('bank_info')
   );
 
@@ -291,7 +307,7 @@ export function RegistrationWizard({ onNavigate = null }) {
         category: formData.category,
         rep_name: formData.rep_name.trim(),
         rep_designation: formData.rep_designation.trim(),
-        rep_phone: formData.rep_phone.trim(),
+        rep_phone: `${formData.rep_phone_country} ${formData.rep_phone.trim()}`,
         rep_email: formData.rep_email.trim(),
         gst_number: formData.gst_number.trim().toUpperCase(),
         pan_number: formData.pan_number.trim().toUpperCase(),
@@ -329,12 +345,7 @@ export function RegistrationWizard({ onNavigate = null }) {
         email: formData.email.trim(),
         otp_code: otpCode
       });
-      // If Buyer, skip document upload directly to review or success
-      if (formData.role === 'BUYER') {
-        setStep(6);
-      } else {
-        setStep(5);
-      }
+      setStep(5);
     } catch (err) {
       setError(err.response?.data?.detail || 'Invalid verification code. Please check and re-enter.');
       setOtpDigits(['', '', '', '', '', '']);
@@ -378,12 +389,7 @@ export function RegistrationWizard({ onNavigate = null }) {
       await axios.post(`${API_BASE}/auth/submit-application`, { user_id: userId });
       setStep(7);
     } catch (err) {
-      // If Buyer with no docs requirement, proceed to step 7
-      if (formData.role === 'BUYER') {
-        setStep(7);
-      } else {
-        setError(err.response?.data?.detail || 'Failed submitting application');
-      }
+      setError(err.response?.data?.detail || 'Failed submitting application');
     } finally {
       setLoading(false);
     }
@@ -479,7 +485,7 @@ export function RegistrationWizard({ onNavigate = null }) {
             <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>Select Account Role</h2>
             <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>Choose your organization's participation type on ReBid</p>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <button
                 type="button"
                 onClick={() => handleRoleSelect('BUYER')}
@@ -590,7 +596,7 @@ export function RegistrationWizard({ onNavigate = null }) {
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
               <div>
                 <label style={labelStyle}>Password (Min. 6 Chars) *</label>
                 <input 
@@ -612,7 +618,7 @@ export function RegistrationWizard({ onNavigate = null }) {
                 />
                 {formData.confirmPassword && (
                   <div style={{ fontSize: '11px', marginTop: '4px', fontWeight: '700', color: formData.password === formData.confirmPassword ? '#059669' : '#DC2626' }}>
-                    {formData.password === formData.confirmPassword ? '✓ Passwords match' : '✗ Passwords do not match'}
+                    {formData.password === formData.confirmPassword ? 'Passwords match' : 'Passwords do not match'}
                   </div>
                 )}
               </div>
@@ -652,7 +658,7 @@ export function RegistrationWizard({ onNavigate = null }) {
             <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>Organization & Legal Profile</h2>
             <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>Provide registered company details and representative information</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Legal Entity / Company Name *</label>
                 <input 
@@ -681,7 +687,7 @@ export function RegistrationWizard({ onNavigate = null }) {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Authorized Rep Name *</label>
                 <input 
@@ -706,17 +712,28 @@ export function RegistrationWizard({ onNavigate = null }) {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Rep Phone (10 Digits) *</label>
-                <input 
-                  type="tel" 
-                  value={formData.rep_phone} 
-                  onChange={(e) => setFormData({ ...formData, rep_phone: e.target.value })} 
-                  style={inputStyle} 
-                  placeholder="+91 9876543210" 
-                  required
-                />
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <select
+                    value={formData.rep_phone_country}
+                    onChange={(e) => setFormData({ ...formData, rep_phone_country: e.target.value })}
+                    style={{ ...inputStyle, width: '108px', flexShrink: 0, paddingLeft: '8px', paddingRight: '4px' }}
+                  >
+                    {COUNTRY_CODES.map(c => (
+                      <option key={c.code} value={c.code}>{c.label}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="tel"
+                    value={formData.rep_phone}
+                    onChange={(e) => setFormData({ ...formData, rep_phone: e.target.value })}
+                    style={inputStyle}
+                    placeholder="9876543210"
+                    required
+                  />
+                </div>
               </div>
               <div>
                 <label style={labelStyle}>Rep Contact Email *</label>
@@ -733,7 +750,7 @@ export function RegistrationWizard({ onNavigate = null }) {
 
             {formData.role === 'VENDOR' && (
               <>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px', marginBottom: '16px' }}>
+                <div className="rb-grid-3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px', marginBottom: '16px' }}>
                   <div>
                     <label style={labelStyle}>GSTIN (15 Digits) *</label>
                     <input 
@@ -770,7 +787,7 @@ export function RegistrationWizard({ onNavigate = null }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                   <div>
                     <label style={labelStyle}>Organization Type *</label>
                     <select 
@@ -852,7 +869,7 @@ export function RegistrationWizard({ onNavigate = null }) {
                   <CreditCard size={18} color="#059669" /> Direct Settlement Bank Details
                 </h3>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
                   <div>
                     <label style={labelStyle}>Account Holder Name *</label>
                     <input 
@@ -877,7 +894,7 @@ export function RegistrationWizard({ onNavigate = null }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                   <div>
                     <label style={labelStyle}>Account Number *</label>
                     <input 
@@ -1115,21 +1132,21 @@ export function RegistrationWizard({ onNavigate = null }) {
             </p>
 
             <div style={{ padding: '20px', backgroundColor: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0', marginBottom: '24px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '13px' }}>
+              <div className="rb-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '13px' }}>
                 <div><span style={{ color: '#64748B' }}>Account Role:</span> <b>{formData.role}</b></div>
                 <div><span style={{ color: '#64748B' }}>Entity Name:</span> <b>{formData.company_name}</b></div>
                 <div><span style={{ color: '#64748B' }}>Representative:</span> <b>{formData.rep_name} ({formData.rep_designation})</b></div>
                 <div><span style={{ color: '#64748B' }}>Contact Email:</span> <b>{formData.email} (Verified ✓)</b></div>
-                <div><span style={{ color: '#64748B' }}>Phone:</span> <b>{formData.rep_phone}</b></div>
+                <div><span style={{ color: '#64748B' }}>Phone:</span> <b>{formData.rep_phone_country} {formData.rep_phone}</b></div>
                 <div><span style={{ color: '#64748B' }}>Category:</span> <b>{formData.category}</b></div>
                 {formData.role === 'VENDOR' && (
                   <>
                     <div><span style={{ color: '#64748B' }}>GSTIN:</span> <code>{formData.gst_number}</code></div>
                     <div><span style={{ color: '#64748B' }}>PAN:</span> <code>{formData.pan_number}</code></div>
                     <div><span style={{ color: '#64748B' }}>Bank Account:</span> <b>{formData.bank_name} ({formData.bank_ifsc})</b></div>
-                    <div><span style={{ color: '#64748B' }}>Documents Attached:</span> <b>{Object.values(documents).filter(d => d).length} Files</b></div>
                   </>
                 )}
+                <div><span style={{ color: '#64748B' }}>Documents Attached:</span> <b>{Object.values(documents).filter(d => d).length} Files</b></div>
               </div>
             </div>
 

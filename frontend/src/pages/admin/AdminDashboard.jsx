@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useModal } from '../../context/ModalContext';
 import { Navigation } from '../../components/Navigation';
 import { VendorProfileModal } from '../../components/VendorProfileModal';
+import { BuyerProfileModal } from '../../components/BuyerProfileModal';
 import { ProfileView } from '../../components/ProfileView';
 import { SettingsView } from '../../components/SettingsView';
 import { formatINR } from '../../utils/formatters';
@@ -27,7 +28,10 @@ export function AdminDashboard() {
   const [loading, setLoading] = useState(false);
 
   const [selectedVendorForProfile, setSelectedVendorForProfile] = useState(null);
+  const [selectedBuyerForProfile, setSelectedBuyerForProfile] = useState(null);
   const [pendingVendorSort, setPendingVendorSort] = useState('newest');
+  const [pendingBuyers, setPendingBuyers] = useState([]);
+  const [buyerActionLoading, setBuyerActionLoading] = useState(null);
 
   const fetchPendingAuctions = async () => {
     try {
@@ -74,6 +78,16 @@ export function AdminDashboard() {
     }
   };
 
+  const fetchPendingBuyers = async () => {
+    try {
+      const headers = { Authorization: `Bearer ${token}` };
+      const res = await axios.get(`${API_BASE}/admin/documents/pending`, { headers });
+      setPendingBuyers((res.data || []).filter(u => u.role === 'BUYER'));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const fetchAuditLogs = async () => {
     try {
       const headers = { Authorization: `Bearer ${token}` };
@@ -101,6 +115,7 @@ export function AdminDashboard() {
     fetchFraudAlerts();
     fetchUsers();
     fetchPendingVendors();
+    fetchPendingBuyers();
   }, []);
 
   const handleSearchSubmit = (e) => {
@@ -159,6 +174,48 @@ export function AdminDashboard() {
     }
   };
 
+  const handleApproveBuyer = async (userId, buyerName) => {
+    const confirmed = await showConfirm({
+      title: 'Approve Buyer',
+      message: `Are you sure you want to approve "${buyerName}"? This will grant them full platform access.`,
+      type: 'success',
+      confirmText: 'Approve Buyer',
+      cancelText: 'Cancel'
+    });
+    if (!confirmed) return;
+
+    setBuyerActionLoading(userId);
+    try {
+      const headers = { Authorization: `Bearer ${token}` };
+      await axios.post(`${API_BASE}/admin/documents/${userId}/approve`, {}, { headers });
+      showSuccess('Buyer Approved', `"${buyerName}" has been approved successfully!`);
+      fetchPendingBuyers();
+      fetchUsers();
+    } catch (err) {
+      showError('Action Failed', err.response?.data?.detail || 'Failed to approve buyer');
+    } finally {
+      setBuyerActionLoading(null);
+    }
+  };
+
+  const handleRejectBuyer = async (userId, buyerName) => {
+    const reason = prompt(`Reason for rejecting "${buyerName}"'s application:`);
+    if (!reason) return;
+
+    setBuyerActionLoading(userId);
+    try {
+      const headers = { Authorization: `Bearer ${token}` };
+      await axios.post(`${API_BASE}/admin/documents/${userId}/reject?reason=${encodeURIComponent(reason)}`, {}, { headers });
+      showSuccess('Buyer Rejected', `Application for "${buyerName}" has been rejected.`);
+      fetchPendingBuyers();
+      fetchUsers();
+    } catch (err) {
+      showError('Action Failed', err.response?.data?.detail || 'Failed to reject buyer');
+    } finally {
+      setBuyerActionLoading(null);
+    }
+  };
+
   const sortedPendingVendors = [...pendingVendors].sort((a, b) => {
     if (pendingVendorSort === 'newest') return new Date(b.created_at) - new Date(a.created_at);
     if (pendingVendorSort === 'oldest') return new Date(a.created_at) - new Date(b.created_at);
@@ -174,6 +231,10 @@ export function AdminDashboard() {
         vendorIdentifier={selectedVendorForProfile}
         onClose={() => setSelectedVendorForProfile(null)}
         onRefreshData={fetchPendingVendors}
+      />
+      <BuyerProfileModal
+        buyerIdentifier={selectedBuyerForProfile}
+        onClose={() => setSelectedBuyerForProfile(null)}
       />
 
       <Navigation 
@@ -195,6 +256,8 @@ export function AdminDashboard() {
             fetchAuditLogs();
             fetchFraudAlerts();
             fetchPendingVendors();
+            fetchPendingBuyers();
+            fetchUsers();
           }}>
             <RefreshCw size={15} /> Refresh Console
           </button>
@@ -547,33 +610,150 @@ export function AdminDashboard() {
         )}
 
 
-        {activeTab === 'USERS' && (
+        {activeTab === 'BUYER_VERIFICATION' && (
+          <div className="table-container">
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h2>Pending Buyer Applications Queue</h2>
+                <p className="text-muted">Review buyer legal documents and approve platform access.</p>
+              </div>
+              <button className="btn btn-secondary" style={{ fontSize: '13px', padding: '6px 12px' }} onClick={fetchPendingBuyers}>
+                <RefreshCw size={14} /> Refresh Queue
+              </button>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Submitted Date</th>
+                  <th>User ID</th>
+                  <th>Name & Email</th>
+                  <th>Uploaded Documents</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pendingBuyers.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} style={{ textAlign: 'center', color: '#64748B', padding: '32px' }}>
+                      <CheckCircle size={24} color="#059669" style={{ marginBottom: '8px', display: 'block', margin: '0 auto' }} />
+                      No pending buyer applications. All applicant dossiers have been reviewed.
+                    </td>
+                  </tr>
+                ) : (
+                  pendingBuyers.map((b) => (
+                    <tr key={b.user_id}>
+                      <td className="text-muted" style={{ fontSize: '12px' }}>
+                        {b.submitted_at ? new Date(b.submitted_at).toLocaleString() : 'Recent'}
+                      </td>
+                      <td><code>{b.user_id}</code></td>
+                      <td>
+                        <div>
+                          <b
+                            onClick={() => setSelectedBuyerForProfile(b.name)}
+                            style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline', fontSize: '14px' }}
+                            title="Click to view Buyer Profile"
+                          >
+                            {b.name}
+                          </b>
+                          <div style={{ fontSize: '12px', color: '#64748B' }}>{b.email}</div>
+                        </div>
+                      </td>
+                      <td>
+                        {b.documents && b.documents.length > 0 ? (
+                          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                            {b.documents.map((doc, idx) => (
+                              <span key={idx} style={{
+                                fontSize: '11px',
+                                padding: '2px 8px',
+                                borderRadius: '4px',
+                                background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
+                                color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
+                                fontWeight: '600'
+                              }}>
+                                {doc.doc_type?.replace(/_/g, ' ')}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span style={{ fontSize: '12px', color: '#94A3B8' }}>No docs uploaded</span>
+                        )}
+                      </td>
+                      <td>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                          <button
+                            className="btn btn-primary"
+                            style={{ backgroundColor: '#059669', padding: '4px 10px', fontSize: '12px' }}
+                            disabled={buyerActionLoading === b.user_id}
+                            onClick={() => handleApproveBuyer(b.user_id, b.name)}
+                          >
+                            <CheckCircle size={14} /> Approve
+                          </button>
+                          <button
+                            className="btn btn-secondary"
+                            style={{ color: '#DC2626', padding: '4px 10px', fontSize: '12px' }}
+                            disabled={buyerActionLoading === b.user_id}
+                            onClick={() => handleRejectBuyer(b.user_id, b.name)}
+                          >
+                            <XCircle size={14} /> Reject
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {activeTab === 'BUYER_DIRECTORY' && (
           <div className="table-container">
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
-              <h2>Registered Platform Users Directory</h2>
-              <p className="text-muted">Role-based enterprise users</p>
+              <h2>Buyer Organization Directory</h2>
+              <p className="text-muted">All registered buyer accounts on the platform</p>
             </div>
 
             <table>
               <thead>
                 <tr>
                   <th>User ID</th>
-                  <th>Name</th>
+                  <th>Name / Organization</th>
                   <th>Email Address</th>
-                  <th>Assigned Role</th>
-                  <th>Created Date</th>
+                  <th>Status</th>
+                  <th>Registered On</th>
                 </tr>
               </thead>
               <tbody>
-                {users.map((u) => (
-                  <tr key={u.id}>
-                    <td><code>{u.id}</code></td>
-                    <td><b>{u.name}</b></td>
-                    <td>{u.email}</td>
-                    <td><span className="badge badge-completed">{u.role}</span></td>
-                    <td className="text-muted">{new Date(u.created_at).toLocaleDateString()}</td>
+                {users.filter(u => u.role === 'BUYER').length === 0 ? (
+                  <tr>
+                    <td colSpan={5} style={{ textAlign: 'center', color: '#64748B', padding: '32px' }}>
+                      No buyer accounts registered yet.
+                    </td>
                   </tr>
-                ))}
+                ) : (
+                  users.filter(u => u.role === 'BUYER').map((u) => (
+                    <tr key={u.id}>
+                      <td><code>{u.id}</code></td>
+                      <td>
+                        <b
+                          onClick={() => setSelectedBuyerForProfile(u.company_name || u.name)}
+                          style={{ color: '#0F172A', cursor: 'pointer', textDecoration: 'underline' }}
+                          title="Click to view Buyer Profile"
+                        >
+                          {u.company_name || u.name}
+                        </b>
+                      </td>
+                      <td>{u.email}</td>
+                      <td>
+                        <span className={`badge ${u.status === 'approved' ? 'badge-completed' : 'badge-med-risk'}`}>
+                          {(u.status || 'unknown').toUpperCase()}
+                        </span>
+                      </td>
+                      <td className="text-muted">{new Date(u.created_at).toLocaleDateString()}</td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

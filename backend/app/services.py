@@ -286,3 +286,102 @@ def generate_purchase_order_pdf(
             f.write(r"%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF\n".encode())
 
     return f"/static/{filename}"
+
+
+STOCK_DOC_TYPES = ["GST Registration Certificate", "PAN Card", "Certificate of Incorporation", "Trade License"]
+STOCK_DOCS_DIR = os.path.join(STATIC_DIR, "stock_docs")
+os.makedirs(STOCK_DOCS_DIR, exist_ok=True)
+
+
+def _seeded_hex(seed: str, start: int, length: int) -> str:
+    return (seed * 3)[start:start + length]
+
+
+def generate_stock_verification_document(vendor_id: str, vendor_name: str, doc_type: str) -> str:
+    """Generates (and caches on disk) a specimen verification-document PDF for
+    dataset/bot vendors that have no real uploaded document on file. Deterministic
+    per vendor+doc_type so repeat profile views reuse the same cached file."""
+    safe_doc = doc_type.replace(" ", "_").lower()
+    filename = f"{vendor_id}_{safe_doc}.pdf"
+    file_path = os.path.join(STOCK_DOCS_DIR, filename)
+    public_url = f"/static/stock_docs/{filename}"
+
+    if os.path.exists(file_path):
+        return public_url
+
+    seed = hashlib.sha256(f"{vendor_id}-{doc_type}".encode()).hexdigest()
+    digits = "".join(ch for ch in seed if ch.isdigit()) + "0123456789"
+    name_code = "".join(ch for ch in vendor_name.upper() if ch.isalpha())[:5].ljust(5, "X")
+
+    doc_number_map = {
+        "GST Registration Certificate": f"29{name_code}{digits[0:4]}Z{digits[4]}",
+        "PAN Card": f"{name_code}{digits[5:9]}{seed[10].upper()}",
+        "Certificate of Incorporation": f"U{digits[11:16]}KA{2005 + int(seed[16], 16) % 18}PTC{digits[17:23]}",
+        "Trade License": f"TL/{digits[23:29]}/{2019 + int(seed[24], 16) % 6}",
+    }
+    doc_number = doc_number_map.get(doc_type, digits[:12])
+    issue_year = 2015 + (int(seed[20], 16) % 9)
+    issue_date = f"{1 + int(seed[21], 16) % 28:02d}-{1 + int(seed[22], 16) % 12:02d}-{issue_year}"
+
+    try:
+        from reportlab.lib.pagesizes import letter
+        from reportlab.pdfgen import canvas
+
+        c = canvas.Canvas(file_path, pagesize=letter)
+
+        # Header banner
+        c.setFillColorRGB(0.06, 0.09, 0.16)
+        c.rect(0, 720, 612, 72, fill=1, stroke=0)
+        c.setFont("Helvetica-Bold", 16)
+        c.setFillColorRGB(1, 1, 1)
+        c.drawString(40, 758, doc_type)
+        c.setFont("Helvetica", 9)
+        c.setFillColorRGB(0.02, 0.58, 0.41)
+        c.drawString(40, 738, "Government / Statutory Registration Record")
+
+        # Watermark specimen notice
+        c.setFont("Helvetica-Bold", 9)
+        c.setFillColorRGB(0.85, 0.35, 0.1)
+        c.drawString(400, 738, "SPECIMEN — DEMO PURPOSES ONLY")
+
+        # Info box
+        c.setStrokeColorRGB(0.8, 0.85, 0.9)
+        c.setFillColorRGB(0.97, 0.98, 0.99)
+        c.rect(40, 560, 532, 130, fill=1, stroke=1)
+
+        c.setFont("Helvetica-Bold", 10)
+        c.setFillColorRGB(0.06, 0.09, 0.16)
+        c.drawString(55, 660, "REGISTERED ENTITY NAME")
+        c.setFont("Helvetica", 12)
+        c.drawString(55, 642, vendor_name[:48])
+
+        c.setFont("Helvetica-Bold", 9)
+        c.setFillColorRGB(0.3, 0.4, 0.5)
+        c.drawString(55, 615, "REGISTRATION / DOCUMENT NUMBER")
+        c.drawString(330, 615, "DATE OF ISSUE")
+
+        c.setFont("Helvetica-Bold", 11)
+        c.setFillColorRGB(0.06, 0.09, 0.16)
+        c.drawString(55, 598, doc_number)
+        c.drawString(330, 598, issue_date)
+
+        c.setFont("Helvetica-Bold", 9)
+        c.setFillColorRGB(0.3, 0.4, 0.5)
+        c.drawString(55, 578, "STATUS")
+        c.setFont("Helvetica-Bold", 10)
+        c.setFillColorRGB(0.02, 0.58, 0.41)
+        c.drawString(55, 565, "VERIFIED & APPROVED")
+
+        # Footer
+        c.setFont("Helvetica-Oblique", 8)
+        c.setFillColorRGB(0.5, 0.5, 0.5)
+        c.drawString(40, 40, "ReBid AI Enterprise Reverse Procurement Platform — Auto-Generated Specimen Record")
+        c.drawString(440, 40, f"Ref: {seed[:10].upper()}")
+
+        c.save()
+    except Exception as e:
+        print(f"[PDF Error] Stock document generation failed: {e}")
+        with open(file_path, "wb") as f:
+            f.write(r"%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF\n".encode())
+
+    return public_url

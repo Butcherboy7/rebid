@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { ReBidLogo } from './ReBidLogo';
-import { 
-  ShoppingBag, Truck, ShieldCheck, Menu, X, LogOut, 
-  ChevronDown, User, CheckCircle, Database, AlertTriangle, 
-  FileText, Users, FileCheck, Award, Settings, Building, 
+import {
+  ShoppingBag, Truck, ShieldCheck, Menu, X, LogOut,
+  ChevronDown, User, CheckCircle, Database, AlertTriangle,
+  FileText, FileCheck, Award, Settings, Building,
   Layers, Zap, ChevronLeft, ChevronRight, PanelLeftClose, PanelLeftOpen
 } from 'lucide-react';
 
@@ -227,24 +227,32 @@ export function Navigation({ activePortal, activeItem, onSelectTab, vendorCount 
                     <FileText size={18} style={{ flexShrink: 0 }} />
                     {!collapsed && <span>Audit Trail</span>}
                   </li>
-                  <li 
-                    className={`sidebar-item ${activeItem === 'PENDING' ? 'active' : ''}`} 
+                  <li
+                    className={`sidebar-item ${activeItem === 'PENDING' ? 'active' : ''}`}
                     onClick={() => handleItemClick('PENDING')}
                     title="Vendor Verifications"
                   >
                     <ShieldCheck size={18} style={{ flexShrink: 0 }} />
                     {!collapsed && <span>Vendor Verifications</span>}
                   </li>
-                  <li 
-                    className={`sidebar-item ${activeItem === 'USERS' ? 'active' : ''}`} 
-                    onClick={() => handleItemClick('USERS')}
-                    title="User Directory"
+                  <li
+                    className={`sidebar-item ${activeItem === 'BUYER_VERIFICATION' ? 'active' : ''}`}
+                    onClick={() => handleItemClick('BUYER_VERIFICATION')}
+                    title="Buyer Verification"
                   >
-                    <Users size={18} style={{ flexShrink: 0 }} />
-                    {!collapsed && <span>User Directory</span>}
+                    <ShieldCheck size={18} style={{ flexShrink: 0 }} />
+                    {!collapsed && <span>Buyer Verification</span>}
                   </li>
-                  <li 
-                    className={`sidebar-item ${activeItem === 'PROFILE' ? 'active' : ''}`} 
+                  <li
+                    className={`sidebar-item ${activeItem === 'BUYER_DIRECTORY' ? 'active' : ''}`}
+                    onClick={() => handleItemClick('BUYER_DIRECTORY')}
+                    title="Buyer Directory"
+                  >
+                    <Building size={18} style={{ flexShrink: 0 }} />
+                    {!collapsed && <span>Buyer Directory</span>}
+                  </li>
+                  <li
+                    className={`sidebar-item ${activeItem === 'PROFILE' ? 'active' : ''}`}
                     onClick={() => handleItemClick('PROFILE')}
                     title="Admin Profile"
                   >

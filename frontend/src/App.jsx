@@ -24,7 +24,7 @@ function AppContent() {
 
   const navigate = (newPath) => {
     window.history.pushState({}, '', newPath);
-    setPath(newPath);
+    setPath(window.location.pathname);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -114,18 +114,18 @@ function AppContent() {
     if (user && user.role === 'ADMIN') {
       return (
         <div className="app-container">
-          <div style={{ display: 'flex', width: '100%' }}>
-            <div style={{ width: '240px', backgroundColor: '#0F172A', minHeight: '100vh', padding: '24px 16px', color: '#FFF' }}>
+          <div className="rb-admin-doc-shell" style={{ display: 'flex', width: '100%' }}>
+            <div className="rb-admin-doc-sidebar" style={{ width: '240px', backgroundColor: '#0F172A', minHeight: '100vh', padding: '24px 16px', color: '#FFF' }}>
               <ReBidLogo size="md" variant="light" subtitle="Admin Review" style={{ marginBottom: '24px' }} />
-              <button 
-                onClick={() => navigate('/admin')} 
+              <button
+                onClick={() => navigate('/admin')}
                 className="btn btn-secondary"
                 style={{ width: '100%', fontSize: '13px', backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFF', borderColor: 'rgba(255,255,255,0.2)' }}
               >
                 ← Back to Dashboard
               </button>
             </div>
-            <div style={{ flex: 1, overflow: 'auto', padding: '24px' }}>
+            <div style={{ flex: 1, overflow: 'auto', padding: '24px', minWidth: 0 }}>
               <DocumentReviewQueue />
             </div>
           </div>
@@ -164,12 +164,9 @@ function AppContent() {
       {/* Top Brand Hero */}
       <div style={{ textAlign: 'center', maxWidth: '680px', marginBottom: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ReBidLogo size="xl" variant="dark" style={{ marginBottom: '16px' }} />
-        <h1 style={{ fontSize: '32px', fontWeight: '800', color: '#0F172A', marginBottom: '12px', letterSpacing: '-0.03em' }}>
+        <h1 style={{ fontSize: '32px', fontWeight: '800', color: '#0F172A', marginBottom: '0', letterSpacing: '-0.03em' }}>
           Reverse Auction Procurement Platform
         </h1>
-        <p style={{ fontSize: '15px', color: '#64748B', lineHeight: '1.6' }}>
-          A reverse auction platform where buyers post requirements, vendors compete by lowering their prices, and the system automatically ranks and recommends the best vendor.
-        </p>
       </div>
 
       {/* 3 Role Portals Cards */}
@@ -184,10 +181,7 @@ function AppContent() {
             <div style={{ width: '56px', height: '56px', backgroundColor: '#0F172A', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
               <ShoppingBag size={28} />
             </div>
-            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Buyer Portal</h2>
-            <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Post procurement requirements, set budgets, review vendor bids in real time, and award contracts to the best vendor.
-            </p>
+            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '20px', color: '#0F172A' }}>Buyer Portal</h2>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#0F172A' }}>
             {isAuthenticated && user?.role === 'BUYER' ? 'Open Buyer Dashboard' : 'Enter Buyer Portal'} <ArrowRight size={16} />
@@ -204,10 +198,7 @@ function AppContent() {
             <div style={{ width: '56px', height: '56px', backgroundColor: '#059669', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
               <Truck size={28} />
             </div>
-            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Vendor Portal</h2>
-            <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Join active auctions, place competitive bids, track your rank on the live leaderboard, and win purchase orders.
-            </p>
+            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '20px', color: '#0F172A' }}>Vendor Portal</h2>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#059669' }}>
             {isAuthenticated && user?.role === 'VENDOR' ? 'Open Vendor Dashboard' : 'Enter Vendor Portal'} <ArrowRight size={16} />
@@ -224,10 +215,7 @@ function AppContent() {
             <div style={{ width: '56px', height: '56px', backgroundColor: '#0F172A', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#FFF' }}>
               <ShieldCheck size={28} />
             </div>
-            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px', color: '#0F172A' }}>Admin Governance</h2>
-            <p className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '20px' }}>
-              Approve buyer auctions, verify vendor registrations, review fraud alerts, and track all platform activity.
-            </p>
+            <h2 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '20px', color: '#0F172A' }}>Admin Governance</h2>
           </div>
           <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#0F172A' }}>
             {isAuthenticated && user?.role === 'ADMIN' ? 'Open Admin Console' : 'Enter Admin Portal'} <ArrowRight size={16} />
@@ -237,9 +225,6 @@ function AppContent() {
 
       {/* Account Registration Link */}
       <div style={{ marginTop: '36px', textAlign: 'center' }}>
-        <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '12px' }}>
-          New to the platform?
-        </p>
         <button
           type="button"
           onClick={() => navigate('/auth/register')}
