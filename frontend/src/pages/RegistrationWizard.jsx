@@ -454,7 +454,7 @@ export function RegistrationWizard({ onNavigate = null }) {
               step === 1 ? 'Select Organization Role' :
               step === 2 ? 'Account Credentials' :
               step === 3 ? 'Organization & Rep Profile' :
-              step === 4 ? 'Bank Details & Email Verification' :
+              step === 4 ? (formData.role === 'VENDOR' ? 'Bank Details & Email Verification' : 'Email Verification') :
               step === 5 ? 'Document Verification' :
               step === 6 ? 'Compliance Review' : 'Registration Complete'
             }
@@ -848,7 +848,7 @@ export function RegistrationWizard({ onNavigate = null }) {
                 gap: '8px'
               }}
             >
-              Continue to Verification & Bank Details <ArrowRight size={16} />
+              {formData.role === 'VENDOR' ? 'Continue to Verification & Bank Details' : 'Continue to Email Verification'} <ArrowRight size={16} />
             </button>
           </div>
         )}
@@ -860,8 +860,12 @@ export function RegistrationWizard({ onNavigate = null }) {
               <ArrowLeft size={16} /> Back to Profile
             </button>
 
-            <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>Banking & Email Verification</h2>
-            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>Provide direct settlement banking details and verify email ownership</p>
+            <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>
+              {formData.role === 'VENDOR' ? 'Banking & Email Verification' : 'Email Verification'}
+            </h2>
+            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>
+              {formData.role === 'VENDOR' ? 'Provide direct settlement banking details and verify email ownership' : 'Verify email ownership to continue'}
+            </p>
 
             {formData.role === 'VENDOR' && (
               <div style={{ marginBottom: '24px', padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0' }}>

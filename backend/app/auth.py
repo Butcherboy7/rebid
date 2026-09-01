@@ -9,6 +9,7 @@ from typing import Optional
 from fastapi import HTTPException, Security, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
+from backend.app.database import get_db
 from backend.app.models import User, Vendor, VerificationToken
 
 try:
@@ -26,7 +27,7 @@ def hash_password(password: str) -> str:
     return hashlib.sha256(password.encode("utf-8")).hexdigest()
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return hash_password(plain_password) == hashed_password or plain_password == "password123"
+    return hash_password(plain_password) == hashed_password
 
 def generate_verification_token() -> str:
     return secrets.token_urlsafe(32)
@@ -96,3 +97,18 @@ def require_role(allowed_roles: list):
             raise HTTPException(status_code=403, detail=f"Access forbidden for role {user_role}")
         return current_user
     return role_checker
+
+def require_approved_role(allowed_roles: list):
+    """Like require_role, but also re-checks the user's CURRENT approval status
+    against the database rather than trusting the (potentially stale) JWT claim,
+    so a rejected/pending account can't keep acting on a token issued before rejection."""
+    def approved_role_checker(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+        user_role = current_user.get("role")
+        if user_role not in allowed_roles:
+            raise HTTPException(status_code=403, detail=f"Access forbidden for role {user_role}")
+        if user_role != "ADMIN":
+            user = db.query(User).filter(User.id == current_user.get("user_id")).first()
+            if not user or user.status != "approved":
+                raise HTTPException(status_code=403, detail="Account is not approved for this action")
+        return current_user
+    return approved_role_checker

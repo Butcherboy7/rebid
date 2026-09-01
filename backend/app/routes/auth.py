@@ -432,10 +432,16 @@ def upload_document(user_id: str = Query(...), doc_type: str = Query(...), file_
         UserDocument.user_id == user_id,
         UserDocument.doc_type == doc_type
     ).first()
-    
+
     if existing_doc and existing_doc.status in ["pending", "approved"]:
         raise HTTPException(status_code=400, detail=f"Document of type '{doc_type}' already exists")
-    
+
+    if existing_doc and existing_doc.status == "rejected":
+        # Re-upload supersedes the rejected record instead of leaving it around,
+        # which would otherwise permanently block admin approval and keep the
+        # applicant stuck showing the same rejection forever.
+        db.delete(existing_doc)
+
     doc_id = f"DOC-{uuid.uuid4().hex[:12]}"
     new_doc = UserDocument(
         id=doc_id,
@@ -446,8 +452,20 @@ def upload_document(user_id: str = Query(...), doc_type: str = Query(...), file_
         uploaded_at=datetime.datetime.utcnow()
     )
     db.add(new_doc)
+
+    # If this was the last outstanding rejected document, send the applicant
+    # back into the admin review queue so the resubmission actually gets seen.
+    if user.status == "amendment_required":
+        other_rejected = db.query(UserDocument).filter(
+            UserDocument.user_id == user_id,
+            UserDocument.doc_type != doc_type,
+            UserDocument.status == "rejected"
+        ).count()
+        if other_rejected == 0:
+            user.status = "pending_approval"
+
     db.commit()
-    
+
     return {
         "status": "success",
         "message": "Document uploaded successfully",
@@ -478,9 +496,13 @@ def submit_application(req: SubmitApplicationRequest = Body(...), db: Session = 
     if rejected_docs:
         raise HTTPException(status_code=400, detail="Some documents were rejected. Please re-upload them.")
     
-    user.status = "under_review"
+    # Must be "pending_approval" -- that's the status string the admin review
+    # queue (/admin/documents/pending) and approve endpoint actually filter on.
+    # "under_review" was a dead-end: applicants set to it never appeared in any
+    # admin queue and could never be approved.
+    user.status = "pending_approval"
     db.commit()
-    
+
     log_audit_event(db, "VENDOR_APPLICATION_SUBMITTED", user.name, {"email": user.email, "user_id": req.user_id})
     
     return {

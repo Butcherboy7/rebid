@@ -58,42 +58,50 @@ function AppContent() {
     return <RegistrationWizard onNavigate={navigate} />;
   }
 
-  if (path === '/auth/rejected') {
-    return (
-      <div style={{ 
-        minHeight: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        backgroundColor: '#F9FAFB',
-        padding: '20px'
-      }}>
-        <div style={{ textAlign: 'center', maxWidth: '440px', backgroundColor: '#FFFFFF', padding: '40px', borderRadius: '16px', border: '1px solid #CBD5E1', boxShadow: 'var(--shadow-lg)' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: '800', color: '#991B1B', marginBottom: '12px' }}>
-            Application Rejected
-          </h1>
-          <p style={{ color: '#64748B', marginBottom: '24px', fontSize: '14px', lineHeight: '1.5' }}>
-            Your application did not satisfy compliance verification criteria. Please contact administrative support for feedback or clarification.
-          </p>
-          <button 
-            className="btn btn-primary" 
-            onClick={() => { logout(); navigate('/auth/login'); }}
-            style={{ width: '100%' }}
-          >
-            Back to Sign In
-          </button>
-        </div>
+  const renderRejectedScreen = () => (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#F9FAFB',
+      padding: '20px'
+    }}>
+      <div style={{ textAlign: 'center', maxWidth: '440px', backgroundColor: '#FFFFFF', padding: '40px', borderRadius: '16px', border: '1px solid #CBD5E1', boxShadow: 'var(--shadow-lg)' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: '800', color: '#991B1B', marginBottom: '12px' }}>
+          Application Rejected
+        </h1>
+        <p style={{ color: '#64748B', marginBottom: '24px', fontSize: '14px', lineHeight: '1.5' }}>
+          Your application did not satisfy compliance verification criteria. Please contact administrative support for feedback or clarification.
+        </p>
+        <button
+          className="btn btn-primary"
+          onClick={() => { logout(); navigate('/auth/login'); }}
+          style={{ width: '100%' }}
+        >
+          Back to Sign In
+        </button>
       </div>
-    );
+    </div>
+  );
+
+  if (path === '/auth/rejected') {
+    return renderRejectedScreen();
   }
 
   // ---------------- BUYER PORTAL ROUTES ----------------
   if (path.startsWith('/buyer')) {
     if (user && user.role === 'BUYER') {
-      if (user.status === 'pending_approval' || user.status === 'under_review' || user.status === 'pending_documents') {
-        return <UnderReview />;
+      if (user.status === 'approved') {
+        return <BuyerDashboard />;
       }
-      return <BuyerDashboard />;
+      if (user.status === 'rejected') {
+        return renderRejectedScreen();
+      }
+      if (user.status === 'amendment_required') {
+        return <ReuploadDocuments />;
+      }
+      return <UnderReview />;
     }
     return <UnifiedLogin onNavigate={navigate} />;
   }
@@ -101,10 +109,16 @@ function AppContent() {
   // ---------------- VENDOR PORTAL ROUTES ----------------
   if (path.startsWith('/vendor')) {
     if (user && user.role === 'VENDOR') {
-      if (user.status === 'pending_approval' || user.status === 'under_review' || user.status === 'pending_documents') {
-        return <UnderReview />;
+      if (user.status === 'approved') {
+        return <VendorDashboard />;
       }
-      return <VendorDashboard />;
+      if (user.status === 'rejected') {
+        return renderRejectedScreen();
+      }
+      if (user.status === 'amendment_required') {
+        return <ReuploadDocuments />;
+      }
+      return <UnderReview />;
     }
     return <UnifiedLogin onNavigate={navigate} />;
   }

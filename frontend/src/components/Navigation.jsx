@@ -93,7 +93,7 @@ export function Navigation({ activePortal, activeItem, onSelectTab, vendorCount 
       <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-sidebar-open' : ''}`}>
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           {/* Header Brand & Collapse Toggle */}
-          <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: collapsed ? '18px 12px' : '20px 16px' }}>
+          <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', justifyContent: collapsed ? 'center' : 'space-between', flexDirection: collapsed ? 'column' : 'row', gap: collapsed ? '10px' : '0', padding: collapsed ? '18px 12px' : '20px 16px' }}>
             <div style={{ overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
               {collapsed ? (
                 <ReBidLogo size="sm" variant="icon-only" />

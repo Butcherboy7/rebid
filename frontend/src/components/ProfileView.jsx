@@ -50,9 +50,12 @@ export function ProfileView({ role = 'BUYER' }) {
     setLoading(true);
     try {
       const headers = { Authorization: `Bearer ${token}` };
+      const needsDocuments = role !== 'ADMIN';
       const [profileRes, docsRes] = await Promise.all([
         axios.get(`${API_BASE}/user/profile`, { headers }),
-        axios.get(`${API_BASE}/user/documents`, { headers }).catch(() => ({ data: { documents: [] } }))
+        needsDocuments
+          ? axios.get(`${API_BASE}/user/documents`, { headers }).catch(() => ({ data: { documents: [] } }))
+          : Promise.resolve({ data: { documents: [] } })
       ]);
       if (profileRes.data) {
         setProfile(profileRes.data);
@@ -80,6 +83,7 @@ export function ProfileView({ role = 'BUYER' }) {
   }
 
   const isVendor = profile.role === 'VENDOR' || role === 'VENDOR';
+  const isAdmin = profile.role === 'ADMIN' || role === 'ADMIN';
 
   return (
     <div className="profile-container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
@@ -406,60 +410,62 @@ export function ProfileView({ role = 'BUYER' }) {
           </div>
         )}
 
-        {/* Section 4: Uploaded Verification Documents */}
-        <div className="card" style={{ marginBottom: '24px' }}>
-          <div className="card-header-bar">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <FileText size={18} color="#059669" />
-              <h3>Uploaded Documents</h3>
+        {/* Section 4: Uploaded Verification Documents (Vendors/Buyers only — Admins are the verifiers, not verified) */}
+        {!isAdmin && (
+          <div className="card" style={{ marginBottom: '24px' }}>
+            <div className="card-header-bar">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FileText size={18} color="#059669" />
+                <h3>Uploaded Documents</h3>
+              </div>
             </div>
+
+            {documents.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '20px', color: '#64748B', fontSize: '14px' }}>
+                No documents submitted yet.
+              </div>
+            ) : (
+              <div style={{ display: 'grid', gap: '12px' }}>
+                {documents.map((doc, i) => (
+                  <div key={doc.id || i} style={{ padding: '14px 16px', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <FileText size={18} color="#475569" />
+                      </div>
+                      <div style={{ fontWeight: '700', fontSize: '14px', color: '#0F172A', textTransform: 'capitalize' }}>
+                        {doc.doc_type?.replace(/_/g, ' ')}
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      {doc.file_url && (
+                        <a
+                          href={doc.file_url.startsWith('http') ? doc.file_url : `http://localhost:8001${doc.file_url}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#2563EB', fontWeight: '600', textDecoration: 'none', background: '#EFF6FF', padding: '6px 12px', borderRadius: '6px' }}
+                        >
+                          <ExternalLink size={14} /> View File
+                        </a>
+                      )}
+
+                      <span style={{
+                        padding: '4px 10px',
+                        borderRadius: '6px',
+                        background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
+                        color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
+                        fontSize: '11px',
+                        fontWeight: '700'
+                      }}>
+                        {doc.status?.toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-
-          {documents.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '20px', color: '#64748B', fontSize: '14px' }}>
-              No documents submitted yet.
-            </div>
-          ) : (
-            <div style={{ display: 'grid', gap: '12px' }}>
-              {documents.map((doc, i) => (
-                <div key={doc.id || i} style={{ padding: '14px 16px', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <FileText size={18} color="#475569" />
-                    </div>
-                    <div style={{ fontWeight: '700', fontSize: '14px', color: '#0F172A', textTransform: 'capitalize' }}>
-                      {doc.doc_type?.replace(/_/g, ' ')}
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    {doc.file_url && (
-                      <a
-                        href={doc.file_url.startsWith('http') ? doc.file_url : `http://localhost:8001${doc.file_url}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#2563EB', fontWeight: '600', textDecoration: 'none', background: '#EFF6FF', padding: '6px 12px', borderRadius: '6px' }}
-                      >
-                        <ExternalLink size={14} /> View File
-                      </a>
-                    )}
-
-                    <span style={{
-                      padding: '4px 10px',
-                      borderRadius: '6px',
-                      background: doc.status === 'approved' ? '#DCFCE7' : doc.status === 'rejected' ? '#FEE2E2' : '#FEF3C7',
-                      color: doc.status === 'approved' ? '#166534' : doc.status === 'rejected' ? '#DC2626' : '#D97706',
-                      fontSize: '11px',
-                      fontWeight: '700'
-                    }}>
-                      {doc.status?.toUpperCase()}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

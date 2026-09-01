@@ -19,7 +19,7 @@ from backend.app.schemas import (
     LoginRequest, ResetPasswordRequest, TokenResponse, CreateAuctionRequest, SubmitBidRequest,
     AwardContractRequest, RecommendationResponse
 )
-from backend.app.auth import hash_password, verify_password, create_access_token, get_current_user, require_role
+from backend.app.auth import hash_password, verify_password, create_access_token, get_current_user, require_role, require_approved_role
 from backend.app.services import log_audit_event, analyze_bid_fraud, generate_purchase_order_pdf, format_inr, generate_stock_verification_document, STOCK_DOC_TYPES
 from ml.predict import ai_engine
 from backend.app.routes.auth import router as auth_router
@@ -1047,7 +1047,7 @@ def list_auctions(category: Optional[str] = None, status: Optional[str] = None, 
     return res
 
 @app.post("/api/auctions")
-def create_auction(req: CreateAuctionRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["BUYER", "ADMIN"]))):
+def create_auction(req: CreateAuctionRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_approved_role(["BUYER", "ADMIN"]))):
     auc_id = f"AUC-{db.query(Auction).count() + 1:04d}"
     
     auction = Auction(
@@ -1146,7 +1146,7 @@ def get_auction_live(auction_id: str, db: Session = Depends(get_db)):
     }
 
 @app.post("/api/bids")
-def submit_bid(req: SubmitBidRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["VENDOR", "ADMIN"]))):
+def submit_bid(req: SubmitBidRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_approved_role(["VENDOR", "ADMIN"]))):
     auction = db.query(Auction).filter(Auction.id == req.auction_id).first()
     if not auction:
         raise HTTPException(status_code=404, detail="Auction not found")
@@ -1240,7 +1240,7 @@ def get_ai_recommendation(auction_id: str, db: Session = Depends(get_db)):
     return report
 
 @app.post("/api/award")
-def award_contract(req: AwardContractRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_role(["BUYER", "ADMIN"]))):
+def award_contract(req: AwardContractRequest, db: Session = Depends(get_db), current_user: dict = Depends(require_approved_role(["BUYER", "ADMIN"]))):
     auc = db.query(Auction).filter(Auction.id == req.auction_id).first()
     if not auc:
         raise HTTPException(status_code=404, detail="Auction not found")

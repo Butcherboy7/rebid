@@ -250,17 +250,19 @@ export function AdminDashboard() {
             <h1>Admin Dashboard</h1>
             <p className="text-muted">Approve auctions, manage vendors, review alerts, and monitor platform activity</p>
           </div>
-          <button className="btn btn-secondary" onClick={() => {
-            fetchPendingAuctions();
-            fetchVendors(currentPage, searchQuery);
-            fetchAuditLogs();
-            fetchFraudAlerts();
-            fetchPendingVendors();
-            fetchPendingBuyers();
-            fetchUsers();
-          }}>
-            <RefreshCw size={15} /> Refresh Console
-          </button>
+          {activeTab !== 'PROFILE' && activeTab !== 'SETTINGS' && (
+            <button className="btn btn-secondary" onClick={() => {
+              fetchPendingAuctions();
+              fetchVendors(currentPage, searchQuery);
+              fetchAuditLogs();
+              fetchFraudAlerts();
+              fetchPendingVendors();
+              fetchPendingBuyers();
+              fetchUsers();
+            }}>
+              <RefreshCw size={15} /> Refresh Console
+            </button>
+          )}
         </div>
 
         {/* Profile View */}

@@ -527,7 +527,7 @@ export function BuyerDashboard() {
                           </td>
                           <td className="text-muted">{new Date(b.timestamp).toLocaleTimeString()}</td>
                           <td>
-                            {auctionDetail.status === 'live' && (
+                            {(auctionDetail.status === 'live' || auctionDetail.status === 'completed') && (
                               <button
                                 className="btn btn-secondary"
                                 style={{ fontSize: '12px', padding: '4px 10px', height: 'auto' }}
