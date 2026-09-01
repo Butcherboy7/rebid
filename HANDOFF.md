@@ -19,6 +19,7 @@ ReBid AI is an enterprise-grade autonomous reverse procurement platform built wi
 13. **SAP / GeM Style Purchase Order PDF Engine**: Generates official contract award letters with GST (18%), payment terms, authorized digital signature stamps, and SHA256 verification hashes.
 14. **Automated Collusion & Fraud Engine**: Rules 1, 2, and 3 (high-frequency bidding, <50% budget dump, and 60s collusive price match).
 15. **Email OTP Verification**: Real 6-digit OTP verification via Resend API with cooldown limits and dev-mode console fallback.
+16. **Master Documentation & Viva Defense Encyclopedia (`README.md`)**: Comprehensive, encyclopedic reference covering all 862 questions including domain theory, reverse auction dynamics, tech stack justifications (CSS/Tailwind, AES, H.264/H.265, FastAPI, React 19, Vite, SQLite), 7 core ML features and XGBoost formulations, 3 fraud/collusion rules, SHA-256 chained audit ledger, full forms dictionary, and verbatim answers for Q823-Q862.
 
 ---
 
