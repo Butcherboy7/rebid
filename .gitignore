@@ -1,5 +1,4 @@
-# Environment variables (NEVER COMMIT)
-.env
+# Environment variables
 .env.local
 .env.*.local
 

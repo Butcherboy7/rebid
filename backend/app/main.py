@@ -541,6 +541,13 @@ def startup_seed_db():
     finally:
         db.close()
 
+    # 4. Seed placeholder verification-document PDFs for demo accounts
+    try:
+        from backend.scripts.generate_demo_certs import main as generate_demo_certs
+        generate_demo_certs()
+    except Exception as e:
+        print(f"[Startup Error] Demo certificate seeding exception: {e}")
+
 
 # ----------------------------------------------------
 # AUTHENTICATION ENDPOINTS (Three Logins + Password Reset)

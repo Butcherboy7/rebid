@@ -2,7 +2,9 @@ import os
 import sys
 import uuid
 import secrets
+import smtplib
 import datetime
+from email.mime.text import MIMEText
 import requests
 from fastapi import APIRouter, HTTPException, Depends, Query, Body
 from sqlalchemy.orm import Session
@@ -27,6 +29,31 @@ from backend.app.services import log_audit_event
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
+
+SMTP_HOST = os.getenv("SMTP_HOST", "")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+SMTP_FROM = os.getenv("SMTP_FROM", SMTP_USER)
+
+
+def send_via_smtp(email: str, otp_code: str, html_template: str) -> bool:
+    try:
+        message = MIMEText(html_template, "html")
+        message["Subject"] = f"{otp_code} is your ReBid AI Verification Code"
+        message["From"] = f"ReBid AI <{SMTP_FROM}>"
+        message["To"] = email
+
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.sendmail(SMTP_FROM, [email], message.as_string())
+
+        print(f"[SMTP Email Success] OTP email sent to {email}")
+        return True
+    except Exception as e:
+        print(f"[SMTP Exception] {e}")
+        return False
 
 
 def send_otp_email(email: str, otp_code: str):
@@ -71,6 +98,14 @@ def send_otp_email(email: str, otp_code: str):
     </body>
     </html>
     """
+
+    if SMTP_HOST and SMTP_USER and SMTP_PASSWORD:
+        if send_via_smtp(email, otp_code, html_template):
+            return True
+        print(f"\n{'='*60}")
+        print(f"[DEV MODE FALLBACK] OTP for {email}: {otp_code}")
+        print(f"{'='*60}\n")
+        return True
 
     if RESEND_API_KEY:
         try:
